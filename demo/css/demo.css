@@ -1,0 +1,36 @@
+.prettyprint {
+	background: #fff;
+	font-family: Menlo, 'Bitstream Vera Sans Mono', 'DejaVu Sans Mono', Monaco, Consolas, monospace;
+	font-size: 1.2rem;
+	-webkit-font-smoothing: antialiased;
+	padding: 2rem 3rem;
+	margin: 1rem 12rem;
+	overflow: scroll;
+}
+
+.pt4 {
+	padding-top: 24px;
+}
+.pb4 {
+	padding-bottom: 24px;
+}
+.mb4 {
+	margin-bottom: 24px;
+}
+.mt4 {
+	margin-top: 24px;
+}
+
+.card-container {
+	margin: 1rem 12rem;
+}
+
+@media only screen and (max-width: 768px) {
+	.card-container {
+		margin: 1rem 0rem;
+	}
+	.prettyprint {
+		margin: 1rem 0rem;
+		overflow: scroll;
+	}
+}

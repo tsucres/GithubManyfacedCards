@@ -1,0 +1,182 @@
+<!-- This file is to be generated with gulp and placed in the root of the project with the name 'index.html' -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Github Manyfaced Cards</title>
+    <link rel="stylesheet" type="text/css" href="/demo/css/normalize.css">
+    <link rel="stylesheet" type="text/css" href="/demo/css/skeleton.css">
+    <link rel="stylesheet" type="text/css" href="/demo/css/demo.css">
+
+    <style type="text/css">
+      <!-- @include themes/css/basic_github.css -->
+      <!-- @include themes/css/github_pure.css -->
+      <!-- @include themes/css/github_full.css -->
+      <!-- @include themes/css/github_recommendation.css -->
+      <!-- @include themes/css/loading.css -->
+    </style>
+</head>
+<body>
+
+<div class="container">
+  <div class="row pt4 mb4">
+    <div class="twelve columns">
+      <h1>Github Many-faced Cards</h1>
+      <div class="main-card">
+        <iframe width="100%" data-gmc-repo="tsucres/GithubManyfacedCards" data-gmc-theme="gh_pure" frameborder="0"></iframe>
+      </div>
+      <p>Build entirely customisable github cards to embed on your webpages. See how to modify (or build from scratch) a template</p>
+    </div>
+  </div>
+  <form class="row pt4 mb4">
+    <label for="repoNameInput">Repo name</label>
+    <div class="twelve columns">
+     
+      <input class="six columns" type="text" placeholder="tsucres/SwiftyComments" id="repoNameInput">
+     <input class="button button-primary" onclick="updateCards()" value="Update">
+    </div>
+  </form>
+
+  <div class="row pt4 mb4">
+    <h3>IFrame only</h3>
+    <pre><code class="prettyprint">&lt;iframe src=&quot;themesUrl/themes/&lt;themeName&gt;.gmc.min.html&quot; width=&quot;100%&quot; frameborder=&quot;0&quot;&gt;&lt;/iframe&gt;</code></pre>
+    <div class="card-container">
+      <iframe  width="100%" class="demo-card-embed" frameborder="0"></iframe>
+    </div>
+    
+
+    <h3>IFrame + js</h3>
+    <pre><code class="prettyprint">&lt;iframe data-gmc-repo=&quot;&lt;username/repoName&gt;&quot; frameborder=&quot;0&quot; data-gmc-theme=&quot;gh_pure&quot;&gt;&lt;/iframe&gt;
+      &lt;script type=&quot;text/javascript&quot; src=&quot;gmc.min.js&quot;&gt;&lt;/script&gt;</code></pre>
+
+    <div class="card-container">
+      <iframe  width="100%" class="demo-card" data-gmc-repo="tsucres/SwiftyComments" frameborder="0"></iframe>
+    </div>
+
+  </div>
+  <div class="row pt4 mb4">
+    <h3>Include the markup (more efficient)</h3>
+    <pre><code class="prettyprint">&lt;head&gt;
+    ...
+    &lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;&lt;your_themes_style.css&gt;&quot;&gt;
+    ...
+    &lt;/head&gt;
+    ...
+    &lt;div data-gmc-repo=&quot;&lt;username/repoName&gt;&quot;&gt;
+      &lt;!-- Markup of the theme --&gt;
+    &lt;/div&gt;
+    &lt;script type=&quot;text/javascript&quot;&gt;/* Eventual js code needed by the theme */&lt;/script&gt;
+    ...</code></pre>
+    <div class="card-container">
+      <div class="demo-card" data-gmc-repo="tsucres/SwiftyComments">
+        <!-- @include themes/templates/github_pure.html -->
+      </div>
+    </div>
+    
+
+  </div>
+
+
+
+  <div class="row pt4 mb4">
+    <h3>Default themes</h3>
+    <p>The following are the themes hosted on the repo and which you can use directly by putting their name in the data-gmc-theme attribute.</p>
+
+
+
+    <h5 class="mt4">gh_basic</h5>
+    <a href="">Template source code</a>
+    <pre><code class="prettyprint">&lt;iframe data-gmc-repo=&quot;&lt;username/repoName&gt;&quot; frameborder=&quot;0&quot; data-gmc-theme=&quot;gh_basic&quot;&gt;&lt;/iframe&gt;
+      &lt;script type=&quot;text/javascript&quot; src=&quot;gmc.min.js&quot;&gt;&lt;/script&gt;</code></pre>
+
+    <div class="card-container">
+      <div class="demo-card" data-gmc-repo="tsucres/SwiftyComments">
+        <!-- @include themes/templates/github_basic.html -->
+      </div>
+    </div>
+
+
+    <h5 class="mt4">gh_pure</h5>
+    <a href="">Template source code</a>
+    <pre><code class="prettyprint">&lt;iframe data-gmc-repo=&quot;&lt;username/repoName&gt;&quot; frameborder=&quot;0&quot; data-gmc-theme=&quot;gh_pure&quot;&gt;&lt;/iframe&gt;
+      &lt;script type=&quot;text/javascript&quot; src=&quot;gmc.min.js&quot;&gt;&lt;/script&gt;</code></pre>
+
+    <div class="card-container">
+      <div class="demo-card" data-gmc-repo="tsucres/SwiftyComments">
+        <!-- @include themes/templates/github_pure.html -->
+      </div>
+    </div>
+    
+
+    <h5 class="mt4">gh_full</h5>
+    <a href="">Template source code</a>
+    <pre><code class="prettyprint">&lt;iframe data-gmc-repo=&quot;&lt;username/repoName&gt;&quot; frameborder=&quot;0&quot; data-gmc-theme=&quot;gh_full&quot;&gt;&lt;/iframe&gt;
+      &lt;script type=&quot;text/javascript&quot; src=&quot;gmc.min.js&quot;&gt;&lt;/script&gt;</code></pre>
+
+    <div class="card-container">
+      <div class="demo-card" data-gmc-repo="tsucres/SwiftyComments">
+        <!-- @include themes/templates/github_full.html -->
+      </div>
+    </div>
+    
+    <h5 class="mt4">gh_recommendation</h5>
+    <a href="">Template source code</a>
+    <pre><code class="prettyprint">&lt;iframe data-gmc-repo=&quot;&lt;username/repoName&gt;&quot; frameborder=&quot;0&quot; data-gmc-theme=&quot;gh_recomendation&quot;&gt;&lt;/iframe&gt;
+      &lt;script type=&quot;text/javascript&quot; src=&quot;gmc.min.js&quot;&gt;&lt;/script&gt;</code></pre>
+
+    <div class="card-container">
+      <div class="demo-card" data-gmc-repo="tsucres/SwiftyComments">
+        <!-- @include themes/templates/github_recommendation.html -->
+      </div>
+    </div>
+    
+  </div>
+
+
+  
+  
+
+</div>
+
+  <script type="text/javascript">
+    // The following are the js function needed by the templates
+    <!-- @include themes/js/getStargazersURL.js -->
+    <!-- @include themes/js/formatDate.js -->
+    <!-- @include themes/js/languageColors.js -->
+    <!-- @include themes/js/getSparks.js -->
+    <!-- @include themes/js/getNetworkURL.js -->
+    <!-- @include themes/js/getRepoURL.js -->
+    <!-- @include themes/js/fillWithTopics.js -->
+    <!-- @include themes/js/plural.js -->
+    <!-- @include themes/js/getIssuesURL.js -->
+    <!-- @include themes/js/humanReadable.js -->
+  </script>
+  <script type="text/javascript" src="/dist/gmc.min.js"></script>
+
+  <script type="text/javascript">
+    function updateCards() {
+      var repoNameInput = document.getElementById("repoNameInput");
+      var repoName = repoNameInput.value || repoNameInput.placeholder;
+
+      fetchJson("https://api.github.com/repos/" + repoName, function(json) {
+        var iframes = document.querySelectorAll('.demo-card[data-gmc-repo]');
+        iframes.forEach(function(iframe) {
+          (new GMC(iframe, json));
+        });
+      }, function(){
+        alert("Failed to fetch data from the github API.");
+      });
+
+      var embeded_iframes = document.getElementsByClassName('demo-card-embed');
+      for (var i = 0; i < embeded_iframes.length; i++) {
+        embeded_iframes[i].src = "http://localhost:8000/dist/themes/gh_full.gmc.min.html?rn=" + repoName;
+      }
+    }
+
+    window.onload = function() {
+      updateCards()
+    }
+
+  </script>
+
+</body>
+</html>
