@@ -36,6 +36,9 @@
 .card-container {
 	margin: 1rem 12rem;
 }
+.main-card {
+	text-align: center;
+}
 
 @media only screen and (max-width: 768px) {
 	.card-container {

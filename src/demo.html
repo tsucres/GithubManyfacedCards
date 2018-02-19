@@ -3,9 +3,9 @@
 <html>
 <head>
     <title>Github Manyfaced Cards</title>
-    <link rel="stylesheet" type="text/css" href="/demo/css/normalize.css">
-    <link rel="stylesheet" type="text/css" href="/demo/css/skeleton.css">
-    <link rel="stylesheet" type="text/css" href="/demo/css/demo.css">
+    <link rel="stylesheet" type="text/css" href="demo/css/normalize.css">
+    <link rel="stylesheet" type="text/css" href="demo/css/skeleton.css">
+    <link rel="stylesheet" type="text/css" href="demo/css/demo.css">
 
     <style type="text/css">
       <!-- @include themes/css/basic_github.css -->
@@ -22,7 +22,7 @@
     <div class="twelve columns">
       <h1>Github Many-faced Cards</h1>
       <div class="main-card">
-        <iframe width="100%" data-gmc-repo="tsucres/GithubManyfacedCards" data-gmc-theme="gh_pure" frameborder="0"></iframe>
+        <iframe width="400px" data-gmc-repo="tsucres/GithubManyfacedCards" data-gmc-theme="gh_pure" frameborder="0"></iframe>
       </div>
       <p>Build entirely customisable github cards to embed on your webpages.</p>
     </div>
@@ -40,7 +40,7 @@
     <h3>Quick start</h3>
     The three ways to get started (refer to the guide <a href="https://github.com/tsucres/GithubManyfacedCards/README.md">here</a>).
     <h5>IFrame only</h5>
-    <pre><code class="prettyprint">&lt;iframe src=&quot;themesUrl/themes/&lt;themeName&gt;.gmc.min.html&quot; width=&quot;100%&quot; frameborder=&quot;0&quot;&gt;&lt;/iframe&gt;</code></pre>
+    <pre><code class="prettyprint">&lt;iframe src=&quot;https://cdn.rawgit.com/tsucres/GithubManyfacedCards/tree/master/dist/themes/&lt;themeName&gt;.gmc.min.html&quot; width=&quot;100%&quot; frameborder=&quot;0&quot;&gt;&lt;/iframe&gt;</code></pre>
     <div class="card-container">
       <iframe width="100%" class="demo-card-embed" frameborder="0"></iframe>
     </div>
@@ -49,7 +49,7 @@
   <div class="row pt3 mb3">
     <h5>IFrame + js</h5>
     <pre><code class="prettyprint">&lt;div data-gmc-repo=&quot;&lt;full_repo_name&gt;&quot;  data-gmc-theme=&quot;&lt;theme_name&gt;&quot; frameborder=&quot;0&quot;&gt;&lt;/div&gt;
-&lt;script src=&quot;http://cdn.rawgit.com/user/repo/tag/gmc.min.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;https://cdn.rawgit.com/tsucres/GithubManyfacedCards/4f1b1f47/dist/gmc.min.js&quot;&gt;&lt;/script&gt;
 
 &lt;script&gt;
 // Call GMC.loadAllCards() when the document has loaded 
@@ -160,7 +160,7 @@ window.onload = GMC.loadAllCards
     <!-- @include themes/js/getIssuesURL.js -->
     <!-- @include themes/js/humanReadable.js -->
   </script>
-  <script type="text/javascript" src="/dist/gmc.min.js"></script>
+  <script type="text/javascript" src="dist/gmc.min.js"></script>
 
   <script type="text/javascript">
     function updateCards() {
@@ -178,12 +178,14 @@ window.onload = GMC.loadAllCards
 
       var embeded_iframes = document.getElementsByClassName('demo-card-embed');
       for (var i = 0; i < embeded_iframes.length; i++) {
-        embeded_iframes[i].src = "http://localhost:8000/dist/themes/gh_full.gmc.min.html?rn=" + repoName;
+        embeded_iframes[i].src = "https://cdn.rawgit.com/tsucres/GithubManyfacedCards/master/dist/themes/gh_full.gmc.min.html?rn=" + repoName;
       }
     }
 
     window.onload = function() {
       updateCards()
+      var mainCard = document.querySelector(".main-card iframe");
+      (new GMC(mainCard));
     }
 
   </script>

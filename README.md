@@ -1,7 +1,6 @@
 
 <div style="text-align:center">
 	<img src="screenshots/GMC.png"/>
-
 	<img width="45%" src="screenshots/gh_pure.png"/>
 	<img width="45%" src="screenshots/gh_full.png"/>
 	<img width="70%" src="screenshots/gh_recommendation.png"/>
@@ -211,7 +210,7 @@ All the resulting files (except the demo file) are in the [`dist`](dist) directo
 
 # Examples
 
-See the [demo](...) for several card designs.
+See the [demo](http://tsucres.me/GithubManyfacedCards/) for several card designs.
 
 
 **Make a PR** to add your designs in the demo or a link here in the [README](README.md)
