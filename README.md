@@ -15,14 +15,12 @@
 
 ## Usage
 
-There are several ways you can implement many-faced cards, according the level of customization you need.
+There are several ways you can implement many-faced cards, according to the level of customization you need.
 
 ### Easiest
 
-<!-- TODO: fill cdn url -->
-
 ```html
-<iframe src="template/url/themes/<theme_name>.gmc.min.html?rn=<full_repo_name>" frameborder="0"></iframe>
+<iframe src="https://cdn.rawgit.com/tsucres/GithubManyfacedCards/master/dist/themes/<theme_name>.gmc.min.html?rn=<full_repo_name>" frameborder="0"></iframe>
 ```
 
 
@@ -31,7 +29,8 @@ Where
 - `<full_repo_name>` must have the following format: `userName/repoName`.
 
 <!-- jsFiddle -->
-<!-- [**jsFiddle** >> ](...) -->
+[**jsFiddle** >> ](https://jsfiddle.net/tsucres/Ltbejcto/)
+
 
 ### Separated js
 
@@ -39,7 +38,7 @@ Choose an existing theme and paste the following markup in your webpage source:
 
 ```html
 <div data-gmc-repo="<full_repo_name>"  data-gmc-theme="<theme_name>" frameborder="0"></div>
-<script src="http://cdn.rawgit.com/user/repo/tag/gmc.min.js"></script>
+<script src="https://cdn.rawgit.com/tsucres/GithubManyfacedCards/master/dist/gmc.min.js"></script>
 
 <script>
 // Call GMC.loadAllCards() when the document has loaded 
@@ -53,6 +52,7 @@ Again, the `<theme_name>` must be replaced with the name of one of the supported
 
 
 <!-- JSFiddle link -->
+[**jsFiddle** >> ](https://jsfiddle.net/tsucres/wt4pq0qu/)
 
 
 ### Most efficient way
@@ -86,7 +86,7 @@ For the existing themes, you will find all the functions in the [`src/themes/js`
 Add a link to `gmc.min.js` and call `GMC.loadAllCards()` when you want to load the cards (probably when the document is loaded): 
 
 ```html
-<script src="http://cdn.rawgit.com/tsucres/GithubManyfacedCards/0.1.0/gmc.min.js"></script>
+<script src="https://cdn.rawgit.com/tsucres/GithubManyfacedCards/master/dist/gmc.min.js"></script>
 
 <script>
 // Call GMC.loadAllCards() when the document has loaded 
@@ -94,6 +94,10 @@ window.onload = GMC.loadAllCards
 </script>
 
 ```
+
+
+<!-- JSFiddle link -->
+[**jsFiddle** >> ](https://jsfiddle.net/tsucres/t2vqLrmp/)
 
 
 
