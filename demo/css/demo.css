@@ -20,6 +20,18 @@
 .mt4 {
 	margin-top: 24px;
 }
+.pt3 {
+	padding-top: 16px;
+}
+.pb3 {
+	padding-bottom: 16px;
+}
+.mb3 {
+	margin-bottom: 16px;
+}
+.mt3 {
+	margin-top: 16px;
+}
 
 .card-container {
 	margin: 1rem 12rem;

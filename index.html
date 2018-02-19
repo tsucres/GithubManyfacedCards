@@ -322,7 +322,7 @@
       <div class="main-card">
         <iframe width="100%" data-gmc-repo="tsucres/GithubManyfacedCards" data-gmc-theme="gh_pure" frameborder="0"></iframe>
       </div>
-      <p>Build entirely customisable github cards to embed on your webpages. See how to modify (or build from scratch) a template</p>
+      <p>Build entirely customisable github cards to embed on your webpages.</p>
     </div>
   </div>
   <form class="row pt4 mb4">
@@ -334,36 +334,46 @@
     </div>
   </form>
 
-  <div class="row pt4 mb4">
-    <h3>IFrame only</h3>
+  <div class="row pt3 mb3">
+    <h3>Quick start</h3>
+    The three ways to get started (refer to the guide <a href="https://github.com/tsucres/GithubManyfacedCards/README.md">here</a>).
+    <h5>IFrame only</h5>
     <pre><code class="prettyprint">&lt;iframe src=&quot;themesUrl/themes/&lt;themeName&gt;.gmc.min.html&quot; width=&quot;100%&quot; frameborder=&quot;0&quot;&gt;&lt;/iframe&gt;</code></pre>
     <div class="card-container">
-      <iframe  width="100%" class="demo-card-embed" frameborder="0"></iframe>
+      <iframe width="100%" class="demo-card-embed" frameborder="0"></iframe>
     </div>
     
+  </div>
+  <div class="row pt3 mb3">
+    <h5>IFrame + js</h5>
+    <pre><code class="prettyprint">&lt;div data-gmc-repo=&quot;&lt;full_repo_name&gt;&quot;  data-gmc-theme=&quot;&lt;theme_name&gt;&quot; frameborder=&quot;0&quot;&gt;&lt;/div&gt;
+&lt;script src=&quot;http://cdn.rawgit.com/user/repo/tag/gmc.min.js&quot;&gt;&lt;/script&gt;
 
-    <h3>IFrame + js</h3>
-    <pre><code class="prettyprint">&lt;iframe data-gmc-repo=&quot;&lt;username/repoName&gt;&quot; frameborder=&quot;0&quot; data-gmc-theme=&quot;gh_pure&quot;&gt;&lt;/iframe&gt;
-      &lt;script type=&quot;text/javascript&quot; src=&quot;gmc.min.js&quot;&gt;&lt;/script&gt;</code></pre>
+&lt;script&gt;
+// Call GMC.loadAllCards() when the document has loaded 
+window.onload = GMC.loadAllCards
+&lt;/script&gt;</code></pre>
 
     <div class="card-container">
       <iframe  width="100%" class="demo-card" data-gmc-repo="tsucres/SwiftyComments" frameborder="0"></iframe>
     </div>
 
   </div>
-  <div class="row pt4 mb4">
-    <h3>Include the markup (more efficient)</h3>
+  <div class="row pt3 mb3">
+    <h5>Include the markup (more efficient)</h5>
     <pre><code class="prettyprint">&lt;head&gt;
     ...
-    &lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;&lt;your_themes_style.css&gt;&quot;&gt;
+    &lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;&lt;your_theme_style.css&gt;&quot;&gt;
     ...
-    &lt;/head&gt;
+&lt;/head&gt;
+&lt;body&gt;
     ...
-    &lt;div data-gmc-repo=&quot;&lt;username/repoName&gt;&quot;&gt;
+    &lt;iframe data-gmc-repo=&quot;&lt;username/repoName&gt;&quot; data-gmc-theme=&quot;&lt;themeName&gt;&quot;&gt;
       &lt;!-- Markup of the theme --&gt;
-    &lt;/div&gt;
-    &lt;script type=&quot;text/javascript&quot;&gt;/* Eventual js code needed by the theme */&lt;/script&gt;
-    ...</code></pre>
+    &lt;/iframe&gt;
+    &lt;script type=&quot;text/javascript&quot;&gt;/* Possible js code needed by the theme */&lt;/script&gt;
+    ...
+&lt;/body&gt;</code></pre>
     <div class="card-container">
       <div class="demo-card" data-gmc-repo="tsucres/SwiftyComments">
         <!--
@@ -434,7 +444,7 @@
 
   <div class="row pt4 mb4">
     <h3>Default themes</h3>
-    <p>The following are the themes hosted on the repo and which you can use directly by putting their name in the data-gmc-theme attribute.</p>
+    <p>The following are the themes hosted on the repo and which you can use directly by putting their names in the data-gmc-theme attribute.</p>
 
 
 
