@@ -39,6 +39,10 @@
 .main-card {
 	text-align: center;
 }
+.main-card .gh {
+	text-align: left;
+	display: inline-block;
+}
 
 @media only screen and (max-width: 768px) {
 	.card-container {

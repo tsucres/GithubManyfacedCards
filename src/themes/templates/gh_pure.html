@@ -1,0 +1,52 @@
+<!--
+  Same as github_basic but with error and loading states.
+
+  It needs the following styles: 
+    - basic_github.css
+    - github_pure.css
+    - loading.css
+
+  And the following js:
+    - languageColors.js
+    - getStargazersURL.js
+    - formatDate.js 
+    - getRepoURL.js 
+    - humanReadable.js
+-->
+
+<div class="gh p-rel">
+  <div class="only-if-loading full-absolute p-3">
+    <div class="title-placeholder mb-2">
+      <span class="content-placeholder" style="width:70px;width:17em;">&nbsp;</span>
+    </div>
+    <div class="desc-placeholder mb-1">
+      <span class="content-placeholder" style="width:95%;">&nbsp;</span>
+    </div>
+    <div class="desc-placeholder mb-1">
+      <span class="content-placeholder" style="width:40%;">&nbsp;</span>
+    </div>
+    <div class="controls-placeholder mt-2">
+      <span class="content-placeholder" style="width:30%;">&nbsp;</span>
+    </div>
+    
+  </div>
+  <div class="only-if-error">
+    <!-- @include snippets/github_error_state.html -->
+  </div>
+  <div class="border rounded-1 p-3 only-if-loaded">
+    <span class="f4 lh-condensed text-bold text-gray-dark"><a target="_blank" href="https://github.com/" class="link-gray-dark text-bold wb-break-all" data-gmc-id="in__full_name, href__full_name__js" data-gmc-js="getRepoURL"></a></span>
+    <p data-gmc-id="in__description"></p>
+    <p class="f6 text-gray mt-2 mb-0">
+        <span class="d-inline-block text-gray mr-3">
+          <span class="repo-language-color ml-0" data-gmc-id="style__language__js" data-gmc-js="getStyleForLanguage"></span>
+          <span class="mr-3" data-gmc-id="in__language"></span>
+        </span>
+        <span class="d-inline-block mr-3">
+            <a target="_blank" href="" class="muted-link" data-gmc-id="href__full_name__js" data-gmc-js="getStargazersURL">
+              <svg aria-hidden="true" class="octicon octicon-star mr-1" height="16" version="1.1" viewBox="0 0 14 16" width="14"><path fill-rule="evenodd" d="M14 6l-4.9-.64L7 1 4.9 5.36 0 6l3.6 3.26L2.67 14 7 11.67 11.33 14l-.93-4.74z"></path></svg><span data-gmc-id="in__stargazers_count__js" data-gmc-js="humanReadable"></span>
+            </a>
+        </span>
+        Updated <span data-gmc-id="in__updated_at__js" data-gmc-js="formatDate"></span>
+    </p>
+  </div>
+</div>

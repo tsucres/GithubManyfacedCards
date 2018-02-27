@@ -1,0 +1,109 @@
+/* @include snippets/basic_github.css */
+/* @include snippets/loading.css */
+
+.gh .d-flex {
+	display: -webkit-box !important;
+	display: flex !important
+}
+
+.gh .avatar {
+	display: inline-block;
+	overflow: hidden;
+	line-height: 1;
+	vertical-align: middle;
+	border-radius: 3px
+}
+
+.gh .text-normal {
+	font-weight: 400 !important 
+}
+
+.gh .topics-row-container {
+	height: 30px;
+	overflow: hidden
+}
+
+.gh .flex-items-center {
+	-webkit-box-align: center !important;
+	align-items: center !important
+}
+
+.gh .flex-wrap {
+	flex-wrap: wrap !important
+}
+
+.gh .topic-tag-link:hover {
+	text-decoration: none;
+	background-color: #def
+}
+
+.gh .topic-tag {
+	display: inline-block;
+	padding: 0.3em 0.9em;
+	margin: 0 0.5em 0.5em 0;
+	white-space: nowrap;
+	background-color: #f1f8ff;
+	border-radius: 3px
+}
+
+.gh .btn {
+	color: #24292e;
+	background-color: #eff3f6;
+	background-image: linear-gradient(-180deg, #fafbfc 0%, #eff3f6 90%);
+
+	position: relative;
+	display: inline-block;
+	padding: 6px 12px;
+	font-size: 14px;
+	font-weight: 600;
+	line-height: 20px;
+	white-space: nowrap;
+	vertical-align: middle;
+	cursor: pointer;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	background-repeat: repeat-x;
+	background-position: -1px -1px;
+	background-size: 110% 110%;
+	border: 1px solid rgba(27, 31, 35, 0.2);
+	border-radius: 0.25em;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none
+}
+
+.gh .btn-sm {
+	padding: 3px 10px;
+	font-size: 12px;
+	line-height: 20px
+}
+
+.gh .btn:hover {
+	background-color: #e6ebf1;
+	background-image: linear-gradient(-180deg, #f0f3f6 0%, #e6ebf1 90%);
+	background-position: -.5em;
+	border-color: rgba(27, 31, 35, 0.35);
+	text-decoration: none;
+	background-repeat: repeat-x
+}
+
+.gh .btn:active {
+	background-color: #e9ecef;
+	background-image: none;
+	border-color: rgba(27, 31, 35, 0.35);
+	box-shadow: inset 0 0.15em 0.3em rgba(27, 31, 35, 0.15)
+}
+
+
+
+.title-placeholder {
+	height: 18px;
+}
+.desc-placeholder {
+	height: 13px;
+}
+.controls-placeholder {
+	height: 17px;
+}

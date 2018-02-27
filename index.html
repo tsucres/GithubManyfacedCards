@@ -115,6 +115,13 @@
       	height: 17px;
       }
       
+      /* @include snippets/basic_github.css */
+      /* @include snippets/loading.css */
+      /* @include snippets/basic_github.css */
+      /* @include snippets/loading.css */
+      /* @include snippets/basic_github.css */
+      /* @include snippets/loading.css */
+      
       .gh .d-flex {
       	display: -webkit-box !important;
       	display: flex !important
@@ -320,7 +327,7 @@
     <div class="twelve columns">
       <h1>Github Many-faced Cards</h1>
       <div class="main-card">
-        <iframe width="400px" data-gmc-repo="tsucres/GithubManyfacedCards" data-gmc-theme="gh_pure" frameborder="0"></iframe>
+        <script async src="https://cdn.rawgit.com/tsucres/GithubManyfacedCards/master/dist/gmc-loader.min.js" data-gmc-repo="tsucres/GithubManyfacedCards" data-gmc-theme="gh_pure"></script>
       </div>
       <p>Build entirely customisable github cards to embed on your webpages.</p>
     </div>
@@ -345,17 +352,77 @@
     
   </div>
   <div class="row pt3 mb3">
-    <h5>IFrame + js</h5>
-    <pre><code class="prettyprint">&lt;div data-gmc-repo=&quot;&lt;full_repo_name&gt;&quot;  data-gmc-theme=&quot;&lt;theme_name&gt;&quot; frameborder=&quot;0&quot;&gt;&lt;/div&gt;
-&lt;script src=&quot;https://cdn.rawgit.com/tsucres/GithubManyfacedCards/4f1b1f47/dist/gmc.min.js&quot;&gt;&lt;/script&gt;
+    <h5>Loaded with javascript</h5>
+    <pre><code class="prettyprint">// in the head or in the beginning of the body
+&lt;script src=&quot;https://cdn.rawgit.com/tsucres/GithubManyfacedCards/master/dist/gmc.min.js&quot;&gt;
 
-&lt;script&gt;
-// Call GMC.loadAllCards() when the document has loaded 
-window.onload = GMC.loadAllCards
-&lt;/script&gt;</code></pre>
+// ...
+
+// where you want the card
+&lt;script async src=&quot;https://cdn.rawgit.com/tsucres/GithubManyfacedCards/master/dist/gmc-loader.min.js&quot; data-gmc-repo=&quot;&lt;full_repo_name&gt;&quot; data-gmc-theme=&quot;&lt;theme_name&gt;&quot;&gt;&lt;/script&gt;</code></pre>
 
     <div class="card-container">
-      <iframe  width="100%" class="demo-card" data-gmc-repo="tsucres/SwiftyComments" frameborder="0"></iframe>
+      <div class="demo-card" data-gmc-repo="tsucres/SwiftyComments">
+        <!--
+          Same as github_basic but with error and loading states.
+        
+          It needs the following styles: 
+            - basic_github.css
+            - github_pure.css
+            - loading.css
+        
+          And the following js:
+            - languageColors.js
+            - getStargazersURL.js
+            - formatDate.js 
+            - getRepoURL.js 
+            - humanReadable.js
+        -->
+        
+        <div class="gh p-rel">
+          <div class="only-if-loading full-absolute p-3">
+            <div class="title-placeholder mb-2">
+              <span class="content-placeholder" style="width:70px;width:17em;">&nbsp;</span>
+            </div>
+            <div class="desc-placeholder mb-1">
+              <span class="content-placeholder" style="width:95%;">&nbsp;</span>
+            </div>
+            <div class="desc-placeholder mb-1">
+              <span class="content-placeholder" style="width:40%;">&nbsp;</span>
+            </div>
+            <div class="controls-placeholder mt-2">
+              <span class="content-placeholder" style="width:30%;">&nbsp;</span>
+            </div>
+            
+          </div>
+          <div class="only-if-error">
+            <div class="full-absolute error-view">
+              <div class="p-rel">
+                <svg aria-hidden="true" class="octicon" height="40" version="1.1" viewBox="0 0 14 16" width="35"><path fill-rule="evenodd" d="M7 2.3c3.14 0 5.7 2.56 5.7 5.7s-2.56 5.7-5.7 5.7A5.71 5.71 0 0 1 1.3 8c0-3.14 2.56-5.7 5.7-5.7zM7 1C3.14 1 0 4.14 0 8s3.14 7 7 7 7-3.14 7-7-3.14-7-7-7zm1 3H6v5h2V4zm0 6H6v2h2v-2z"></path></svg>
+                <h3>Couldn't fetch information for this repo.</h3>
+              </div>
+              
+            </div>
+          </div>
+          <div class="border rounded-1 p-3 only-if-loaded">
+            <span class="f4 lh-condensed text-bold text-gray-dark"><a target="_blank" href="https://github.com/" class="link-gray-dark text-bold wb-break-all" data-gmc-id="in__full_name, href__full_name__js" data-gmc-js="getRepoURL"></a></span>
+            <p data-gmc-id="in__description"></p>
+            <p class="f6 text-gray mt-2 mb-0">
+                <span class="d-inline-block text-gray mr-3">
+                  <span class="repo-language-color ml-0" data-gmc-id="style__language__js" data-gmc-js="getStyleForLanguage"></span>
+                  <span class="mr-3" data-gmc-id="in__language"></span>
+                </span>
+                <span class="d-inline-block mr-3">
+                    <a target="_blank" href="" class="muted-link" data-gmc-id="href__full_name__js" data-gmc-js="getStargazersURL">
+                      <svg aria-hidden="true" class="octicon octicon-star mr-1" height="16" version="1.1" viewBox="0 0 14 16" width="14"><path fill-rule="evenodd" d="M14 6l-4.9-.64L7 1 4.9 5.36 0 6l3.6 3.26L2.67 14 7 11.67 11.33 14l-.93-4.74z"></path></svg><span data-gmc-id="in__stargazers_count__js" data-gmc-js="humanReadable"></span>
+                    </a>
+                </span>
+                Updated <span data-gmc-id="in__updated_at__js" data-gmc-js="formatDate"></span>
+            </p>
+          </div>
+        </div>
+      </div>
+      <!--<script async src="https://cdn.rawgit.com/tsucres/GithubManyfacedCards/master/dist/gmc-loader.min.js" data-gmc-repo="tsucres/SwiftyComments" data-gmc-theme="gh_pure"></script>-->
     </div>
 
   </div>
@@ -753,7 +820,7 @@ window.onload = GMC.loadAllCards
   <script type="text/javascript">
     // The following are the js function needed by the templates
     function getStargazersURL(repoFullName) {
-      return 'https://github.com/' + repoFullName + '/stargazers/';
+      return "https://github.com/" + repoFullName + "/stargazers/";
     }
     /**
       Returns the specified iso formatted date into another format: "MMM dd yyyy"
@@ -775,7 +842,7 @@ window.onload = GMC.loadAllCards
         yearStr = ", " + String(year);
       }
     
-      return  monthNames[monthIndex] + ' ' + day + ' ' + yearStr;
+      return  monthNames[monthIndex] + " " + day + " " + yearStr;
     }
     function getStyleForLanguage(lang) {
       return "background-color: " + githubColorForLanguage(lang) + ";";
@@ -798,7 +865,7 @@ window.onload = GMC.loadAllCards
     function getSparks(fullNameRepo, element) {
       var request = new XMLHttpRequest();
       var url = "https://github.com/" + fullNameRepo + "/graphs/participation?h=28&type=sparkline&w=155";
-      request.open('GET', url);  // `false` makes the request synchronous
+      request.open("GET", url); 
       
       request.onreadystatechange = function() {
         if (request.readyState === 4) { 
@@ -893,10 +960,10 @@ window.onload = GMC.loadAllCards
     	return "https://github.com/" + repoFullName + "/issues?q=is%3Aissue+is%3Aopen"
     }
     function humanReadable(num) {
-       if(num == 0) return '0';
+       if(num == 0) return "0";
        var k = 1000,
            dm = 1,
-           sizes = ['', ' k', ' M', ' B', ' T'],
+           sizes = ["", " k", " M", " B", " T"],
            i = Math.floor(Math.log(num) / Math.log(k));
        return parseFloat((num / Math.pow(k, i)).toFixed(dm)) + sizes[i];
     }
@@ -925,8 +992,6 @@ window.onload = GMC.loadAllCards
 
     window.onload = function() {
       updateCards()
-      var mainCard = document.querySelector(".main-card iframe");
-      (new GMC(mainCard));
     }
 
   </script>

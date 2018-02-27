@@ -38,19 +38,30 @@ Where
 Choose an existing theme and paste the following markup in your webpage source: 
 
 ```html
-<div data-gmc-repo="<full_repo_name>"  data-gmc-theme="<theme_name>" frameborder="0"></div>
-<script src="https://cdn.rawgit.com/tsucres/GithubManyfacedCards/master/dist/gmc.min.js"></script>
+// in the head or in the beginning of the body
+<script src="https://cdn.rawgit.com/tsucres/GithubManyfacedCards/master/dist/gmc.min.js">
 
-<script>
-// Call GMC.loadAllCards() when the document has loaded 
-window.onload = GMC.loadAllCards
-</script>
+// ...
+
+// where you want the card
+<script async src="https://cdn.rawgit.com/tsucres/GithubManyfacedCards/master/dist/gmc-loader.min.js" data-gmc-repo="<full_repo_name>" data-gmc-theme="<theme_name>"></script>
+
 ```
 
-This way must be preferred if you plan on having several cards on a single webpage, or if you need to load the cards programmatically, or even if you need a custom version of the gmc.js script.
+Again, the `<theme_name>` must be replaced with the name of one of the supported theme names. By default, if you omit it, the theme is `gh_pure`.
 
-Again, the `<theme_name>` must be replaced with the name of one of the supported theme names. If you want to use a **custom theme**, you can use the `data-gmc-theme-url` attribute and specify the url of your theme.
+This way must be preferred if you plan to have several cards on a single webpage, or if you need to load the cards programmatically, or even if you need a custom version of the gmc.js script.
 
+The advantages of this method over the previous one are: 
+- The `gmc.js` script is loaded only once (in the first implementation method, it is embeded in every iframe)
+- If you use the same theme for several cards, the styles and the js code needed by the theme are loaded once
+- No iframe: the markup is dynamically added as a sibling of the `<script>` tag
+- Since the card is directly inside the document, you can override the style of the theme.
+- You can easily add a responsive behavior to the card
+- You can use a custom version of `gmc.js`
+
+
+With this method, you should load `gmc.js` at the beginning of your html (to ensure that the `GMC` function exists in the document when the card is loaded). The script is a couple of kb and is served with a cdn (rawgit), so it shouldn't be a big deal.
 
 <!-- JSFiddle link -->
 [**jsFiddle** >> ](https://jsfiddle.net/tsucres/wt4pq0qu/)
@@ -58,13 +69,15 @@ Again, the `<theme_name>` must be replaced with the name of one of the supported
 
 ### Most efficient way
 
-This method doesn't use an iframe. This means that the card could, potentially, load faster. It also means that you have greater control on the presentation of the card and don't have to worry about the iframe's size/responsiveness.
+This method consists in doing manually what `gmc-loader.js` does: load and insert the template of the card in the document and add the style and the javascript it requires. 
+
+This method has all the advantages of the previous one and is slightly more efficient since It has less files to fetch.
 
 ##### 1. Insert the markup of the theme
 
 Copy/Paste the markup of the theme you want to use directly in your webpage. 
 
-You can find the markup of the existing themes in the [`src/themes/templates/`](src/themes/templates/) folder. Of course, you can build your own (see next section).
+You can find the markup of the existing themes in the [`dist/themes/<theme_name>/`](dist/themes/) folders. Of course, you can build your own (see next section).
 
 
 ##### 2. Add the style

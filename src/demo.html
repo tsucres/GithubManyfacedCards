@@ -8,11 +8,11 @@
     <link rel="stylesheet" type="text/css" href="demo/css/demo.css">
 
     <style type="text/css">
-      <!-- @include themes/css/basic_github.css -->
-      <!-- @include themes/css/github_pure.css -->
-      <!-- @include themes/css/github_full.css -->
-      <!-- @include themes/css/github_recommendation.css -->
-      <!-- @include themes/css/loading.css -->
+      <!-- @include-static themes/css/snippets/basic_github.css -->
+      <!-- @include-static themes/css/gh_pure.css -->
+      <!-- @include-static themes/css/gh_full.css -->
+      <!-- @include-static themes/css/gh_recommendation.css -->
+      <!-- @include-static themes/css/snippets/loading.css -->
     </style>
 </head>
 <body>
@@ -22,7 +22,7 @@
     <div class="twelve columns">
       <h1>Github Many-faced Cards</h1>
       <div class="main-card">
-        <iframe width="400px" data-gmc-repo="tsucres/GithubManyfacedCards" data-gmc-theme="gh_pure" frameborder="0"></iframe>
+        <script async src="https://cdn.rawgit.com/tsucres/GithubManyfacedCards/master/dist/gmc-loader.min.js" data-gmc-repo="tsucres/GithubManyfacedCards" data-gmc-theme="gh_pure"></script>
       </div>
       <p>Build entirely customisable github cards to embed on your webpages.</p>
     </div>
@@ -47,17 +47,20 @@
     
   </div>
   <div class="row pt3 mb3">
-    <h5>IFrame + js</h5>
-    <pre><code class="prettyprint">&lt;div data-gmc-repo=&quot;&lt;full_repo_name&gt;&quot;  data-gmc-theme=&quot;&lt;theme_name&gt;&quot; frameborder=&quot;0&quot;&gt;&lt;/div&gt;
-&lt;script src=&quot;https://cdn.rawgit.com/tsucres/GithubManyfacedCards/4f1b1f47/dist/gmc.min.js&quot;&gt;&lt;/script&gt;
+    <h5>Loaded with javascript</h5>
+    <pre><code class="prettyprint">// in the head or in the beginning of the body
+&lt;script src=&quot;https://cdn.rawgit.com/tsucres/GithubManyfacedCards/master/dist/gmc.min.js&quot;&gt;
 
-&lt;script&gt;
-// Call GMC.loadAllCards() when the document has loaded 
-window.onload = GMC.loadAllCards
-&lt;/script&gt;</code></pre>
+// ...
+
+// where you want the card
+&lt;script async src=&quot;https://cdn.rawgit.com/tsucres/GithubManyfacedCards/master/dist/gmc-loader.min.js&quot; data-gmc-repo=&quot;&lt;full_repo_name&gt;&quot; data-gmc-theme=&quot;&lt;theme_name&gt;&quot;&gt;&lt;/script&gt;</code></pre>
 
     <div class="card-container">
-      <iframe  width="100%" class="demo-card" data-gmc-repo="tsucres/SwiftyComments" frameborder="0"></iframe>
+      <div class="demo-card" data-gmc-repo="tsucres/SwiftyComments">
+        <!-- @include themes/templates/gh_pure.html -->
+      </div>
+      <!--<script async src="https://cdn.rawgit.com/tsucres/GithubManyfacedCards/master/dist/gmc-loader.min.js" data-gmc-repo="tsucres/SwiftyComments" data-gmc-theme="gh_pure"></script>-->
     </div>
 
   </div>
@@ -78,7 +81,7 @@ window.onload = GMC.loadAllCards
 &lt;/body&gt;</code></pre>
     <div class="card-container">
       <div class="demo-card" data-gmc-repo="tsucres/SwiftyComments">
-        <!-- @include themes/templates/github_pure.html -->
+        <!-- @include themes/templates/gh_pure.html -->
       </div>
     </div>
     
@@ -100,7 +103,7 @@ window.onload = GMC.loadAllCards
 
     <div class="card-container">
       <div class="demo-card" data-gmc-repo="tsucres/SwiftyComments">
-        <!-- @include themes/templates/github_basic.html -->
+        <!-- @include themes/templates/gh_basic.html -->
       </div>
     </div>
 
@@ -112,7 +115,7 @@ window.onload = GMC.loadAllCards
 
     <div class="card-container">
       <div class="demo-card" data-gmc-repo="tsucres/SwiftyComments">
-        <!-- @include themes/templates/github_pure.html -->
+        <!-- @include themes/templates/gh_pure.html -->
       </div>
     </div>
     
@@ -124,7 +127,7 @@ window.onload = GMC.loadAllCards
 
     <div class="card-container">
       <div class="demo-card" data-gmc-repo="tsucres/SwiftyComments">
-        <!-- @include themes/templates/github_full.html -->
+        <!-- @include themes/templates/gh_full.html -->
       </div>
     </div>
     
@@ -135,7 +138,7 @@ window.onload = GMC.loadAllCards
 
     <div class="card-container">
       <div class="demo-card" data-gmc-repo="tsucres/SwiftyComments">
-        <!-- @include themes/templates/github_recommendation.html -->
+        <!-- @include themes/templates/gh_recommendation.html -->
       </div>
     </div>
     
@@ -149,16 +152,16 @@ window.onload = GMC.loadAllCards
 
   <script type="text/javascript">
     // The following are the js function needed by the templates
-    <!-- @include themes/js/getStargazersURL.js -->
-    <!-- @include themes/js/formatDate.js -->
-    <!-- @include themes/js/languageColors.js -->
-    <!-- @include themes/js/getSparks.js -->
-    <!-- @include themes/js/getNetworkURL.js -->
-    <!-- @include themes/js/getRepoURL.js -->
-    <!-- @include themes/js/fillWithTopics.js -->
-    <!-- @include themes/js/plural.js -->
-    <!-- @include themes/js/getIssuesURL.js -->
-    <!-- @include themes/js/humanReadable.js -->
+    <!-- @include themes/js/snippets/getStargazersURL.js -->
+    <!-- @include themes/js/snippets/formatDate.js -->
+    <!-- @include themes/js/snippets/languageColors.js -->
+    <!-- @include themes/js/snippets/getSparks.js -->
+    <!-- @include themes/js/snippets/getNetworkURL.js -->
+    <!-- @include themes/js/snippets/getRepoURL.js -->
+    <!-- @include themes/js/snippets/fillWithTopics.js -->
+    <!-- @include themes/js/snippets/plural.js -->
+    <!-- @include themes/js/snippets/getIssuesURL.js -->
+    <!-- @include themes/js/snippets/humanReadable.js -->
   </script>
   <script type="text/javascript" src="dist/gmc.min.js"></script>
 
@@ -184,8 +187,6 @@ window.onload = GMC.loadAllCards
 
     window.onload = function() {
       updateCards()
-      var mainCard = document.querySelector(".main-card iframe");
-      (new GMC(mainCard));
     }
 
   </script>
