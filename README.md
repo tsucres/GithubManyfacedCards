@@ -1,17 +1,18 @@
 
 <div style="text-align:center">
-	<img src="screenshots/GMC.png"/>
-	<img width="45%" src="screenshots/gh_pure.png"/>
-	<img width="45%" src="screenshots/gh_full.png"/>
-	<img width="70%" src="screenshots/gh_recommendation.png"/>
+	<img src="screenshots/presentation.png"/>
 </div>
 
 ## Loading and error states
 
 <div style="text-align:center">
-	<img width="45%" src="screenshots/loadingGMC.gif"/>
-	<img width="45%" src="screenshots/gh_error_state.png"/>
+	<img width="49%" src="screenshots/loadingGMC.gif"/>
+	<img width="50%" src="screenshots/gh_error_state.png"/>
 </div>
+
+
+
+<p align="center"> >>>>>>> <a href="http://tsucres.me/GithubManyfacedCards/"><strong>DEMO</strong></a> <<<<<<< </p>
 
 ## Usage
 
@@ -207,7 +208,7 @@ gulp all #[themes, embed_themes, demo, gmc]
 
 
 - the `demo` task builds the index.html file used for the demo.
-- the `gmc` task minimizes the gmc.js file.
+- the `gmc` task minifies the gmc.js file.
 
 All the resulting files (except the demo file) are in the [`dist`](dist) directory.
 
@@ -216,6 +217,9 @@ All the resulting files (except the demo file) are in the [`dist`](dist) directo
 
 See the [demo](http://tsucres.me/GithubManyfacedCards/) for several card designs.
 
+
+Real life examples: 
+- [HNBuddy landing page](http://www.hnbuddy.io/contrib.html)
 
 **Make a PR** to add your designs in the demo or a link here in the [README](README.md)
 
@@ -226,3 +230,7 @@ See the [demo](http://tsucres.me/GithubManyfacedCards/) for several card designs
 - [GithubCard](https://github.com/xuelangZF/GithubCard): other design for the same thing. This implementation is very simple.
 - [github-calendar](https://github.com/IonicaBizau/github-calendar): a widget displaying the yearly contribution calandar.
 
+
+# TODO
+
+- build the "non embedded" themes to make the integration in a webpage easier, i.e. build separate .css, .js and .html containing all the style, javascript and the template for a theme.
