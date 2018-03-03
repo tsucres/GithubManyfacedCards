@@ -29,3 +29,7 @@ function getSparks(fullNameRepo, element) {
   return "";
 
 }
+
+function getSparksURL(fullNameRepo) {
+  return "https://github.com/" + fullNameRepo + "/graphs/participation?h=28&type=sparkline&w=155";
+}

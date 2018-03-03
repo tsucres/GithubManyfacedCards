@@ -691,7 +691,7 @@
                 </span>
                 Updated <span data-gmc-id="in__updated_at__js" data-gmc-js="formatDate"></span>
               </p>
-            <div data-gmc-id="trash__full_name__js" data-gmc-js="getSparks"></div>
+            <iframe frameborder="0" width="155" height="28" data-gmc-id="src__full_name__js" data-gmc-js="getSparksURL"></iframe>
           </div>
         </div>
       </div>
@@ -885,6 +885,10 @@
       request.send();
       return "";
     
+    }
+    
+    function getSparksURL(fullNameRepo) {
+      return "https://github.com/" + fullNameRepo + "/graphs/participation?h=28&type=sparkline&w=155";
     }
     function getNetworkURL(repoFullName) {
     	return "https://github.com/" + repoFullName + "/network";
