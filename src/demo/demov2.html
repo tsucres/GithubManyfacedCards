@@ -1,0 +1,131 @@
+<!-- This file is to be generated with gulp and placed in the root of the project with the name 'index.html' -->
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Github Manyfaced Cards</title>
+
+    <link rel="stylesheet" type="text/css" href="demo/css/demov2.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <style type="text/css">
+      <!-- @include-static ../themes/css/snippets/basic_github.css -->
+      <!-- @include-static ../themes/css/gh_pure.css -->
+      <!-- @include-static ../themes/css/gh_full.css -->
+      <!-- @include-static ../themes/css/gh_recommendation.css -->
+      <!-- @include-static ../themes/css/snippets/loading.css -->
+    </style>
+    <link rel="stylesheet" href="demo/css/ocean.css">
+</head>
+<body>
+
+<header>
+  <h1>GMC<span class="subscript">.js</span></h1>
+  <h3><strong>G</strong>ithub <strong>M</strong>any-faced <strong>C</strong>ards</h3>
+  <ul class="features">
+    <li>
+      <span class="icon-fast"></span>
+      <span class="feature-text"> Fast</span>
+    </li>
+    <li>
+      <span class="icon-light"></span>
+      <span class="feature-text"> Lightweight</span>
+    </li>
+    <li>
+      <span class="icon-straightforward"></span>
+      <span class="feature-text"> Straightforward implementation</span>
+    </li>
+    <li>
+      <span class="icon-customisable"></span>
+      <span class="feature-text"> Entirely customizable</span>
+    </li>
+    <li>
+      <span class="icon-compatible"></span>
+      <span class="feature-text"> IE9+</span>
+    </li>
+  </ul>
+</header>
+<div class="container">
+  <p class="col-md-8 offset-md-2 col-sm-10 offset-sm-1 col-xs-12">Highly customisable github widgets, for users and repositories, very easily embeddale in any webpage.</p>
+
+  <iframe class="col-md-8 offset-md-2 col-sm-10 offset-sm-1 col-xs-12" src="https://cdn.rawgit.com/tsucres/GithubManyfacedCards/master/dist/themes/gh_recommendation/embeded/gh_recommendation.gmc.min.html?rn=tsucres/GithubManyfacedCards" frameborder="0"></iframe>
+
+  <div class="separator col-md-8 offset-md-2 col-sm-10 offset-sm-1 col-xs-12"></div>
+
+  <ul class="nav nav-pills d-flex justify-content-center" role="tablist">
+    <li class="nav-item">
+      <a class="nav-link active" data-toggle="tab" href="#repo" role="tab">Repo</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" data-toggle="tab" href="#user" role="tab">User</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" data-toggle="tab" href="#others" role="tab">Others</a>
+    </li>
+  </ul>
+
+  <div class="tab-content row">
+    <div class="tab-pane col-sm-12 active show fade" id="repo" role="tabpanel" aria-labelledby="repo-tab">
+      <!-- @include snippets/repo-page.html -->
+    </div>
+    <div class="tab-pane col-sm-12 fade" id="user" role="tabpanel" aria-labelledby="user-tab">
+      <!-- @include snippets/user-page.html -->
+    </div>
+    <div class="tab-pane col-sm-12 fade" id="others" role="tabpanel" aria-labelledby="others-tab">
+      <!-- @include snippets/others-page.html -->
+    </div>
+  </div>
+
+</div>
+
+
+<footer>
+  <p>Hosted on <a href="https://www.github.com/tsucres/GithubManyfacedCards">GitHub</a></p>
+  <p>Copyright 2017 - Stéphane Sercu</p>
+</footer>
+
+
+<script type="text/javascript" src="dist/gmc.min.js"></script>
+<script type="text/javascript">
+    // The following are the js function needed by the templates
+    <!-- @include ../themes/js/snippets/getStargazersURL.js -->
+    <!-- @include ../themes/js/snippets/formatDate.js -->
+    <!-- @include ../themes/js/snippets/languageColors.js -->
+    <!-- @include ../themes/js/snippets/getSparks.js -->
+    <!-- @include ../themes/js/snippets/getNetworkURL.js -->
+    <!-- @include ../themes/js/snippets/getRepoURL.js -->
+    <!-- @include ../themes/js/snippets/fillWithTopics.js -->
+    <!-- @include ../themes/js/snippets/plural.js -->
+    <!-- @include ../themes/js/snippets/getIssuesURL.js -->
+    <!-- @include ../themes/js/snippets/humanReadable.js -->
+  </script>
+  <script type="text/javascript">
+    function updateCards() {
+      var demoCardIdentifier = ".demo-card[data-gmc-repo]";
+      var repoNameInput = document.getElementById("repoNameInput");
+      var repoName = repoNameInput.value || repoNameInput.placeholder;
+
+      fetchJson("https://api.github.com/repos/" + repoName, function(json) {
+        var iframes = document.querySelectorAll(demoCardIdentifier);
+        iframes.forEach(function(iframe) {
+          (new GMC(iframe, json));
+        });
+      }, function(){
+        alert("Failed to fetch data from the github API.");
+      });
+    }
+
+    window.onload = function() {
+      updateCards()
+    }
+
+  </script>
+<script src="demo/js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+
+</body>
+</html>

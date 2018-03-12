@@ -133,7 +133,7 @@ gulp.task('gmc', function() {
     keeping the project DRY.
 */
 gulp.task('demo', function() {
-    return gulp.src(["src/demo.html"])
+    return gulp.src(["src/demo.html", "src/demo/demov2.html"])
         .pipe(rename(function (path) { path.basename = "index" }))
         .pipe(preprocess({context: {}}))
         .pipe(gulp.dest('.'))

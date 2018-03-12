@@ -2,10 +2,11 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <meta charset="utf-8">
     <title>Github Manyfaced Cards</title>
-    <link rel="stylesheet" type="text/css" href="demo/css/normalize.css">
-    <link rel="stylesheet" type="text/css" href="demo/css/skeleton.css">
-    <link rel="stylesheet" type="text/css" href="demo/css/demo.css">
+
+    <link rel="stylesheet" type="text/css" href="demo/css/demov2.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
     <style type="text/css">
       .gh {
@@ -319,505 +320,212 @@
         display: block;
       }
     </style>
+    <link rel="stylesheet" href="demo/css/ocean.css">
 </head>
 <body>
 
+<header>
+  <h1>GMC<span class="subscript">.js</span></h1>
+  <h3><strong>G</strong>ithub <strong>M</strong>any-faced <strong>C</strong>ards</h3>
+  <ul class="features">
+    <li>
+      <span class="icon-fast"></span>
+      <span class="feature-text"> Fast</span>
+    </li>
+    <li>
+      <span class="icon-light"></span>
+      <span class="feature-text"> Lightweight</span>
+    </li>
+    <li>
+      <span class="icon-straightforward"></span>
+      <span class="feature-text"> Straightforward implementation</span>
+    </li>
+    <li>
+      <span class="icon-customisable"></span>
+      <span class="feature-text"> Entirely customizable</span>
+    </li>
+    <li>
+      <span class="icon-compatible"></span>
+      <span class="feature-text"> IE9+</span>
+    </li>
+  </ul>
+</header>
 <div class="container">
-  <div class="row pt4 mb4">
-    <div class="twelve columns">
-      <h1>Github Many-faced Cards</h1>
-      <div class="main-card">
-        <script async src="https://cdn.rawgit.com/tsucres/GithubManyfacedCards/master/dist/gmc-loader.min.js" data-gmc-repo="tsucres/GithubManyfacedCards" data-gmc-theme="gh_pure"></script>
-      </div>
-      <p>Build entirely customisable github cards to embed on your webpages.</p>
-    </div>
-  </div>
-  <form class="row pt4 mb4">
-    <label for="repoNameInput">Repo name</label>
-    <div class="twelve columns">
-     
-      <input class="six columns" type="text" placeholder="tsucres/SwiftyComments" id="repoNameInput">
-     <input class="button button-primary" onclick="updateCards()" value="Update">
-    </div>
-  </form>
+  <p class="col-md-8 offset-md-2 col-sm-10 offset-sm-1 col-xs-12">Highly customisable github widgets, for users and repositories, very easily embeddale in any webpage.</p>
 
-  <div class="row pt3 mb3">
-    <h3>Quick start</h3>
-    The three ways to get started (refer to the guide <a href="https://github.com/tsucres/GithubManyfacedCards/README.md">here</a>).
-    <h5>IFrame only</h5>
-    <pre><code class="prettyprint">&lt;iframe src=&quot;https://cdn.rawgit.com/tsucres/GithubManyfacedCards/tree/master/dist/themes/&lt;themeName&gt;.gmc.min.html&quot; width=&quot;100%&quot; frameborder=&quot;0&quot;&gt;&lt;/iframe&gt;</code></pre>
-    <div class="card-container">
-      <iframe width="100%" class="demo-card-embed" frameborder="0"></iframe>
-    </div>
-    
-  </div>
-  <div class="row pt3 mb3">
-    <h5>Loaded with javascript</h5>
-    <pre><code class="prettyprint">// in the head or in the beginning of the body
-&lt;script src=&quot;https://cdn.rawgit.com/tsucres/GithubManyfacedCards/master/dist/gmc.min.js&quot;&gt;
+  <iframe class="col-md-8 offset-md-2 col-sm-10 offset-sm-1 col-xs-12" src="https://cdn.rawgit.com/tsucres/GithubManyfacedCards/master/dist/themes/gh_recommendation/embeded/gh_recommendation.gmc.min.html?rn=tsucres/GithubManyfacedCards" frameborder="0"></iframe>
 
-// ...
+  <div class="separator col-md-8 offset-md-2 col-sm-10 offset-sm-1 col-xs-12"></div>
 
-// where you want the card
-&lt;script async src=&quot;https://cdn.rawgit.com/tsucres/GithubManyfacedCards/master/dist/gmc-loader.min.js&quot; data-gmc-repo=&quot;&lt;full_repo_name&gt;&quot; data-gmc-theme=&quot;&lt;theme_name&gt;&quot;&gt;&lt;/script&gt;</code></pre>
+  <ul class="nav nav-pills d-flex justify-content-center" role="tablist">
+    <li class="nav-item">
+      <a class="nav-link active" data-toggle="tab" href="#repo" role="tab">Repo</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" data-toggle="tab" href="#user" role="tab">User</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" data-toggle="tab" href="#others" role="tab">Others</a>
+    </li>
+  </ul>
 
-    <div class="card-container">
-      <div class="demo-card" data-gmc-repo="tsucres/SwiftyComments">
-        <!--
-          Same as github_basic but with error and loading states.
-        
-          It needs the following styles: 
-            - basic_github.css
-            - github_pure.css
-            - loading.css
-        
-          And the following js:
-            - languageColors.js
-            - getStargazersURL.js
-            - formatDate.js 
-            - getRepoURL.js 
-            - humanReadable.js
-        -->
-        
-        <div class="gh p-rel">
-          <div class="only-if-loading full-absolute p-3">
-            <div class="title-placeholder mb-2">
-              <span class="content-placeholder" style="width:70px;width:17em;">&nbsp;</span>
-            </div>
-            <div class="desc-placeholder mb-1">
-              <span class="content-placeholder" style="width:95%;">&nbsp;</span>
-            </div>
-            <div class="desc-placeholder mb-1">
-              <span class="content-placeholder" style="width:40%;">&nbsp;</span>
-            </div>
-            <div class="controls-placeholder mt-2">
-              <span class="content-placeholder" style="width:30%;">&nbsp;</span>
-            </div>
-            
-          </div>
-          <div class="only-if-error">
-            <div class="full-absolute error-view">
-              <div class="p-rel">
-                <svg aria-hidden="true" class="octicon" height="40" version="1.1" viewBox="0 0 14 16" width="35"><path fill-rule="evenodd" d="M7 2.3c3.14 0 5.7 2.56 5.7 5.7s-2.56 5.7-5.7 5.7A5.71 5.71 0 0 1 1.3 8c0-3.14 2.56-5.7 5.7-5.7zM7 1C3.14 1 0 4.14 0 8s3.14 7 7 7 7-3.14 7-7-3.14-7-7-7zm1 3H6v5h2V4zm0 6H6v2h2v-2z"></path></svg>
-                <h3>Couldn't fetch information for this repo.</h3>
-              </div>
-              
-            </div>
-          </div>
-          <div class="border rounded-1 p-3 only-if-loaded">
-            <span class="f4 lh-condensed text-bold text-gray-dark"><a target="_blank" href="https://github.com/" class="link-gray-dark text-bold wb-break-all" data-gmc-id="in__full_name, href__full_name__js" data-gmc-js="getRepoURL"></a></span>
-            <p data-gmc-id="in__description"></p>
-            <p class="f6 text-gray mt-2 mb-0">
-                <span class="d-inline-block text-gray mr-3">
-                  <span class="repo-language-color ml-0" data-gmc-id="style__language__js" data-gmc-js="getStyleForLanguage"></span>
-                  <span class="mr-3" data-gmc-id="in__language"></span>
-                </span>
-                <span class="d-inline-block mr-3">
-                    <a target="_blank" href="" class="muted-link" data-gmc-id="href__full_name__js" data-gmc-js="getStargazersURL">
-                      <svg aria-hidden="true" class="octicon octicon-star mr-1" height="16" version="1.1" viewBox="0 0 14 16" width="14"><path fill-rule="evenodd" d="M14 6l-4.9-.64L7 1 4.9 5.36 0 6l3.6 3.26L2.67 14 7 11.67 11.33 14l-.93-4.74z"></path></svg><span data-gmc-id="in__stargazers_count__js" data-gmc-js="humanReadable"></span>
-                    </a>
-                </span>
-                Updated <span data-gmc-id="in__updated_at__js" data-gmc-js="formatDate"></span>
-            </p>
-          </div>
+  <div class="tab-content row">
+    <div class="tab-pane col-sm-12 active" id="repo" role="tabpanel" aria-labelledby="repo-tab">
+      
+      <form class="form-inline col-md-8 offset-md-2 col-sm-10 offset-sm-1 col-xs-12 my-4">
+        <div class="form-group mx-sm-3 col-sm-9">
+          <input type="text" id="repoNameInput" placeholder="tsucres/SwiftyComments" onclick="updateCards()" class="form-control">
         </div>
-      </div>
-      <!--<script async src="https://cdn.rawgit.com/tsucres/GithubManyfacedCards/master/dist/gmc-loader.min.js" data-gmc-repo="tsucres/SwiftyComments" data-gmc-theme="gh_pure"></script>-->
-    </div>
-
-  </div>
-  <div class="row pt3 mb3">
-    <h5>Include the markup (more efficient)</h5>
-    <pre><code class="prettyprint">&lt;head&gt;
-    ...
-    &lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;&lt;your_theme_style.css&gt;&quot;&gt;
-    ...
-&lt;/head&gt;
-&lt;body&gt;
-    ...
-    &lt;iframe data-gmc-repo=&quot;&lt;username/repoName&gt;&quot; data-gmc-theme=&quot;&lt;themeName&gt;&quot;&gt;
-      &lt;!-- Markup of the theme --&gt;
-    &lt;/iframe&gt;
-    &lt;script type=&quot;text/javascript&quot;&gt;/* Possible js code needed by the theme */&lt;/script&gt;
-    ...
-&lt;/body&gt;</code></pre>
-    <div class="card-container">
-      <div class="demo-card" data-gmc-repo="tsucres/SwiftyComments">
-        <!--
-          Same as github_basic but with error and loading states.
-        
-          It needs the following styles: 
-            - basic_github.css
-            - github_pure.css
-            - loading.css
-        
-          And the following js:
-            - languageColors.js
-            - getStargazersURL.js
-            - formatDate.js 
-            - getRepoURL.js 
-            - humanReadable.js
-        -->
-        
-        <div class="gh p-rel">
-          <div class="only-if-loading full-absolute p-3">
-            <div class="title-placeholder mb-2">
-              <span class="content-placeholder" style="width:70px;width:17em;">&nbsp;</span>
+        <button type="submit" class="btn btn-primary col-sm-2">Update</button>
+        <small id="repoNameHelp" class="form-text text-muted col-sm-12">Update the repo showed in the examples bellow.</small>
+      </form>
+      
+      <section id="quickstart">
+        <h2>Quick start</h2>
+        <p>There are three ways to integrate a card on a webpage.</p>
+        <div class="col-md-8 offset-md-2">
+          <!-- Nav tabs -->
+          <ul class="nav nav-tabs d-flex justify-content-center" role="tablist">
+            <li class="nav-item">
+              <a class="nav-link active" data-toggle="tab" href="#easy" role="tab">Easy</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" data-toggle="tab" href="#efficient" role="tab">Efficient</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" data-toggle="tab" href="#efficienter" role="tab">Even more efficient</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" data-toggle="tab" href="#custom" role="tab">Custom initialization</a>
+            </li>
+          </ul>
+      
+          <!-- Tab panes -->
+          <div class="tab-content">
+            <div class="tab-pane active mv2 b-light show fade" id="easy" role="tabpanel">
+              <pre><code class="html">&lt;iframe src=&quot;https://cdn.rawgit.com/tsucres/GithubManyfacedCards/master/dist/themes/gh_recommendation/embeded/gh_recommendation.gmc.min.html?rn=tsucres/GithubManyfacedCards&quot; frameborder=&quot;0&quot;&gt;&lt;/iframe&gt;</code></pre>
+      
+              <p>All you need to do is include this piece of markup in your webpage and replace the name of the repo and the name of the theme.</p>
+      
+              <p>All the available themes are listed <a href="#themes">below</a>.</p>
+      
             </div>
-            <div class="desc-placeholder mb-1">
-              <span class="content-placeholder" style="width:95%;">&nbsp;</span>
+            <div class="tab-pane mv2 b-light fade" id="efficient" role="tabpanel">
+              <pre><code class="html">// in the head or in the beginning of the body
+      &lt;script src=&quot;https://cdn.rawgit.com/tsucres/GithubManyfacedCards/master/dist/gmc.min.js&quot;&gt;
+      
+      // ...
+      
+      // where you want the card
+      &lt;script async src=&quot;https://cdn.rawgit.com/tsucres/GithubManyfacedCards/master/dist/gmc-loader.min.js&quot; data-gmc-repo=&quot;&lt;full_repo_name&gt;&quot; data-gmc-theme=&quot;&lt;theme_name&gt;&quot;&gt;&lt;/script&gt;</code></pre>
+              <p></p>
+      
             </div>
-            <div class="desc-placeholder mb-1">
-              <span class="content-placeholder" style="width:40%;">&nbsp;</span>
+            <div class="tab-pane mv2 b-light fade" id="efficienter" role="tabpanel">
+              <p>This method consists in doing manually what the "gmc-loader.js" script does automaticcally: loading the style, the javascript and the template of the card skin and then calling "GMC.loadAllCards()".</p>
+              <p>For this implementation, you'll need all the files ralated to the theme you want. </p>
             </div>
-            <div class="controls-placeholder mt-2">
-              <span class="content-placeholder" style="width:30%;">&nbsp;</span>
-            </div>
-            
+            <div class="tab-pane mv2 b-light fade" id="custom" role="tabpanel">...</div>
           </div>
-          <div class="only-if-error">
-            <div class="full-absolute error-view">
-              <div class="p-rel">
-                <svg aria-hidden="true" class="octicon" height="40" version="1.1" viewBox="0 0 14 16" width="35"><path fill-rule="evenodd" d="M7 2.3c3.14 0 5.7 2.56 5.7 5.7s-2.56 5.7-5.7 5.7A5.71 5.71 0 0 1 1.3 8c0-3.14 2.56-5.7 5.7-5.7zM7 1C3.14 1 0 4.14 0 8s3.14 7 7 7 7-3.14 7-7-3.14-7-7-7zm1 3H6v5h2V4zm0 6H6v2h2v-2z"></path></svg>
-                <h3>Couldn't fetch information for this repo.</h3>
-              </div>
+        </div> 
+      </section>
+      <section>
+        <h2>Default skins</h2>
+        <h3>gh_basic</h3>
+        <p><a href="https://github.com/tsucres/GithubManyfacedCards/dist/themes/" class="mini-link">Template source code</a> | <a href="" class="mini-link">Skin files on github</a> | <a href="" class="mini-link">Download skin files</a></p>
+        Simplest theme: no error state, no loading state.
+        <div class="card-container">
+            <div class="demo-card" data-gmc-repo="tsucres/SwiftyComments">
+              <!--
+                Most basic theme: repo name, description + stars, no error nor loading states.
               
-            </div>
-          </div>
-          <div class="border rounded-1 p-3 only-if-loaded">
-            <span class="f4 lh-condensed text-bold text-gray-dark"><a target="_blank" href="https://github.com/" class="link-gray-dark text-bold wb-break-all" data-gmc-id="in__full_name, href__full_name__js" data-gmc-js="getRepoURL"></a></span>
-            <p data-gmc-id="in__description"></p>
-            <p class="f6 text-gray mt-2 mb-0">
-                <span class="d-inline-block text-gray mr-3">
-                  <span class="repo-language-color ml-0" data-gmc-id="style__language__js" data-gmc-js="getStyleForLanguage"></span>
-                  <span class="mr-3" data-gmc-id="in__language"></span>
-                </span>
-                <span class="d-inline-block mr-3">
-                    <a target="_blank" href="" class="muted-link" data-gmc-id="href__full_name__js" data-gmc-js="getStargazersURL">
-                      <svg aria-hidden="true" class="octicon octicon-star mr-1" height="16" version="1.1" viewBox="0 0 14 16" width="14"><path fill-rule="evenodd" d="M14 6l-4.9-.64L7 1 4.9 5.36 0 6l3.6 3.26L2.67 14 7 11.67 11.33 14l-.93-4.74z"></path></svg><span data-gmc-id="in__stargazers_count__js" data-gmc-js="humanReadable"></span>
-                    </a>
-                </span>
-                Updated <span data-gmc-id="in__updated_at__js" data-gmc-js="formatDate"></span>
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
-    
-
-  </div>
-
-
-
-  <div class="row pt4 mb4">
-    <h3>Default themes</h3>
-    <p>The following are the themes hosted on the repo and which you can use directly by putting their names in the data-gmc-theme attribute.</p>
-
-
-
-    <h5 class="mt4">gh_basic</h5>
-    <a href="">Template source code</a>
-    <pre><code class="prettyprint">&lt;iframe data-gmc-repo=&quot;&lt;username/repoName&gt;&quot; frameborder=&quot;0&quot; data-gmc-theme=&quot;gh_basic&quot;&gt;&lt;/iframe&gt;
-      &lt;script type=&quot;text/javascript&quot; src=&quot;gmc.min.js&quot;&gt;&lt;/script&gt;</code></pre>
-
-    <div class="card-container">
-      <div class="demo-card" data-gmc-repo="tsucres/SwiftyComments">
-        <!--
-          Most basic theme: repo name, description + stars, no error nor loading states.
-        
-          It only needs the following style: 
-            - basic_github.css
-        
-          And the following js:
-            - languageColors.js
-            - getStargazersURL.js
-            - formatDate.js 
-            - getRepoURL.js 
-            - humanReadable.js
-        -->
-        <div class="gh">
-          <div class="border rounded-1 p-3 only-if-loaded">
-            <span class="f4 lh-condensed text-bold text-gray-dark"><a href="https://github.com/" class="link-gray-dark text-bold wb-break-all" data-gmc-id="in__full_name, href__full_name__js" data-gmc-js="getRepoURL"></a></span>
-            <p data-gmc-id="in__description"></p>
-            <p class="f6 text-gray mt-2 mb-0">
-                <span class="d-inline-block text-gray mr-3">
-                  <span class="repo-language-color ml-0" data-gmc-id="style__language__js" data-gmc-js="getStyleForLanguage"></span>
-                  <span class="mr-3" data-gmc-id="in__language"></span>
-                </span>
-                <span class="d-inline-block mr-3">
-                    <a href="" class="muted-link" data-gmc-id="href__full_name__js" data-gmc-js="getStargazersURL">
-                      <svg aria-hidden="true" class="octicon octicon-star mr-1" height="16" version="1.1" viewBox="0 0 14 16" width="14"><path fill-rule="evenodd" d="M14 6l-4.9-.64L7 1 4.9 5.36 0 6l3.6 3.26L2.67 14 7 11.67 11.33 14l-.93-4.74z"></path></svg><span data-gmc-id="in__stargazers_count__js" data-gmc-js="humanReadable"></span>
-                    </a>
-                </span>
-                Updated <span data-gmc-id="in__updated_at__js" data-gmc-js="formatDate"></span>
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
-
-
-    <h5 class="mt4">gh_pure</h5>
-    <a href="">Template source code</a>
-    <pre><code class="prettyprint">&lt;iframe data-gmc-repo=&quot;&lt;username/repoName&gt;&quot; frameborder=&quot;0&quot; data-gmc-theme=&quot;gh_pure&quot;&gt;&lt;/iframe&gt;
-      &lt;script type=&quot;text/javascript&quot; src=&quot;gmc.min.js&quot;&gt;&lt;/script&gt;</code></pre>
-
-    <div class="card-container">
-      <div class="demo-card" data-gmc-repo="tsucres/SwiftyComments">
-        <!--
-          Same as github_basic but with error and loading states.
-        
-          It needs the following styles: 
-            - basic_github.css
-            - github_pure.css
-            - loading.css
-        
-          And the following js:
-            - languageColors.js
-            - getStargazersURL.js
-            - formatDate.js 
-            - getRepoURL.js 
-            - humanReadable.js
-        -->
-        
-        <div class="gh p-rel">
-          <div class="only-if-loading full-absolute p-3">
-            <div class="title-placeholder mb-2">
-              <span class="content-placeholder" style="width:70px;width:17em;">&nbsp;</span>
-            </div>
-            <div class="desc-placeholder mb-1">
-              <span class="content-placeholder" style="width:95%;">&nbsp;</span>
-            </div>
-            <div class="desc-placeholder mb-1">
-              <span class="content-placeholder" style="width:40%;">&nbsp;</span>
-            </div>
-            <div class="controls-placeholder mt-2">
-              <span class="content-placeholder" style="width:30%;">&nbsp;</span>
-            </div>
-            
-          </div>
-          <div class="only-if-error">
-            <div class="full-absolute error-view">
-              <div class="p-rel">
-                <svg aria-hidden="true" class="octicon" height="40" version="1.1" viewBox="0 0 14 16" width="35"><path fill-rule="evenodd" d="M7 2.3c3.14 0 5.7 2.56 5.7 5.7s-2.56 5.7-5.7 5.7A5.71 5.71 0 0 1 1.3 8c0-3.14 2.56-5.7 5.7-5.7zM7 1C3.14 1 0 4.14 0 8s3.14 7 7 7 7-3.14 7-7-3.14-7-7-7zm1 3H6v5h2V4zm0 6H6v2h2v-2z"></path></svg>
-                <h3>Couldn't fetch information for this repo.</h3>
-              </div>
+                It only needs the following style: 
+                  - basic_github.css
               
-            </div>
-          </div>
-          <div class="border rounded-1 p-3 only-if-loaded">
-            <span class="f4 lh-condensed text-bold text-gray-dark"><a target="_blank" href="https://github.com/" class="link-gray-dark text-bold wb-break-all" data-gmc-id="in__full_name, href__full_name__js" data-gmc-js="getRepoURL"></a></span>
-            <p data-gmc-id="in__description"></p>
-            <p class="f6 text-gray mt-2 mb-0">
-                <span class="d-inline-block text-gray mr-3">
-                  <span class="repo-language-color ml-0" data-gmc-id="style__language__js" data-gmc-js="getStyleForLanguage"></span>
-                  <span class="mr-3" data-gmc-id="in__language"></span>
-                </span>
-                <span class="d-inline-block mr-3">
-                    <a target="_blank" href="" class="muted-link" data-gmc-id="href__full_name__js" data-gmc-js="getStargazersURL">
-                      <svg aria-hidden="true" class="octicon octicon-star mr-1" height="16" version="1.1" viewBox="0 0 14 16" width="14"><path fill-rule="evenodd" d="M14 6l-4.9-.64L7 1 4.9 5.36 0 6l3.6 3.26L2.67 14 7 11.67 11.33 14l-.93-4.74z"></path></svg><span data-gmc-id="in__stargazers_count__js" data-gmc-js="humanReadable"></span>
-                    </a>
-                </span>
-                Updated <span data-gmc-id="in__updated_at__js" data-gmc-js="formatDate"></span>
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
-    
-
-    <h5 class="mt4">gh_full</h5>
-    <a href="">Template source code</a>
-    <pre><code class="prettyprint">&lt;iframe data-gmc-repo=&quot;&lt;username/repoName&gt;&quot; frameborder=&quot;0&quot; data-gmc-theme=&quot;gh_full&quot;&gt;&lt;/iframe&gt;
-      &lt;script type=&quot;text/javascript&quot; src=&quot;gmc.min.js&quot;&gt;&lt;/script&gt;</code></pre>
-
-    <div class="card-container">
-      <div class="demo-card" data-gmc-repo="tsucres/SwiftyComments">
-        <!--
-          Repo name, description, stars, forks, license + error and loading states.
-        
-          It needs the following styles: 
-            - basic_github.css
-            - github_full.css
-            - loading.css
-        
-          And the following js:
-            - languageColors.js
-            - getStargazersURL.js
-            - formatDate.js 
-            - getRepoURL.js 
-            - getSparks.js 
-            - getNetworkURL.js 
-            - humanReadable.js
-            
-        -->
-        <div class="gh p-rel">
-          <div class="only-if-error">
-            <div class="full-absolute error-view">
-              <div class="p-rel">
-                <svg aria-hidden="true" class="octicon" height="40" version="1.1" viewBox="0 0 14 16" width="35"><path fill-rule="evenodd" d="M7 2.3c3.14 0 5.7 2.56 5.7 5.7s-2.56 5.7-5.7 5.7A5.71 5.71 0 0 1 1.3 8c0-3.14 2.56-5.7 5.7-5.7zM7 1C3.14 1 0 4.14 0 8s3.14 7 7 7 7-3.14 7-7-3.14-7-7-7zm1 3H6v5h2V4zm0 6H6v2h2v-2z"></path></svg>
-                <h3>Couldn't fetch information for this repo.</h3>
+                And the following js:
+                  - languageColors.js
+                  - getStargazersURL.js
+                  - formatDate.js 
+                  - getRepoURL.js 
+                  - humanReadable.js
+              -->
+              <div class="gh">
+                <div class="border rounded-1 p-3 only-if-loaded">
+                  <span class="f4 lh-condensed text-bold text-gray-dark"><a href="https://github.com/" class="link-gray-dark text-bold wb-break-all" data-gmc-id="in__full_name, href__full_name__js" data-gmc-js="getRepoURL"></a></span>
+                  <p data-gmc-id="in__description"></p>
+                  <p class="f6 text-gray mt-2 mb-0">
+                      <span class="d-inline-block text-gray mr-3">
+                        <span class="repo-language-color ml-0" data-gmc-id="style__language__js" data-gmc-js="getStyleForLanguage"></span>
+                        <span class="mr-3" data-gmc-id="in__language"></span>
+                      </span>
+                      <span class="d-inline-block mr-3">
+                          <a href="" class="muted-link" data-gmc-id="href__full_name__js" data-gmc-js="getStargazersURL">
+                            <svg aria-hidden="true" class="octicon octicon-star mr-1" height="16" version="1.1" viewBox="0 0 14 16" width="14"><path fill-rule="evenodd" d="M14 6l-4.9-.64L7 1 4.9 5.36 0 6l3.6 3.26L2.67 14 7 11.67 11.33 14l-.93-4.74z"></path></svg><span data-gmc-id="in__stargazers_count__js" data-gmc-js="humanReadable"></span>
+                          </a>
+                      </span>
+                      Updated <span data-gmc-id="in__updated_at__js" data-gmc-js="formatDate"></span>
+                  </p>
+                </div>
               </div>
-              
             </div>
           </div>
-          <div class="border rounded-1 p-3">
-            <span class="f4 lh-condensed text-bold text-gray-dark">
-              <a target="_blank" href="https://github.com/" class="link-gray-dark text-bold wb-break-all" data-gmc-id="in__full_name, href__full_name__js" data-gmc-js="getRepoURL"></a>
-            </span>
-            <p data-gmc-id="in__description"></p>
-            
-            <p class="f6 text-gray mt-2 mb-0">
-                <span class="d-inline-block text-gray mr-3">
-                  <span class="repo-language-color ml-0" data-gmc-id="style__language__js" data-gmc-js="getStyleForLanguage"></span>
-                  <span itemprop="programmingLanguage" data-gmc-id="in__language"></span>
-                </span>
         
-                <span class="d-inline-block mr-3">
-                    <a target="_blank" href="" class="muted-link" data-gmc-id="href__full_name__js" data-gmc-js="getStargazersURL">
-                      <svg aria-hidden="true" class="octicon octicon-star mr-1" height="16" version="1.1" viewBox="0 0 14 16" width="14"><path fill-rule="evenodd" d="M14 6l-4.9-.64L7 1 4.9 5.36 0 6l3.6 3.26L2.67 14 7 11.67 11.33 14l-.93-4.74z"></path></svg>
-                      <span data-gmc-id="in__stargazers_count__js" data-gmc-js="humanReadable"></span>
-                    </a>
-                </span>
-        
-        
+      </section>
+      
+      <!-- TODO: for each theme: link to template, link to theme folder, download theme -->
+    </div>
+    <div class="tab-pane col-sm-12" id="user" role="tabpanel" aria-labelledby="user-tab">
+      <section class="section-padding" id="quickstart">
+        <div class="row">
+          <h2>Quick start</h2>
+          <p>There are three ways to integrate a card on a webpage.</p>
+          <div class="col-md-8 offset-md-2">
+            <div class="text-center">
                 
-                <a target="_blank" href="" class="pinned-repo-meta muted-link mr-3" data-gmc-id="href__full_name__js" data-gmc-js="getNetworkURL">
-                  <svg aria-label="forks" class="octicon" height="16" role="img" version="1.1" viewBox="0 0 10 16" width="10"><path fill-rule="evenodd" d="M8 1a1.993 1.993 0 0 0-1 3.72V6L5 8 3 6V4.72A1.993 1.993 0 0 0 2 1a1.993 1.993 0 0 0-1 3.72V6.5l3 3v1.78A1.993 1.993 0 0 0 5 15a1.993 1.993 0 0 0 1-3.72V9.5l3-3V4.72A1.993 1.993 0 0 0 8 1zM2 4.2C1.34 4.2.8 3.65.8 3c0-.65.55-1.2 1.2-1.2.65 0 1.2.55 1.2 1.2 0 .65-.55 1.2-1.2 1.2zm3 10c-.66 0-1.2-.55-1.2-1.2 0-.65.55-1.2 1.2-1.2.65 0 1.2.55 1.2 1.2 0 .65-.55 1.2-1.2 1.2zm3-10c-.66 0-1.2-.55-1.2-1.2 0-.65.55-1.2 1.2-1.2.65 0 1.2.55 1.2 1.2 0 .65-.55 1.2-1.2 1.2z"></path></svg>
-                  <span data-gmc-id="in__forks__js" data-gmc-js="humanReadable"></span>
-                </a>
-                <span class="mr-3">
-                  <svg aria-hidden="true" class="octicon mr-1" height="16" version="1.1" viewBox="0 0 14 16" width="14"><path fill-rule="evenodd" d="M7 4c-.83 0-1.5-.67-1.5-1.5S6.17 1 7 1s1.5.67 1.5 1.5S7.83 4 7 4zm7 6c0 1.11-.89 2-2 2h-1c-1.11 0-2-.89-2-2l2-4h-1c-.55 0-1-.45-1-1H8v8c.42 0 1 .45 1 1h1c.42 0 1 .45 1 1H3c0-.55.58-1 1-1h1c0-.55.58-1 1-1h.03L6 5H5c0 .55-.45 1-1 1H3l2 4c0 1.11-.89 2-2 2H2c-1.11 0-2-.89-2-2l2-4H1V5h3c0-.55.45-1 1-1h4c.55 0 1 .45 1 1h3v1h-1l2 4zM2.5 7L1 10h3L2.5 7zM13 10l-1.5-3-1.5 3h3z"></path></svg><span data-gmc-id="in__license-spdx_id"></span>
-                </span>
-                Updated <span data-gmc-id="in__updated_at__js" data-gmc-js="formatDate"></span>
-              </p>
-            <iframe frameborder="0" width="155" height="28" data-gmc-id="src__full_name__js" data-gmc-js="getSparksURL"></iframe>
+              <!-- Nav tabs -->
+              <ul class="nav nav-tabs" role="tablist">
+                <li class="nav-item">
+                  <a class="nav-link active" data-toggle="tab" href="#easy" role="tab">Easy</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" data-toggle="tab" href="#efficient" role="tab">Efficient</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" data-toggle="tab" href="#efficienter" role="tab">Even more efficient</a>
+                </li>
+              </ul>
+      
+              <!-- Tab panes -->
+              <div class="tab-content">
+                <div class="tab-pane active" id="easy" role="tabpanel">...</div>
+                <div class="tab-pane" id="efficient" role="tabpanel">...</div>
+                <div class="tab-pane" id="efficienter" role="tabpanel">...</div>
+              </div>
+            </div>
           </div>
-        </div>
-      </div>
+        </div> 
+      </section>
     </div>
-    
-    <h5 class="mt4">gh_recommendation</h5>
-    <a href="">Template source code</a>
-    <pre><code class="prettyprint">&lt;iframe data-gmc-repo=&quot;&lt;username/repoName&gt;&quot; frameborder=&quot;0&quot; data-gmc-theme=&quot;gh_recomendation&quot;&gt;&lt;/iframe&gt;
-      &lt;script type=&quot;text/javascript&quot; src=&quot;gmc.min.js&quot;&gt;&lt;/script&gt;</code></pre>
-
-    <div class="card-container">
-      <div class="demo-card" data-gmc-repo="tsucres/SwiftyComments">
-        <!--
-          Repo name, description, stars, number of opened issues, user avatar, topics + star button + error and loading states.
-        
-          It needs the following styles: 
-            - basic_github.css
-            - github_recommendation.css
-            - loading.css
-        
-          And the following js:
-            - languageColors.js
-            - getStargazersURL.js
-            - formatDate.js 
-            - getRepoURL.js 
-            - plural.js 
-            - getIssuesURL.js 
-            - fillWithTopics.js
-            - humanReadable.js
-        -->
-        
-        <div class="gh p-rel">
-          <div class="only-if-loading full-absolute p-1">
-            <div class="d-flex">
-              <div class="mr-3">
-                <span class="d-block content-placeholder" style="width:48px;height:48px;">&nbsp;</span>
-              </div>
-              <div style="width: 100%;">
-                <div class="d-inline-block mb-1">
-                  <span class="d-block content-placeholder" style="width:180px;width:15em;height:22px;">&nbsp;</span>
-                </div>
-                <div class="mt-2">
-                  <span class="content-placeholder mb-1 d-block" style="width:85%;height:13px;">&nbsp;</span>
-                  <span class="content-placeholder mb-1 d-block" style="width:45%;height:13px;">&nbsp;</span>
-                </div>
-                <p></p>
-                <div class="mb-2">
-                  <span class="d-inline-block">
-                    <span class="content-placeholder mr-2" style="width:60px;height:24px;">&nbsp;</span>
-                  </span>
-                  
-                  <span class="d-inline-block">
-                    <span class="content-placeholder mr-2" style="width:90px;height:24px;">&nbsp;</span>
-                  </span>
-                  <span class="d-inline-block">
-                    <span class="content-placeholder mr-2" style="width:70px;height:24px;">&nbsp;</span>
-                  </span>
-                  <span class="d-inline-block">
-                    <span class="content-placeholder mr-2" style="width:65px;height:24px;">&nbsp;</span>
-                  </span>
-                </div>
-                <div class="mt-2">
-                  <span class="content-placeholder mb-2" style="width:250px;height:16px;">&nbsp;</span>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="only-if-error">
-            <div class="full-absolute error-view">
-              <div class="p-rel">
-                <svg aria-hidden="true" class="octicon" height="40" version="1.1" viewBox="0 0 14 16" width="35"><path fill-rule="evenodd" d="M7 2.3c3.14 0 5.7 2.56 5.7 5.7s-2.56 5.7-5.7 5.7A5.71 5.71 0 0 1 1.3 8c0-3.14 2.56-5.7 5.7-5.7zM7 1C3.14 1 0 4.14 0 8s3.14 7 7 7 7-3.14 7-7-3.14-7-7-7zm1 3H6v5h2V4zm0 6H6v2h2v-2z"></path></svg>
-                <h3>Couldn't fetch information for this repo.</h3>
-              </div>
-              
-            </div>
-          </div>
-          <div class="p-4 border-bottom only-if-loaded">
-            <div class="d-flex">
-              <a target="_blank" class="d-block mr-3 mt-1" href="" data-gmc-id="href__owner-avatar_url">
-                <img src="" class="avatar" width="48" height="48" alt="" data-gmc-id="src__owner-avatar_url, alt__owner-login">
-              </a>
-              <div style="width: 100%;">
-                <div class="d-inline-block mb-1">
-                  <h3>
-                    <a target="_blank" href="" data-gmc-id="href__html_url">
-                      <span class="text-normal"><span data-gmc-id="in__owner-login"></span>/</span><span data-gmc-id="in__name"></span>
-                    </a>          
-                  </h3>
-                </div>
-                <div class="f6 text-gray d-inline-block" style="float: right;">
-                  <div class="d-inline-block">
-                    <a target="_blank" class="btn btn-sm" type="submit" value="Star" data-gmc-id="href__html_url">
-                      <svg aria-hidden="true" class="octicon octicon-star mr-1" height="16" version="1.1" viewBox="0 0 14 16" width="14"><path fill-rule="evenodd" d="M14 6l-4.9-.64L7 1 4.9 5.36 0 6l3.6 3.26L2.67 14 7 11.67 11.33 14l-.93-4.74z"></path></svg>Star
-                    </a>
-                  </div>
-                </div>
-                <div data-gmc-id="in__description"></div>
-                <p></p>
-                <div class="topics-row-container col-9 d-inline-flex flex-wrap flex-items-center f6 my-1" data-gmc-id="trash__full_name__js" data-gmc-js="fillWithTopics">
-                </div>
-                <div class="f6 text-gray mt-2">
-                  <span class="repo-language-color ml-0" style="" data-gmc-id="style__language__js" data-gmc-js="getStyleForLanguage"></span>
-                  <span class="mr-3" data-gmc-id="in__language"></span>
-                  <a target="_blank" href="" class="muted-link mr-3" data-gmc-id="href__full_name__js" data-gmc-js="getStargazersURL">
-                    <svg aria-label="star" class="octicon octicon-star mr-1" height="16" role="img" version="1.1" viewBox="0 0 14 16" width="14"><path fill-rule="evenodd" d="M14 6l-4.9-.64L7 1 4.9 5.36 0 6l3.6 3.26L2.67 14 7 11.67 11.33 14l-.93-4.74z"></path></svg><span data-gmc-id="in__stargazers_count__js" data-gmc-js="humanReadable"></span>
-                  </a> 
-                  <a target="_blank" class="muted-link mr-3" href="" data-gmc-id="href__full_name__js" data-gmc-js="getIssuesURL">
-                        <span data-gmc-id="in__open_issues_count__js" data-gmc-js="humanReadable"></span> issue<span data-gmc-id= "in__open_issues_count__js" data-gmc-js="addSIfSeveral"></span> need<span data-gmc-id= "in__open_issues_count__js" data-gmc-js="addSIfSingular"></span> help
-                  </a>Updated <span data-gmc-id="in__updated_at__js" data-gmc-js="formatDate" data-gmc-ap></span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+    <div class="tab-pane col-sm-12" id="others" role="tabpanel" aria-labelledby="others-tab">
+      <section class="section-padding" id="quickstart">
+        <div class="row">
+          
+        </div> 
+      </section>
     </div>
-    
   </div>
-
-
-  
-  
 
 </div>
 
-  <script type="text/javascript">
+
+<footer>
+  <p>Hosted on <a href="https://www.github.com/tsucres/GithubManyfacedCards">GitHub</a></p>
+  <p>Copyright 2017 - Stéphane Sercu</p>
+</footer>
+
+
+<script type="text/javascript" src="dist/gmc.min.js"></script>
+<script type="text/javascript">
     // The following are the js function needed by the templates
     function getStargazersURL(repoFullName) {
       return "https://github.com/" + repoFullName + "/stargazers/";
@@ -972,26 +680,20 @@
        return parseFloat((num / Math.pow(k, i)).toFixed(dm)) + sizes[i];
     }
   </script>
-  <script type="text/javascript" src="dist/gmc.min.js"></script>
-
   <script type="text/javascript">
     function updateCards() {
+      var demoCardIdentifier = ".demo-card[data-gmc-repo]";
       var repoNameInput = document.getElementById("repoNameInput");
       var repoName = repoNameInput.value || repoNameInput.placeholder;
 
       fetchJson("https://api.github.com/repos/" + repoName, function(json) {
-        var iframes = document.querySelectorAll('.demo-card[data-gmc-repo]');
+        var iframes = document.querySelectorAll(demoCardIdentifier);
         iframes.forEach(function(iframe) {
           (new GMC(iframe, json));
         });
       }, function(){
         alert("Failed to fetch data from the github API.");
       });
-
-      var embeded_iframes = document.getElementsByClassName('demo-card-embed');
-      for (var i = 0; i < embeded_iframes.length; i++) {
-        embeded_iframes[i].src = "https://cdn.rawgit.com/tsucres/GithubManyfacedCards/master/dist/themes/gh_full.gmc.min.html?rn=" + repoName;
-      }
     }
 
     window.onload = function() {
@@ -999,6 +701,12 @@
     }
 
   </script>
+<script src="demo/js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
 
 </body>
 </html>
