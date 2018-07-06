@@ -1,0 +1,9 @@
+{% macro updateForm(id, placeholder, onClick, helMessage) %}
+<div class="form-inline col-sm-10 offset-sm-1 col-xs-12 my-4">
+  <div class="form-group mx-sm-3 col-sm-9">
+    <input type="text" id="{{ id }}" placeholder="{{ placeholder }}" class="form-control">
+  </div>
+  <button type="button" class="btn btn-primary col-sm-2" onclick="{{ onClick }}">Update</button>
+  <small class="form-text text-muted col-sm-12">{{ helpMessage }}</small>
+</div>
+{% endmacro %}

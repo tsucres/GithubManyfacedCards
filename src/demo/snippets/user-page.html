@@ -1,30 +1,17 @@
-<section class="section-padding" id="quickstart">
-  <div class="row">
-    <h2>Quick start</h2>
-    <p>There are three ways to integrate a card on a webpage.</p>
-    <div class="col-md-8 offset-md-2">
-      <div class="text-center">
-          
-        <!-- Nav tabs -->
-        <ul class="nav nav-tabs" role="tablist">
-          <li class="nav-item">
-            <a class="nav-link active" data-toggle="tab" href="#easy" role="tab">Easy</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" data-toggle="tab" href="#efficient" role="tab">Efficient</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" data-toggle="tab" href="#efficienter" role="tab">Even more efficient</a>
-          </li>
-        </ul>
 
-        <!-- Tab panes -->
-        <div class="tab-content">
-          <div class="tab-pane active" id="easy" role="tabpanel">...</div>
-          <div class="tab-pane" id="efficient" role="tabpanel">...</div>
-          <div class="tab-pane" id="efficienter" role="tabpanel">...</div>
-        </div>
-      </div>
-    </div>
-  </div> 
+{% set qs_page = 'user' %}
+
+{% include 'src/demo/snippets/quickstart.html' %}
+
+<section>
+  <h2 id="skins-{{qs_page}}">Default skins</h2>
+  {% set helpMessage = "Update the user showed in the examples bellow." %}
+  {% set onClick = "updateUserCards()" %}
+  {% set placeholder = "tsucres" %}
+  {% set id = "userNameInput" %}
+  {{ updateForm(id, placeholder, onClick, helpMessage) }}
+  
+  
+  {{ demoCard('codeshape', 'codeshape', 'user', 'tsucres', 'Original design by <a href="https://codepen.io/codeshape/pen/oZmYXG">Codeshape</a>.') }}
+
 </section>

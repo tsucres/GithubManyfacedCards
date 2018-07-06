@@ -53,15 +53,15 @@ Again, the `<theme_name>` must be replaced with the name of one of the supported
 This way must be preferred if you plan to have several cards on a single webpage, or if you need to load the cards programmatically, or even if you need a custom version of the gmc.js script.
 
 The advantages of this method over the previous one are: 
-- The `gmc.js` script is loaded only once (in the first implementation method, it is embeded in every iframe)
-- If you use the same theme for several cards, the styles and the js code needed by the theme are loaded once
+- The `gmc.js` script is loaded only once (in the first implementation method, it is embedded in every iframe)
+- If you use the same theme for several cards, the styles and the js code needed by the theme are loaded only once
 - No iframe: the markup is dynamically added as a sibling of the `<script>` tag
 - Since the card is directly inside the document, you can override the style of the theme.
 - You can easily add a responsive behavior to the card
 - You can use a custom version of `gmc.js`
 
 
-With this method, you should load `gmc.js` at the beginning of your html (to ensure that the `GMC` function exists in the document when the card is loaded). The script is a couple of kb and is served with a cdn (rawgit), so it shouldn't be a big deal.
+With this method, you should load `gmc.js` at the beginning of your html (to ensure that the `GMC` function exists in the document when the card is loaded). The script is a couple of kb and is served with a cdn (rawgit or jsdelivr), so it shouldn't be a big deal.
 
 <!-- JSFiddle link -->
 [**jsFiddle** >> ](https://jsfiddle.net/tsucres/wt4pq0qu/)

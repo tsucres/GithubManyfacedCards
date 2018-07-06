@@ -1,72 +1,25 @@
 
-<div class="form-inline col-md-8 offset-md-2 col-sm-10 offset-sm-1 col-xs-12 my-4">
-  <div class="form-group mx-sm-3 col-sm-9">
-    <input type="text" id="repoNameInput" placeholder="tsucres/SwiftyComments" onclick="updateCards()" class="form-control">
-  </div>
-  <button type="button" class="btn btn-primary col-sm-2">Update</button>
-  <small id="repoNameHelp" class="form-text text-muted col-sm-12">Update the repo showed in the examples bellow.</small>
-</div>
+{% set qs_page = 'repo' %}
 
-<section id="quickstart">
-  <h2>Quick start</h2>
-  <p>There are three ways to integrate a card on a webpage.</p>
-  <div class="col-md-8 offset-md-2">
-    <!-- Nav tabs -->
-    <ul class="nav nav-tabs d-flex justify-content-center" role="tablist">
-      <li class="nav-item">
-        <a class="nav-link active" data-toggle="tab" href="#easy" role="tab">Easy</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" data-toggle="tab" href="#efficient" role="tab">Efficient</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" data-toggle="tab" href="#efficienter" role="tab">Even more efficient</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" data-toggle="tab" href="#custom" role="tab">Custom initialization</a>
-      </li>
-    </ul>
+{% include 'src/demo/snippets/quickstart.html' %}
 
-    <!-- Tab panes -->
-    <div class="tab-content">
-      <div class="tab-pane active mv2 b-light show fade" id="easy" role="tabpanel">
-        <pre><code class="html">&lt;iframe src=&quot;https://cdn.rawgit.com/tsucres/GithubManyfacedCards/master/dist/themes/gh_recommendation/embeded/gh_recommendation.gmc.min.html?rn=tsucres/GithubManyfacedCards&quot; frameborder=&quot;0&quot;&gt;&lt;/iframe&gt;</code></pre>
-
-        <p>All you need to do is include this piece of markup in your webpage and replace the name of the repo and the name of the theme.</p>
-
-        <p>All the available themes are listed <a href="#themes">below</a>.</p>
-
-      </div>
-      <div class="tab-pane mv2 b-light fade" id="efficient" role="tabpanel">
-        <pre><code class="html">// in the head or in the beginning of the body
-&lt;script src=&quot;https://cdn.rawgit.com/tsucres/GithubManyfacedCards/master/dist/gmc.min.js&quot;&gt;
-
-// ...
-
-// where you want the card
-&lt;script async src=&quot;https://cdn.rawgit.com/tsucres/GithubManyfacedCards/master/dist/gmc-loader.min.js&quot; data-gmc-repo=&quot;&lt;full_repo_name&gt;&quot; data-gmc-theme=&quot;&lt;theme_name&gt;&quot;&gt;&lt;/script&gt;</code></pre>
-        <p></p>
-
-      </div>
-      <div class="tab-pane mv2 b-light fade" id="efficienter" role="tabpanel">
-        <p>This method consists in doing manually what the "gmc-loader.js" script does automaticcally: loading the style, the javascript and the template of the card skin and then calling "GMC.loadAllCards()".</p>
-        <p>For this implementation, you'll need all the files ralated to the theme you want. </p>
-      </div>
-      <div class="tab-pane mv2 b-light fade" id="custom" role="tabpanel">...</div>
-    </div>
-  </div> 
-</section>
 <section>
-  <h2>Default skins</h2>
-  <h3>gh_basic</h3>
-  <p><a href="https://github.com/tsucres/GithubManyfacedCards/dist/themes/" class="mini-link">Template source code</a> | <a href="" class="mini-link">Skin files on github</a> | <a href="" class="mini-link">Download skin files</a></p>
-  Simplest theme: no error state, no loading state.
-  <div class="card-container">
-      <div class="demo-card" data-gmc-repo="tsucres/SwiftyComments">
-        <!-- @include ../../../dist/themes/gh_basic/gh_basic.html -->
-      </div>
-    </div>
+  <h2 id="skins-{{qs_page}}">Default skins</h2>
+  {% set helpMessage = "Update the repo showed in the examples bellow." %}
+  {% set onClick = "updateRepoCards()" %}
+  {% set placeholder = "tsucres/SwiftyComments" %}
+  {% set id = "repoNameInput" %}
+  {{ updateForm(id, placeholder, onClick, helpMessage) }}
   
+  
+  {{ demoCard("gh-basic", "gh_basic", "repo", "tsucres/SwiftyComments", "Simplest theme: no error state, no loading state. The design is inspired by the official GitHub's design on the user page.") }}
+
+  {{ demoCard("gh-pure", "gh_pure", "repo", "tsucres/SwiftyComments", "Same as the previous theme, but with loading and error state.") }}
+
+  {{ demoCard("gh-full", "gh_full", "repo", "tsucres/SwiftyComments", "") }}
+
+  {{ demoCard("gh-recommendation", "gh_recommendation", "repo", "tsucres/SwiftyComments", "") }}
+
 </section>
 
 <!-- TODO: for each theme: link to template, link to theme folder, download theme -->

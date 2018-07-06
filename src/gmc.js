@@ -35,6 +35,9 @@ function fetchJson(url, success, fail, httpHeaders) {
   });
   request.send();
 }
+
+
+
 /*
 2 possible initializations: 
   1. (iframe + data-gmc-theme + data-gmc-repo).
@@ -59,26 +62,45 @@ function GMC(root_el, json) { 'use strict';
   var repoApiURL = "https://api.github.com/repos/";
 
   this.repoFullName = root_el.getAttribute("data-gmc-repo");
+  this.username = root_el.getAttribute("data-gmc-user");
   this.json = json;
   this.root_el = null;
 
-  /**
-    Fetch the json data about the repo whose name is in 
-    self.repoFullName and fill them in the template.
-  */
-  this.fillWithRepoName = function() {
+
+  this.fetchJson = function(url, success, fail) {
     var headers = {};
     if (typeof GH_API_KEY === "string") {
       headers["Authorization"] = "token " + GH_API_KEY; // Untested!!!!
     }
     headers['Accept'] = "application/vnd.github.mercy-preview+json";
-    fetchJson(repoApiURL + self.repoFullName, function(json) {
+    fetchJson(url, success, fail, headers);
+  }
+  /**
+    Fetch the json data about the repo whose name is in 
+    self.repoFullName and fill them in the template.
+  */
+  this.fillWithRepoName = function() {
+    self.fetchJson(repoApiURL + self.repoFullName, function(json) {
       self.json = json
-      self.fillWithRepoJson();
+      self.fillWithJson();
     }, function() {
       self.markError();
       //console.log("Shout! Json failed loading!");
-    }, headers);
+    });
+  }
+
+  /**
+    Fetch the json data about the user whose name is in 
+    self.username and fill them in the template.
+  */
+  this.fillWithUserName = function() {
+    self.fetchJson(repoApiURL + "users/" + self.repoFullName, function(json) {
+      self.json = json
+      self.fillWithJson();
+    }, function() {
+      self.markError();
+      //console.log("Shout! Json failed loading!");
+    });
   }
 
   /**
@@ -88,8 +110,8 @@ function GMC(root_el, json) { 'use strict';
     It requires root_el, json and repoName to be filled. Otherwise 
     it quits.
     */
-  this.fillWithRepoJson = function() {
-    if (!(self.root_el && self.json && self.repoFullName))
+  this.fillWithJson = function() {
+    if (!(self.root_el && self.json && (self.repoFullName || self.username)))
       return
     var elements = self.root_el.querySelectorAll('[data-gmc-id]');
     elements.forEach(function(el) {
@@ -183,10 +205,8 @@ function GMC(root_el, json) { 'use strict';
 
     if (js) {
       var jsFunction = element.getAttribute("data-gmc-js");
-      var doc = element.ownerDocument;
-      var win = doc.defaultView || doc.parentWindow;
-      if(typeof win[jsFunction] === "function")
-        jsonValue = win[jsFunction].call(null, jsonValue, element, self);
+      if(typeof window[jsFunction] === "function")
+        jsonValue = window[jsFunction].call(null, jsonValue, element, self);
     }
     if (jsonValue === null) {
       return
@@ -209,34 +229,16 @@ function GMC(root_el, json) { 'use strict';
 
 
 
-  if (root_el.tagName === "IFRAME") {
-    // case 1)
-    this.iframe = root_el;
-    root_el.onload = function() {
-      self.root_el = root_el.contentWindow.document.body;
-      // This is async, in race with the download of the json data. 
-      // If the json isn't fetched yet, the call to this function will 
-      // just return.
-      self.fillWithRepoJson(); 
-    };
-    /*root_el.onerror = function() {
-      console.log("error root");
-    }*/
-    if (root_el.getAttribute("data-gmc-theme-url")) {
-      root_el.src = root_el.getAttribute("data-gmc-theme-url");
-    } else {
-      var themeName = root_el.getAttribute("data-gmc-theme") || "gh_pure";
-      root_el.src = themesBaseURL + themeName + ".html";
+  self.root_el = root_el;
+  if (this.json) {
+    this.fillWithJson();
+  } else {
+    if (this.repoFullName) {
+      this.fillWithRepoName();
+    } else if (this.username) {
+      this.fillUserName();
     }
     
-  } else { 
-    // case 2)
-    self.root_el = root_el;
-  }
-  if (this.json) {
-    this.fillWithRepoJson();
-  } else {
-    this.fillWithRepoName();
   }
 }
 
@@ -249,9 +251,9 @@ function GMC(root_el, json) { 'use strict';
   using the repo name specified in data-gmc-repo.
   */
 GMC.loadAllCards = function(json) {
-  var iframes = document.querySelectorAll('[data-gmc-repo]');
-  iframes.forEach(function(iframe) {
-    (new GMC(iframe, json));
+  var gmc_repos = document.querySelectorAll('[data-gmc-repo], [data-gmc-user]');
+  gmc_repos.forEach(function(gmc_repo) {
+    (new GMC(gmc_repo, json));
   });
 }
 

@@ -7,7 +7,17 @@
   margin-bottom: 20px;
 }
 
+.feature .icon i:before {
+  vertical-align: middle;
+}
 
+.feature h3 {
+  display: inline-block;
+}
+
+.demo-card {
+  line-height: 1.0;
+}
 
 header h1 {
 	
@@ -22,7 +32,6 @@ header h1 .subscript {
 header {
 	color: #404042;
   text-align: center;
-  height: 290px;
   background-color: #F1F8FF;
   padding: 20px;
 }
@@ -36,13 +45,13 @@ header .features {
   list-style: none;
   margin-top: 30px;
 }
-header .features li {
+header .features .feature {
   white-space: nowrap;
   display: inline;
   vertical-align: middle;
 }
 
-header .features li:not(:first-child) {
+header .features .feature:not(:first-child) {
   margin-left: 20px;
   
 }
@@ -165,7 +174,7 @@ header .features .feature-text {
   padding: 20px; 
 }
 
-#repoNameInput {
+#repoNameInput, #userNameInput {
   width: inherit;
 }
 .mini-link {
@@ -182,6 +191,7 @@ footer {
 pre code.hljs {
   padding: 12px 20px;
   border-radius: 2px;
+  display: block;
 }
 
 .nav-pills a.nav-link.active, .nav-pills .show>.nav-link {
@@ -205,4 +215,54 @@ pre code.hljs {
 }
 .nav-pills a.nav-link:hover {
   background-color: #2078DA;
+}
+
+
+/**
+  Header
+  */
+
+.header-content {
+  max-width: 800px;
+}
+
+
+/**
+  Side bar
+  */
+.toc ul {
+  padding: 0;
+}
+.toc-entry {
+  display: block;
+  padding-left: 8px;
+}
+.toc-entry a {
+  display: block;
+  
+}
+.toc-entry.toc-h2 {
+  font-size: 11pt;
+}
+.toc-entry.toc-h3 {
+  font-size: 10pt;
+}
+
+.card-container {
+  margin: 20px;
+}
+/* Large devices (desktops, 992px and up) */
+@media (max-width: 992px) { 
+ .toc {
+  display: none;
+ }
+}
+
+
+
+.code {
+  font-family: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+}
+code.hljs {
+  display: inline;
 }

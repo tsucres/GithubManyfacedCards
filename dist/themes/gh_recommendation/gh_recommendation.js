@@ -32,7 +32,7 @@ function formatDate(isoDateStr) {
     yearStr = ", " + String(year);
   }
 
-  return  monthNames[monthIndex] + " " + day + " " + yearStr;
+  return  " " + monthNames[monthIndex] + " " + day + " " + yearStr;
 }
 /**
   Fetches the topics of the specified repo and add a markup in the 
@@ -54,7 +54,7 @@ function fillWithTopics(fullRepoName, element, gmc) {
   */
   var currentJson = gmc.json;
   if (currentJson.hasOwnProperty("topics")) {
-    fillMarkup(element, currentJson);
+    fillMarkup(element, currentJson.topics);
   } else {
     var url = "https://api.github.com/repos/" + fullRepoName + "/topics";
     var request = new XMLHttpRequest();

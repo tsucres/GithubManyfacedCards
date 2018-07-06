@@ -7,7 +7,7 @@
   */
 function getSparks(fullNameRepo, element) {
   var request = new XMLHttpRequest();
-  var url = "https://github.com/" + fullNameRepo + "/graphs/participation?h=28&type=sparkline&w=155";
+  var url = "https://urlreq.appspot.com/req?method=GET&url=" + encodeURIComponent("https://github.com/" + fullNameRepo + "/graphs/participation?h=28&type=sparkline&w=155");
   request.open("GET", url); 
   
   request.onreadystatechange = function() {

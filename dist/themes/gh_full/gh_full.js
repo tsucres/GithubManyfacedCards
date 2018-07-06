@@ -32,7 +32,7 @@ function formatDate(isoDateStr) {
     yearStr = ", " + String(year);
   }
 
-  return  monthNames[monthIndex] + " " + day + " " + yearStr;
+  return  " " + monthNames[monthIndex] + " " + day + " " + yearStr;
 }
 /**
   Fetches the activity graph (svg) produced by github for the specified 
@@ -43,7 +43,7 @@ function formatDate(isoDateStr) {
   */
 function getSparks(fullNameRepo, element) {
   var request = new XMLHttpRequest();
-  var url = "https://github.com/" + fullNameRepo + "/graphs/participation?h=28&type=sparkline&w=155";
+  var url = "https://urlreq.appspot.com/req?method=GET&url=" + encodeURIComponent("https://github.com/" + fullNameRepo + "/graphs/participation?h=28&type=sparkline&w=155");
   request.open("GET", url); 
   
   request.onreadystatechange = function() {

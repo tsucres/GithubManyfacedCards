@@ -1,0 +1,111 @@
+{% if qs_page == "repo" %}
+  {% set object_name = "<repo_full_name>" %}
+{% elif qs_page == "user" %}
+  {% set object_name = "<user_name>" %}
+{% endif %}
+
+<section id="quick-start-{{qs_page}}">
+  <h2>Quick start</h2>
+  <p>There are three ways to integrate a card on a webpage.</p>
+  <div class="col-xs-12">
+    <!-- Nav tabs -->
+    <ul class="nav nav-tabs d-flex justify-content-center" role="tablist">
+      <li class="nav-item">
+        <a class="nav-link active" data-toggle="tab" href="#easy-{{qs_page}}" role="tab">Easy</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" data-toggle="tab" href="#efficient-{{qs_page}}" role="tab">Efficient</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" data-toggle="tab" href="#efficienter-{{qs_page}}" role="tab">Even more efficient</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" data-toggle="tab" href="#custom-{{qs_page}}" role="tab">Custom initialization</a>
+      </li>
+    </ul>
+
+    <!-- Tab panes -->
+    <div class="tab-content">
+      <div class="tab-pane active mv2 b-light show fade" id="easy-{{qs_page}}" role="tabpanel">
+        <pre><code class="html">{% if qs_page == "repo" %}{{- 
+          '<iframe src="https://cdn.rawgit.com/tsucres/GithubManyfacedCards/master/dist/themes/<theme_name>/embedded/embedded.gmc.min.html?rn=<full_repo_name>" frameborder="0"></iframe>' | preCode -}}{% elif qs_page == "user" %}{{- 
+          '<iframe src="https://cdn.rawgit.com/tsucres/GithubManyfacedCards/master/dist/themes/<theme_name>/embedded/embedded.gmc.min.html?un=<user_name>" frameborder="0"></iframe>' | preCode -}}{% endif %}</code></pre>
+
+        <p>All you need to do is include this piece of markup in your webpage and replace <code><theme_name></code> and 
+          {% if qs_page == "repo" %}
+          <code><full_repo_name></code> by the name of the repo (example: <code>tsucres/GithubManyfacedCards</code>) 
+
+          {% elif qs_page == "user" %}
+          <code><user_name></code> by the name of the user (example: <code>tsucres</code>) 
+
+          {% endif %}
+          and the name of the theme (example: <code>gh_pure</code>).</p>
+
+        <p>All the available themes are listed <a href="#skins-{{qs_page}}">below</a>.</p>
+
+        <p>
+          {% if qs_page == "repo" %}
+          <a href="https://jsfiddle.net/tsucres/Ltbejcto/"><strong>jsFiddle</strong> >> </a>
+          {% elif qs_page == "user" %}
+          <!-- TODO jsFiddle -->
+          {% endif %}
+        </p>
+      </div>
+      <div class="tab-pane mv2 b-light fade" id="efficient-{{qs_page}}" role="tabpanel">
+        This method must be preferred if you plan to have several cards on a single webpage, or if you need to load the cards programmatically, or even if you need a custom version of the gmc.js script.<br>
+        <pre><code class="html">
+          {{- '// before the first card
+          <script src="https://cdn.rawgit.com/tsucres/GithubManyfacedCards/master/dist/gmc.min.js"></script>\\n
+
+          // ... \\n
+
+          // where you want the card' | preCode -}}
+          {% if qs_page == "repo" %} 
+          {{- '<script async src="https://cdn.rawgit.com/tsucres/GithubManyfacedCards/master/dist/gmc-loader.min.js" data-gmc-repo="<full_repo_name>" data-gmc-theme="<theme_name>"></script>' | preCode -}}
+          {% elif qs_page == "user" %} 
+          {{- '<script async src="https://cdn.rawgit.com/tsucres/GithubManyfacedCards/master/dist/gmc-loader.min.js" data-gmc-user="<user_name>" data-gmc-theme="<theme_name>"></script>' | preCode -}}
+          {% endif %} 
+        </code></pre>
+        
+        The advantages of this method over the previous one are: 
+        <ul>
+          <li>The "gmc.js" script is loaded only once (in the first implementation method, it is embedded in every iframe)</li>
+          <li>If you use the same theme for several cards, the styles and the js code needed by the theme are loaded only once</li>
+          <li>No iframe: the markup is dynamically added as a sibling of the <code class="html">{{ '<script></script>' | preCode }}</code>< tag</li>
+          <li>Since the card is directly inside the document, you can override the style of the theme.</li>
+          <li>You can easily add a responsive behavior to the card</li>
+          <li>You can use a custom version of "gmc.js"</li>
+        </ul>
+
+        <p><a href="https://jsfiddle.net/tsucres/wt4pq0qu/"><strong>jsFiddle</strong> >> </a></p>
+
+      </div>
+      <div class="tab-pane mv2 b-light fade" id="efficienter-{{qs_page}}" role="tabpanel">
+        <p>This method consists in doing manually what the "gmc-loader.js" script does automaticcally: loading the style, the javascript and the template of the card skin and then calling <code class="js">GMC.loadAllCards()</code>.</p>
+        <p>For this implementation, you'll need all the files ralated to the theme you want. You can find them on <a href="https://github.com/tsucres/GithubManyfacedCards/tree/master/dist/themes">github</a> or download the ones you need below (click on "Download skin files").</p>
+
+        <pre><code class="html">
+          {{- 
+            '// 1) Place the css file in the head
+            <link rel="stylesheet" type="text/css" href="path/<theme_name>.min.css">\\n
+            // ... \\n
+            // 2) Place your card(s)
+            <div data-gh-repo="<full_repo_name>">
+              \\t// Paste the markup of the skin from the file <theme_name>.html
+            </div>\\n
+            // ... \\n
+            // 3) Place the js file at the bottom of the body
+            <script type="text/javascript" src="path/<theme_name>.min.js"></script>\\n
+            // 4) Somehow call the function GMC.loadAllCards when the document has loaded
+            <script type="text/javascript">
+              \\twindow.onload = GMC.loadAllCards
+            </script>' | preCode }}
+
+        </code></pre>
+      </div>
+      <div class="tab-pane mv2 b-light fade" id="custom-{{qs_page}}" role="tabpanel">
+        If you choose to go with the third method, you can load the card(s) "manually", using the <code class="js">GMC</code> constructor. You can refer to the complete documentation on <a href="https://github.com/tsucres/GithubManyfacedCards">github</a> for more informations.
+      </div>
+    </div>
+  </div> 
+</section>

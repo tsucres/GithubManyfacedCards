@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <base target="_blank">
+  <style type="text/css">
+    @import url(https://fonts.googleapis.com/css?family=Exo+2:300,400,700);
+    .cs-card {
+      font-size:14px;
+      font-family: "Exo 2", sans-serif;
+      color: #333;
+      position: relative;
+      width: 315px; /* Remove for full width */
+      height: 450px; /* Remove for full width */
+      margin:30px auto;
+      box-shadow: 0 0 40px rgba(0,0,0, .3);
+    }
+    .cs-card .cs-card-header{
+      position: relative;
+      height: 220px;
+      background-size: cover;
+      background-position: top;
+    }
+    .cs-card .cs-card-header:after{
+      content:'';
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(to top, rgb(5,85,134), rgba(181,181,181, 0.1));
+    }
+    
+    .cs-card .cs-card-header-bar{
+      position: absolute;
+      top:0;
+      width: 100%;
+      z-index: 1;
+      width: 100%;
+    }
+    
+    .sr-only{
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      clip: rect(0,0,0,0);
+      border: none;
+      overflow: hidden;
+    }
+    .btn-message{
+      display: inline-block;
+      background: url(https://res.cloudinary.com/dj14cmwoz/image/upload/v1491077483/profile-card/images/message.svg) no-repeat;
+      width: 19.37px;
+      height: 16.99px;
+      margin-right:10px;
+      margin-top:10px;
+      float: right;
+    }
+    .btn-menu{
+      display: inline-block;
+      background: url(https://res.cloudinary.com/dj14cmwoz/image/upload/v1491077483/profile-card/images/menu.svg) no-repeat;
+      width: 19px;
+      height: 12.16px;
+      margin-left:10px;
+      margin-top:10px;
+      float: left;
+    }
+    
+    svg .polygon{
+      fill: #fff;
+    }
+    .cs-card-header-slanted-edge{
+      position: absolute;
+      bottom: -3px;
+      z-index: 1;
+      width: 100%;
+      right:0;
+      left:0;
+    }
+    
+    .btn-follow{
+      position: absolute;
+      top: -15px;
+      right: 25px;
+      width: 45px;
+      height: 45px;
+      background: linear-gradient(to left, #2D77C1, #68FAC2);
+      border-radius:100%;
+      box-shadow: 0 10px 15px rgba(110,221,235, .53);
+    }
+    
+    .btn-follow:after{
+      content: '';
+      position:absolute;
+      background: url(https://res.cloudinary.com/dj14cmwoz/image/upload/v1491077480/profile-card/images/add.svg) no-repeat;
+      width:17px;
+      height: 17px;
+      left: 50%;
+      top:50%;
+      transform: translate(-50%, -50%);
+    }
+    
+    .cs-card .cs-card-body{
+      text-align:center;
+      padding-left: 10px;
+    }
+    
+    .cs-card-body .name{
+      font-size: 20px;
+      font-weight: 700;
+      text-transform: uppercase;
+      margin: 0 auto;
+    }
+    
+    .cs-card-body .job-title{
+      font-size: 14px;
+      font-weight: 300;
+      margin-top: 5px;
+      color: #919191;
+    }
+    
+    .cs-card-body .bio{
+      font-size: 14px;
+      color: #7B7B7B;
+      font-weight: 300;
+      margin: 10px auto;
+      line-height: 20px;
+    }
+    
+    .cs-card-body .social-accounts img{
+      width: 15px;
+    }
+    
+    .cs-card-body .social-accounts a{
+      margin-left: 10px;
+    }
+    .cs-card-body .social-accounts a:first-child{
+      margin-left: 0;
+    }
+    
+    .cs-card-footer{
+      /*position:fixed; /* Full card width/height */
+      position: absolute; /* Fixed card width/height */
+    
+      left: 0;
+      width: 100%;
+      bottom: 20px;
+    }
+    .cs-card-footer .stat{
+      box-sizing: border-box;
+      width: calc(100% / 3);
+      float: left;
+      text-align: center;
+      border-left: 1px solid #EBEBEB;
+    }
+    .cs-card-footer .stat .label{
+      display: block;
+      text-transform: uppercase;
+      font-weight: 300;
+      font-size: 11px;
+      letter-spacing: 1px;
+      color: #95989A;
+    }
+    
+    .cs-card-footer .stat .value{
+      display: block;
+      font-weight: 700;
+      font-size:20px;
+      margin-top: 5px;
+    }
+  </style>
+</head>
+<body style=" margin: 0;">
+<!--
+  User theme: First + Last name, bui, followers, following, stars
+  
+  Original design by codeshape: https://codepen.io/codeshape/pen/oZmYXG
+  
+  It only needs the following style: 
+    - codeshape.css
+
+  And the following js:
+    - setBgImageUrl.js
+    - mailTo.js
+    - humanReadable.js
+-->
+
+  <div class="cs-card">
+      <div class="cs-card-header" data-gmc-id="style__avatar_url__js" data-gmc-js="setBgImgUrl">
+            <div class="cs-card-header-bar">
+              <a href="" class="btn-message" data-gmc-id="href__email__js" data-gmc-js="mailTo"><span class="sr-only">Message</span></a>
+              <a href="#" class="btn-menu"><span class="sr-only">Menu</span></a>
+            </div>
+
+            <div class="cs-card-header-slanted-edge">
+              <!--<svg width="33px" height="33px" viewBox="0 0 33 33" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                    <g transform="translate(-136.000000, -55.000000)" fill="#161514">
+                        <path d="M152.608,55.455 C143.614,55.455 136.32,62.748 136.32,71.745 C136.32,78.942 140.987,85.047 147.46,87.201 C148.275,87.351 148.572,86.848 148.572,86.416 C148.572,86.03 148.558,85.005 148.55,83.646 C144.019,84.63 143.063,81.462 143.063,81.462 C142.322,79.58 141.254,79.079 141.254,79.079 C139.775,78.069 141.366,78.089 141.366,78.089 C143.001,78.204 143.861,79.768 143.861,79.768 C145.314,82.257 147.674,81.538 148.602,81.121 C148.75,80.069 149.171,79.351 149.636,78.944 C146.019,78.533 142.216,77.135 142.216,70.893 C142.216,69.115 142.851,67.66 143.893,66.522 C143.725,66.11 143.166,64.453 144.053,62.211 C144.053,62.211 145.42,61.773 148.532,63.881 C149.831,63.519 151.225,63.339 152.61,63.332 C153.994,63.339 155.387,63.519 156.688,63.881 C159.798,61.773 161.163,62.211 161.163,62.211 C162.052,64.453 161.493,66.11 161.326,66.522 C162.37,67.66 163,69.115 163,70.893 C163,77.151 159.191,78.528 155.563,78.931 C156.147,79.434 156.668,80.428 156.668,81.948 C156.668,84.125 156.648,85.882 156.648,86.416 C156.648,86.852 156.942,87.359 157.768,87.2 C164.236,85.041 168.899,78.94 168.899,71.745 C168.899,62.748 161.605,55.455 152.608,55.455"></path>
+                    </g>
+                </g>
+              </svg>-->
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 200"><path class="polygon" d="M-20,200,1000,0V200Z" /></svg>
+                <a href="" class="btn-follow" data-gmc-id="href__html_url"><span class="sr-only">Follow</span></a>
+            </div>
+      </div>
+
+      <div class="cs-card-body">
+          <h2 class="name" data-gmc-id="in__name"></h2>
+          <h4 class="job-title">Product Designer</h4>
+          <div class="bio">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dignissimos, aperiam.</div>
+          <div class="social-accounts">
+            <!-- Hide if not defined -->
+            <a href="" data-gmc-id="href__blog"><svg class="octicon" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg><span class="sr-only">Blog</span></a>
+            <a href="#"><img src="https://res.cloudinary.com/dj14cmwoz/image/upload/v1491077480/profile-card/images/twitter.svg" alt=""><span class="sr-only">Twitter</span></a>
+            <a href="#"><img src="https://res.cloudinary.com/dj14cmwoz/image/upload/v1491077480/profile-card/images/instagram.svg" alt=""><span class="sr-only">Instagram</span></a>
+          </div>
+      </div>
+<!--<svg class="octicon" viewBox="0 0 12 16" version="1.1" width="12" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M6 0C2.69 0 0 2.5 0 5.5 0 10.02 6 16 6 16s6-5.98 6-10.5C12 2.5 9.31 0 6 0zm0 14.55C4.14 12.52 1 8.44 1 5.5 1 3.02 3.25 1 6 1c1.34 0 2.61.48 3.56 1.36.92.86 1.44 1.97 1.44 3.14 0 2.94-3.14 7.02-5 9.05zM8 5.5c0 1.11-.89 2-2 2-1.11 0-2-.89-2-2 0-1.11.89-2 2-2 1.11 0 2 .89 2 2z"></path></svg>-->
+      <div class="cs-card-footer">
+          <div class="stats">
+              <div class="stat">
+                <span class="label">Following</span>
+                <span class="value" data-gmc-id="in__following__js" data-gmc-js="humainReadable"></span>
+              </div>
+              <div class="stat">
+                <span class="label">Followers</span>
+                <span class="value" data-gmc-id="in__followers__js" data-gmc-js="humainReadable"></span>
+              </div>
+              <div class="stat">
+                <span class="label">Repos</span>
+                <span class="value" data-gmc-id="in__public_repos__js" data-gmc-js="humainReadable"></span>
+              </div>
+          </div>
+      </div>
+  </div>
+
+
+<script type="text/javascript">
+  function mailTo(emailAddress, element) {
+  	if (emailAddress) {
+  		return "mailto:" + emailAddress;
+  	} else {
+  		element.style.visibility = "hidden";
+  		return "";
+  	}
+  }
+  function setBgImgUrl(imgUrl) {
+  	return "background-image: url(" + imgUrl + ");";
+  }
+  function humanReadable(num) {
+     if(num == 0) return "0";
+     var k = 1000,
+         dm = 1,
+         sizes = ["", " k", " M", " B", " T"],
+         i = Math.floor(Math.log(num) / Math.log(k));
+     return parseFloat((num / Math.pow(k, i)).toFixed(dm)) + sizes[i];
+  }
+
+  function _hasClass(el, className) {
+    if (el.classList)
+      return el.classList.contains(className);
+    else
+      return new RegExp('(^| )' + className + '( |$)', 'gi').test(el.className);
+  }
+  function _hasData(el, dataName) {
+    if (el.dataset)
+      return el.dataset.hasOwnProperty(dataName);
+    else
+      return el.getAttribute('data-' + dataName);
+  }
+  
+  function resizeIframe(obj) {
+    obj.style.height = obj.contentWindow.document.body.scrollHeight + 'px';
+  }
+  
+  function fetchJson(url, success, fail, httpHeaders) {
+    var request = new XMLHttpRequest();
+    request.onreadystatechange = function() {
+      if (request.readyState === 4) { 
+        if (request.status === 200) {
+          success(JSON.parse(request.responseText));
+        } else {
+          fail();
+        }
+      } else {
+        // HTTP is continuing....
+      }
+    };
+    request.open('GET', url);
+    var httpHeaders = httpHeaders || {};
+    Object.keys(httpHeaders).forEach(function(key) {
+      request.setRequestHeader(key, httpHeaders[key]);
+    });
+    request.send();
+  }
+  
+  
+  
+  /*
+  2 possible initializations: 
+    1. (iframe + data-gmc-theme + data-gmc-repo).
+    2. (root_el + data-gmc-repo) containing the template markup.
+  
+  In the first case, the template will be downloaded (using 
+  themesBaseURL + themeName) and loaded inside the iframe. The 
+  body can then be used as the root_el, leading us to the same 
+  situation as in case 2.
+  
+  To speed up things, the theme (inside the iframe) and the json 
+  from the api can load at the same time.
+  
+  */
+  
+  function GMC(root_el, json) { 'use strict';
+    var self = this;
+  
+    // url used to locate a theme template from its name: (themeBaseURL + themeName + .html)
+    var themesBaseURL = "https://cdn.rawgit.com/tsucres/GithubManyfacedCards/master/dist/themes/";
+    // github api url to retrieve repo data: (repoApiURL + repoFullName)
+    var repoApiURL = "https://api.github.com/repos/";
+  
+    this.repoFullName = root_el.getAttribute("data-gmc-repo");
+    this.username = root_el.getAttribute("data-gmc-user");
+    this.json = json;
+    this.root_el = null;
+  
+  
+    this.fetchJson = function(url, success, fail) {
+      var headers = {};
+      if (typeof GH_API_KEY === "string") {
+        headers["Authorization"] = "token " + GH_API_KEY; // Untested!!!!
+      }
+      headers['Accept'] = "application/vnd.github.mercy-preview+json";
+      fetchJson(url, success, fail, headers);
+    }
+    /**
+      Fetch the json data about the repo whose name is in 
+      self.repoFullName and fill them in the template.
+    */
+    this.fillWithRepoName = function() {
+      self.fetchJson(repoApiURL + self.repoFullName, function(json) {
+        self.json = json
+        self.fillWithJson();
+      }, function() {
+        self.markError();
+        //console.log("Shout! Json failed loading!");
+      });
+    }
+  
+    /**
+      Fetch the json data about the user whose name is in 
+      self.username and fill them in the template.
+    */
+    this.fillWithUserName = function() {
+      self.fetchJson(repoApiURL + "users/" + self.repoFullName, function(json) {
+        self.json = json
+        self.fillWithJson();
+      }, function() {
+        self.markError();
+        //console.log("Shout! Json failed loading!");
+      });
+    }
+  
+    /**
+      Find all the elements (inside self.root_el) having a 
+      'data-gmc-id' attribute and fill them using the data pointing 
+      by this attribute in self.json.
+      It requires root_el, json and repoName to be filled. Otherwise 
+      it quits.
+      */
+    this.fillWithJson = function() {
+      if (!(self.root_el && self.json && (self.repoFullName || self.username)))
+        return
+      var elements = self.root_el.querySelectorAll('[data-gmc-id]');
+      elements.forEach(function(el) {
+        gcm_fill_one_el_with_json(el, self.json)
+      });
+      this.markAsLoaded();
+      if (typeof this.iframe === "object") {
+        resizeIframe(this.iframe);
+      }
+    }
+  
+    /// Add the class 'gmc-loaded' to root_el
+    this.markAsLoaded = function() {
+      self.root_el.className += ' gmc-loaded';
+    }
+    /// Add the class 'gmc-error' to root_el
+    this.markError = function() {
+      self.root_el.className += ' gmc-error';
+    }
+  
+    /**
+      Parses the attributes of the specified element, looking for 
+      'data-gm-id'. Fill the specified element with the data pointed 
+      by this attribute in json.
+  
+      element: HTMLElement with specified data-gmc-id
+      json: json retrieved from github api
+      */
+    function gcm_fill_one_el_with_json(element, json) {
+      var gmcId = element.getAttribute("data-gmc-id");
+      if (gmcId) {
+        gmcId = gmcId.replace(" ", "");
+        var gmcIdList = gmcId.split(",");
+        gmcIdList.forEach(function(id) {
+          gmc_fill_one_el_with_gmc_id(element, json, id);
+        });
+      }
+    }
+  
+    /**
+      Fill the specified element with the right data from json.
+  
+      element: HTMLElement
+      json: json retrieved from github api.
+      gmcId: a string with format where__what[__js]. If '__js' is 
+        specified, then element should also have a 'data-gmc-js' 
+        attribute. Otherwise it's just ignored.
+      */
+    function gmc_fill_one_el_with_gmc_id(element, json, gmcId) {
+      var splitted = gmcId.split("__");
+      if (splitted.length < 2)
+        return // It should at least have a 'what' and a 'where'
+  
+      var what = splitted[1];
+      var where = splitted[0];
+      var js = (splitted.length >= 2 
+                && splitted[2] == "js" 
+                && element.getAttribute("data-gmc-js"));
+      gmc_fill_one_el_with_wwj(element, json, what, where, js);
+    }
+  
+    /**
+      basically does the following: element.where += js(json[what])
+  
+      element: HTMLElement to which the "what" will be added.
+      json: the json resulting the github api
+      what: a key in the json. The hierarchy has to be marked using a 
+        dash '-'.
+      where: the attribute (from element) to which the jsonValue will be 
+        assigned
+      js: a boolean indicating whether there is a 'data-gmc-js' attribute 
+        n the 'element'. If so, the javascript code it contains will be 
+        evaluated as a function with, as a parameter, the jsonValue. This 
+        code should return a value that will be assign to 'where'.
+      */
+    function gmc_fill_one_el_with_wwj(element, json, what, where, js) {
+      var splittedWhat = what.split("-");
+      var subJson = json;
+      var jsonValue = null;
+      splittedWhat.some(function(whatPart) {
+        if (!subJson.hasOwnProperty(whatPart))
+          return true;
+        else if (typeof subJson[whatPart] === "object") {
+          subJson = subJson[whatPart];
+        } else {
+          jsonValue = subJson[whatPart];
+          return true;
+        }
+        
+      });
+  
+      if (js) {
+        var jsFunction = element.getAttribute("data-gmc-js");
+        if(typeof window[jsFunction] === "function")
+          jsonValue = window[jsFunction].call(null, jsonValue, element, self);
+      }
+      if (jsonValue === null) {
+        return
+      }
+      var ap = typeof self.root_el.getAttribute("data-gmc-ap") === "string";
+      if (where == "in") {
+        var textBackup = ap ? element.textContent : "";
+        element.textContent = textBackup + jsonValue;
+      } else {
+        var whereBackup = "";
+        if (ap && element.hasAttribute(where)) {
+          whereBackup = element.getAttribute(where);
+        }
+        element.setAttribute(where, whereBackup + jsonValue);
+  
+      }
+  
+      
+    }
+  
+  
+  
+    self.root_el = root_el;
+    if (this.json) {
+      this.fillWithJson();
+    } else {
+      if (this.repoFullName) {
+        this.fillWithRepoName();
+      } else if (this.username) {
+        this.fillUserName();
+      }
+      
+    }
+  }
+  
+  /**
+    loadAllCards([json])
+    Calls (new GMC(el, json)) for every elemement selected by 
+    '[data-gmc-repo]'
+    
+    if json is not specified, it will be downloaded from the api 
+    using the repo name specified in data-gmc-repo.
+    */
+  GMC.loadAllCards = function(json) {
+    var gmc_repos = document.querySelectorAll('[data-gmc-repo], [data-gmc-user]');
+    gmc_repos.forEach(function(gmc_repo) {
+      (new GMC(gmc_repo, json));
+    });
+  }
+  
+  //window.onload = GMC.loadAllCards
+  // source: https://stackoverflow.com/questions/28295870/how-to-pass-parameters-through-iframe-from-parent-html
+  
+  function getParamValue(paramName)
+  {
+      var url = window.location.search.substring(1); //get rid of "?" in querystring
+      var qArray = url.split('&'); //get key-value pairs
+      for (var i = 0; i < qArray.length; i++) 
+      {
+          var pArr = qArray[i].split('='); //split key and value
+          if (pArr[0] == paramName) 
+              return pArr[1]; //return value
+      }
+  }
+  
+  (function(d) {
+  	var repoName = getParamValue('rn');
+  	var userName = getParamValue('un');
+  	if (repoName) {
+  		d.body.setAttribute("data-gmc-repo", repoName);
+  		(new GMC(d.body));
+  	} else if (userName) {
+  		d.body.setAttribute("data-gmc-user", userName);
+  		(new GMC(d.body));
+  	}else {
+  		console.error("The name of the repo should be specified in the src of the iframe: src='themeName.gmc.min.html?rn=user/repo'");
+  	}
+  	
+  })(document)
+  
+</script>
+
+</body>
+</html>

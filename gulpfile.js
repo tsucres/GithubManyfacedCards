@@ -8,11 +8,24 @@ var autoprefixer = require('gulp-autoprefixer');
 var preprocess = require('gulp-preprocess');
 var uglify = require('gulp-uglify');
 var gzip = require('gulp-gzip');
+var nunjucksRender = require('gulp-nunjucks-render');
+var htmlclean = require('gulp-htmlclean');
 
 var minifyInline = require('gulp-minify-inline');
 var htmlmin = require('gulp-htmlmin');
 
 var merge = require('merge-stream');
+
+var njManageEnvironment = function(environment) {
+  environment.addFilter('preCode', function(str) {
+    str = str.replace(/\n\s+/g,'\n');
+    str = str.replace(/\\t/g,'\t');
+    str = str.replace(/\\n/g,'\n');
+    str = environment.filters.escape(str);//
+    return str;
+  });
+}
+
 
 function buildThemesWithPreprocessingContext(context, namePrefix) {
     return gulp.src(["src/themes/*.html"])
@@ -32,13 +45,13 @@ function buildEmbeddedTheme(themeName) {
     return gulp.src("src/themes/" + themeName + ".html")
         .pipe(preprocess({context: {EMBED_GMC: true}}))
         .pipe(rename(function (path) { path.extname = ".gmc.html" }))
-        .pipe(gulp.dest("./dist/themes/" + themeName + "/embeded"))
+        .pipe(gulp.dest("./dist/themes/" + themeName + "/embedded"))
         .pipe(rename(function (path) { path.extname = ".min.html" }))
         .pipe(minifyInline())
         .pipe(htmlmin({collapseWhitespace: true}))
-        .pipe(gulp.dest("./dist/themes/" + themeName + "/embeded"))
+        .pipe(gulp.dest("./dist/themes/" + themeName + "/embedded"))
         .pipe(gzip())
-        .pipe(gulp.dest("./dist/themes/" + themeName + "/embeded"));
+        .pipe(gulp.dest("./dist/themes/" + themeName + "/embedded"));
 }
 /**
     Builds css, js and template for the specified theme.
@@ -86,6 +99,9 @@ gulp.task('theme_gh_pure', function() {
 gulp.task('theme_gh_recommendation', function() {
     return buildTheme('gh_recommendation');
 });
+gulp.task('theme_codeshape', function() {
+    return buildTheme('codeshape');
+});
 
 
 
@@ -94,7 +110,7 @@ gulp.task('theme_gh_recommendation', function() {
     iframes. They contains the template of the theme, the css style 
     and the all the js functions the template needs. 
 */
-gulp.task('themes', ['theme_gh_basic', 'theme_gh_full', 'theme_gh_pure', 'theme_gh_recommendation']);
+gulp.task('themes', ['theme_gh_basic', 'theme_gh_full', 'theme_gh_pure', 'theme_gh_recommendation', 'theme_codeshape']);
 
 /**
     Similar to the 'themes' task. In this task, the gmc.js library 
@@ -106,10 +122,12 @@ gulp.task('embed_themes', function() {
     var gh_pure = buildEmbeddedTheme("gh_pure");
     var gh_full = buildEmbeddedTheme("gh_full");
     var gh_recommendation = buildEmbeddedTheme("gh_recommendation");
+    var codeshape = buildEmbeddedTheme("codeshape");
 
     var embedThemes = merge(gh_basic, gh_pure);
     embedThemes.add(gh_full);
     embedThemes.add(gh_recommendation);
+    embedThemes.add(codeshape);
     return embedThemes;
 });
 
@@ -133,13 +151,16 @@ gulp.task('gmc', function() {
     keeping the project DRY.
 */
 gulp.task('demo', function() {
-    return gulp.src(["src/demo.html", "src/demo/demov2.html"])
+    return gulp.src(["src/demo/demo.html"])
         .pipe(rename(function (path) { path.basename = "index" }))
         .pipe(preprocess({context: {}}))
-        .pipe(gulp.dest('.'))
-
+        .pipe(nunjucksRender({
+            path: '.',
+            manageEnv: njManageEnvironment,
+        }))
+        .pipe(htmlclean({}))
+        .pipe(gulp.dest('.'));
 });
-
 
 gulp.task('default',['gmc']);
 gulp.task('all',['gmc', 'demo', 'embed_themes', 'themes']);

@@ -32,7 +32,7 @@ function formatDate(isoDateStr) {
     yearStr = ", " + String(year);
   }
 
-  return  monthNames[monthIndex] + " " + day + " " + yearStr;
+  return  " " + monthNames[monthIndex] + " " + day + " " + yearStr;
 }
 function getRepoURL(fullRepoName) {
 	return "https://github.com/" + fullRepoName;

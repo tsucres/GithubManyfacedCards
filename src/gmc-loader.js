@@ -2,7 +2,8 @@
     var target = document.currentScript;
     var repoName = target.getAttribute("data-gmc-repo")
     var themeName = target.getAttribute('data-gmc-theme') || "gh_pure";
-    
+    var themeUrl = target.getAttribute('data-gmc-theme-url');
+
     var cdnBaseURL = "https://cdn.rawgit.com/tsucres/GithubManyfacedCards/master/dist/"
     
     var root_el = null;
@@ -29,7 +30,7 @@
         target.parentNode.insertBefore(script, target.nextSibling);
     }
 
-    function setTemplate() {
+    function setTemplate(themeUrl) {
         var request = new XMLHttpRequest();
         request.onreadystatechange = function() {
             if (request.readyState === 4) { 
@@ -42,13 +43,15 @@
                 } 
             } 
         };
-        request.open('GET', cdnBaseURL + "themes/" + themeName + "/" + themeName + ".html");
+        var url = themeUrl || cdnBaseURL + "themes/" + themeName + "/" + themeName + ".html"
+        request.open('GET', url);
         request.send();
     }
-
-    setStyle();
-    setJs();
-    setTemplate();
-
-
+    if (themeUrl) {
+        setTemplate(themeUrl);
+    } else {
+        setStyle();
+        setJs();
+        setTemplate();
+    }
 }).call(this);

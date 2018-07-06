@@ -5,123 +5,15 @@
 	<style type="text/css">
 		/* @include snippets/basic_github.css */
 		/* @include snippets/loading.css */
-		
-		.gh .d-flex {
-			display: -webkit-box !important;
-			display: flex !important
-		}
-		
-		.gh .avatar {
-			display: inline-block;
-			overflow: hidden;
-			line-height: 1;
-			vertical-align: middle;
-			border-radius: 3px
-		}
-		
-		.gh .text-normal {
-			font-weight: 400 !important 
-		}
-		
-		.gh .topics-row-container {
-			height: 30px;
-			overflow: hidden
-		}
-		
-		.gh .flex-items-center {
-			-webkit-box-align: center !important;
-			align-items: center !important
-		}
-		
-		.gh .flex-wrap {
-			flex-wrap: wrap !important
-		}
-		
-		.gh .topic-tag-link:hover {
-			text-decoration: none;
-			background-color: #def
-		}
-		
-		.gh .topic-tag {
-			display: inline-block;
-			padding: 0.3em 0.9em;
-			margin: 0 0.5em 0.5em 0;
-			white-space: nowrap;
-			background-color: #f1f8ff;
-			border-radius: 3px
-		}
-		
-		.gh .btn {
-			color: #24292e;
-			background-color: #eff3f6;
-			background-image: linear-gradient(-180deg, #fafbfc 0%, #eff3f6 90%);
-		
-			position: relative;
-			display: inline-block;
-			padding: 6px 12px;
-			font-size: 14px;
-			font-weight: 600;
-			line-height: 20px;
-			white-space: nowrap;
-			vertical-align: middle;
-			cursor: pointer;
-			-webkit-user-select: none;
-			-moz-user-select: none;
-			-ms-user-select: none;
-			user-select: none;
-			background-repeat: repeat-x;
-			background-position: -1px -1px;
-			background-size: 110% 110%;
-			border: 1px solid rgba(27, 31, 35, 0.2);
-			border-radius: 0.25em;
-			-webkit-appearance: none;
-			-moz-appearance: none;
-			appearance: none
-		}
-		
-		.gh .btn-sm {
-			padding: 3px 10px;
-			font-size: 12px;
-			line-height: 20px
-		}
-		
-		.gh .btn:hover {
-			background-color: #e6ebf1;
-			background-image: linear-gradient(-180deg, #f0f3f6 0%, #e6ebf1 90%);
-			background-position: -.5em;
-			border-color: rgba(27, 31, 35, 0.35);
-			text-decoration: none;
-			background-repeat: repeat-x
-		}
-		
-		.gh .btn:active {
-			background-color: #e9ecef;
-			background-image: none;
-			border-color: rgba(27, 31, 35, 0.35);
-			box-shadow: inset 0 0.15em 0.3em rgba(27, 31, 35, 0.15)
-		}
-		
-		
-		
-		.title-placeholder {
-			height: 18px;
-		}
-		.desc-placeholder {
-			height: 13px;
-		}
-		.controls-placeholder {
-			height: 17px;
-		}
-		
 	</style>
 </head>
 <body style=" margin: 0;">
 <!--
-  Repo name, description, stars, number of opened issues, user avatar, topics + star button + error and loading states.
+  Repo name, description, stars, forks, license + error and loading states.
 
   It needs the following styles: 
     - basic_github.css
-    - github_recommendation.css
+    - github_full.css
     - loading.css
 
   And the following js:
@@ -129,48 +21,12 @@
     - getStargazersURL.js
     - formatDate.js 
     - getRepoURL.js 
-    - plural.js 
-    - getIssuesURL.js 
-    - fillWithTopics.js
+    - getSparks.js 
+    - getNetworkURL.js 
     - humanReadable.js
+    
 -->
-
 <div class="gh p-rel">
-  <div class="only-if-loading full-absolute p-1">
-    <div class="d-flex">
-      <div class="mr-3">
-        <span class="d-block content-placeholder" style="width:48px;height:48px;">&nbsp;</span>
-      </div>
-      <div style="width: 100%;">
-        <div class="d-inline-block mb-1">
-          <span class="d-block content-placeholder" style="width:180px;width:15em;height:22px;">&nbsp;</span>
-        </div>
-        <div class="mt-2">
-          <span class="content-placeholder mb-1 d-block" style="width:85%;height:13px;">&nbsp;</span>
-          <span class="content-placeholder mb-1 d-block" style="width:45%;height:13px;">&nbsp;</span>
-        </div>
-        <p></p>
-        <div class="mb-2">
-          <span class="d-inline-block">
-            <span class="content-placeholder mr-2" style="width:60px;height:24px;">&nbsp;</span>
-          </span>
-          
-          <span class="d-inline-block">
-            <span class="content-placeholder mr-2" style="width:90px;height:24px;">&nbsp;</span>
-          </span>
-          <span class="d-inline-block">
-            <span class="content-placeholder mr-2" style="width:70px;height:24px;">&nbsp;</span>
-          </span>
-          <span class="d-inline-block">
-            <span class="content-placeholder mr-2" style="width:65px;height:24px;">&nbsp;</span>
-          </span>
-        </div>
-        <div class="mt-2">
-          <span class="content-placeholder mb-2" style="width:250px;height:16px;">&nbsp;</span>
-        </div>
-      </div>
-    </div>
-  </div>
   <div class="only-if-error">
     <div class="full-absolute error-view">
       <div class="p-rel">
@@ -180,51 +36,45 @@
       
     </div>
   </div>
-  <div class="p-4 border-bottom only-if-loaded">
-    <div class="d-flex">
-      <a target="_blank" class="d-block mr-3 mt-1" href="" data-gmc-id="href__owner-avatar_url">
-        <img src="" class="avatar" width="48" height="48" alt="" data-gmc-id="src__owner-avatar_url, alt__owner-login">
-      </a>
-      <div style="width: 100%;">
-        <div class="d-inline-block mb-1">
-          <h3>
-            <a target="_blank" href="" data-gmc-id="href__html_url">
-              <span class="text-normal"><span data-gmc-id="in__owner-login"></span>/</span><span data-gmc-id="in__name"></span>
-            </a>          
-          </h3>
-        </div>
-        <div class="f6 text-gray d-inline-block" style="float: right;">
-          <div class="d-inline-block">
-            <a target="_blank" class="btn btn-sm" type="submit" value="Star" data-gmc-id="href__html_url">
-              <svg aria-hidden="true" class="octicon octicon-star mr-1" height="16" version="1.1" viewBox="0 0 14 16" width="14"><path fill-rule="evenodd" d="M14 6l-4.9-.64L7 1 4.9 5.36 0 6l3.6 3.26L2.67 14 7 11.67 11.33 14l-.93-4.74z"></path></svg>Star
+  <div class="border rounded-1 p-3">
+    <span class="f4 lh-condensed text-bold text-gray-dark">
+      <a target="_blank" href="https://github.com/" class="link-gray-dark text-bold wb-break-all" data-gmc-id="in__full_name, href__full_name__js" data-gmc-js="getRepoURL"></a>
+    </span>
+    <p data-gmc-id="in__description"></p>
+    
+    <p class="f6 text-gray mt-2 mb-0">
+        <span class="d-inline-block text-gray mr-3">
+          <span class="repo-language-color ml-0 mr-1" data-gmc-id="style__language__js" data-gmc-js="getStyleForLanguage"></span>
+          <span itemprop="programmingLanguage" data-gmc-id="in__language"></span>
+        </span>
+
+        <span class="d-inline-block mr-3">
+            <a target="_blank" href="" class="muted-link" data-gmc-id="href__full_name__js" data-gmc-js="getStargazersURL">
+              <svg aria-hidden="true" class="octicon octicon-star mr-1" height="16" version="1.1" viewBox="0 0 14 16" width="14"><path fill-rule="evenodd" d="M14 6l-4.9-.64L7 1 4.9 5.36 0 6l3.6 3.26L2.67 14 7 11.67 11.33 14l-.93-4.74z"></path></svg>
+              <span data-gmc-id="in__stargazers_count__js" data-gmc-js="humanReadable"></span>
             </a>
-          </div>
-        </div>
-        <div data-gmc-id="in__description"></div>
-        <p></p>
-        <div class="topics-row-container col-9 d-inline-flex flex-wrap flex-items-center f6 my-1" data-gmc-id="trash__full_name__js" data-gmc-js="fillWithTopics">
-        </div>
-        <div class="f6 text-gray mt-2">
-          <span class="repo-language-color ml-0" style="" data-gmc-id="style__language__js" data-gmc-js="getStyleForLanguage"></span>
-          <span class="mr-3" data-gmc-id="in__language"></span>
-          <a target="_blank" href="" class="muted-link mr-3" data-gmc-id="href__full_name__js" data-gmc-js="getStargazersURL">
-            <svg aria-label="star" class="octicon octicon-star mr-1" height="16" role="img" version="1.1" viewBox="0 0 14 16" width="14"><path fill-rule="evenodd" d="M14 6l-4.9-.64L7 1 4.9 5.36 0 6l3.6 3.26L2.67 14 7 11.67 11.33 14l-.93-4.74z"></path></svg><span data-gmc-id="in__stargazers_count__js" data-gmc-js="humanReadable"></span>
-          </a> 
-          <a target="_blank" class="muted-link mr-3" href="" data-gmc-id="href__full_name__js" data-gmc-js="getIssuesURL">
-                <span data-gmc-id="in__open_issues_count__js" data-gmc-js="humanReadable"></span> issue<span data-gmc-id= "in__open_issues_count__js" data-gmc-js="addSIfSeveral"></span> need<span data-gmc-id= "in__open_issues_count__js" data-gmc-js="addSIfSingular"></span> help
-          </a>Updated <span data-gmc-id="in__updated_at__js" data-gmc-js="formatDate" data-gmc-ap></span>
-        </div>
-      </div>
-    </div>
+        </span>
+
+
+        
+        <a target="_blank" href="" class="pinned-repo-meta muted-link mr-3" data-gmc-id="href__full_name__js" data-gmc-js="getNetworkURL">
+          <svg aria-label="forks" class="octicon mr-1" height="16" role="img" version="1.1" viewBox="0 0 10 16" width="10"><path fill-rule="evenodd" d="M8 1a1.993 1.993 0 0 0-1 3.72V6L5 8 3 6V4.72A1.993 1.993 0 0 0 2 1a1.993 1.993 0 0 0-1 3.72V6.5l3 3v1.78A1.993 1.993 0 0 0 5 15a1.993 1.993 0 0 0 1-3.72V9.5l3-3V4.72A1.993 1.993 0 0 0 8 1zM2 4.2C1.34 4.2.8 3.65.8 3c0-.65.55-1.2 1.2-1.2.65 0 1.2.55 1.2 1.2 0 .65-.55 1.2-1.2 1.2zm3 10c-.66 0-1.2-.55-1.2-1.2 0-.65.55-1.2 1.2-1.2.65 0 1.2.55 1.2 1.2 0 .65-.55 1.2-1.2 1.2zm3-10c-.66 0-1.2-.55-1.2-1.2 0-.65.55-1.2 1.2-1.2.65 0 1.2.55 1.2 1.2 0 .65-.55 1.2-1.2 1.2z"></path></svg>
+          <span data-gmc-id="in__forks__js" data-gmc-js="humanReadable"></span>
+        </a>
+        <span class="mr-3">
+          <svg aria-hidden="true" class="octicon mr-1" height="16" version="1.1" viewBox="0 0 14 16" width="14"><path fill-rule="evenodd" d="M7 4c-.83 0-1.5-.67-1.5-1.5S6.17 1 7 1s1.5.67 1.5 1.5S7.83 4 7 4zm7 6c0 1.11-.89 2-2 2h-1c-1.11 0-2-.89-2-2l2-4h-1c-.55 0-1-.45-1-1H8v8c.42 0 1 .45 1 1h1c.42 0 1 .45 1 1H3c0-.55.58-1 1-1h1c0-.55.58-1 1-1h.03L6 5H5c0 .55-.45 1-1 1H3l2 4c0 1.11-.89 2-2 2H2c-1.11 0-2-.89-2-2l2-4H1V5h3c0-.55.45-1 1-1h4c.55 0 1 .45 1 1h3v1h-1l2 4zM2.5 7L1 10h3L2.5 7zM13 10l-1.5-3-1.5 3h3z"></path></svg><span data-gmc-id="in__license-spdx_id"></span>
+        </span>
+        Updated <span data-gmc-id="in__updated_at__js" data-gmc-js="formatDate"></span>
+      </p>
+    <div data-gmc-id="trash__full_name__js" data-gmc-js="getSparks"></div>
   </div>
 </div>
 <script type="text/javascript">
 	// @include snippets/languageColors.js
 	// @include snippets/getStargazersURL.js
 	// @include snippets/formatDate.js
-	// @include snippets/fillWithTopics.js
-	// @include snippets/plural.js
-	// @include snippets/getIssuesURL.js
+	// @include snippets/getSparks.js
+	// @include snippets/getNetworkURL.js
 	// @include snippets/getRepoURL.js
 	// @include snippets/humanReadable.js
 	
@@ -265,6 +115,9 @@
 	  });
 	  request.send();
 	}
+	
+	
+	
 	/*
 	2 possible initializations: 
 	  1. (iframe + data-gmc-theme + data-gmc-repo).
@@ -289,26 +142,45 @@
 	  var repoApiURL = "https://api.github.com/repos/";
 	
 	  this.repoFullName = root_el.getAttribute("data-gmc-repo");
+	  this.username = root_el.getAttribute("data-gmc-user");
 	  this.json = json;
 	  this.root_el = null;
 	
-	  /**
-	    Fetch the json data about the repo whose name is in 
-	    self.repoFullName and fill them in the template.
-	  */
-	  this.fillWithRepoName = function() {
+	
+	  this.fetchJson = function(url, success, fail) {
 	    var headers = {};
 	    if (typeof GH_API_KEY === "string") {
 	      headers["Authorization"] = "token " + GH_API_KEY; // Untested!!!!
 	    }
 	    headers['Accept'] = "application/vnd.github.mercy-preview+json";
-	    fetchJson(repoApiURL + self.repoFullName, function(json) {
+	    fetchJson(url, success, fail, headers);
+	  }
+	  /**
+	    Fetch the json data about the repo whose name is in 
+	    self.repoFullName and fill them in the template.
+	  */
+	  this.fillWithRepoName = function() {
+	    self.fetchJson(repoApiURL + self.repoFullName, function(json) {
 	      self.json = json
-	      self.fillWithRepoJson();
+	      self.fillWithJson();
 	    }, function() {
 	      self.markError();
 	      //console.log("Shout! Json failed loading!");
-	    }, headers);
+	    });
+	  }
+	
+	  /**
+	    Fetch the json data about the user whose name is in 
+	    self.username and fill them in the template.
+	  */
+	  this.fillWithUserName = function() {
+	    self.fetchJson(repoApiURL + "users/" + self.repoFullName, function(json) {
+	      self.json = json
+	      self.fillWithJson();
+	    }, function() {
+	      self.markError();
+	      //console.log("Shout! Json failed loading!");
+	    });
 	  }
 	
 	  /**
@@ -318,8 +190,8 @@
 	    It requires root_el, json and repoName to be filled. Otherwise 
 	    it quits.
 	    */
-	  this.fillWithRepoJson = function() {
-	    if (!(self.root_el && self.json && self.repoFullName))
+	  this.fillWithJson = function() {
+	    if (!(self.root_el && self.json && (self.repoFullName || self.username)))
 	      return
 	    var elements = self.root_el.querySelectorAll('[data-gmc-id]');
 	    elements.forEach(function(el) {
@@ -413,10 +285,8 @@
 	
 	    if (js) {
 	      var jsFunction = element.getAttribute("data-gmc-js");
-	      var doc = element.ownerDocument;
-	      var win = doc.defaultView || doc.parentWindow;
-	      if(typeof win[jsFunction] === "function")
-	        jsonValue = win[jsFunction].call(null, jsonValue, element, self);
+	      if(typeof window[jsFunction] === "function")
+	        jsonValue = window[jsFunction].call(null, jsonValue, element, self);
 	    }
 	    if (jsonValue === null) {
 	      return
@@ -439,34 +309,16 @@
 	
 	
 	
-	  if (root_el.tagName === "IFRAME") {
-	    // case 1)
-	    this.iframe = root_el;
-	    root_el.onload = function() {
-	      self.root_el = root_el.contentWindow.document.body;
-	      // This is async, in race with the download of the json data. 
-	      // If the json isn't fetched yet, the call to this function will 
-	      // just return.
-	      self.fillWithRepoJson(); 
-	    };
-	    /*root_el.onerror = function() {
-	      console.log("error root");
-	    }*/
-	    if (root_el.getAttribute("data-gmc-theme-url")) {
-	      root_el.src = root_el.getAttribute("data-gmc-theme-url");
-	    } else {
-	      var themeName = root_el.getAttribute("data-gmc-theme") || "gh_pure";
-	      root_el.src = themesBaseURL + themeName + ".html";
+	  self.root_el = root_el;
+	  if (this.json) {
+	    this.fillWithJson();
+	  } else {
+	    if (this.repoFullName) {
+	      this.fillWithRepoName();
+	    } else if (this.username) {
+	      this.fillUserName();
 	    }
 	    
-	  } else { 
-	    // case 2)
-	    self.root_el = root_el;
-	  }
-	  if (this.json) {
-	    this.fillWithRepoJson();
-	  } else {
-	    this.fillWithRepoName();
 	  }
 	}
 	
@@ -479,9 +331,9 @@
 	  using the repo name specified in data-gmc-repo.
 	  */
 	GMC.loadAllCards = function(json) {
-	  var iframes = document.querySelectorAll('[data-gmc-repo]');
-	  iframes.forEach(function(iframe) {
-	    (new GMC(iframe, json));
+	  var gmc_repos = document.querySelectorAll('[data-gmc-repo], [data-gmc-user]');
+	  gmc_repos.forEach(function(gmc_repo) {
+	    (new GMC(gmc_repo, json));
 	  });
 	}
 	
@@ -502,15 +354,20 @@
 	
 	(function(d) {
 		var repoName = getParamValue('rn');
+		var userName = getParamValue('un');
 		if (repoName) {
 			d.body.setAttribute("data-gmc-repo", repoName);
 			(new GMC(d.body));
-		} else {
+		} else if (userName) {
+			d.body.setAttribute("data-gmc-user", userName);
+			(new GMC(d.body));
+		}else {
 			console.error("The name of the repo should be specified in the src of the iframe: src='themeName.gmc.min.html?rn=user/repo'");
 		}
 		
 	})(document)
 	
 </script>
+
 </body>
 </html>

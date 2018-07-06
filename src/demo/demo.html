@@ -1,0 +1,175 @@
+{% extends "src/demo/snippets/abstractPage.html" %}
+{% from "src/demo/snippets/updateForm.html" import updateForm %}
+
+{% macro demoCard(id, name, type, value, description) %}
+  <div class="my-4">
+    <h5 class="code mt-3" id="{{id}}">{{name}}</h5>
+    <p><a href="https://github.com/tsucres/GithubManyfacedCards/tree/master/dist/themes/{{name}}/{{name}}.html" class="mini-link">Template source code</a> | <a href="https://github.com/tsucres/GithubManyfacedCards/tree/master/dist/themes/{{name}}/" class="mini-link">Skin files on github</a> | <a href="" class="mini-link">Download skin files</a></p>
+    {{ description | safe }}
+    <div class="card-container">
+      <div class="demo-card" data-gmc-{{type}}="{{value}}">
+        {% include 'dist/themes/' + name + '/' + name + '.html' %}
+      </div>
+    </div>
+  </div>
+{% endmacro %}
+
+{% block head %}
+	<link rel="stylesheet" type="text/css" href="demo/css/demov2.css">
+
+	<!-- Styles for the cards -->
+	<style type="text/css">
+      <!-- @include-static ../themes/css/snippets/basic_github.css -->
+      <!-- @include-static ../themes/css/gh_pure.css -->
+      <!-- @include-static ../themes/css/gh_full.css -->
+      <!-- @include-static ../themes/css/gh_recommendation.css -->
+      <!-- @include-static ../themes/css/snippets/loading.css -->
+      <!-- @include-static ../themes/css/codeshape.css -->
+    </style>
+
+    <!-- Syntactic coloration -->
+    <link rel="stylesheet" href="demo/css/ocean.css">
+
+{% endblock %}
+
+{% block body %}
+
+{% include "src/demo/snippets/header.html" %}
+
+
+<div class="container">
+	<div class="row">
+		{% include "src/demo/snippets/tocs.html" %}
+		<div class="col-lg-8 offset-lg-0 offset-md-1 col-md-10 col-sm-12">
+			<p class="my-4 lead text-center">Highly customizable GitHub widgets, for users and repositories, very easily embeddable in any webpage.</p>
+
+			<div data-gmc-repo="tsucres/GithubManyfacedCards" id="pres-repo-card">
+				<!-- @include ../../dist/themes/gh_recommendation/gh_recommendation.html -->
+			</div>
+			
+			<ul id="cat-toggle" class="nav nav-pills d-flex justify-content-center my-4" role="tablist">
+			    <li class="nav-item">
+			      <a class="nav-link active" data-toggle="tab" href="#repo" role="tab">Repo</a>
+			    </li>
+			    <li class="nav-item">
+			      <a class="nav-link" data-toggle="tab" href="#user" role="tab">User</a>
+			    </li>
+			    <li class="nav-item">
+			      <a class="nav-link" data-toggle="tab" href="#others" role="tab">Others</a>
+			    </li>
+			  </ul>
+
+
+			  <div class="tab-content row">
+			    <div class="tab-pane col-sm-12 active show fade" id="repo" role="tabpanel" aria-labelledby="repo-tab">
+			      <!-- @include snippets/repo-page.html -->
+			    </div>
+			    <div class="tab-pane col-sm-12 fade" id="user" role="tabpanel" aria-labelledby="user-tab">
+			      <!-- @include snippets/user-page.html -->
+			    </div>
+			    <div class="tab-pane col-sm-12 fade" id="others" role="tabpanel" aria-labelledby="others-tab">
+			      <!-- @include snippets/others-page.html -->
+			    </div>
+			  </div>
+
+		</div>
+
+	</div>
+	
+</div>
+
+<footer>
+  <p>Hosted on <a href="https://www.github.com/tsucres/GithubManyfacedCards">GitHub</a></p>
+  <p>Copyright 2017 - Stéphane Sercu</p>
+</footer>
+{% endblock %}
+
+{% block endJs %}
+<script type="text/javascript" src="dist/gmc.min.js"></script>
+<script type="text/javascript">
+    // The following are the js function needed by the templates
+    <!-- @include ../themes/js/snippets/getStargazersURL.js -->
+    <!-- @include ../themes/js/snippets/formatDate.js -->
+    <!-- @include ../themes/js/snippets/languageColors.js -->
+    <!-- @include ../themes/js/snippets/getSparks.js -->
+    <!-- @include ../themes/js/snippets/getNetworkURL.js -->
+    <!-- @include ../themes/js/snippets/getRepoURL.js -->
+    <!-- @include ../themes/js/snippets/fillWithTopics.js -->
+    <!-- @include ../themes/js/snippets/plural.js -->
+    <!-- @include ../themes/js/snippets/getIssuesURL.js -->
+    <!-- @include ../themes/js/snippets/humanReadable.js -->
+
+    <!-- @include ../themes/js/snippets/mailTo.js -->
+    <!-- @include ../themes/js/snippets/setBgImgUrl.js -->
+  </script>
+<script type="text/javascript">
+    function updateUserCards() {
+      var demoUserCardIdentifier = ".demo-card[data-gmc-user]";
+      var userNameInput = document.getElementById("userNameInput");
+      var userName = userNameInput.value || userNameInput.placeholder;
+
+      fetchJson("https://api.github.com/users/" + userName, function(json) {
+        var iframes = document.querySelectorAll(demoUserCardIdentifier);
+        iframes.forEach(function(iframe) {
+          (new GMC(iframe, json));
+        });
+      }, function(){
+        alert("Failed to fetch data from the github API.");
+      });
+    }
+    function updateRepoCards() {
+      var demoRepoCardIdentifier = ".demo-card[data-gmc-repo]";
+      var repoNameInput = document.getElementById("repoNameInput");
+      var repoName = repoNameInput.value || repoNameInput.placeholder;
+
+      fetchJson("https://api.github.com/repos/" + repoName, function(json) {
+        var iframes = document.querySelectorAll(demoRepoCardIdentifier);
+        iframes.forEach(function(iframe) {
+          (new GMC(iframe, json));
+        });
+      }, function(){
+        alert("Failed to fetch data from the github API.");
+      });
+    }
+
+    function loadPresCards() {
+      var presRepoCard = document.getElementById("pres-repo-card");
+      //var presUserCard = document.getElementById("pres-user-card");
+      (new GMC(presRepoCard));
+    }
+
+    window.onload = function() {
+      loadPresCards();
+      updateRepoCards();
+      updateUserCards();
+    }
+
+  </script>
+
+
+
+<script src="demo/js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<script type="text/javascript">
+	$('#cat-toggle a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
+		console.log("o");
+		if (e.target.textContent == "Repo") {
+			$("#toc-repo").show();
+			$("#toc-users").hide();
+			$("#toc-others").hide();
+		} else if (e.target.textContent == "Users") {
+			$("#toc-repo").hide();
+			$("#toc-users").show();
+			$("#toc-others").hide();
+		} else if (e.target.textContent == "Others") {
+			$("#toc-repo").hide();
+			$("#toc-users").hide();
+			$("#toc-others").show();
+		}
+	});
+</script>
+{% endblock %}
