@@ -2,9 +2,9 @@
 {% from "src/demo/snippets/updateForm.html" import updateForm %}
 
 {% macro demoCard(id, name, type, value, description) %}
-  <div class="my-4">
+  <div class="skin-pres">
     <h5 class="code mt-3" id="{{id}}">{{name}}</h5>
-    <p><a href="https://github.com/tsucres/GithubManyfacedCards/tree/master/dist/themes/{{name}}/{{name}}.html" class="mini-link">Template source code</a> | <a href="https://github.com/tsucres/GithubManyfacedCards/tree/master/dist/themes/{{name}}/" class="mini-link">Skin files on github</a> | <a href="" class="mini-link">Download skin files</a></p>
+    <p><a href="https://github.com/tsucres/GithubManyfacedCards/tree/master/dist/themes/{{name}}/{{name}}.html" class="mini-link" target="_blank">Template source code</a> | <a href="https://github.com/tsucres/GithubManyfacedCards/tree/master/dist/themes/{{name}}/" class="mini-link" target="_blank">Skin files on github</a> | <a href="" class="mini-link" target="_blank">Download skin files</a></p>
     {{ description | safe }}
     <div class="card-container">
       <div class="demo-card" data-gmc-{{type}}="{{value}}">
@@ -15,7 +15,7 @@
 {% endmacro %}
 
 {% block head %}
-	<link rel="stylesheet" type="text/css" href="demo/css/demov2.css">
+	<link rel="stylesheet" type="text/css" href="demo/css/demo.css">
 
 	<!-- Styles for the cards -->
 	<style type="text/css">
@@ -37,7 +37,7 @@
 {% include "src/demo/snippets/header.html" %}
 
 
-<div class="container">
+<div class="container main-container">
 	<div class="row">
 		{% include "src/demo/snippets/tocs.html" %}
 		<div class="col-lg-8 offset-lg-0 offset-md-1 col-md-10 col-sm-12">
@@ -47,7 +47,7 @@
 				<!-- @include ../../dist/themes/gh_recommendation/gh_recommendation.html -->
 			</div>
 			
-			<ul id="cat-toggle" class="nav nav-pills d-flex justify-content-center my-4" role="tablist">
+			<ul id="cat-toggle" class="nav nav-pills d-flex justify-content-center" role="tablist">
 			    <li class="nav-item">
 			      <a class="nav-link active" data-toggle="tab" href="#repo" role="tab">Repo</a>
 			    </li>
@@ -155,13 +155,14 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 <script type="text/javascript">
+  var currentSubPage = "Repo";
+  var menuForPage = {"Repo": "#toc-repo", "User": "toc-users", "Others": "toc-others"};
 	$('#cat-toggle a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
-		console.log("o");
 		if (e.target.textContent == "Repo") {
 			$("#toc-repo").show();
 			$("#toc-users").hide();
 			$("#toc-others").hide();
-		} else if (e.target.textContent == "Users") {
+		} else if (e.target.textContent == "User") {
 			$("#toc-repo").hide();
 			$("#toc-users").show();
 			$("#toc-others").hide();
@@ -170,6 +171,15 @@
 			$("#toc-users").hide();
 			$("#toc-others").show();
 		}
+    currentSubPage = e.target.textContent;
 	});
+  var mainContainer = $('.main-container');
+  $(document).on('scroll', function(e) {
+    if ($(this).scrollTop() > mainContainer.position().top) {
+      $(menuForPage[currentSubPage] + '>ul').addClass("fixed-menu");
+    } else {
+      $(menuForPage[currentSubPage] + '>ul').removeClass("fixed-menu");
+    }
+  });
 </script>
 {% endblock %}
