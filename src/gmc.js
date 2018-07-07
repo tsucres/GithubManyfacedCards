@@ -60,6 +60,8 @@ function GMC(root_el, json) { 'use strict';
   var themesBaseURL = "https://cdn.rawgit.com/tsucres/GithubManyfacedCards/master/dist/themes/";
   // github api url to retrieve repo data: (repoApiURL + repoFullName)
   var repoApiURL = "https://api.github.com/repos/";
+  // github api url to retrieve user data: (userApiURL + repoFullName)
+  var userApiURL = "https://api.github.com/users/";
 
   this.repoFullName = root_el.getAttribute("data-gmc-repo");
   this.username = root_el.getAttribute("data-gmc-user");
@@ -94,7 +96,7 @@ function GMC(root_el, json) { 'use strict';
     self.username and fill them in the template.
   */
   this.fillWithUserName = function() {
-    self.fetchJson(repoApiURL + "users/" + self.repoFullName, function(json) {
+    self.fetchJson(userApiURL + self.username, function(json) {
       self.json = json
       self.fillWithJson();
     }, function() {
@@ -236,7 +238,7 @@ function GMC(root_el, json) { 'use strict';
     if (this.repoFullName) {
       this.fillWithRepoName();
     } else if (this.username) {
-      this.fillUserName();
+      this.fillWithUserName();
     }
     
   }

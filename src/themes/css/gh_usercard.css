@@ -1,0 +1,103 @@
+/* @include snippets/basic_github.css */
+/* @include snippets/loading.css */
+
+.gh {
+	font-size: 13px;
+}
+
+.gh_usercard {
+	width: 100%;
+	padding: 10px;
+	
+	white-space: nowrap;
+	max-width: 470px;
+}
+
+.avatar {
+	width: 100px;
+	height: 100px;
+	border-radius: 8px;
+	display: inline-block;
+	float: left;
+}
+.right-menu {
+	display: inline-block;
+	padding: 0px 15px;
+	min-height: 100px;
+}
+.gh_usercard ul li {
+	list-style: none;
+}
+
+.gh_usercard ul li:not([data-gmc-visible]) {
+	display: none;
+}
+.gh_usercard ul li span {
+	margin: 0;
+	overflow-x: ellipsis;
+}
+.gh_usercard ul li svg {
+	vertical-align: middle;
+	color: #6a737d;
+	margin-right: 5px;
+}
+
+.gh_usercard ul {
+	display: inline-block;
+	margin: 0;
+	padding: 0;
+}
+
+.right-menu h1 {
+	font-size: 22px;
+	line-height: 22px;
+	color: #24292e;
+	margin: 0;
+	padding: 0;
+}
+
+.bottom-menu {
+	margin-top: 5px;
+}
+.bio {
+	font-size: 13px;
+	color: #6a737d;
+}
+.right-menu h3 {
+	font-size: 17px;
+	font-style: normal;
+	font-weight: 300;
+	line-height: 20px;
+	color: #666;
+	margin-bottom: 4px;
+}
+.footer nav {
+	display: flex;
+	overflow-x: scroll;
+}
+
+.footer nav a {
+	padding: 10px 8px 5px 8px;
+	margin-right: 10px;
+	margin-right: 16px;
+	line-height: 1.5;
+	text-align: center;
+	border-bottom: 2px solid transparent;
+}
+
+.footer nav a:hover, .footer nav a:focus {
+	color: #24292e;
+	text-decoration: none;
+	border-bottom-color: #e36209;
+	transition: 0.2s ease;
+}
+
+.footer nav a .counter {
+	display: inline-block;
+	padding: 2px 5px;
+	font-size: 12px;
+	font-weight: 600;
+	line-height: 1;
+	background-color: rgba(27,31,35,0.08);
+	border-radius: 20px;
+}

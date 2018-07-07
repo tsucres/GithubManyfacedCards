@@ -102,7 +102,9 @@ gulp.task('theme_gh_recommendation', function() {
 gulp.task('theme_codeshape', function() {
     return buildTheme('codeshape');
 });
-
+gulp.task('theme_gh_usercard', function() {
+    return buildTheme('gh_usercard');
+});
 
 
 /** 
@@ -110,7 +112,7 @@ gulp.task('theme_codeshape', function() {
     iframes. They contains the template of the theme, the css style 
     and the all the js functions the template needs. 
 */
-gulp.task('themes', ['theme_gh_basic', 'theme_gh_full', 'theme_gh_pure', 'theme_gh_recommendation', 'theme_codeshape']);
+gulp.task('themes', ['theme_gh_basic', 'theme_gh_full', 'theme_gh_pure', 'theme_gh_recommendation', 'theme_codeshape', 'theme_gh_usercard']);
 
 /**
     Similar to the 'themes' task. In this task, the gmc.js library 
@@ -123,11 +125,13 @@ gulp.task('embed_themes', function() {
     var gh_full = buildEmbeddedTheme("gh_full");
     var gh_recommendation = buildEmbeddedTheme("gh_recommendation");
     var codeshape = buildEmbeddedTheme("codeshape");
+    var gh_usercard = buildEmbeddedTheme("gh_usercard");
 
     var embedThemes = merge(gh_basic, gh_pure);
     embedThemes.add(gh_full);
     embedThemes.add(gh_recommendation);
     embedThemes.add(codeshape);
+    embedThemes.add(gh_usercard);
     return embedThemes;
 });
 
@@ -162,6 +166,35 @@ gulp.task('demo', function() {
         .pipe(gulp.dest('.'));
 });
 
+gulp.task('tests', function() {
+    var move_more_efficient_page = gulp.src(["src/demo/tests/more_efficient.html"])
+        .pipe(gulp.dest('./demo/tests/more_efficient'));
+
+    var task = merge(move_more_efficient_page);
+    var repo_test = "data-gmc-repo='tensorflow/tensorflow'";
+    var user_test = "data-gmc-user='tensorflow'";
+    var theme_names = {"gh_recommendation": repo_test, "gh_basic": repo_test, "gh_pure": repo_test, "gh_full": repo_test, "codeshape": user_test, "gh_usercard": user_test};
+
+    for (var theme_name in theme_names) {
+        var build_more_efficient_gh_recommendation =  gulp.src(["src/demo/tests/more_efficient_template.html"])
+            .pipe(rename(function(th_name) { return function(path) { 
+                                path.basename += "_" + th_name; }}(theme_name)
+            ))
+            .pipe(nunjucksRender({
+                path: '.',
+                data: {
+                    theme_name: theme_name,
+                    test_value: theme_names[theme_name],
+                }
+            }))
+            .pipe(preprocess({context: {}}))
+            .pipe(gulp.dest('./demo/tests/more_efficient'));
+        task = merge(task, build_more_efficient_gh_recommendation);
+    }
+    
+    return merge(move_more_efficient_page, build_more_efficient_gh_recommendation);
+});
+
 gulp.task('default',['gmc']);
-gulp.task('all',['gmc', 'demo', 'embed_themes', 'themes']);
+gulp.task('all',['gmc', 'embed_themes', 'themes', 'demo', 'tests']);
 

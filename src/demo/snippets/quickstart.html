@@ -97,13 +97,15 @@
             <link rel="stylesheet" type="text/css" href="path/<theme_name>.min.css">\\n
             <!-- ... -->\\n
             <!-- 2) Place your card(s) -->
-            <div data-gh-repo="<full_repo_name>">
+            <div data-gmc-repo="<full_repo_name>">
               \\t<!-- Paste the markup of the skin from the file <theme_name>.html -->
             </div>\\n
             <!-- ... -->\\n
             <!-- 3) Place the js file at the bottom of the body -->
             <script type="text/javascript" src="path/<theme_name>.min.js"></script>\\n
-            <!-- 4) Somehow call the function GMC.loadAllCards when the document has loaded -->
+            <!-- 4) Load gmc.min.js -->
+            <script type="text/javascript" src="path/gmc.min.js"></script>\\n
+            <!-- 5) Somehow call the function GMC.loadAllCards when the document has loaded -->
             <script type="text/javascript">
               \\twindow.onload = GMC.loadAllCards
             </script>' | preCode }}

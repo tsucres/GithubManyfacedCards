@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="../../../dist/themes/{{theme_name}}/{{theme_name}}.css">
+    <style type="text/css">
+        
+    </style>
+</head>
+<body>
+    <div {{test_value|safe}}>
+        <!-- @include ../../themes/templates/{{theme_name}}.html -->
+    </div>
+    <script type="text/javascript" src="../../../src/gmc.js"></script>
+    <!--<script type="text/javascript" src="../../../dist/gmc.min.js"></script>-->
+    <script type="text/javascript" src="../../../dist/themes/{{theme_name}}/{{theme_name}}.min.js"></script>
+    <script type="text/javascript">
+        window.onload = function() {GMC.loadAllCards();};
+    </script>
+</body>
+</html>
