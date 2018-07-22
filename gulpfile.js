@@ -166,6 +166,16 @@ gulp.task('demo', function() {
         .pipe(gulp.dest('.'));
 });
 
+gulp.task('generator', function() {
+    return gulp.src(["src/demo/generator.html"])
+        .pipe(preprocess({context: {}}))
+        .pipe(nunjucksRender({
+            path: '.',
+            manageEnv: njManageEnvironment,
+        }))
+        .pipe(gulp.dest('./demo'));
+})
+
 gulp.task('tests', function() {
     var move_more_efficient_page = gulp.src(["src/demo/tests/more_efficient.html"])
         .pipe(gulp.dest('./demo/tests/more_efficient'));
@@ -196,5 +206,5 @@ gulp.task('tests', function() {
 });
 
 gulp.task('default',['gmc']);
-gulp.task('all',['gmc', 'embed_themes', 'themes', 'demo', 'tests']);
+gulp.task('all',['gmc', 'embed_themes', 'themes', 'demo', 'tests', 'generator']);
 

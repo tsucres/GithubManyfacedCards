@@ -1,0 +1,1824 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="keywords" content="GMC, GitHub Manyfaced Cards, widgets, github, cards">
+    <meta name="description" content="GitHub Manyfaced Cards are extreamely extendable and customisable widgets for GitHub repositories and users. They are easily embeddable on any webpage.">
+        
+    <title>GitHub Manyfaced Cards</title>
+
+    <!-- favicon -->
+    <!-- TODO -->
+
+    <!-- styles -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    
+    
+  <link rel="stylesheet" type="text/css" href="css/demo.css">
+	<link rel="stylesheet" type="text/css" href="css/generator.css">
+
+  <!-- Syntactic coloration -->
+  <link rel="stylesheet" type="text/css" href="css/ocean.css">
+
+	<!-- Styles for the cards -->
+	<style type="text/css">
+      .gh {
+      	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+      	font-size: 14px;
+      	line-height: 1.5;
+      	color: #24292e;
+      	background-color: #fff;
+      	text-align: left;
+      }
+      
+      
+      
+      .gh .rounded-1 { border-radius: 3px }
+      .gh .border { border: 1px #e1e4e8 solid }
+      
+      .gh .lh-condensed { line-height: 1.25 }
+      .gh .text-bold { font-weight: 600 }
+      .gh .text-gray-dark { color: #24292e }
+      .gh .text-gray { color: #586069 }
+      .gh .link-gray-dark { color: #24292e }
+      .gh .link-gray-dark:hover { color: #0366d6 }
+      
+      .gh .p-1 { padding: 4px }
+      .gh .p-2 { padding: 8px }
+      .gh .p-3 { padding: 16px }
+      .gh .pr-4 { padding: 24px }
+      
+      .gh .mb-0 {	margin-bottom: 0 }
+      .gh .mb-1 {	margin-bottom: 4px }
+      .gh .mb-2 {	margin-bottom: 8px }
+      .gh .ml-0 { margin-left: 0 }
+      .gh .mr-1 {	margin-right: 4px }
+      .gh .mt-1 {	margin-top: 4px }
+      .gh .mt-2 {	margin-top: 8px }
+      .gh .mr-3 {	margin-right: 16px }
+      .gh .my-1 { 
+      	margin-top: 4px;
+      	margin-bottom: 4px }
+      
+      .gh .f4 { font-size: 16px }
+      .gh .f6 { font-size: 12px }
+      
+      .gh .wb-break-all { word-break: break-all }
+      
+      
+      .gh .d-inline-flex { 
+      	display: -webkit-inline-box ;
+      	display: inline-flex }
+      .gh .d-inline-block { display: inline-block }
+      .gh .d-inline { display: inline }
+      .gh .d-block { display: block }
+      
+      .gh .muted-link {
+      	color: #586069 
+      }
+      .gh .muted-link:hover {
+      	color: #0366d6 ;
+      	text-decoration: none
+      }
+      
+      .gh .repo-language-color {
+      	position: relative;
+      	top: 1px;
+      	display: inline-block;
+      	width: 12px;
+      	height: 12px;
+      	border-radius: 50%
+      }
+      
+      .gh .octicon {
+      	vertical-align: text-bottom;
+      	display: inline-block;
+      	fill: currentColor
+      }
+      .gh a:active, a:hover {
+      	outline-width: 0
+      }
+      .gh a:hover {
+      	text-decoration: underline
+      }
+      .gh svg {
+      overflow: hidden;}
+      
+      .gh p {
+      	margin-top: 0;
+       	margin-bottom: 10px
+      }
+      
+      .gh a {
+      	color: #0366d6;
+      	text-decoration: none
+      }
+      .gh h3 {
+      	font-size: 20px;
+      	font-weight: 600;
+      	margin-top: 0;
+          margin-bottom: 0
+      }
+      
+      .title-placeholder {
+      	height: 18px;
+      }
+      .desc-placeholder {
+      	height: 13px;
+      }
+      .controls-placeholder {
+      	height: 17px;
+      }
+      
+      /* @include snippets/basic_github.css */
+      /* @include snippets/loading.css */
+      /* @include snippets/basic_github.css */
+      /* @include snippets/loading.css */
+      /* @include snippets/basic_github.css */
+      /* @include snippets/loading.css */
+      
+      .gh .d-flex {
+      	display: -webkit-box !important;
+      	display: flex !important
+      }
+      
+      .gh .avatar {
+      	display: inline-block;
+      	overflow: hidden;
+      	line-height: 1;
+      	vertical-align: middle;
+      	border-radius: 3px
+      }
+      
+      .gh .text-normal {
+      	font-weight: 400 !important 
+      }
+      
+      .gh .topics-row-container {
+      	height: 30px;
+      	overflow: hidden
+      }
+      
+      .gh .flex-items-center {
+      	-webkit-box-align: center !important;
+      	align-items: center !important
+      }
+      
+      .gh .flex-wrap {
+      	flex-wrap: wrap !important
+      }
+      
+      .gh .topic-tag-link:hover {
+      	text-decoration: none;
+      	background-color: #def
+      }
+      
+      .gh .topic-tag {
+      	display: inline-block;
+      	padding: 0.3em 0.9em;
+      	margin: 0 0.5em 0.5em 0;
+      	white-space: nowrap;
+      	background-color: #f1f8ff;
+      	border-radius: 3px
+      }
+      
+      .gh .btn {
+      	color: #24292e;
+      	background-color: #eff3f6;
+      	background-image: linear-gradient(-180deg, #fafbfc 0%, #eff3f6 90%);
+      
+      	position: relative;
+      	display: inline-block;
+      	padding: 6px 12px;
+      	font-size: 14px;
+      	font-weight: 600;
+      	line-height: 20px;
+      	white-space: nowrap;
+      	vertical-align: middle;
+      	cursor: pointer;
+      	-webkit-user-select: none;
+      	-moz-user-select: none;
+      	-ms-user-select: none;
+      	user-select: none;
+      	background-repeat: repeat-x;
+      	background-position: -1px -1px;
+      	background-size: 110% 110%;
+      	border: 1px solid rgba(27, 31, 35, 0.2);
+      	border-radius: 0.25em;
+      	-webkit-appearance: none;
+      	-moz-appearance: none;
+      	appearance: none
+      }
+      
+      .gh .btn-sm {
+      	padding: 3px 10px;
+      	font-size: 12px;
+      	line-height: 20px
+      }
+      
+      .gh .btn:hover {
+      	background-color: #e6ebf1;
+      	background-image: linear-gradient(-180deg, #f0f3f6 0%, #e6ebf1 90%);
+      	background-position: -.5em;
+      	border-color: rgba(27, 31, 35, 0.35);
+      	text-decoration: none;
+      	background-repeat: repeat-x
+      }
+      
+      .gh .btn:active {
+      	background-color: #e9ecef;
+      	background-image: none;
+      	border-color: rgba(27, 31, 35, 0.35);
+      	box-shadow: inset 0 0.15em 0.3em rgba(27, 31, 35, 0.15)
+      }
+      
+      
+      
+      .title-placeholder {
+      	height: 18px;
+      }
+      .desc-placeholder {
+      	height: 13px;
+      }
+      .controls-placeholder {
+      	height: 17px;
+      }
+      
+      /* Source : https://github.com/linways/simple-content-placeholder/blob/master/content-placeholder.css */
+      @-webkit-keyframes placeHolderShimmer {
+        0% {
+          background-position: -468px 0;
+        }
+        100% {
+          background-position: 468px 0;
+        }
+      }
+      
+      @keyframes placeHolderShimmer {
+        0% {
+          background-position: -468px 0;
+        }
+        100% {
+          background-position: 468px 0;
+        }
+      }
+      
+      .content-placeholder {
+        display: block;
+        -webkit-animation-duration: 1s;
+        animation-duration: 1s;
+        -webkit-animation-fill-mode: forwards;
+        animation-fill-mode: forwards;
+        -webkit-animation-iteration-count: infinite;
+        animation-iteration-count: infinite;
+        -webkit-animation-name: placeHolderShimmer;
+        animation-name: placeHolderShimmer;
+        -webkit-animation-timing-function: linear;
+        animation-timing-function: linear;
+        background: #f6f7f8;
+        background: -webkit-gradient(linear, left top, right top, color-stop(8%, #eeeeee), color-stop(18%, #dddddd), color-stop(33%, #eeeeee));
+        background: -webkit-linear-gradient(left, #eeeeee 8%, #dddddd 18%, #eeeeee 33%);
+        background: linear-gradient(to right, #eeeeee 8%, #dddddd 18%, #eeeeee 33%);
+        -webkit-background-size: 800px 104px;
+        background-size: 800px 104px;
+        height: inherit;
+        position: relative;
+      }
+      
+      .error-view {
+        padding: 10px 20px;
+        position: relative;
+        text-align: center;
+        background-color: #fafbfc;
+        border: 1px solid #e1e4e8;
+        border-radius: 3px;
+        box-shadow: inset 0 0 10px rgba(27, 31, 35, 0.05)
+      }
+      .error-view h3 {
+        margin: 0;
+        font-size: 20px
+      }
+      
+      .error-view .octicon {
+        margin-right: 4px;
+        margin-bottom: 5px;
+        margin-left: 4px;
+        color: #a3aab1;
+      }
+      .p-rel {
+        position: relative;
+      }
+      .full-absolute {
+        position: absolute;
+        top: 0;
+        right: 0;
+        left: 0;
+        bottom: 0;
+      }
+      .gmc-loaded .only-if-loading {
+        display: none;
+      }
+      .gmc-error .only-if-loading {
+        display: none;
+      }
+      .only-if-error {
+        display: none;
+      }
+      .gmc-loaded .only-if-loaded {
+        visibility: visible;
+      }
+      .only-if-loaded {
+        visibility: hidden;
+      }
+      .gmc-error .only-if-error {
+        display: block;
+      }
+      @import url(https://fonts.googleapis.com/css?family=Exo+2:300,400,700);
+      .cs-card {
+        font-size:14px;
+        font-family: "Exo 2", sans-serif;
+        color: #333;
+        position: relative;
+        width: 315px; /* Remove for full width */
+        height: 450px; /* Remove for full width */
+        margin:30px auto;
+        box-shadow: 0 0 40px rgba(0,0,0, .3);
+      }
+      .cs-card .cs-card-header{
+        position: relative;
+        height: 220px;
+        background-size: cover;
+        background-position: top;
+      }
+      .cs-card .cs-card-header:after{
+        content:'';
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(to top, rgb(5,85,134), rgba(181,181,181, 0.1));
+      }
+      
+      .cs-card .cs-card-header-bar{
+        position: absolute;
+        top:0;
+        width: 100%;
+        z-index: 1;
+        width: 100%;
+      }
+      
+      .sr-only{
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        clip: rect(0,0,0,0);
+        border: none;
+        overflow: hidden;
+      }
+      .btn-message{
+        display: inline-block;
+        background: url(https://res.cloudinary.com/dj14cmwoz/image/upload/v1491077483/profile-card/images/message.svg) no-repeat;
+        width: 19.37px;
+        height: 16.99px;
+        margin-right:10px;
+        margin-top:10px;
+        float: right;
+      }
+      .btn-menu{
+        display: inline-block;
+        background: url(https://res.cloudinary.com/dj14cmwoz/image/upload/v1491077483/profile-card/images/menu.svg) no-repeat;
+        width: 19px;
+        height: 12.16px;
+        margin-left:10px;
+        margin-top:10px;
+        float: left;
+      }
+      
+      svg .polygon{
+        fill: #fff;
+      }
+      .cs-card-header-slanted-edge{
+        position: absolute;
+        bottom: -3px;
+        z-index: 1;
+        width: 100%;
+        right:0;
+        left:0;
+      }
+      
+      .btn-follow{
+        position: absolute;
+        top: -15px;
+        right: 25px;
+        width: 45px;
+        height: 45px;
+        background: linear-gradient(to left, #2D77C1, #68FAC2);
+        border-radius:100%;
+        box-shadow: 0 10px 15px rgba(110,221,235, .53);
+      }
+      
+      .btn-follow:after{
+        content: '';
+        position:absolute;
+        background: url(https://res.cloudinary.com/dj14cmwoz/image/upload/v1491077480/profile-card/images/add.svg) no-repeat;
+        width:17px;
+        height: 17px;
+        left: 50%;
+        top:50%;
+        transform: translate(-50%, -50%);
+      }
+      
+      .cs-card .cs-card-body{
+        text-align:center;
+        padding-left: 10px;
+      }
+      
+      .cs-card-body .name{
+        font-size: 20px;
+        font-weight: 700;
+        text-transform: uppercase;
+        margin: 0 auto;
+      }
+      
+      .cs-card-body .job-title{
+        font-size: 14px;
+        font-weight: 300;
+        margin-top: 5px;
+        color: #919191;
+      }
+      
+      .cs-card-body .bio{
+        font-size: 14px;
+        color: #7B7B7B;
+        font-weight: 300;
+        margin: 10px auto;
+        line-height: 20px;
+      }
+      
+      .cs-card-body .social-accounts img{
+        width: 15px;
+      }
+      
+      .cs-card-body .social-accounts a{
+        margin-left: 10px;
+      }
+      .cs-card-body .social-accounts a:first-child{
+        margin-left: 0;
+      }
+      
+      .cs-card-footer{
+        /*position:fixed; /* Full card width/height */
+        position: absolute; /* Fixed card width/height */
+      
+        left: 0;
+        width: 100%;
+        bottom: 20px;
+      }
+      .cs-card-footer .stat{
+        box-sizing: border-box;
+        width: calc(100% / 3);
+        float: left;
+        text-align: center;
+        border-left: 1px solid #EBEBEB;
+      }
+      .cs-card-footer .stat .label{
+        display: block;
+        text-transform: uppercase;
+        font-weight: 300;
+        font-size: 11px;
+        letter-spacing: 1px;
+        color: #95989A;
+      }
+      
+      .cs-card-footer .stat .value{
+        display: block;
+        font-weight: 700;
+        font-size:20px;
+        margin-top: 5px;
+      }
+      /* @include snippets/basic_github.css */
+      /* @include snippets/loading.css */
+      
+      .gh {
+      	font-size: 13px;
+      }
+      
+      .gh_usercard {
+      	width: 100%;
+      	padding: 10px;
+      	
+      	white-space: nowrap;
+      	max-width: 470px;
+      }
+      
+      .avatar {
+      	width: 100px;
+      	height: 100px;
+      	border-radius: 8px;
+      	display: inline-block;
+      	float: left;
+      }
+      .right-menu {
+      	display: inline-block;
+      	padding: 0px 15px;
+      	min-height: 100px;
+      }
+      .gh_usercard ul li {
+      	list-style: none;
+      }
+      
+      .gh_usercard ul li:not([data-gmc-visible]) {
+      	display: none;
+      }
+      .gh_usercard ul li span {
+      	margin: 0;
+      	overflow-x: ellipsis;
+      }
+      .gh_usercard ul li svg {
+      	vertical-align: middle;
+      	color: #6a737d;
+      	margin-right: 5px;
+      }
+      
+      .gh_usercard ul {
+      	display: inline-block;
+      	margin: 0;
+      	padding: 0;
+      }
+      
+      .right-menu h1 {
+      	font-size: 22px;
+      	line-height: 22px;
+      	color: #24292e;
+      	margin: 0;
+      	padding: 0;
+      }
+      
+      .bottom-menu {
+      	margin-top: 5px;
+      }
+      .bio {
+      	font-size: 13px;
+      	color: #6a737d;
+      }
+      .right-menu h3 {
+      	font-size: 17px;
+      	font-style: normal;
+      	font-weight: 300;
+      	line-height: 20px;
+      	color: #666;
+      	margin-bottom: 4px;
+      }
+      .footer nav {
+      	display: flex;
+      	overflow-x: scroll;
+      }
+      
+      .footer nav a {
+      	padding: 10px 8px 5px 8px;
+      	margin-right: 10px;
+      	margin-right: 16px;
+      	line-height: 1.5;
+      	text-align: center;
+      	border-bottom: 2px solid transparent;
+      }
+      
+      .footer nav a:hover, .footer nav a:focus {
+      	color: #24292e;
+      	text-decoration: none;
+      	border-bottom-color: #e36209;
+      	transition: 0.2s ease;
+      }
+      
+      .footer nav a .counter {
+      	display: inline-block;
+      	padding: 2px 5px;
+      	font-size: 12px;
+      	font-weight: 600;
+      	line-height: 1;
+      	background-color: rgba(27,31,35,0.08);
+      	border-radius: 20px;
+      }
+    </style>
+
+
+
+</head>
+<body>
+    
+<div class="nav-bar"><h1>GMC<span class="subscript">.js</span></h1></div>
+<header>
+  <div class="header-content d-inline-block">
+    <a href="/"><h1>GMC<span class="subscript">.js</span></h1>
+    <h3><strong>G</strong>ithub <strong>M</strong>any-faced <strong>C</strong>ards</h3></a>
+  
+    <div class="container-fluid">
+      <div class="features row">
+        <div class="feature col mt-2">
+          <span class="icon">
+              <i class="icon-fast"></i>
+          </span>
+          <span class="feature-text">Fast</span>
+        </div>
+         <div class="feature col mt-2">
+          <span class="icon">
+              <i class="icon-light"></i>
+          </span>
+          <span class="feature-text">Lightweight</span>
+        </div>
+
+         <div class="feature col mt-2">
+          <span class="icon">
+              <i class="icon-straightforward"></i>
+          </span>
+          <span class="feature-text">Straightforward implementation</span>
+        </div>
+         <div class="feature col mt-2">
+          <span class="icon">
+              <i class="icon-customisable"></i>
+          </span>
+          <span class="feature-text">Entirely customizable</span>
+        </div>
+        <div class="feature col mt-2">
+          <span class="icon">
+              <i class="icon-compatible"></i>
+          </span>
+          <span class="feature-text">IE9+</span>
+        </div>
+        <div class="feature col mt-2">
+          <span class="icon">
+              <i class="icon-open"></i>
+          </span>
+          <span class="feature-text">Open source</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+</header>
+
+
+
+
+
+
+
+<div class="container main-container">
+	<div class="row">
+    <h3 class="col-lg-12">Costomize the card</h3>
+
+    <!-- multistep form -->
+    <div id="msform" class="col-lg-12">
+      <!-- progressbar -->
+      <ul class="progressbar">
+        <li class="active" id="gh-id-progressbar-el">User/Repo name</li>
+        <li id="theme-progressbar-el">Theme</li>
+        <li id="export-progressbar-el">Export</li>
+      </ul>
+      <!-- fieldsets -->
+      <fieldset class="row" id="fs-gh-id">
+        <h2 class="fs-title col-lg-12">User/Repo name</h2>
+        <h3 class="fs-subtitle col-lg-12">Step 1</h3>
+        
+        <p class="txt-error col-sm-8 offset-md-4"></p>
+        <label for="gh-id-txt" class="col-sm-4">Username or full repo name</label>
+        <div class="col-sm-8">
+          <input type="text" class="form-control " id="gh-id-txt" placeholder="e.g. tsucres or tsucres/GithubManyfacedCards">
+        </div>
+        <button name="next" class="next action-button btn btn-primary load-btn" id="gh-id-next-btn">Next</button>
+      </fieldset>
+      <fieldset class="row hidden" id="fs-theme">
+        <h2 class="fs-title col-lg-12">Theme</h2>
+        <h3 class="fs-subtitle col-lg-12">Step 2</h3>
+        <label for="theme-opt" class="col-sm-4 offset-sm-2">Theme of the <span class="gmc-type">repo</span> card</label>
+        <div class="btn-group col-sm-4">
+          <button id="theme-opt" type="button" class="btn dropdown-toggle selectpicker btn-default" data-toggle="modal" data-target="#modal-theme-selection">
+            <span class="filter-option pull-left">gh_basic</span>&nbsp;<span class="caret"></span>
+          </button>
+        </div>
+        <p class="mini-info-txt offset-sm-1 col-sm-11 text-left mt-4 mb-2 ">Preview: </p>
+        <div id="theme-preview-container">
+          
+        </div>
+        <div class="col-sm-5 offset-md-3">
+          <button name="previous" class="next action-button btn btn-primary load-btn" id="theme-previous-btn">Previous</button>
+          <button name="next" class="next action-button btn btn-primary load-btn" id="theme-next-btn">Next</button>
+        </div>
+      </fieldset>
+      <fieldset class="row hidden" id="fs-export">
+        <h2 class="fs-title col-lg-12">Export</h2>
+        <h3 class="fs-subtitle col-lg-12">How do you want to integrate it?</h3>
+        
+        <div class="col-sm-12">
+          <!-- Nav tabs -->
+          <ul class="nav nav-tabs d-flex justify-content-center" role="tablist">
+            <li class="nav-item">
+              <a class="nav-link active" data-toggle="tab" href="#easy-gen" role="tab">Easy</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" data-toggle="tab" href="#efficient-gen" role="tab">Efficient</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" data-toggle="tab" href="#efficienter-gen" role="tab">Even more efficient</a>
+            </li>
+          </ul>
+
+          <!-- Tab panes -->
+          <div class="tab-content">
+            <div class="tab-pane active mv2 b-light show fade" id="easy-gen" role="tabpanel">
+              <p>Paste the following piece of markup where you need you want the card.</p>
+              <pre><code class="html" id="easy-code-html">
+                
+              </code></pre>
+            </div>
+            <div class="tab-pane mv2 b-light fade" id="efficient-gen" role="tabpanel">
+              <p>Import <code>gmc.js</code> in your page (before the first card</p><br>
+              <pre><code class="html" id="efficient-code-gmc-import">
+&lt;script src=&quot;https://cdn.rawgit.com/tsucres/GithubManyfacedCards/master/dist/gmc.min.js&quot;&gt;&lt;/script&gt;</code></pre>
+              
+              <p>Paste the following piece of markup where you want your card.</p>
+              <pre><code class="html" id="efficient-code-html">
+                
+              </code></pre>
+            </div>
+            <div class="tab-pane mv2 b-light fade" id="efficienter-gen" role="tabpanel">
+              <p>Copy the following code in your page</p>
+              <h5>Style</h5>
+              <p>Link <a href="" id="efficienter-link-css" target="_blank" download></a> to your document.</p>
+              <pre><code class="html" id="efficienter-code-css">
+                
+              </code></pre>
+              <h5>Markup</h5>
+              <p>Paste the following markup where you need your card to be:</p>
+              <pre><code class="html" id="efficienter-code-html">
+                
+              </code></pre>
+
+              <h5>Javascript</h5>
+              <p><a href="" id="efficienter-link-js" target="_blank" download></a> contains the javascript code that is needed by the skin you chose. Link it to your page: <p>
+              <pre><code class="html" id="efficienter-code-js">
+                
+              </code></pre>
+              <h5>Import GMC.js</h5>
+              <p>Link <a href="https://cdn.rawgit.com/tsucres/GithubManyfacedCards/master/dist/gmc.min.js" target="_blank" download>gmc.min.js</a> to your document.</p>
+              <pre><code class="html" id="efficienter-code-gmc-import">
+&lt;script src=&quot;https://cdn.rawgit.com/tsucres/GithubManyfacedCards/master/dist/gmc.min.js&quot;&gt;&lt;/script&gt;</code></pre>
+              <h5>Load the cards</h5>
+              <p>After the DOM is loaded, call the following function: </p>
+              <pre><code class="js" id="efficienter-code-gmc-load">GMC.loadAllCards()</code></pre>
+            </div>
+          </div>
+        </div> 
+        <button name="previous" class="next action-button btn btn-primary load-btn" id="export-previous-btn">Previous</button>
+      </fieldset>
+    </div>
+
+
+    
+	</div>
+	
+</div>
+<div class="modal fade" id="modal-theme-selection" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+      <div class="modal-body">
+        <section class="repo-themes-section">
+          
+<div class="theme-item" data-theme-option-id="gh_basic">
+  <div class="item-header">
+    <svg width="98px" height="20px" viewBox="0 0 98 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="transform: scaleX(1) translateX(0px);">
+      <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linecap="square">
+          <path d="M7.00379441,14 C9.9896127,16.9303376 12.0273237,19 14.0037944,19 C15.9802652,19 80.9794322,19 83.0037944,19 C85.0281566,19 86.9761807,16.9404347 90.0037944,14 C93.0314081,11.0595653 94.0064281,10 97.0037944,10 C97.6687053,10 97.5647208,10 96.6918409,10 C97.5332014,10 97.6371859,10 97.0037944,10 C94.0537072,10 93.0254611,9.03459251 90.0037944,6 C86.9821278,2.96540749 85.0193847,1 83.0037944,1 C80.9882041,1 15.9829413,1 14.0037944,1 C12.0246475,1 9.97420234,2.93288418 7.00379441,6 C4.03338649,9.06711582 3.00357306,10 0.00379441182,10 C3.04064041,10 4.01797612,11.0696624 7.00379441,14 Z" id="Combined-Shape" stroke="#2078DA" fill="#2078DA"></path>
+      </g>
+    </svg>
+    <svg class="light" width="98px" height="20px" viewBox="0 0 98 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="transform: scaleX(1) translateX(0px);">
+      <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linecap="square">
+          <path d="M7,14 C9.98581829,16.9303376 12.0235293,19 14,19 C15.9764707,19 80.9756378,19 83,19 C85.0243622,19 86.9723863,16.9404347 90,14 C93.0276137,11.0595653 94.0026337,10 97,10 C97.6649109,10 97.5609264,10 96.6880465,10 C97.529407,10 97.6333915,10 97,10 C94.0499128,10 93.0216667,9.03459251 90,6 C86.9783333,2.96540749 85.0155903,1 83,1 C80.9844097,1 15.9791469,1 14,1 C12.0208531,1 9.97040793,2.93288418 7,6 C4.02959207,9.06711582 2.99977865,10 2.98427949e-13,10 C3.036846,10 4.01418171,11.0696624 7,14 Z" id="Combined-Shape" stroke="#97C4F0" fill="#97C4F0"></path>
+      </g>
+    </svg>
+
+    <p>
+      gh_basic
+    </p>
+  </div>
+  <div class="card-demo">
+    <!--
+  Most basic theme: repo name, description + stars, no error nor loading states.
+
+  It only needs the following style: 
+    - basic_github.css
+
+  And the following js:
+    - languageColors.js
+    - getStargazersURL.js
+    - formatDate.js 
+    - getRepoURL.js 
+    - humanReadable.js
+-->
+<div class="gh">
+  <div class="border rounded-1 p-3 only-if-loaded">
+    <span class="f4 lh-condensed text-bold text-gray-dark"><a href="https://github.com/" class="link-gray-dark text-bold wb-break-all" data-gmc-id="in__full_name, href__full_name__js" data-gmc-js="getRepoURL"></a></span>
+    <p data-gmc-id="in__description"></p>
+    <p class="f6 text-gray mt-2 mb-0">
+        <span class="d-inline-block text-gray mr-3">
+          <span class="repo-language-color ml-0 mr-1" data-gmc-id="style__language__js" data-gmc-js="getStyleForLanguage"></span>
+          <span class="mr-3" data-gmc-id="in__language"></span>
+        </span>
+        <span class="d-inline-block mr-3">
+            <a href="" class="muted-link" data-gmc-id="href__full_name__js" data-gmc-js="getStargazersURL">
+              <svg aria-hidden="true" class="octicon octicon-star mr-1" height="16" version="1.1" viewBox="0 0 14 16" width="14"><path fill-rule="evenodd" d="M14 6l-4.9-.64L7 1 4.9 5.36 0 6l3.6 3.26L2.67 14 7 11.67 11.33 14l-.93-4.74z"></path></svg><span data-gmc-id="in__stargazers_count__js" data-gmc-js="humanReadable"></span>
+            </a>
+        </span>
+        Updated <span data-gmc-id="in__updated_at__js" data-gmc-js="formatDate"></span>
+    </p>
+  </div>
+</div>
+  </div>
+</div>
+
+          
+<div class="theme-item" data-theme-option-id="gh_pure">
+  <div class="item-header">
+    <svg width="98px" height="20px" viewBox="0 0 98 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="transform: scaleX(0.875) translateX(-6.125px);">
+      <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linecap="square">
+          <path d="M7.00379441,14 C9.9896127,16.9303376 12.0273237,19 14.0037944,19 C15.9802652,19 80.9794322,19 83.0037944,19 C85.0281566,19 86.9761807,16.9404347 90.0037944,14 C93.0314081,11.0595653 94.0064281,10 97.0037944,10 C97.6687053,10 97.5647208,10 96.6918409,10 C97.5332014,10 97.6371859,10 97.0037944,10 C94.0537072,10 93.0254611,9.03459251 90.0037944,6 C86.9821278,2.96540749 85.0193847,1 83.0037944,1 C80.9882041,1 15.9829413,1 14.0037944,1 C12.0246475,1 9.97420234,2.93288418 7.00379441,6 C4.03338649,9.06711582 3.00357306,10 0.00379441182,10 C3.04064041,10 4.01797612,11.0696624 7.00379441,14 Z" id="Combined-Shape" stroke="#2078DA" fill="#2078DA"></path>
+      </g>
+    </svg>
+    <svg class="light" width="98px" height="20px" viewBox="0 0 98 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="transform: scaleX(0.875) translateX(-6.125px);">
+      <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linecap="square">
+          <path d="M7,14 C9.98581829,16.9303376 12.0235293,19 14,19 C15.9764707,19 80.9756378,19 83,19 C85.0243622,19 86.9723863,16.9404347 90,14 C93.0276137,11.0595653 94.0026337,10 97,10 C97.6649109,10 97.5609264,10 96.6880465,10 C97.529407,10 97.6333915,10 97,10 C94.0499128,10 93.0216667,9.03459251 90,6 C86.9783333,2.96540749 85.0155903,1 83,1 C80.9844097,1 15.9791469,1 14,1 C12.0208531,1 9.97040793,2.93288418 7,6 C4.02959207,9.06711582 2.99977865,10 2.98427949e-13,10 C3.036846,10 4.01418171,11.0696624 7,14 Z" id="Combined-Shape" stroke="#97C4F0" fill="#97C4F0"></path>
+      </g>
+    </svg>
+
+    <p>
+      gh_pure
+    </p>
+  </div>
+  <div class="card-demo">
+    <!--
+  Same as github_basic but with error and loading states.
+
+  It needs the following styles: 
+    - basic_github.css
+    - github_pure.css
+    - loading.css
+
+  And the following js:
+    - languageColors.js
+    - getStargazersURL.js
+    - formatDate.js 
+    - getRepoURL.js 
+    - humanReadable.js
+-->
+
+<div class="gh p-rel">
+  <div class="only-if-loading full-absolute p-3">
+    <div class="title-placeholder mb-2">
+      <span class="content-placeholder" style="width:70px;width:17em;">&nbsp;</span>
+    </div>
+    <div class="desc-placeholder mb-1">
+      <span class="content-placeholder" style="width:95%;">&nbsp;</span>
+    </div>
+    <div class="desc-placeholder mb-1">
+      <span class="content-placeholder" style="width:40%;">&nbsp;</span>
+    </div>
+    <div class="controls-placeholder mt-2">
+      <span class="content-placeholder" style="width:30%;">&nbsp;</span>
+    </div>
+    
+  </div>
+  <div class="only-if-error">
+    <!-- @include snippets/github_error_state.html -->
+  </div>
+  <div class="border rounded-1 p-3 only-if-loaded">
+    <span class="f4 lh-condensed text-bold text-gray-dark"><a target="_blank" href="https://github.com/" class="link-gray-dark text-bold wb-break-all" data-gmc-id="in__full_name, href__full_name__js" data-gmc-js="getRepoURL"></a></span>
+    <p data-gmc-id="in__description"></p>
+    <p class="f6 text-gray mt-2 mb-0">
+        <span class="d-inline-block text-gray mr-3">
+          <span class="repo-language-color ml-0 mr-1" data-gmc-id="style__language__js" data-gmc-js="getStyleForLanguage"></span>
+          <span class="mr-3" data-gmc-id="in__language"></span>
+        </span>
+        <span class="d-inline-block mr-3">
+            <a target="_blank" href="" class="muted-link" data-gmc-id="href__full_name__js" data-gmc-js="getStargazersURL">
+              <svg aria-hidden="true" class="octicon octicon-star mr-1" height="16" version="1.1" viewBox="0 0 14 16" width="14"><path fill-rule="evenodd" d="M14 6l-4.9-.64L7 1 4.9 5.36 0 6l3.6 3.26L2.67 14 7 11.67 11.33 14l-.93-4.74z"></path></svg><span data-gmc-id="in__stargazers_count__js" data-gmc-js="humanReadable"></span>
+            </a>
+        </span>
+        Updated <span data-gmc-id="in__updated_at__js" data-gmc-js="formatDate"></span>
+    </p>
+  </div>
+</div>
+  </div>
+</div>
+
+          
+<div class="theme-item" data-theme-option-id="gh_full">
+  <div class="item-header">
+    <svg width="98px" height="20px" viewBox="0 0 98 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="transform: scaleX(0.875) translateX(-6.125px);">
+      <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linecap="square">
+          <path d="M7.00379441,14 C9.9896127,16.9303376 12.0273237,19 14.0037944,19 C15.9802652,19 80.9794322,19 83.0037944,19 C85.0281566,19 86.9761807,16.9404347 90.0037944,14 C93.0314081,11.0595653 94.0064281,10 97.0037944,10 C97.6687053,10 97.5647208,10 96.6918409,10 C97.5332014,10 97.6371859,10 97.0037944,10 C94.0537072,10 93.0254611,9.03459251 90.0037944,6 C86.9821278,2.96540749 85.0193847,1 83.0037944,1 C80.9882041,1 15.9829413,1 14.0037944,1 C12.0246475,1 9.97420234,2.93288418 7.00379441,6 C4.03338649,9.06711582 3.00357306,10 0.00379441182,10 C3.04064041,10 4.01797612,11.0696624 7.00379441,14 Z" id="Combined-Shape" stroke="#2078DA" fill="#2078DA"></path>
+      </g>
+    </svg>
+    <svg class="light" width="98px" height="20px" viewBox="0 0 98 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="transform: scaleX(0.875) translateX(-6.125px);">
+      <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linecap="square">
+          <path d="M7,14 C9.98581829,16.9303376 12.0235293,19 14,19 C15.9764707,19 80.9756378,19 83,19 C85.0243622,19 86.9723863,16.9404347 90,14 C93.0276137,11.0595653 94.0026337,10 97,10 C97.6649109,10 97.5609264,10 96.6880465,10 C97.529407,10 97.6333915,10 97,10 C94.0499128,10 93.0216667,9.03459251 90,6 C86.9783333,2.96540749 85.0155903,1 83,1 C80.9844097,1 15.9791469,1 14,1 C12.0208531,1 9.97040793,2.93288418 7,6 C4.02959207,9.06711582 2.99977865,10 2.98427949e-13,10 C3.036846,10 4.01418171,11.0696624 7,14 Z" id="Combined-Shape" stroke="#97C4F0" fill="#97C4F0"></path>
+      </g>
+    </svg>
+
+    <p>
+      gh_full
+    </p>
+  </div>
+  <div class="card-demo">
+    <!--
+  Repo name, description, stars, forks, license + error and loading states.
+
+  It needs the following styles: 
+    - basic_github.css
+    - github_full.css
+    - loading.css
+
+  And the following js:
+    - languageColors.js
+    - getStargazersURL.js
+    - formatDate.js 
+    - getRepoURL.js 
+    - getSparks.js 
+    - getNetworkURL.js 
+    - humanReadable.js
+    
+-->
+<div class="gh p-rel">
+  <div class="only-if-error">
+    <!-- @include snippets/github_error_state.html -->
+  </div>
+  <div class="border rounded-1 p-3">
+    <span class="f4 lh-condensed text-bold text-gray-dark">
+      <a target="_blank" href="https://github.com/" class="link-gray-dark text-bold wb-break-all" data-gmc-id="in__full_name, href__full_name__js" data-gmc-js="getRepoURL"></a>
+    </span>
+    <p data-gmc-id="in__description"></p>
+    
+    <p class="f6 text-gray mt-2 mb-0">
+        <span class="d-inline-block text-gray mr-3">
+          <span class="repo-language-color ml-0 mr-1" data-gmc-id="style__language__js" data-gmc-js="getStyleForLanguage"></span>
+          <span itemprop="programmingLanguage" data-gmc-id="in__language"></span>
+        </span>
+
+        <span class="d-inline-block mr-3">
+            <a target="_blank" href="" class="muted-link" data-gmc-id="href__full_name__js" data-gmc-js="getStargazersURL">
+              <svg aria-hidden="true" class="octicon octicon-star mr-1" height="16" version="1.1" viewBox="0 0 14 16" width="14"><path fill-rule="evenodd" d="M14 6l-4.9-.64L7 1 4.9 5.36 0 6l3.6 3.26L2.67 14 7 11.67 11.33 14l-.93-4.74z"></path></svg>
+              <span data-gmc-id="in__stargazers_count__js" data-gmc-js="humanReadable"></span>
+            </a>
+        </span>
+
+
+        
+        <a target="_blank" href="" class="pinned-repo-meta muted-link mr-3" data-gmc-id="href__full_name__js" data-gmc-js="getNetworkURL">
+          <svg aria-label="forks" class="octicon mr-1" height="16" role="img" version="1.1" viewBox="0 0 10 16" width="10"><path fill-rule="evenodd" d="M8 1a1.993 1.993 0 0 0-1 3.72V6L5 8 3 6V4.72A1.993 1.993 0 0 0 2 1a1.993 1.993 0 0 0-1 3.72V6.5l3 3v1.78A1.993 1.993 0 0 0 5 15a1.993 1.993 0 0 0 1-3.72V9.5l3-3V4.72A1.993 1.993 0 0 0 8 1zM2 4.2C1.34 4.2.8 3.65.8 3c0-.65.55-1.2 1.2-1.2.65 0 1.2.55 1.2 1.2 0 .65-.55 1.2-1.2 1.2zm3 10c-.66 0-1.2-.55-1.2-1.2 0-.65.55-1.2 1.2-1.2.65 0 1.2.55 1.2 1.2 0 .65-.55 1.2-1.2 1.2zm3-10c-.66 0-1.2-.55-1.2-1.2 0-.65.55-1.2 1.2-1.2.65 0 1.2.55 1.2 1.2 0 .65-.55 1.2-1.2 1.2z"></path></svg>
+          <span data-gmc-id="in__forks__js" data-gmc-js="humanReadable"></span>
+        </a>
+        <span class="mr-3">
+          <svg aria-hidden="true" class="octicon mr-1" height="16" version="1.1" viewBox="0 0 14 16" width="14"><path fill-rule="evenodd" d="M7 4c-.83 0-1.5-.67-1.5-1.5S6.17 1 7 1s1.5.67 1.5 1.5S7.83 4 7 4zm7 6c0 1.11-.89 2-2 2h-1c-1.11 0-2-.89-2-2l2-4h-1c-.55 0-1-.45-1-1H8v8c.42 0 1 .45 1 1h1c.42 0 1 .45 1 1H3c0-.55.58-1 1-1h1c0-.55.58-1 1-1h.03L6 5H5c0 .55-.45 1-1 1H3l2 4c0 1.11-.89 2-2 2H2c-1.11 0-2-.89-2-2l2-4H1V5h3c0-.55.45-1 1-1h4c.55 0 1 .45 1 1h3v1h-1l2 4zM2.5 7L1 10h3L2.5 7zM13 10l-1.5-3-1.5 3h3z"></path></svg><span data-gmc-id="in__license-spdx_id"></span>
+        </span>
+        Updated <span data-gmc-id="in__updated_at__js" data-gmc-js="formatDate"></span>
+      </p>
+    <div data-gmc-id="trash__full_name__js" data-gmc-js="getSparks"></div>
+  </div>
+</div>
+  </div>
+</div>
+
+          
+<div class="theme-item" data-theme-option-id="gh_recommendation">
+  <div class="item-header">
+    <svg width="98px" height="20px" viewBox="0 0 98 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="transform: scaleX(2.125) translateX(55.125px);">
+      <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linecap="square">
+          <path d="M7.00379441,14 C9.9896127,16.9303376 12.0273237,19 14.0037944,19 C15.9802652,19 80.9794322,19 83.0037944,19 C85.0281566,19 86.9761807,16.9404347 90.0037944,14 C93.0314081,11.0595653 94.0064281,10 97.0037944,10 C97.6687053,10 97.5647208,10 96.6918409,10 C97.5332014,10 97.6371859,10 97.0037944,10 C94.0537072,10 93.0254611,9.03459251 90.0037944,6 C86.9821278,2.96540749 85.0193847,1 83.0037944,1 C80.9882041,1 15.9829413,1 14.0037944,1 C12.0246475,1 9.97420234,2.93288418 7.00379441,6 C4.03338649,9.06711582 3.00357306,10 0.00379441182,10 C3.04064041,10 4.01797612,11.0696624 7.00379441,14 Z" id="Combined-Shape" stroke="#2078DA" fill="#2078DA"></path>
+      </g>
+    </svg>
+    <svg class="light" width="98px" height="20px" viewBox="0 0 98 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="transform: scaleX(2.125) translateX(55.125px);">
+      <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linecap="square">
+          <path d="M7,14 C9.98581829,16.9303376 12.0235293,19 14,19 C15.9764707,19 80.9756378,19 83,19 C85.0243622,19 86.9723863,16.9404347 90,14 C93.0276137,11.0595653 94.0026337,10 97,10 C97.6649109,10 97.5609264,10 96.6880465,10 C97.529407,10 97.6333915,10 97,10 C94.0499128,10 93.0216667,9.03459251 90,6 C86.9783333,2.96540749 85.0155903,1 83,1 C80.9844097,1 15.9791469,1 14,1 C12.0208531,1 9.97040793,2.93288418 7,6 C4.02959207,9.06711582 2.99977865,10 2.98427949e-13,10 C3.036846,10 4.01418171,11.0696624 7,14 Z" id="Combined-Shape" stroke="#97C4F0" fill="#97C4F0"></path>
+      </g>
+    </svg>
+
+    <p>
+      gh_recommendation
+    </p>
+  </div>
+  <div class="card-demo">
+    <!--
+  Repo name, description, stars, number of opened issues, user avatar, topics + star button + error and loading states.
+
+  It needs the following styles: 
+    - basic_github.css
+    - github_recommendation.css
+    - loading.css
+
+  And the following js:
+    - languageColors.js
+    - getStargazersURL.js
+    - formatDate.js 
+    - getRepoURL.js 
+    - plural.js 
+    - getIssuesURL.js 
+    - fillWithTopics.js
+    - humanReadable.js
+-->
+
+<div class="gh p-rel">
+  <div class="only-if-loading full-absolute p-1">
+    <div class="d-flex">
+      <div class="mr-3">
+        <span class="d-block content-placeholder" style="width:48px;height:48px;">&nbsp;</span>
+      </div>
+      <div style="width: 100%;">
+        <div class="d-inline-block mb-1">
+          <span class="d-block content-placeholder" style="width:180px;width:15em;height:22px;">&nbsp;</span>
+        </div>
+        <div class="mt-2">
+          <span class="content-placeholder mb-1 d-block" style="width:85%;height:13px;">&nbsp;</span>
+          <span class="content-placeholder mb-1 d-block" style="width:45%;height:13px;">&nbsp;</span>
+        </div>
+        <p></p>
+        <div class="mb-2">
+          <span class="d-inline-block">
+            <span class="content-placeholder mr-2" style="width:60px;height:24px;">&nbsp;</span>
+          </span>
+          
+          <span class="d-inline-block">
+            <span class="content-placeholder mr-2" style="width:90px;height:24px;">&nbsp;</span>
+          </span>
+          <span class="d-inline-block">
+            <span class="content-placeholder mr-2" style="width:70px;height:24px;">&nbsp;</span>
+          </span>
+          <span class="d-inline-block">
+            <span class="content-placeholder mr-2" style="width:65px;height:24px;">&nbsp;</span>
+          </span>
+        </div>
+        <div class="mt-2">
+          <span class="content-placeholder mb-2" style="width:250px;height:16px;">&nbsp;</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="only-if-error">
+    <!-- @include snippets/github_error_state.html -->
+  </div>
+  <div class="p-4 border-bottom only-if-loaded">
+    <div class="d-flex">
+      <a target="_blank" class="d-block mr-3 mt-1" href="" data-gmc-id="href__owner-avatar_url">
+        <img src="" class="avatar" width="48" height="48" alt="" data-gmc-id="src__owner-avatar_url, alt__owner-login">
+      </a>
+      <div style="width: 100%;">
+        <div class="d-inline-block mb-1">
+          <h3>
+            <a target="_blank" href="" data-gmc-id="href__html_url">
+              <span class="text-normal"><span data-gmc-id="in__owner-login"></span>/</span><span data-gmc-id="in__name"></span>
+            </a>          
+          </h3>
+        </div>
+        <div class="f6 text-gray d-inline-block" style="float: right;">
+          <div class="d-inline-block">
+            <a target="_blank" class="btn btn-sm" type="submit" value="Star" data-gmc-id="href__html_url">
+              <svg aria-hidden="true" class="octicon octicon-star mr-1" height="16" version="1.1" viewBox="0 0 14 16" width="14"><path fill-rule="evenodd" d="M14 6l-4.9-.64L7 1 4.9 5.36 0 6l3.6 3.26L2.67 14 7 11.67 11.33 14l-.93-4.74z"></path></svg>Star
+            </a>
+          </div>
+        </div>
+        <div data-gmc-id="in__description"></div>
+        <p></p>
+        <div class="topics-row-container col-9 d-inline-flex flex-wrap flex-items-center f6 my-1" data-gmc-id="trash__full_name__js" data-gmc-js="fillWithTopics">
+        </div>
+        <div class="f6 text-gray mt-2">
+          <span class="repo-language-color ml-0 mr-1" style="" data-gmc-id="style__language__js" data-gmc-js="getStyleForLanguage"></span>
+          <span class="mr-3" data-gmc-id="in__language"></span>
+          <a target="_blank" href="" class="muted-link mr-3" data-gmc-id="href__full_name__js" data-gmc-js="getStargazersURL">
+            <svg aria-label="star" class="octicon octicon-star mr-1" height="16" role="img" version="1.1" viewBox="0 0 14 16" width="14"><path fill-rule="evenodd" d="M14 6l-4.9-.64L7 1 4.9 5.36 0 6l3.6 3.26L2.67 14 7 11.67 11.33 14l-.93-4.74z"></path></svg><span data-gmc-id="in__stargazers_count__js" data-gmc-js="humanReadable"></span>
+          </a> 
+          <a target="_blank" class="muted-link mr-3" href="" data-gmc-id="href__full_name__js" data-gmc-js="getIssuesURL">
+                <span data-gmc-id="in__open_issues_count__js" data-gmc-js="humanReadable"></span> issue<span data-gmc-id= "in__open_issues_count__js" data-gmc-js="addSIfSeveral"></span> need<span data-gmc-id= "in__open_issues_count__js" data-gmc-js="addSIfSingular"></span> help
+          </a>Updated <span data-gmc-id="in__updated_at__js" data-gmc-js="formatDate" data-gmc-ap></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+  </div>
+</div>
+
+        </section>
+        <section class="user-themes-section">
+          <div class="theme-item">
+            <div class="gh border rounded-1 gh_usercard">
+  <img class="avatar" src="" data-gmc-id="src__avatar_url">
+  <div class="right-menu">
+    <h1 data-gmc-id="in__name"></h1>
+    <h3 data-gmc-id="in__login"></h3>
+    <ul>
+      <li data-gmc-id="data-gmc-visible__company">
+        <svg class="octicon" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M16 12.999c0 .439-.45 1-1 1H7.995c-.539 0-.994-.447-.995-.999H1c-.54 0-1-.561-1-1 0-2.634 3-4 3-4s.229-.409 0-1c-.841-.621-1.058-.59-1-3 .058-2.419 1.367-3 2.5-3s2.442.58 2.5 3c.058 2.41-.159 2.379-1 3-.229.59 0 1 0 1s1.549.711 2.42 2.088C9.196 9.369 10 8.999 10 8.999s.229-.409 0-1c-.841-.62-1.058-.59-1-3 .058-2.419 1.367-3 2.5-3s2.437.581 2.495 3c.059 2.41-.158 2.38-1 3-.229.59 0 1 0 1s3.005 1.366 3.005 4z"></path></svg>
+        <span class="text-gray-dark" data-gmc-id="in__company"></span>
+      </li>
+      <li data-gmc-id="data-gmc-visible__company">
+        <svg class="octicon" viewBox="0 0 12 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M6 0C2.69 0 0 2.5 0 5.5 0 10.02 6 16 6 16s6-5.98 6-10.5C12 2.5 9.31 0 6 0zm0 14.55C4.14 12.52 1 8.44 1 5.5 1 3.02 3.25 1 6 1c1.34 0 2.61.48 3.56 1.36.92.86 1.44 1.97 1.44 3.14 0 2.94-3.14 7.02-5 9.05zM8 5.5c0 1.11-.89 2-2 2-1.11 0-2-.89-2-2 0-1.11.89-2 2-2 1.11 0 2 .89 2 2z"></path></svg>
+        <span class="text-gray-dark" data-gmc-id="in__location"></span>
+      </li>
+      <li data-gmc-id="data-gmc-visible__company">
+        <svg class="octicon" viewBox="0 0 14 16" version="1.1" width="14" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M0 4v8c0 .55.45 1 1 1h12c.55 0 1-.45 1-1V4c0-.55-.45-1-1-1H1c-.55 0-1 .45-1 1zm13 0L7 9 1 4h12zM1 5.5l4 3-4 3v-6zM2 12l3.5-3L7 10.5 8.5 9l3.5 3H2zm11-.5l-4-3 4-3v6z"></path></svg>
+        <a href="" data-gmc-id="href__email__js, in__email" data-gmc-js="mailTo"></a>
+      </li>
+      <li data-gmc-id="data-gmc-visible__company">
+        <svg class="octicon" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg>
+        <a href="" data-gmc-id="href__blog, in__blog"></a>
+      </li>
+    </ul>
+  </div>
+  <div class="bottom-menu">
+    <p class="bio" data-gmc-id="in__bio"></p>
+  </div>
+  <div class="footer">
+    <nav>
+      <a class="text-gray" href="" data-gmc-id="href__repos_url">Repositories <span class="counter" data-gmc-id="in__public_repos"></span></a>
+      <a class="text-gray" href="" data-gmc-id="href__followers_url">Followers <span class="counter" data-gmc-id="in__followers"></span></a>
+      <a class="text-gray" href="" data-gmc-id="href__following_url">Following <span class="counter" data-gmc-id="in__following"></span></a>
+    </nav>
+  </div>
+</div>
+          </div>
+        </section>
+      </div>
+    </div>
+  </div>
+</div>
+<footer>
+  <p>Hosted on <a href="https://www.github.com/tsucres/GithubManyfacedCards">GitHub</a></p>
+  <p>Copyright 2018 - <a href="https://www.github.com/tsucres" target="_blank">Stéphane Sercu</a></p>
+</footer>
+
+     
+
+    
+<script type="text/javascript" src="/dist/gmc.min.js"></script>
+<script type="text/javascript" src="/demo/js/highlight.pack.js"></script>
+<script type="text/javascript">
+    // The following are the js function needed by the templates
+    function getStargazersURL(repoFullName) {
+      return "https://github.com/" + repoFullName + "/stargazers/";
+    }
+    /**
+      Returns the specified iso formatted date into another format: "MMM dd yyyy"
+      */
+    function formatDate(isoDateStr) {
+      var date = new Date(isoDateStr);
+      var monthNames = [
+        "Jan", "Feb", "Mar",
+        "Apr", "May", "Jun", "Jul",
+        "Aug", "September", "Oct",
+        "Nov", "Dec"
+      ];
+    
+      var day = date.getDate();
+      var monthIndex = date.getMonth();
+      var year = date.getFullYear();
+      var yearStr = "";
+      if (year != (new Date()).getFullYear()) {
+        yearStr = ", " + String(year);
+      }
+    
+      return  " " + monthNames[monthIndex] + " " + day + " " + yearStr;
+    }
+    function getStyleForLanguage(lang) {
+      return "background-color: " + githubColorForLanguage(lang) + ";";
+    }
+    function githubColorForLanguage(lang) {
+        var color_map = {"Mercury":"#ff2b2b","TypeScript":"#2b7489","PureBasic":"#5a6986","Objective-C++":"#6866fb","Self":"#0579aa","edn":"#db5855","NewLisp":"#87AED7","Jupyter Notebook":"#DA5B0B","Rebol":"#358a5b","Frege":"#00cafe","Dart":"#00B4AB","AspectJ":"#a957b0","Shell":"#89e051","Web Ontology Language":"#9cc9dd","xBase":"#403a40","Eiffel":"#946d57","Nix":"#7e7eff","RAML":"#77d9fb","MTML":"#b7e1f4","Racket":"#22228f","Elixir":"#6e4a7e","SAS":"#B34936","Agda":"#315665","wisp":"#7582D1","D":"#ba595e","Kotlin":"#F18E33","Opal":"#f7ede0","Crystal":"#776791","Objective-C":"#438eff","ColdFusion CFC":"#ed2cd6","Oz":"#fab738","Mirah":"#c7a938","Objective-J":"#ff0c5a","Gosu":"#82937f","FreeMarker":"#0050b2","Ruby":"#701516","Component Pascal":"#b0ce4e","Arc":"#aa2afe","Brainfuck":"#2F2530","Nit":"#009917","APL":"#5A8164","Go":"#375eab","Visual Basic":"#945db7","PHP":"#4F5D95","Cirru":"#ccccff","SQF":"#3F3F3F","Glyph":"#e4cc98","Java":"#b07219","MAXScript":"#00a6a6","Scala":"#DC322F","Makefile":"#427819","ColdFusion":"#ed2cd6","Perl":"#0298c3","Lua":"#000080","Vue":"#2c3e50","Verilog":"#b2b7f8","Factor":"#636746","Haxe":"#df7900","Pure Data":"#91de79","Forth":"#341708","Red":"#ee0000","Hy":"#7790B2","Volt":"#1F1F1F","LSL":"#3d9970","eC":"#913960","CoffeeScript":"#244776","HTML":"#e44b23","Lex":"#DBCA00","API Blueprint":"#2ACCA8","Swift":"#ffac45","C":"#555555","AutoHotkey":"#6594b9","Isabelle":"#FEFE00","Metal":"#8f14e9","Clarion":"#db901e","JSONiq":"#40d47e","Boo":"#d4bec1","AutoIt":"#1C3552","Clojure":"#db5855","Rust":"#dea584","Prolog":"#74283c","SourcePawn":"#5c7611","AMPL":"#E6EFBB","FORTRAN":"#4d41b1","ANTLR":"#9DC3FF","Harbour":"#0e60e3","Tcl":"#e4cc98","BlitzMax":"#cd6400","PigLatin":"#fcd7de","Lasso":"#999999","ECL":"#8a1267","VHDL":"#adb2cb","Elm":"#60B5CC","Propeller Spin":"#7fa2a7","X10":"#4B6BEF","IDL":"#a3522f","ATS":"#1ac620","Ada":"#02f88c","Unity3D Asset":"#ab69a1","Nu":"#c9df40","LFE":"#004200","SuperCollider":"#46390b","Oxygene":"#cdd0e3","ASP":"#6a40fd","Assembly":"#6E4C13","Gnuplot":"#f0a9f0","JFlex":"#DBCA00","NetLinx":"#0aa0ff","Turing":"#45f715","Vala":"#fbe5cd","Processing":"#0096D8","Arduino":"#bd79d1","FLUX":"#88ccff","NetLogo":"#ff6375","C Sharp":"#178600","CSS":"#563d7c","Emacs Lisp":"#c065db","Stan":"#b2011d","SaltStack":"#646464","QML":"#44a51c","Pike":"#005390","LOLCODE":"#cc9900","ooc":"#b0b77e","Handlebars":"#01a9d6","J":"#9EEDFF","Mask":"#f97732","EmberScript":"#FFF4F3","TeX":"#3D6117","Nemerle":"#3d3c6e","KRL":"#28431f","Ren'Py":"#ff7f7f","Unified Parallel C":"#4e3617","Golo":"#88562A","Fancy":"#7b9db4","OCaml":"#3be133","Shen":"#120F14","Pascal":"#b0ce4e","F#":"#b845fc","Puppet":"#302B6D","ActionScript":"#882B0F","Diff":"#88dddd","Ragel in Ruby Host":"#9d5200","Fantom":"#dbded5","Zephir":"#118f9e","Click":"#E4E6F3","Smalltalk":"#596706","DM":"#447265","Ioke":"#078193","PogoScript":"#d80074","LiveScript":"#499886","JavaScript":"#f1e05a","VimL":"#199f4b","PureScript":"#1D222D","ABAP":"#E8274B","Matlab":"#bb92ac","Slash":"#007eff","R":"#198ce7","Erlang":"#B83998","Pan":"#cc0000","LookML":"#652B81","Eagle":"#814C05","Scheme":"#1e4aec","PLSQL":"#dad8d8","Python":"#3572A5","Max":"#c4a79c","Common Lisp":"#3fb68b","Latte":"#A8FF97","XQuery":"#5232e7","Omgrofl":"#cabbff","XC":"#99DA07","Nimrod":"#37775b","SystemVerilog":"#DAE1C2","Chapel":"#8dc63f","Groovy":"#e69f56","Dylan":"#6c616e","E":"#ccce35","Parrot":"#f3ca0a","Grammatical Framework":"#79aa7a","Game Maker Language":"#8fb200","Papyrus":"#6600cc","NetLinx+ERB":"#747faa","Clean":"#3F85AF","Alloy":"#64C800","Squirrel":"#800000","PAWN":"#dbb284","UnrealScript":"#a54c4d","Standard ML":"#dc566d","Slim":"#ff8f77","Perl6":"#0000fb","Julia":"#a270ba","Haskell":"#29b544","NCL":"#28431f","Io":"#a9188d","Rouge":"#cc0088","C++":"#f34b7d","AGS Script":"#B9D9FF","Dogescript":"#cca760","nesC":"#94B0C7"};
+        if (color_map.hasOwnProperty(lang)) {
+          return color_map[lang];
+        } else {
+          return "#fff";
+        }
+      }
+    /**
+      Fetches the activity graph (svg) produced by github for the specified 
+      repo and adds it to the specified HTMLElement.
+    
+      fullNameRepo: userName/repoName
+      element: HTMLElement
+      */
+    function getSparks(fullNameRepo, element) {
+      var request = new XMLHttpRequest();
+      var url = "https://urlreq.appspot.com/req?method=GET&url=" + encodeURIComponent("https://github.com/" + fullNameRepo + "/graphs/participation?h=28&type=sparkline&w=155");
+      request.open("GET", url); 
+      
+      request.onreadystatechange = function() {
+        if (request.readyState === 4) { 
+          if (request.status === 200) {
+            var parser = new DOMParser();
+            var spanSVG = parser.parseFromString(request.responseText, "text/html");
+            var span = spanSVG.body.getElementsByTagName("span")[0];
+            // Clear element's content
+            while (element.firstChild) {
+              element.removeChild(element.firstChild);
+            }
+            // Add sparks
+            element.appendChild(span);
+          }
+        }
+      }; 
+      request.send();
+      return "";
+    
+    }
+    
+    function getSparksURL(fullNameRepo) {
+      return "https://github.com/" + fullNameRepo + "/graphs/participation?h=28&type=sparkline&w=155";
+    }
+    function getNetworkURL(repoFullName) {
+    	return "https://github.com/" + repoFullName + "/network";
+    }
+    function getRepoURL(fullRepoName) {
+    	return "https://github.com/" + fullRepoName;
+    }
+    /**
+      Fetches the topics of the specified repo and add a markup in the 
+      specified element.
+    
+      fullRepoName: userName/repoName
+      element: HTMLElement in which the markup will be added.
+    
+      Note that it uses a preview feature of the fithub api, which might change in the feature
+      https://developer.github.com/v3/repos/#list-all-topics-for-a-repository
+      */
+    function fillWithTopics(fullRepoName, element, gmc) {
+      /* 
+      If the 'Accept = "application/vnd.github.mercy-preview+json"' 
+      entry was added in the HTTP header of the initial api request, 
+      the json of the GMC object should already contain the topics. 
+      If not, we have to fetch the topics with a new api request, 
+      with the 'Accept' header this time.
+      */
+      var currentJson = gmc.json;
+      if (currentJson.hasOwnProperty("topics")) {
+        fillMarkup(element, currentJson.topics);
+      } else {
+        var url = "https://api.github.com/repos/" + fullRepoName + "/topics";
+        var request = new XMLHttpRequest();
+        request.onreadystatechange = function() {
+          if (request.readyState === 4) { 
+            if (request.status === 200) {
+              var json = JSON.parse(request.responseText);
+              var names = json["names"];
+              fillMarkup(element, names);
+              
+            } /*else {
+              console.log("failed to fetch topics");
+            }*/
+          } 
+        };
+        request.open('GET', url);
+        request.setRequestHeader('Accept', 'application/vnd.github.mercy-preview+json');
+        request.send();
+      }
+    
+      
+    
+    }
+    
+    // topics = list of strings
+    function fillMarkup(element, topics) {
+      topics.forEach(function(name) {
+        var doc = element.ownerDocument;
+        // <a href="/topics/datasource" class="topic-tag topic-tag-link f6 my-1">datasource</a>
+        var topicA = doc.createElement("a");
+        topicA.setAttribute("href", "https://github.com/topics/");
+        topicA.setAttribute("class", "topic-tag topic-tag-link f6 my-1")
+        topicA.textContent = name;
+        element.appendChild(topicA);
+    
+      });
+    }
+    function addSIfSeveral(num){
+    	return num > 1 ? "s" : "";
+    }
+    function addSIfSingular(num) {
+    	return num <=1 ? "s" : "";
+    }
+    function getIssuesURL(repoFullName) {
+    	return "https://github.com/" + repoFullName + "/issues?q=is%3Aissue+is%3Aopen"
+    }
+    function humanReadable(num) {
+       if(num == 0) return "0";
+       var k = 1000,
+           dm = 1,
+           sizes = ["", " k", " M", " B", " T"],
+           i = Math.floor(Math.log(num) / Math.log(k));
+       return parseFloat((num / Math.pow(k, i)).toFixed(dm)) + sizes[i];
+    }
+
+    function mailTo(emailAddress, element) {
+    	if (emailAddress) {
+    		return "mailto:" + emailAddress;
+    	} else {
+    		element.style.visibility = "hidden";
+    		return "";
+    	}
+    }
+    function setBgImgUrl(imgUrl) {
+    	return "background-image: url(" + imgUrl + ");";
+    }
+  </script>
+<script type="text/javascript">
+  var initialTitleHeight;
+  var titleElement;
+  var jsSubscriptElement;
+  var initialJsSubscriptHeight;
+  var navBarElement;
+  var subtitleElement;
+  var featuresListElement;
+
+  var codeExportEasyContainer;
+  var codeExportEfficientContainer;
+  var codeExportEfficienterContainer;
+
+  function updateTitle(scrollTop) {
+    var percent = scrollTop/initialTitleHeight > 1 ? 1 : scrollTop/initialTitleHeight;
+    var targetTitleFontSize =  20; 
+    var initialTitleFontSize = 100;
+    var newFontSize = initialTitleFontSize - percent*(initialTitleFontSize-targetTitleFontSize);
+
+    var initialJsSubscriptFontSize = 50;
+    var targetJsSubscriptFontSize = 12;
+
+    jsSubscriptElement.style.fontSize = initialJsSubscriptFontSize - percent*(initialJsSubscriptFontSize-targetJsSubscriptFontSize) + "px";
+
+    titleElement.style.fontSize = initialTitleFontSize - percent*(initialTitleFontSize-targetTitleFontSize) + "px";
+    
+
+      titleElement.style.top = (scrollTop-10) + "px";
+      titleElement.style.left = "-" + percent*400 + "px";
+      featuresListElement.style.opacity = 1.5 - 1.5*percent;
+      subtitleElement.style.opacity = 1.3 - 1.3*percent;
+  }
+
+  function updateSubTitle(scrollTop) {
+    var percent = scrollTop/initialTitleHeight > 1 ? 1 : scrollTop/initialTitleHeight;
+
+  }
+  function updateFeatures(scrollTop) {
+    var percent = scrollTop/initialTitleHeight > 1 ? 1 : scrollTop/initialTitleHeight;
+
+
+  }
+
+  function updateNavBar(scrollTop) {
+    if (scrollTop >= initialTitleHeight) {
+      navBarElement.classList.add("shown");
+    } else {
+      navBarElement.classList.remove("shown");
+    }
+  }
+  window.addEventListener("load", function() {
+    titleElement = document.querySelector(".header-content h1");
+    initialTitleHeight = titleElement.offsetHeight;
+    jsSubscriptElement = titleElement.querySelector(".subscript");
+    initialJsSubscriptHeight = jsSubscriptElement.offsetHeight;
+    navBarElement = document.querySelector(".nav-bar");
+    featuresListElement = document.querySelector(".header-content .container-fluid");
+    subtitleElement = document.querySelector(".header-content h3");
+
+    codeExportEasyContainer = document.getElementById("easy-gen");
+    codeExportEfficientContainer = document.getElementById("efficient-gen");
+    codeExportEfficienterContainer = document.getElementById("efficienter-gen");
+
+    window.onscroll = function(e) {
+      var yPosition = e.target.scrollingElement.scrollTop;
+      var headerHeight = 120;
+      
+      updateTitle(yPosition);
+      updateSubTitle(yPosition);
+      updateFeatures(yPosition);
+      updateNavBar(yPosition);
+
+      
+
+    }
+  }, false);
+  
+</script>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<script type="text/javascript">
+  var gh_id_txt = null; // txt input handling the gh id (user/repo name)
+  var gh_id_next_btn = null; // Next button in the first step
+  var gh_id_progressbar_el = null; // Element for the first step in the progress bar
+
+  var theme_opt = null; // theme option
+  var theme_next_btn = null; // Next button in the first step
+  var theme_progressbar_el = null; // Element for the first step in the progress bar
+  var theme_previous_btn = null; // Next button in the first step
+  var export_previous_btn = null;
+
+  var step_loading = false; // Indicates if there is a transition currently happening
+
+  var currentJson = null; // Downloaded json
+  var currentJsonType = null; // "Repo" or "User"
+
+  var theme_lst_modal_container = null;
+
+  var theme_preview_container = null;
+
+  function getJson(url, callback) {
+    var request = new XMLHttpRequest();
+    request.onreadystatechange = function() {
+      if (request.readyState === 4) { 
+        var json = null;
+        try {
+          json = JSON.parse(request.responseText);
+        } catch (er) {
+          console.error("Couldn't fetch json: " + url);
+          console.log("Status: " + request.status);
+        }
+        callback(json);
+      } 
+    };
+    request.open('GET', url);
+    request.setRequestHeader('Accept', 'application/vnd.github.mercy-preview+json');
+    request.send();
+  }
+  function getRepoJson(fullRepoName, callback) {
+    getJson("https://api.github.com/repos/" + fullRepoName, callback);
+  }
+  function getUserJson(username, callback) {
+    getJson("https://api.github.com/users/" + username, callback);
+  }
+
+  function isRepoOrUser(name) {
+    if (name.indexOf("/") == -1) {
+      return "User";
+    } else {
+      return "Repo";
+    }
+  }
+
+  /**
+    Starts the animation to transition from a step to the next one
+    @param current_fs the fieldset that is currently shown
+    @param next_fs the fieldset to be shown
+    @param callback called (with no args) when the animation stops
+    */
+  function transitionNextFieldset(current_fs, next_fs, callback) {
+    current_fs.classList.add("anim-disap");
+    next_fs.classList.add("anim-appear");
+    next_fs.classList.remove("hidden");
+    setTimeout(function() {
+      current_fs.classList.remove("anim-disap");
+      current_fs.classList.add("hidden");
+      next_fs.classList.remove("anim-appear");
+      callback();
+    }, 800);
+  }
+
+  /**
+    Starts the animatino to come back to the rpevious step
+    @param current_fs the fieldset that is currently shown
+    @param previous_fs the fieldset to be shown
+    @param callback called (with no args) when the animation stops
+    */
+  function transitionPreviousFieldset(current_fs, previous_fs, callback) {
+    current_fs.classList.add("anim-appear", "anim-reverse");
+    previous_fs.classList.add("anim-disap", "anim-reverse");
+    previous_fs.classList.remove("hidden");
+    setTimeout(function() {
+      current_fs.classList.remove("anim-appear", "anim-reverse");
+      current_fs.classList.add("hidden");
+      previous_fs.classList.remove("anim-disap", "anim-reverse");
+      callback();
+    }, 800);
+  }
+
+  // Id of the modal div that contains the theme selection list
+  var theme_selection_modal_id = "modal-theme-selection";
+
+  function updateThemePreview(selectedElement) {
+    theme_preview_container.innerHTML = selectedElement.querySelector(".card-demo").outerHTML;
+    var newThemeName = selectedElement.getAttribute("data-theme-option-id");
+    theme_opt.querySelector("span").innerText = newThemeName;
+  }
+
+
+  /**
+    @param a valid json retrieved from github describing either a user or a repo
+    @param repoOrUser a string, either "Repo" or "User"
+  */
+  function fillThemeSelectionList(json, repoOrUser) {
+    var items = [];
+    
+    if (repoOrUser == "Repo") {
+      items = document.querySelectorAll("#" + theme_selection_modal_id + " .theme-item");
+      document.querySelector("#" + theme_selection_modal_id + " .user-themes-section").classList.add("hidden");
+      document.querySelector("#" + theme_selection_modal_id + " .repo-themes-section").classList.remove("hidden");
+    } else if (repoOrUser == "User") {
+      items = document.querySelectorAll("#" + theme_selection_modal_id + " .user-themes-section .theme-item");
+      document.querySelector("#" + theme_selection_modal_id + " .repo-themes-section").classList.add("hidden");
+      document.querySelector("#" + theme_selection_modal_id + " .user-themes-section").classList.remove("hidden");
+    }
+    for (var i = items.length - 1; i >= 0; i--) {
+      
+      var card = items[i].querySelector(".card-demo");
+      if (card) {
+        (new GMC(card, json));
+        items[i].addEventListener("click", function(evt) {
+          console.log(evt.target);
+          updateThemePreview(evt.target);
+          $(theme_lst_modal_container).modal('hide');
+        }, false);
+      }
+      
+    }
+  }
+
+  var gh_id_next_btn_click = function(evt) {
+    if(step_loading) return false;
+    if (gh_id_txt.value == "") {
+      document.querySelector("#fs-gh-id .txt-error").innerText = "There is something missing here.";
+      gh_id_txt.classList.add("error");
+      return false;
+    } 
+    step_loading = true;
+    gh_id_next_btn.classList.add('loading');
+
+    
+    function jsonDownloaded(json) {
+      if (json) {
+        if (json.message && json.message == "Not Found") {
+          currentJsonType = null;
+          currentJsonType = null;
+          document.querySelector("#fs-gh-id .txt-error").innerText = "Are you sure this id exists?";
+          gh_id_txt.classList.add("error");
+          step_loading = false;
+        } else {
+          currentJson = json;
+          theme_progressbar_el.classList.add("active");
+          gh_id_txt.classList.remove("error");
+          document.querySelector("#fs-gh-id .txt-error").innerText = "";
+          fillThemeSelectionList(json, isRepoOrUser(gh_id_txt.value));
+          updateThemePreview(document.querySelector("#" + theme_selection_modal_id + " .theme-item"));
+          transitionNextFieldset(document.getElementById("fs-gh-id"), document.getElementById("fs-theme"), function() {
+            step_loading = false;
+          });
+        }
+      } else {
+        currentJsonType = null;
+        document.querySelector("#fs-gh-id .txt-error").innerText = "There was an error while retrieving data from Github.";
+        gh_id_txt.classList.add("error");
+        step_loading = false;
+      }
+      gh_id_next_btn.classList.remove('loading');
+    }
+    if (isRepoOrUser(gh_id_txt.value) == "Repo") {
+      currentJsonType = "Repo";
+      getRepoJson(gh_id_txt.value, jsonDownloaded);
+    } else {
+      currentJsonType = "User";
+      getUserJson(gh_id_txt.value, jsonDownloaded);
+    }
+
+    return false;
+    
+  }
+
+  function getSelectedTheme() {
+    if (!theme_opt) {return;}
+    return theme_opt.querySelector("span").innerText;
+  }
+
+  function theme_next_btn_click(evt) {
+    // Generate codes for the three methods
+    var selectedTheme = getSelectedTheme();
+
+    // Easy 
+    var easy_code_html_element = document.getElementById("easy-code-html");
+    var userOrRepo = currentJsonType == "Repo" ? "rn" : "un";
+    easy_code_html_element.innerText = '<iframe src="https://cdn.rawgit.com/tsucres/GithubManyfacedCards/master/dist/themes/' + selectedTheme + '/embedded/embedded.gmc.min.html?' + userOrRepo + '=' + gh_id_txt.value + '" frameborder="0"></iframe>';
+    hljs.highlightBlock(easy_code_html_element);
+
+    // Efficient
+    var efficient_code_html_element = document.getElementById("efficient-code-html");
+    userOrRepo = currentJsonType == "Repo" ? "data-gmc-repo" : "data-gmc-user";
+    efficient_code_html_element.innerText = '<script async src="https://cdn.rawgit.com/tsucres/GithubManyfacedCards/master/dist/gmc-loader.min.js" ' + userOrRepo + '="' + gh_id_txt.value + '" data-gmc-theme="' + selectedTheme + '"><' + '/script>';
+    hljs.highlightBlock(efficient_code_html_element);
+    hljs.highlightBlock(document.getElementById("efficient-code-gmc-import"));
+
+    // "Efficienter"
+    var efficienter_code_html_element = document.getElementById("efficienter-code-html");
+
+    var cssURL = "https://cdn.rawgit.com/tsucres/GithubManyfacedCards/master/dist/themes/" + selectedTheme + "/" + selectedTheme+ ".css";
+    var efficienter_link_css_element = document.getElementById("efficienter-link-css");
+    efficienter_link_css_element.innerText = selectedTheme + ".min.css";
+    efficienter_link_css_element.href = cssURL;
+    var efficienter_code_css_element = document.getElementById("efficienter-code-css");
+    efficienter_code_css_element.innerText = '<link href="' + cssURL + '" rel="stylesheet" type="text/css">';
+    hljs.highlightBlock(efficienter_code_css_element);
+
+    var jsURL = "https://cdn.rawgit.com/tsucres/GithubManyfacedCards/master/dist/themes/" + selectedTheme + "/" + selectedTheme+ ".js";
+    var efficienter_link_js_element = document.getElementById("efficienter-link-js");
+    efficienter_link_js_element.innerText = selectedTheme + ".min.js";
+    efficienter_link_js_element.href = jsURL;
+    var efficienter_code_js_element = document.getElementById("efficienter-code-js");
+    efficienter_code_js_element.innerText = '<script src="' + jsURL + '"><' + '/script>';
+    hljs.highlightBlock(efficienter_code_js_element);
+    hljs.highlightBlock(document.getElementById("efficienter-code-gmc-import"));
+    var htmlURL = "https://cdn.rawgit.com/tsucres/GithubManyfacedCards/master/dist/themes/" + selectedTheme + "/" + selectedTheme+ ".html";
+    var efficienter_code_html_element = document.getElementById("efficienter-code-html");
+    var xhr = new XMLHttpRequest(); 
+    xhr.open('GET', htmlURL, true); 
+    xhr.onreadystatechange = function () { 
+        if (xhr.readyState == 4) {
+            if (xhr.status == 200) {
+              efficienter_code_html_element.innerText = xhr.responseText;
+              hljs.highlightBlock(efficienter_code_html_element);
+            } else {
+              //fail("");
+            }
+        }
+    };
+    xhr.send(null);
+
+    hljs.highlightBlock(document.getElementById("efficienter-code-gmc-load"));
+    transitionNextFieldset(document.getElementById("fs-theme"), document.getElementById("fs-export"), function() {
+        step_loading = false;
+      }
+    );
+  }
+
+  function theme_previous_btn_click(evt) {
+    step_loading = true;
+    transitionPreviousFieldset(document.getElementById("fs-theme"), document.getElementById("fs-gh-id"), function() {
+        step_loading = false;
+      }
+    );
+  }
+  function export_previous_btn_click(evt) {
+    step_loading = true;
+    transitionPreviousFieldset(document.getElementById("fs-export"), document.getElementById("fs-theme"), function() {
+        step_loading = false;
+      });
+  }
+
+
+  function theme_opt_click(evt) {
+    evt.preventDefault();
+    theme_lst_modal_container.classList.add("revealing");
+
+  }
+
+  function close_modal_theme_selection() {
+    theme_lst_modal_container.classList.add('out');
+    //theme_lst_modal_container.classList.remove('revealing');
+  }
+  window.addEventListener("load", function() {
+    gh_id_txt = document.getElementById("gh-id-txt");
+    
+    gh_id_progressbar_el = document.getElementById("gh-id-progressbar-el");
+    gh_id_next_btn = document.getElementById("gh-id-next-btn");
+    gh_id_next_btn.addEventListener("click", gh_id_next_btn_click, false);
+
+    theme_lst_modal_container = document.getElementById(theme_selection_modal_id);
+    theme_opt = document.getElementById("theme-opt");
+    theme_opt.addEventListener("click", theme_opt_click, false);
+    theme_progressbar_el = document.getElementById("theme-progressbar-el");
+    theme_next_btn = document.getElementById("theme-next-btn");
+    theme_next_btn.addEventListener("click", theme_next_btn_click, false);
+    theme_previous_btn = document.getElementById("theme-previous-btn");
+    theme_previous_btn.addEventListener("click", theme_previous_btn_click, false);
+
+    theme_preview_container = document.getElementById("theme-preview-container");
+
+    export_previous_btn = document.getElementById("export-previous-btn");
+    export_previous_btn.addEventListener("click", export_previous_btn_click, false);
+  }, false);
+
+ 
+  var CDN_DIST_URL = "https://cdn.rawgit.com/tsucres/GithubManyfacedCards/master/dist/";
+  var CDN_THEMES_URL = CDN_DIST_URL + "themes/";
+
+
+
+
+
+
+    var userThemes = ["codeshape", "gh_usercard"];
+    var repoThemes = ["gh_basic", "gh_pure", "gh_full", "gh_recommendation"];
+
+    
+
+    
+    function setThemeOptForUsers() {
+      if (!gh_theme_opt) {return;}
+      var innerHTML = "";
+      for (var i = 0; i < userThemes.length; i++) {
+        innerHTML += "<option>" + userThemes[i] + "</option>";
+      }
+      gh_theme_opt.innerHTML = innerHTML;
+    }
+
+    function setThemeOptForRepos() {
+      if (!gh_theme_opt) {return;}
+      var innerHTML = "";
+      for (var i = 0; i < repoThemes.length; i++) {
+        innerHTML += "<option>" + repoThemes[i] + "</option>";
+      }
+      gh_theme_opt.innerHTML = innerHTML;
+    }
+
+    function getSelectedImplMethod() {
+      if (!impl_opt) {return;}
+      if (impl_opt.value == "") {
+        return 0;
+      } else if (impl_opt.value = "") {
+        return 1;
+      } else if (impl_opt.value == "") {
+        return 2;
+      } else {
+        return null;
+      }
+    }
+    function updatePreview(selectedTheme, gh_id, isRepo) {
+      if (!previewFrame) {return;}
+      var previewHTML = "";
+      var style = "<link rel='stylesheet' type='text/css' href='" + CDN_THEMES_URL + selectedTheme + "/" + selectedTheme + ".min.css'>";
+      var head = style;
+      var gmcScript = '<script type="text/javascript" src="' + CDN_DIST_URL + 'gmc.min.js">&lt;/script>';
+      var themeScript = '<script type="text/javascript" src="' + CDN_THEMES_URL + selectedTheme + '/' + selectedTheme + '.min.js">&lt;/script>';
+      var body = "";
+      previewHTML = "<html><head>" + head + "</head><body>" + body + gmcScript + themeScript + "</body></html>"
+      previewFrame.document.open();
+      previewFrame.document.write(previewHTML);
+      previewFrame.document.close();
+    }
+
+    
+    function generateCodeOutput(selectedTheme,  gh_id, isRepo) {
+      var htmlCode = "";
+      if (getSelectedImplMethod() == 0) {
+        var id_attr = "rn";
+        if (!isRepo) { id_attr = "un"; }
+        htmlCode = "<iframe src='" + CDN_THEMES_URL + selectedTheme + "/embedded/embedded.gmc.min.html?" + id_attr + "=" + gh_id + "' frameborder='0'></iframe>";
+        output_code_container.innerHTML = "<p>Copy/paste the following piece of code where you want your card.</p><pre><code class='html'>" + htmlCode + "</code></pre>";
+      } else if (getSelectedImplMethod() == 0) {
+        var htmlCode1 = "<script src='" + CDN_DIST_URL + "gmc.min.js'>&lt;/script>";
+        var attr = "data-gmc-repo";
+        if (!isRepo) {
+          attr = "data-gmc-user";
+        }
+        var htmlCode2 = "<script async src='" + CDN_DIST_URL + "gmc-loader.min.js' " + attr + "='" + gh_id + "' data-gmc-theme='" + selectedTheme + "'>&lt;/script>";
+
+        output_code_container.innerHTML = "<p>Copy/paste the following piece of code <strong>before the first card</strong></p><pre><code class='html'>" + htmlCode1 + "</code></pre><p>The next piece of code loads the cards. Paste it wherever you want to show the card.</p><pre><code class='html'>" + htmlCode2 + "</code></pre>";
+      }
+
+      var codes = output_code_container.querySelector("pre code");
+      for (var i = codes.length - 1; i >= 0; i--) {
+        hljs.highlightBlock(codes[i]);
+      }
+    }
+
+    /*
+    var previewFrame = null;
+    var impl_opt = null;
+    var output_code_container = null;
+    window.onload = function() {
+      gh_id_txt = document.getElementById("gh-id-txt");
+      gh_theme_opt = document.getElementById("theme-opt");
+      //previewFrame = document.getElementById("preview");
+      //previewFrame = previewFrame.contentWindow || ( previewFrame.contentDocument.document || previewFrame.contentDocument);
+      impl_opt = document.getElementById("impl-opt");
+      outputCodeContainer = document.getElementById("output-code-container");
+      gh_id_txt.addEventListener("input", function(evt) {
+        var new_id = evt.target.value
+        if (new_id == "") {
+          disableThemeOpt();
+        } else if (isRepoOrUser(new_id) == "Repo") {
+          setThemeOptForRepos();
+          enableThemeOpt();
+        } else if (isRepoOrUser(new_id) == "User") {
+          setThemeOptForUsers();
+          enableThemeOpt();
+        }
+        updatePreview(getSelectedTheme(), new_id, isRepoOrUser(new_id) == "Repo");
+      }, false);
+
+      gh_theme_opt.addEventListener("change", function() {
+        var new_id = evt.target.value
+        updatePreview(getSelectedTheme(), new_id, isRepoOrUser(new_id) == "Repo");
+      }, false);
+    }*/
+
+  </script>
+
+
+
+</body>
+</html>

@@ -25,6 +25,7 @@
       <!-- @include-static ../themes/css/gh_recommendation.css -->
       <!-- @include-static ../themes/css/snippets/loading.css -->
       <!-- @include-static ../themes/css/codeshape.css -->
+      <!-- @include-static ../themes/css/gh_usercard.css -->
     </style>
 
     <!-- Syntactic coloration -->
@@ -78,10 +79,7 @@
 	
 </div>
 
-<footer>
-  <p>Hosted on <a href="https://www.github.com/tsucres/GithubManyfacedCards">GitHub</a></p>
-  <p>Copyright 2017 - Stéphane Sercu</p>
-</footer>
+{% include "src/demo/snippets/footer.html" %}
 {% endblock %}
 
 {% block endJs %}

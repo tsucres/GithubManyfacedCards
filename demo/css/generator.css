@@ -1,0 +1,368 @@
+@import url(https://fonts.googleapis.com/css?family=Montserrat);
+
+.main-container {
+	min-height: 80vh;
+}
+.nav-bar {
+	height: 45px;
+	position: fixed;
+	background-color: #404042;
+	display: inline-block;
+	width: 100%;
+	opacity: 0;
+	z-index: 10;
+	transition: opacity .5s;
+	-webkit-transition: opacity .5s;
+}
+.nav-bar.shown {
+	opacity: 1;
+}
+.nav-bar h1 {
+	font-family: "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Geneva, Verdana, sans-serif;
+	font-size: 20px;
+	color: white;
+	width: 900px;
+	margin: 10px auto;
+	padding-left: 20px;
+}
+
+.nav-bar h1 .subscript {
+	font-size: 12px;
+}
+.header-content h1 {
+	position: relative;
+}
+
+/* Modal theme list */
+#modal-theme-selection .modal-body {
+	max-height: 80vh;
+	overflow-y: scroll;
+}
+#modal-theme-selection .modal-dialog {
+	max-width: 800px;
+}
+#modal-theme-selection button.close span {
+	float: right;
+	margin-right: 5px;
+}
+
+.mini-info-txt {
+	font-weight: normal;
+	font-size: 12px;
+	color: #666;
+}
+
+#theme-preview-container {
+	display: block;
+	padding: 10px;
+	margin: 5px auto 30px auto;
+}
+
+
+/*
+#modal-theme-selection {
+  position: fixed;
+  display: table;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  transform: scale(0);
+  z-index: 1;
+}
+#modal-theme-selection.revealing {
+  transform: scale(1);
+}
+#modal-theme-selection.revealing .modal-background {
+  animation: fadeIn 0.5s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+}
+#modal-theme-selection.revealing .modal-background .revealing-modal {
+  animation: scaleUp 0.5s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+}
+#modal-theme-selection.revealing + .content {
+  animation: scaleBack 0.5s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+}
+#modal-theme-selection.revealing.out {
+  animation: quickScaleDown 0s 0.5s linear forwards;
+}
+#modal-theme-selection.revealing.out .modal-background {
+  animation: fadeOut 0.5s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+}
+#modal-theme-selection.revealing.out .modal-background .revealing-modal {
+  animation: scaleDown 0.5s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+}
+#modal-theme-selection.revealing.out + .content {
+  animation: scaleForward 0.5s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+}
+#modal-theme-selection .modal-background {
+  display: table-cell;
+  background: rgba(0, 0, 0, .8);
+  text-align: center;
+  vertical-align: middle;
+}
+#modal-theme-selection .modal-background .revealing-modal {
+  background: white;
+  padding: 50px;
+  display: block;
+  margin: auto;
+  max-width: 800px;
+  border-radius: 3px;
+  font-weight: 300;
+  position: relative;
+  max-height: 95%;
+  overflow-y: scroll;
+}*/
+
+#modal-theme-selection .theme-item:hover {
+  border: 2px solid #2078DA;
+}
+#modal-theme-selection .theme-item:hover svg.light {
+  opacity: 0;
+}
+#modal-theme-selection .theme-item {
+  border: 2px solid #97C4F0;
+  border-radius: 3px;
+  margin: 20px;
+  cursor: pointer;
+}
+#modal-theme-selection .theme-item .item-header {
+  height: 20px;
+  position: relative;
+}
+#modal-theme-selection .theme-item .item-header p {
+  color: #fff;
+  font-size: 13px;
+  position: absolute;
+  top: -12px;
+  padding: 0 20px;
+  margin: 0;
+}
+#modal-theme-selection .theme-item .item-header svg {
+  position: absolute;
+  top: -10.7px;
+  left: 0;
+}
+#modal-theme-selection .theme-item .card-demo {
+	padding: 30px;
+	pointer-events: none;
+}
+
+/* Loading button */
+
+button.load-btn {
+    border: 1px solid transparent;    
+    position: relative;
+    border: 0;    
+    cursor: pointer;
+    -webkit-appearance: none;
+    -webkit-font-smoothing: antialiased;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    -webkit-transition: 0.3s cubic-bezier(0.175, 0.885, 0.320, 1.275) all;
+  	outline: 0;
+    transition: 0.3s cubic-bezier(0.175, 0.885, 0.320, 1.275) all;
+}
+button.load-btn:before {
+    content: "";
+    opacity: 0;
+    background-image: url( data:image/gif;base64,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);
+    position: absolute;
+    top: 8px;
+    right: 40px;
+    width: 20px;
+	height: 20px;
+	background-size: cover;
+    -webkit-transition: 0.3s cubic-bezier(0.175, 0.885, 0.320, 1.275) all;
+	transition: 0.3s cubic-bezier(0.175, 0.885, 0.320, 1.275) all;
+}
+button.load-btn.loading {
+    padding-right: 60px;
+}
+button.load-btn.loading:before {
+    right: 15px;
+    opacity: 1;
+}
+
+
+/* Dropdown button */
+
+.btn.dropdown-toggle {
+	width: 100%;
+	text-align: left;
+}
+
+.btn.dropdown-toggle:after {
+	position: absolute;
+	right: 10px;
+	top: 20px;
+}
+/*form styles*/
+#msform {
+	width: 400px;
+	margin: 50px auto;
+	text-align: center;
+	position: relative;
+	font-family: montserrat, arial, verdana;
+}
+#msform fieldset {
+	background: white;
+	border: 0 none;
+	border-radius: 3px;
+	box-shadow: 0 0 15px 1px rgba(0, 0, 0, 0.4);
+	padding: 20px 30px;
+	width: 80%;
+	margin: 0 10%;
+	
+	/*stacking fieldsets above each other*/
+	position: relative;
+}
+#msform .txt-error {
+	text-align: left;
+	color: red;
+	font-size: 10px;
+	margin-bottom: 0;
+}
+
+/*inputs*/
+#msform input, #msform textarea {
+	padding: 15px;
+	margin-bottom: 10px;
+	width: 100%;
+	font-family: montserrat;
+	color: #2C3E50;
+	font-size: 13px;
+}
+#msform input.error {
+	border-color: red;
+}
+/*buttons*/
+#msform .action-button {
+	width: 100px;
+	font-weight: bold;
+	color: white;
+	border: 0 none;
+	cursor: pointer;
+	margin: 10px auto;
+}
+
+#msform label {
+	padding-top: 13px;
+}
+#msform .action-button:hover, #msform .action-button:focus {
+	box-shadow: none;
+}
+/*headings*/
+.fs-title {
+	font-size: 15px;
+	text-transform: uppercase;
+	color: #2C3E50;
+	margin-bottom: 10px;
+}
+.fs-subtitle {
+	font-weight: normal;
+	font-size: 13px;
+	color: #666;
+	margin-bottom: 20px;
+}
+/*progressbar*/
+#msform .progressbar {
+	margin-bottom: 30px;
+	overflow: hidden;
+	/*CSS counters to number the steps*/
+	counter-reset: step;
+}
+#msform .progressbar li {
+	list-style-type: none;
+	color: #525255;
+	text-transform: uppercase;
+	font-size: 9px;
+	width: 33.33%;
+	float: left;
+	position: relative;
+}
+#msform .progressbar li:before {
+	content: counter(step);
+	counter-increment: step;
+	width: 20px;
+	line-height: 20px;
+	display: block;
+	font-size: 10px;
+	color: #fff;
+	background: #97C4F0;
+	border-radius: 3px;
+	margin: 0 auto 5px auto;
+}
+/*progressbar connectors*/
+#msform .progressbar li:after {
+	content: '';
+	width: 100%;
+	height: 2px;
+	background: #97C4F0;
+	position: absolute;
+	left: -50%;
+	top: 9px;
+	z-index: -1; /*put it behind the numbers*/
+}
+#msform .progressbar li:first-child:after {
+	/*connector not needed before the first step*/
+	content: none; 
+}
+/*marking active/completed steps green*/
+/*The number of the step and the connector before it = green*/
+#msform .progressbar li.active:before,  #msform .progressbar li.active:after{
+	background: #0366D6;
+	color: white;
+}
+
+
+/* animations */
+
+@keyframes fs-disap {
+  0% {
+  opacity: 1;
+  }
+  50%, 55% {
+  opacity: 1;
+  transform: scale(1.05);
+  }
+  100% {
+  opacity: 0;
+  transform: scale(0.7);
+  }
+}
+@keyframes fs-appear {
+  0%, 50% {
+    opacity: 0;
+    transform: translateX(50%)
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0%)
+  }
+}
+#msform fieldset.anim-disap {
+  animation: fs-disap .8s ease-in-out;
+  /*display: block;*/
+  
+  position: absolute;
+}
+
+#msform fieldset.anim-appear {
+  /*display: block;*/
+  animation: fs-appear .8s ease-in-out;
+}
+#msform fieldset.anim-reverse {
+  animation-direction: reverse;
+}
+
+fieldset#fs-export .tab-content {
+	text-align: left;
+}
+fieldset#fs-export code {
+	max-height: 200px;
+}
+.hidden {
+  display: none;
+  opacity: 0;
+}
+
+

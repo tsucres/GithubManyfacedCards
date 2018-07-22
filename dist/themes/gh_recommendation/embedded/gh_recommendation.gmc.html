@@ -343,7 +343,7 @@
 	    it quits.
 	    */
 	  this.fillWithJson = function() {
-	    if (!(self.root_el && self.json && (self.repoFullName || self.username)))
+	    if (!(self.root_el && self.json))
 	      return
 	    var elements = self.root_el.querySelectorAll('[data-gmc-id]');
 	    elements.forEach(function(el) {
