@@ -16,6 +16,7 @@ var htmlmin = require('gulp-htmlmin');
 
 var merge = require('merge-stream');
 
+var fs = require('fs')
 var njManageEnvironment = function(environment) {
   environment.addFilter('preCode', function(str) {
     str = str.replace(/\n\s+/g,'\n');
@@ -24,6 +25,7 @@ var njManageEnvironment = function(environment) {
     str = environment.filters.escape(str);//
     return str;
   });
+  environment.addGlobal('includeFile', (src) => fs.readFileSync(src));
 }
 
 
@@ -33,7 +35,7 @@ function buildThemesWithPreprocessingContext(context, namePrefix) {
         .pipe(rename(function (path) { path.extname = namePrefix + ".html" }))
         .pipe(gulp.dest('./dist/themes'))
         .pipe(rename(function (path) { path.extname = ".min.html" }))
-        .pipe(minifyInline())
+        //.pipe(minifyInline())
         .pipe(htmlmin({collapseWhitespace: true}))
         .pipe(gulp.dest('./dist/themes'))
         .pipe(gzip())
@@ -176,17 +178,8 @@ gulp.task('generator', function() {
         .pipe(gulp.dest('./demo'));
 })
 
-gulp.task('tests', function() {
-    var move_more_efficient_page = gulp.src(["src/demo/tests/more_efficient.html"])
-        .pipe(gulp.dest('./demo/tests/more_efficient'));
-
-    var task = merge(move_more_efficient_page);
-    var repo_test = "data-gmc-repo='tensorflow/tensorflow'";
-    var user_test = "data-gmc-user='tensorflow'";
-    var theme_names = {"gh_recommendation": repo_test, "gh_basic": repo_test, "gh_pure": repo_test, "gh_full": repo_test, "codeshape": user_test, "gh_usercard": user_test};
-
-    for (var theme_name in theme_names) {
-        var build_more_efficient_gh_recommendation =  gulp.src(["src/demo/tests/more_efficient_template.html"])
+function buildEmbeddedThemeTestPage(method, theme_name, test_value) {
+    return gulp.src(["src/demo/tests/" + method + "_template.html"])
             .pipe(rename(function(th_name) { return function(path) { 
                                 path.basename += "_" + th_name; }}(theme_name)
             ))
@@ -194,15 +187,56 @@ gulp.task('tests', function() {
                 path: '.',
                 data: {
                     theme_name: theme_name,
-                    test_value: theme_names[theme_name],
+                    test_value: test_value,
                 }
             }))
             .pipe(preprocess({context: {}}))
-            .pipe(gulp.dest('./demo/tests/more_efficient'));
-        task = merge(task, build_more_efficient_gh_recommendation);
-    }
+            .pipe(gulp.dest('./demo/tests/' + method));
+}
+function buildMethodTestPage(method, themes) {
+    return gulp.src(["src/demo/tests/test_page_template.html"])
+            .pipe(rename(function(th_name) { return function(path) { 
+                                path.basename = method; }}(method)
+            ))
+            .pipe(nunjucksRender({
+                path: '.',
+                data: {
+                    theme_names: themes,
+                    method: method,
+                }
+            }))
+            .pipe(gulp.dest('./demo/tests/' + method));
+}
+gulp.task('tests', function() {
+    var methods = ["easy", "efficient", "more_efficient"];
+    var parameters = {"easy": {
+        "repo_test": "rn=tensorflow/tensorflow",
+        "user_test": "un=tensorflow",
+    }, "efficient": {
+        "repo_test": "data-gmc-repo='tensorflow/tensorflow'",
+        "user_test": "data-gmc-user='tensorflow'",
+    }, "more_efficient": {
+        "repo_test": "data-gmc-repo='tensorflow/tensorflow'",
+        "user_test": "data-gmc-user='tensorflow'",
+    }};
+    var theme_types = {"gh_recommendation": "repo_test", "gh_basic": "repo_test", "gh_pure": "repo_test", "gh_full": "repo_test", "codeshape": "user_test", "gh_usercard": "user_test"};
+
     
-    return merge(move_more_efficient_page, build_more_efficient_gh_recommendation);
+    var task = merge();
+    for (var method_id in methods) {
+        var method = methods[method_id];
+        // Build the test page for this method
+        var methodTestPageBuild = merge(buildMethodTestPage(method, Object.keys(theme_types)));
+
+        for (var theme_name in theme_types) {
+            // Build the page that will be embeded in an iframe in the test page, for a specific theme.
+            //...
+            methodTestPageBuild.add(buildEmbeddedThemeTestPage(method, theme_name, parameters[method][theme_types[theme_name]])); 
+        }
+        task.add(methodTestPageBuild);
+    }
+    return task;
+
 });
 
 gulp.task('default',['gmc']);
