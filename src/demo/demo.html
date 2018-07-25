@@ -16,20 +16,10 @@
 
 {% block head %}
 	<link rel="stylesheet" type="text/css" href="demo/css/demo.css">
-
-	<!-- Styles for the cards -->
-	<style type="text/css">
-      {{ includeFile('src/themes/css/snippets/basic_github.css') }}
-      {{ includeFile('src/themes/css/gh_pure.css') }}
-      {{ includeFile('src/themes/css/gh_full.css') }}
-      {{ includeFile('src/themes/css/gh_recommendation.css') }}
-      {{ includeFile('src/themes/css/snippets/loading.css') }}
-      {{ includeFile('src/themes/css/codeshape.css') }}
-      {{ includeFile('src/themes/css/gh_usercard.css') }}
-    </style>
-
-    <!-- Syntactic coloration -->
-    <link rel="stylesheet" href="demo/css/ocean.css">
+  <!-- Styles for the cards -->
+  <link rel="stylesheet" type="text/css" href="demo/css/demo_card_styles.css">
+  <!-- Syntactic coloration -->
+  <link rel="stylesheet" type="text/css" href="demo/css/ocean.css">
 
 {% endblock %}
 
@@ -84,22 +74,7 @@
 
 {% block endJs %}
 <script type="text/javascript" src="dist/gmc.min.js"></script>
-<script type="text/javascript">
-    // The following are the js function needed by the templates
-    <!-- @include ../themes/js/snippets/getStargazersURL.js -->
-    <!-- @include ../themes/js/snippets/formatDate.js -->
-    <!-- @include ../themes/js/snippets/languageColors.js -->
-    <!-- @include ../themes/js/snippets/getSparks.js -->
-    <!-- @include ../themes/js/snippets/getNetworkURL.js -->
-    <!-- @include ../themes/js/snippets/getRepoURL.js -->
-    <!-- @include ../themes/js/snippets/fillWithTopics.js -->
-    <!-- @include ../themes/js/snippets/plural.js -->
-    <!-- @include ../themes/js/snippets/getIssuesURL.js -->
-    <!-- @include ../themes/js/snippets/humanReadable.js -->
-
-    <!-- @include ../themes/js/snippets/mailTo.js -->
-    <!-- @include ../themes/js/snippets/setBgImgUrl.js -->
-  </script>
+<script type="text/javascript" src="demo/js/demo_card_js.min.js"></script>
 <script type="text/javascript">
     function updateUserCards() {
       var demoUserCardIdentifier = ".demo-card[data-gmc-user]";
@@ -146,7 +121,7 @@
 
 
 
-<script src="demo/js/highlight.pack.js"></script>
+<script src="demo/js/highlight.pack.min.js"></script>
 <script>hljs.initHighlightingOnLoad();</script>
 
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>

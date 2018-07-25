@@ -121,7 +121,7 @@ gulp.task('themes', ['theme_gh_basic', 'theme_gh_full', 'theme_gh_pure', 'theme_
     is directly embedded in the themes. This allows make iframe 
     totally independent from the host page.
 */
-gulp.task('embed_themes', function() {
+gulp.task('embed_themes', ['gmc', 'themes'], function() {
     var gh_basic = buildEmbeddedTheme("gh_basic");
     var gh_pure = buildEmbeddedTheme("gh_pure");
     var gh_full = buildEmbeddedTheme("gh_full");
@@ -156,8 +156,24 @@ gulp.task('gmc', function() {
     This markup is included at this stage. This contributes to 
     keeping the project DRY.
 */
-gulp.task('demo', function() {
-    return gulp.src(["src/demo/demo.html"])
+gulp.task('demo', ['gmc', 'themes', 'embed_themes'], function() {
+    // Build and move css (from /src/demo to /demo)
+    var demoCSS = gulp.src(["src/demo/css/*.css"])
+        .pipe(preprocess({context: {}}))
+        .pipe(gulp.dest('./demo/css'));
+
+    // Build and move js
+    var demoJS = gulp.src(["src/demo/js/*.js"])
+        .pipe(preprocess({context: {}}))
+        .pipe(uglify())
+        .pipe(rename(function (path) { path.extname = ".min.js" }))
+        .pipe(gulp.dest('./demo/js'));
+
+    var fonts = gulp.src(["src/demo/fonts/*"])
+        .pipe(gulp.dest('./demo/fonts'));
+
+    // Build and move html
+    var demoHTML = gulp.src(["src/demo/demo.html"])
         .pipe(rename(function (path) { path.basename = "index" }))
         .pipe(preprocess({context: {}}))
         .pipe(nunjucksRender({
@@ -166,9 +182,13 @@ gulp.task('demo', function() {
         }))
         .pipe(htmlclean({}))
         .pipe(gulp.dest('.'));
+
+    var demo = merge(demoCSS, demoJS, fonts, demoHTML);
+    
+    return demo;
 });
 
-gulp.task('generator', function() {
+gulp.task('generator', ['demo'], function() {
     return gulp.src(["src/demo/generator.html"])
         .pipe(preprocess({context: {}}))
         .pipe(nunjucksRender({
@@ -207,7 +227,7 @@ function buildMethodTestPage(method, themes) {
             }))
             .pipe(gulp.dest('./demo/tests/' + method));
 }
-gulp.task('tests', function() {
+gulp.task('tests', ['themes', 'embed_themes'], function() {
     var methods = ["easy", "efficient", "more_efficient"];
     var parameters = {"easy": {
         "repo_test": "rn=tensorflow/tensorflow",

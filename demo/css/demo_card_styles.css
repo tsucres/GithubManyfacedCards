@@ -1,0 +1,1316 @@
+.gh {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+	font-size: 14px;
+	line-height: 1.5;
+	color: #24292e;
+	background-color: #fff;
+	text-align: left;
+}
+
+
+
+.gh .rounded-1 { border-radius: 3px }
+.gh .border { border: 1px #e1e4e8 solid }
+
+.gh .lh-condensed { line-height: 1.25 }
+.gh .text-bold { font-weight: 600 }
+.gh .text-gray-dark { color: #24292e }
+.gh .text-gray { color: #586069 }
+.gh .link-gray-dark { color: #24292e }
+.gh .link-gray-dark:hover { color: #0366d6 }
+
+.gh .p-1 { padding: 4px }
+.gh .p-2 { padding: 8px }
+.gh .p-3 { padding: 16px }
+.gh .pr-4 { padding: 24px }
+
+.gh .mb-0 {	margin-bottom: 0 }
+.gh .mb-1 {	margin-bottom: 4px }
+.gh .mb-2 {	margin-bottom: 8px }
+.gh .ml-0 { margin-left: 0 }
+.gh .mr-1 {	margin-right: 4px }
+.gh .mt-1 {	margin-top: 4px }
+.gh .mt-2 {	margin-top: 8px }
+.gh .mr-3 {	margin-right: 16px }
+.gh .my-1 { 
+	margin-top: 4px;
+	margin-bottom: 4px }
+
+.gh .f4 { font-size: 16px }
+.gh .f6 { font-size: 12px }
+
+.gh .wb-break-all { word-break: break-all }
+
+
+.gh .d-inline-flex { 
+	display: -webkit-inline-box ;
+	display: inline-flex }
+.gh .d-inline-block { display: inline-block }
+.gh .d-inline { display: inline }
+.gh .d-block { display: block }
+
+.gh .muted-link {
+	color: #586069 
+}
+.gh .muted-link:hover {
+	color: #0366d6 ;
+	text-decoration: none
+}
+
+.gh .repo-language-color {
+	position: relative;
+	top: 1px;
+	display: inline-block;
+	width: 12px;
+	height: 12px;
+	border-radius: 50%
+}
+
+.gh .octicon {
+	vertical-align: text-bottom;
+	display: inline-block;
+	fill: currentColor
+}
+.gh a:active, a:hover {
+	outline-width: 0
+}
+.gh a:hover {
+	text-decoration: underline
+}
+.gh svg {
+overflow: hidden;}
+
+.gh p {
+	margin-top: 0;
+ 	margin-bottom: 10px
+}
+
+.gh a {
+	color: #0366d6;
+	text-decoration: none
+}
+.gh h3 {
+	font-size: 20px;
+	font-weight: 600;
+	margin-top: 0;
+    margin-bottom: 0
+}
+
+.title-placeholder {
+	height: 18px;
+}
+.desc-placeholder {
+	height: 13px;
+}
+.controls-placeholder {
+	height: 17px;
+}
+
+.gh {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+	font-size: 14px;
+	line-height: 1.5;
+	color: #24292e;
+	background-color: #fff;
+	text-align: left;
+}
+
+
+
+.gh .rounded-1 { border-radius: 3px }
+.gh .border { border: 1px #e1e4e8 solid }
+
+.gh .lh-condensed { line-height: 1.25 }
+.gh .text-bold { font-weight: 600 }
+.gh .text-gray-dark { color: #24292e }
+.gh .text-gray { color: #586069 }
+.gh .link-gray-dark { color: #24292e }
+.gh .link-gray-dark:hover { color: #0366d6 }
+
+.gh .p-1 { padding: 4px }
+.gh .p-2 { padding: 8px }
+.gh .p-3 { padding: 16px }
+.gh .pr-4 { padding: 24px }
+
+.gh .mb-0 {	margin-bottom: 0 }
+.gh .mb-1 {	margin-bottom: 4px }
+.gh .mb-2 {	margin-bottom: 8px }
+.gh .ml-0 { margin-left: 0 }
+.gh .mr-1 {	margin-right: 4px }
+.gh .mt-1 {	margin-top: 4px }
+.gh .mt-2 {	margin-top: 8px }
+.gh .mr-3 {	margin-right: 16px }
+.gh .my-1 { 
+	margin-top: 4px;
+	margin-bottom: 4px }
+
+.gh .f4 { font-size: 16px }
+.gh .f6 { font-size: 12px }
+
+.gh .wb-break-all { word-break: break-all }
+
+
+.gh .d-inline-flex { 
+	display: -webkit-inline-box ;
+	display: inline-flex }
+.gh .d-inline-block { display: inline-block }
+.gh .d-inline { display: inline }
+.gh .d-block { display: block }
+
+.gh .muted-link {
+	color: #586069 
+}
+.gh .muted-link:hover {
+	color: #0366d6 ;
+	text-decoration: none
+}
+
+.gh .repo-language-color {
+	position: relative;
+	top: 1px;
+	display: inline-block;
+	width: 12px;
+	height: 12px;
+	border-radius: 50%
+}
+
+.gh .octicon {
+	vertical-align: text-bottom;
+	display: inline-block;
+	fill: currentColor
+}
+.gh a:active, a:hover {
+	outline-width: 0
+}
+.gh a:hover {
+	text-decoration: underline
+}
+.gh svg {
+overflow: hidden;}
+
+.gh p {
+	margin-top: 0;
+ 	margin-bottom: 10px
+}
+
+.gh a {
+	color: #0366d6;
+	text-decoration: none
+}
+.gh h3 {
+	font-size: 20px;
+	font-weight: 600;
+	margin-top: 0;
+    margin-bottom: 0
+}
+
+/* Source : https://github.com/linways/simple-content-placeholder/blob/master/content-placeholder.css */
+@-webkit-keyframes placeHolderShimmer {
+  0% {
+    background-position: -468px 0;
+  }
+  100% {
+    background-position: 468px 0;
+  }
+}
+
+@keyframes placeHolderShimmer {
+  0% {
+    background-position: -468px 0;
+  }
+  100% {
+    background-position: 468px 0;
+  }
+}
+
+.content-placeholder {
+  display: block;
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
+  -webkit-animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
+  -webkit-animation-name: placeHolderShimmer;
+  animation-name: placeHolderShimmer;
+  -webkit-animation-timing-function: linear;
+  animation-timing-function: linear;
+  background: #f6f7f8;
+  background: -webkit-gradient(linear, left top, right top, color-stop(8%, #eeeeee), color-stop(18%, #dddddd), color-stop(33%, #eeeeee));
+  background: -webkit-linear-gradient(left, #eeeeee 8%, #dddddd 18%, #eeeeee 33%);
+  background: linear-gradient(to right, #eeeeee 8%, #dddddd 18%, #eeeeee 33%);
+  -webkit-background-size: 800px 104px;
+  background-size: 800px 104px;
+  height: inherit;
+  position: relative;
+}
+
+.error-view {
+  padding: 10px 20px;
+  position: relative;
+  text-align: center;
+  background-color: #fafbfc;
+  border: 1px solid #e1e4e8;
+  border-radius: 3px;
+  box-shadow: inset 0 0 10px rgba(27, 31, 35, 0.05)
+}
+.error-view h3 {
+  margin: 0;
+  font-size: 20px
+}
+
+.error-view .octicon {
+  margin-right: 4px;
+  margin-bottom: 5px;
+  margin-left: 4px;
+  color: #a3aab1;
+}
+.p-rel {
+  position: relative;
+}
+.full-absolute {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+}
+.gmc-loaded .only-if-loading {
+  display: none;
+}
+.gmc-error .only-if-loading {
+  display: none;
+}
+.only-if-error {
+  display: none;
+}
+.gmc-loaded .only-if-loaded {
+  visibility: visible;
+}
+.only-if-loaded {
+  visibility: hidden;
+}
+.gmc-error .only-if-error {
+  display: block;
+}
+.gh {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+	font-size: 14px;
+	line-height: 1.5;
+	color: #24292e;
+	background-color: #fff;
+	text-align: left;
+}
+
+
+
+.gh .rounded-1 { border-radius: 3px }
+.gh .border { border: 1px #e1e4e8 solid }
+
+.gh .lh-condensed { line-height: 1.25 }
+.gh .text-bold { font-weight: 600 }
+.gh .text-gray-dark { color: #24292e }
+.gh .text-gray { color: #586069 }
+.gh .link-gray-dark { color: #24292e }
+.gh .link-gray-dark:hover { color: #0366d6 }
+
+.gh .p-1 { padding: 4px }
+.gh .p-2 { padding: 8px }
+.gh .p-3 { padding: 16px }
+.gh .pr-4 { padding: 24px }
+
+.gh .mb-0 {	margin-bottom: 0 }
+.gh .mb-1 {	margin-bottom: 4px }
+.gh .mb-2 {	margin-bottom: 8px }
+.gh .ml-0 { margin-left: 0 }
+.gh .mr-1 {	margin-right: 4px }
+.gh .mt-1 {	margin-top: 4px }
+.gh .mt-2 {	margin-top: 8px }
+.gh .mr-3 {	margin-right: 16px }
+.gh .my-1 { 
+	margin-top: 4px;
+	margin-bottom: 4px }
+
+.gh .f4 { font-size: 16px }
+.gh .f6 { font-size: 12px }
+
+.gh .wb-break-all { word-break: break-all }
+
+
+.gh .d-inline-flex { 
+	display: -webkit-inline-box ;
+	display: inline-flex }
+.gh .d-inline-block { display: inline-block }
+.gh .d-inline { display: inline }
+.gh .d-block { display: block }
+
+.gh .muted-link {
+	color: #586069 
+}
+.gh .muted-link:hover {
+	color: #0366d6 ;
+	text-decoration: none
+}
+
+.gh .repo-language-color {
+	position: relative;
+	top: 1px;
+	display: inline-block;
+	width: 12px;
+	height: 12px;
+	border-radius: 50%
+}
+
+.gh .octicon {
+	vertical-align: text-bottom;
+	display: inline-block;
+	fill: currentColor
+}
+.gh a:active, a:hover {
+	outline-width: 0
+}
+.gh a:hover {
+	text-decoration: underline
+}
+.gh svg {
+overflow: hidden;}
+
+.gh p {
+	margin-top: 0;
+ 	margin-bottom: 10px
+}
+
+.gh a {
+	color: #0366d6;
+	text-decoration: none
+}
+.gh h3 {
+	font-size: 20px;
+	font-weight: 600;
+	margin-top: 0;
+    margin-bottom: 0
+}
+
+/* Source : https://github.com/linways/simple-content-placeholder/blob/master/content-placeholder.css */
+@-webkit-keyframes placeHolderShimmer {
+  0% {
+    background-position: -468px 0;
+  }
+  100% {
+    background-position: 468px 0;
+  }
+}
+
+@keyframes placeHolderShimmer {
+  0% {
+    background-position: -468px 0;
+  }
+  100% {
+    background-position: 468px 0;
+  }
+}
+
+.content-placeholder {
+  display: block;
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
+  -webkit-animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
+  -webkit-animation-name: placeHolderShimmer;
+  animation-name: placeHolderShimmer;
+  -webkit-animation-timing-function: linear;
+  animation-timing-function: linear;
+  background: #f6f7f8;
+  background: -webkit-gradient(linear, left top, right top, color-stop(8%, #eeeeee), color-stop(18%, #dddddd), color-stop(33%, #eeeeee));
+  background: -webkit-linear-gradient(left, #eeeeee 8%, #dddddd 18%, #eeeeee 33%);
+  background: linear-gradient(to right, #eeeeee 8%, #dddddd 18%, #eeeeee 33%);
+  -webkit-background-size: 800px 104px;
+  background-size: 800px 104px;
+  height: inherit;
+  position: relative;
+}
+
+.error-view {
+  padding: 10px 20px;
+  position: relative;
+  text-align: center;
+  background-color: #fafbfc;
+  border: 1px solid #e1e4e8;
+  border-radius: 3px;
+  box-shadow: inset 0 0 10px rgba(27, 31, 35, 0.05)
+}
+.error-view h3 {
+  margin: 0;
+  font-size: 20px
+}
+
+.error-view .octicon {
+  margin-right: 4px;
+  margin-bottom: 5px;
+  margin-left: 4px;
+  color: #a3aab1;
+}
+.p-rel {
+  position: relative;
+}
+.full-absolute {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+}
+.gmc-loaded .only-if-loading {
+  display: none;
+}
+.gmc-error .only-if-loading {
+  display: none;
+}
+.only-if-error {
+  display: none;
+}
+.gmc-loaded .only-if-loaded {
+  visibility: visible;
+}
+.only-if-loaded {
+  visibility: hidden;
+}
+.gmc-error .only-if-error {
+  display: block;
+}
+.gh {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+	font-size: 14px;
+	line-height: 1.5;
+	color: #24292e;
+	background-color: #fff;
+	text-align: left;
+}
+
+
+
+.gh .rounded-1 { border-radius: 3px }
+.gh .border { border: 1px #e1e4e8 solid }
+
+.gh .lh-condensed { line-height: 1.25 }
+.gh .text-bold { font-weight: 600 }
+.gh .text-gray-dark { color: #24292e }
+.gh .text-gray { color: #586069 }
+.gh .link-gray-dark { color: #24292e }
+.gh .link-gray-dark:hover { color: #0366d6 }
+
+.gh .p-1 { padding: 4px }
+.gh .p-2 { padding: 8px }
+.gh .p-3 { padding: 16px }
+.gh .pr-4 { padding: 24px }
+
+.gh .mb-0 {	margin-bottom: 0 }
+.gh .mb-1 {	margin-bottom: 4px }
+.gh .mb-2 {	margin-bottom: 8px }
+.gh .ml-0 { margin-left: 0 }
+.gh .mr-1 {	margin-right: 4px }
+.gh .mt-1 {	margin-top: 4px }
+.gh .mt-2 {	margin-top: 8px }
+.gh .mr-3 {	margin-right: 16px }
+.gh .my-1 { 
+	margin-top: 4px;
+	margin-bottom: 4px }
+
+.gh .f4 { font-size: 16px }
+.gh .f6 { font-size: 12px }
+
+.gh .wb-break-all { word-break: break-all }
+
+
+.gh .d-inline-flex { 
+	display: -webkit-inline-box ;
+	display: inline-flex }
+.gh .d-inline-block { display: inline-block }
+.gh .d-inline { display: inline }
+.gh .d-block { display: block }
+
+.gh .muted-link {
+	color: #586069 
+}
+.gh .muted-link:hover {
+	color: #0366d6 ;
+	text-decoration: none
+}
+
+.gh .repo-language-color {
+	position: relative;
+	top: 1px;
+	display: inline-block;
+	width: 12px;
+	height: 12px;
+	border-radius: 50%
+}
+
+.gh .octicon {
+	vertical-align: text-bottom;
+	display: inline-block;
+	fill: currentColor
+}
+.gh a:active, a:hover {
+	outline-width: 0
+}
+.gh a:hover {
+	text-decoration: underline
+}
+.gh svg {
+overflow: hidden;}
+
+.gh p {
+	margin-top: 0;
+ 	margin-bottom: 10px
+}
+
+.gh a {
+	color: #0366d6;
+	text-decoration: none
+}
+.gh h3 {
+	font-size: 20px;
+	font-weight: 600;
+	margin-top: 0;
+    margin-bottom: 0
+}
+
+/* Source : https://github.com/linways/simple-content-placeholder/blob/master/content-placeholder.css */
+@-webkit-keyframes placeHolderShimmer {
+  0% {
+    background-position: -468px 0;
+  }
+  100% {
+    background-position: 468px 0;
+  }
+}
+
+@keyframes placeHolderShimmer {
+  0% {
+    background-position: -468px 0;
+  }
+  100% {
+    background-position: 468px 0;
+  }
+}
+
+.content-placeholder {
+  display: block;
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
+  -webkit-animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
+  -webkit-animation-name: placeHolderShimmer;
+  animation-name: placeHolderShimmer;
+  -webkit-animation-timing-function: linear;
+  animation-timing-function: linear;
+  background: #f6f7f8;
+  background: -webkit-gradient(linear, left top, right top, color-stop(8%, #eeeeee), color-stop(18%, #dddddd), color-stop(33%, #eeeeee));
+  background: -webkit-linear-gradient(left, #eeeeee 8%, #dddddd 18%, #eeeeee 33%);
+  background: linear-gradient(to right, #eeeeee 8%, #dddddd 18%, #eeeeee 33%);
+  -webkit-background-size: 800px 104px;
+  background-size: 800px 104px;
+  height: inherit;
+  position: relative;
+}
+
+.error-view {
+  padding: 10px 20px;
+  position: relative;
+  text-align: center;
+  background-color: #fafbfc;
+  border: 1px solid #e1e4e8;
+  border-radius: 3px;
+  box-shadow: inset 0 0 10px rgba(27, 31, 35, 0.05)
+}
+.error-view h3 {
+  margin: 0;
+  font-size: 20px
+}
+
+.error-view .octicon {
+  margin-right: 4px;
+  margin-bottom: 5px;
+  margin-left: 4px;
+  color: #a3aab1;
+}
+.p-rel {
+  position: relative;
+}
+.full-absolute {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+}
+.gmc-loaded .only-if-loading {
+  display: none;
+}
+.gmc-error .only-if-loading {
+  display: none;
+}
+.only-if-error {
+  display: none;
+}
+.gmc-loaded .only-if-loaded {
+  visibility: visible;
+}
+.only-if-loaded {
+  visibility: hidden;
+}
+.gmc-error .only-if-error {
+  display: block;
+}
+
+.gh .d-flex {
+	display: -webkit-box !important;
+	display: flex !important
+}
+
+.gh .avatar {
+	display: inline-block;
+	overflow: hidden;
+	line-height: 1;
+	vertical-align: middle;
+	border-radius: 3px
+}
+
+.gh .text-normal {
+	font-weight: 400 !important 
+}
+
+.gh .topics-row-container {
+	height: 30px;
+	overflow: hidden
+}
+
+.gh .flex-items-center {
+	-webkit-box-align: center !important;
+	align-items: center !important
+}
+
+.gh .flex-wrap {
+	flex-wrap: wrap !important
+}
+
+.gh .topic-tag-link:hover {
+	text-decoration: none;
+	background-color: #def
+}
+
+.gh .topic-tag {
+	display: inline-block;
+	padding: 0.3em 0.9em;
+	margin: 0 0.5em 0.5em 0;
+	white-space: nowrap;
+	background-color: #f1f8ff;
+	border-radius: 3px
+}
+
+.gh .btn {
+	color: #24292e;
+	background-color: #eff3f6;
+	background-image: linear-gradient(-180deg, #fafbfc 0%, #eff3f6 90%);
+
+	position: relative;
+	display: inline-block;
+	padding: 6px 12px;
+	font-size: 14px;
+	font-weight: 600;
+	line-height: 20px;
+	white-space: nowrap;
+	vertical-align: middle;
+	cursor: pointer;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	background-repeat: repeat-x;
+	background-position: -1px -1px;
+	background-size: 110% 110%;
+	border: 1px solid rgba(27, 31, 35, 0.2);
+	border-radius: 0.25em;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none
+}
+
+.gh .btn-sm {
+	padding: 3px 10px;
+	font-size: 12px;
+	line-height: 20px
+}
+
+.gh .btn:hover {
+	background-color: #e6ebf1;
+	background-image: linear-gradient(-180deg, #f0f3f6 0%, #e6ebf1 90%);
+	background-position: -.5em;
+	border-color: rgba(27, 31, 35, 0.35);
+	text-decoration: none;
+	background-repeat: repeat-x
+}
+
+.gh .btn:active {
+	background-color: #e9ecef;
+	background-image: none;
+	border-color: rgba(27, 31, 35, 0.35);
+	box-shadow: inset 0 0.15em 0.3em rgba(27, 31, 35, 0.15)
+}
+
+
+
+.title-placeholder {
+	height: 18px;
+}
+.desc-placeholder {
+	height: 13px;
+}
+.controls-placeholder {
+	height: 17px;
+}
+
+/* Source : https://github.com/linways/simple-content-placeholder/blob/master/content-placeholder.css */
+@-webkit-keyframes placeHolderShimmer {
+  0% {
+    background-position: -468px 0;
+  }
+  100% {
+    background-position: 468px 0;
+  }
+}
+
+@keyframes placeHolderShimmer {
+  0% {
+    background-position: -468px 0;
+  }
+  100% {
+    background-position: 468px 0;
+  }
+}
+
+.content-placeholder {
+  display: block;
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
+  -webkit-animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
+  -webkit-animation-name: placeHolderShimmer;
+  animation-name: placeHolderShimmer;
+  -webkit-animation-timing-function: linear;
+  animation-timing-function: linear;
+  background: #f6f7f8;
+  background: -webkit-gradient(linear, left top, right top, color-stop(8%, #eeeeee), color-stop(18%, #dddddd), color-stop(33%, #eeeeee));
+  background: -webkit-linear-gradient(left, #eeeeee 8%, #dddddd 18%, #eeeeee 33%);
+  background: linear-gradient(to right, #eeeeee 8%, #dddddd 18%, #eeeeee 33%);
+  -webkit-background-size: 800px 104px;
+  background-size: 800px 104px;
+  height: inherit;
+  position: relative;
+}
+
+.error-view {
+  padding: 10px 20px;
+  position: relative;
+  text-align: center;
+  background-color: #fafbfc;
+  border: 1px solid #e1e4e8;
+  border-radius: 3px;
+  box-shadow: inset 0 0 10px rgba(27, 31, 35, 0.05)
+}
+.error-view h3 {
+  margin: 0;
+  font-size: 20px
+}
+
+.error-view .octicon {
+  margin-right: 4px;
+  margin-bottom: 5px;
+  margin-left: 4px;
+  color: #a3aab1;
+}
+.p-rel {
+  position: relative;
+}
+.full-absolute {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+}
+.gmc-loaded .only-if-loading {
+  display: none;
+}
+.gmc-error .only-if-loading {
+  display: none;
+}
+.only-if-error {
+  display: none;
+}
+.gmc-loaded .only-if-loaded {
+  visibility: visible;
+}
+.only-if-loaded {
+  visibility: hidden;
+}
+.gmc-error .only-if-error {
+  display: block;
+}
+@import url(https://fonts.googleapis.com/css?family=Exo+2:300,400,700);
+.cs-card {
+  font-size:14px;
+  font-family: "Exo 2", sans-serif;
+  color: #333;
+  position: relative;
+  width: 315px; /* Remove for full width */
+  height: 450px; /* Remove for full width */
+  margin:30px auto;
+  box-shadow: 0 0 40px rgba(0,0,0, .3);
+}
+.cs-card .cs-card-header{
+  position: relative;
+  height: 220px;
+  background-size: cover;
+  background-position: top;
+}
+.cs-card .cs-card-header:after{
+  content:'';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to top, rgb(5,85,134), rgba(181,181,181, 0.1));
+}
+
+.cs-card .cs-card-header-bar{
+  position: absolute;
+  top:0;
+  width: 100%;
+  z-index: 1;
+  width: 100%;
+}
+
+.sr-only{
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  clip: rect(0,0,0,0);
+  border: none;
+  overflow: hidden;
+}
+.btn-message{
+  display: inline-block;
+  background: url(https://res.cloudinary.com/dj14cmwoz/image/upload/v1491077483/profile-card/images/message.svg) no-repeat;
+  width: 19.37px;
+  height: 16.99px;
+  margin-right:10px;
+  margin-top:10px;
+  float: right;
+}
+.btn-menu{
+  display: inline-block;
+  background: url(https://res.cloudinary.com/dj14cmwoz/image/upload/v1491077483/profile-card/images/menu.svg) no-repeat;
+  width: 19px;
+  height: 12.16px;
+  margin-left:10px;
+  margin-top:10px;
+  float: left;
+}
+
+svg .polygon{
+  fill: #fff;
+}
+.cs-card-header-slanted-edge{
+  position: absolute;
+  bottom: -3px;
+  z-index: 1;
+  width: 100%;
+  right:0;
+  left:0;
+}
+
+.btn-follow{
+  position: absolute;
+  top: -15px;
+  right: 25px;
+  width: 45px;
+  height: 45px;
+  background: linear-gradient(to left, #2D77C1, #68FAC2);
+  border-radius:100%;
+  box-shadow: 0 10px 15px rgba(110,221,235, .53);
+}
+
+.btn-follow:after{
+  content: '';
+  position:absolute;
+  background: url(https://res.cloudinary.com/dj14cmwoz/image/upload/v1491077480/profile-card/images/add.svg) no-repeat;
+  width:17px;
+  height: 17px;
+  left: 50%;
+  top:50%;
+  transform: translate(-50%, -50%);
+}
+
+.cs-card .cs-card-body{
+  text-align:center;
+  padding-left: 10px;
+}
+
+.cs-card-body .name{
+  font-size: 20px;
+  font-weight: 700;
+  text-transform: uppercase;
+  margin: 0 auto;
+}
+
+.cs-card-body .job-title{
+  font-size: 14px;
+  font-weight: 300;
+  margin-top: 5px;
+  color: #919191;
+}
+
+.cs-card-body .bio{
+  font-size: 14px;
+  color: #7B7B7B;
+  font-weight: 300;
+  margin: 10px auto;
+  line-height: 20px;
+}
+
+.cs-card-body .social-accounts img{
+  width: 15px;
+}
+
+.cs-card-body .social-accounts a{
+  margin-left: 10px;
+}
+.cs-card-body .social-accounts a:first-child{
+  margin-left: 0;
+}
+
+.cs-card-footer{
+  /*position:fixed; /* Full card width/height */
+  position: absolute; /* Fixed card width/height */
+
+  left: 0;
+  width: 100%;
+  bottom: 20px;
+}
+.cs-card-footer .stat{
+  box-sizing: border-box;
+  width: calc(100% / 3);
+  float: left;
+  text-align: center;
+  border-left: 1px solid #EBEBEB;
+}
+.cs-card-footer .stat .label{
+  display: block;
+  text-transform: uppercase;
+  font-weight: 300;
+  font-size: 11px;
+  letter-spacing: 1px;
+  color: #95989A;
+}
+
+.cs-card-footer .stat .value{
+  display: block;
+  font-weight: 700;
+  font-size:20px;
+  margin-top: 5px;
+}
+.gh {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+	font-size: 14px;
+	line-height: 1.5;
+	color: #24292e;
+	background-color: #fff;
+	text-align: left;
+}
+
+
+
+.gh .rounded-1 { border-radius: 3px }
+.gh .border { border: 1px #e1e4e8 solid }
+
+.gh .lh-condensed { line-height: 1.25 }
+.gh .text-bold { font-weight: 600 }
+.gh .text-gray-dark { color: #24292e }
+.gh .text-gray { color: #586069 }
+.gh .link-gray-dark { color: #24292e }
+.gh .link-gray-dark:hover { color: #0366d6 }
+
+.gh .p-1 { padding: 4px }
+.gh .p-2 { padding: 8px }
+.gh .p-3 { padding: 16px }
+.gh .pr-4 { padding: 24px }
+
+.gh .mb-0 {	margin-bottom: 0 }
+.gh .mb-1 {	margin-bottom: 4px }
+.gh .mb-2 {	margin-bottom: 8px }
+.gh .ml-0 { margin-left: 0 }
+.gh .mr-1 {	margin-right: 4px }
+.gh .mt-1 {	margin-top: 4px }
+.gh .mt-2 {	margin-top: 8px }
+.gh .mr-3 {	margin-right: 16px }
+.gh .my-1 { 
+	margin-top: 4px;
+	margin-bottom: 4px }
+
+.gh .f4 { font-size: 16px }
+.gh .f6 { font-size: 12px }
+
+.gh .wb-break-all { word-break: break-all }
+
+
+.gh .d-inline-flex { 
+	display: -webkit-inline-box ;
+	display: inline-flex }
+.gh .d-inline-block { display: inline-block }
+.gh .d-inline { display: inline }
+.gh .d-block { display: block }
+
+.gh .muted-link {
+	color: #586069 
+}
+.gh .muted-link:hover {
+	color: #0366d6 ;
+	text-decoration: none
+}
+
+.gh .repo-language-color {
+	position: relative;
+	top: 1px;
+	display: inline-block;
+	width: 12px;
+	height: 12px;
+	border-radius: 50%
+}
+
+.gh .octicon {
+	vertical-align: text-bottom;
+	display: inline-block;
+	fill: currentColor
+}
+.gh a:active, a:hover {
+	outline-width: 0
+}
+.gh a:hover {
+	text-decoration: underline
+}
+.gh svg {
+overflow: hidden;}
+
+.gh p {
+	margin-top: 0;
+ 	margin-bottom: 10px
+}
+
+.gh a {
+	color: #0366d6;
+	text-decoration: none
+}
+.gh h3 {
+	font-size: 20px;
+	font-weight: 600;
+	margin-top: 0;
+    margin-bottom: 0
+}
+
+/* Source : https://github.com/linways/simple-content-placeholder/blob/master/content-placeholder.css */
+@-webkit-keyframes placeHolderShimmer {
+  0% {
+    background-position: -468px 0;
+  }
+  100% {
+    background-position: 468px 0;
+  }
+}
+
+@keyframes placeHolderShimmer {
+  0% {
+    background-position: -468px 0;
+  }
+  100% {
+    background-position: 468px 0;
+  }
+}
+
+.content-placeholder {
+  display: block;
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
+  -webkit-animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
+  -webkit-animation-name: placeHolderShimmer;
+  animation-name: placeHolderShimmer;
+  -webkit-animation-timing-function: linear;
+  animation-timing-function: linear;
+  background: #f6f7f8;
+  background: -webkit-gradient(linear, left top, right top, color-stop(8%, #eeeeee), color-stop(18%, #dddddd), color-stop(33%, #eeeeee));
+  background: -webkit-linear-gradient(left, #eeeeee 8%, #dddddd 18%, #eeeeee 33%);
+  background: linear-gradient(to right, #eeeeee 8%, #dddddd 18%, #eeeeee 33%);
+  -webkit-background-size: 800px 104px;
+  background-size: 800px 104px;
+  height: inherit;
+  position: relative;
+}
+
+.error-view {
+  padding: 10px 20px;
+  position: relative;
+  text-align: center;
+  background-color: #fafbfc;
+  border: 1px solid #e1e4e8;
+  border-radius: 3px;
+  box-shadow: inset 0 0 10px rgba(27, 31, 35, 0.05)
+}
+.error-view h3 {
+  margin: 0;
+  font-size: 20px
+}
+
+.error-view .octicon {
+  margin-right: 4px;
+  margin-bottom: 5px;
+  margin-left: 4px;
+  color: #a3aab1;
+}
+.p-rel {
+  position: relative;
+}
+.full-absolute {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+}
+.gmc-loaded .only-if-loading {
+  display: none;
+}
+.gmc-error .only-if-loading {
+  display: none;
+}
+.only-if-error {
+  display: none;
+}
+.gmc-loaded .only-if-loaded {
+  visibility: visible;
+}
+.only-if-loaded {
+  visibility: hidden;
+}
+.gmc-error .only-if-error {
+  display: block;
+}
+
+.gh {
+	font-size: 13px;
+}
+
+.gh_usercard {
+	width: 100%;
+	padding: 10px;
+	
+	white-space: nowrap;
+	max-width: 470px;
+}
+
+.avatar {
+	width: 100px;
+	height: 100px;
+	border-radius: 8px;
+	display: inline-block;
+	float: left;
+}
+.right-menu {
+	display: inline-block;
+	padding: 0px 15px;
+	min-height: 100px;
+}
+.gh_usercard ul li {
+	list-style: none;
+}
+
+.gh_usercard ul li:not([data-gmc-visible]) {
+	display: none;
+}
+.gh_usercard ul li span {
+	margin: 0;
+	overflow-x: ellipsis;
+}
+.gh_usercard ul li svg {
+	vertical-align: middle;
+	color: #6a737d;
+	margin-right: 5px;
+}
+
+.gh_usercard ul {
+	display: inline-block;
+	margin: 0;
+	padding: 0;
+}
+
+.right-menu h1 {
+	font-size: 22px;
+	line-height: 22px;
+	color: #24292e;
+	margin: 0;
+	padding: 0;
+}
+
+.bottom-menu {
+	margin-top: 5px;
+}
+.bio {
+	font-size: 13px;
+	color: #6a737d;
+}
+.right-menu h3 {
+	font-size: 17px;
+	font-style: normal;
+	font-weight: 300;
+	line-height: 20px;
+	color: #666;
+	margin-bottom: 4px;
+}
+.footer nav {
+	display: flex;
+	overflow-x: scroll;
+}
+
+.footer nav a {
+	padding: 10px 8px 5px 8px;
+	margin-right: 10px;
+	margin-right: 16px;
+	line-height: 1.5;
+	text-align: center;
+	border-bottom: 2px solid transparent;
+}
+
+.footer nav a:hover, .footer nav a:focus {
+	color: #24292e;
+	text-decoration: none;
+	border-bottom-color: #e36209;
+	transition: 0.2s ease;
+}
+
+.footer nav a .counter {
+	display: inline-block;
+	padding: 2px 5px;
+	font-size: 12px;
+	font-weight: 600;
+	line-height: 1;
+	background-color: rgba(27,31,35,0.08);
+	border-radius: 20px;
+}
