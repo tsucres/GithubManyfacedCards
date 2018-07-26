@@ -28,8 +28,8 @@
     <div class="tab-content">
       <div class="tab-pane active mv2 b-light show fade" id="easy-{{qs_page}}" role="tabpanel">
         <pre><code class="html">{% if qs_page == "repo" %}{{- 
-          '<iframe src="https://cdn.rawgit.com/tsucres/GithubManyfacedCards/master/dist/themes/<theme_name>/embedded/embedded.gmc.min.html?rn=<full_repo_name>" frameborder="0"></iframe>' | preCode -}}{% elif qs_page == "user" %}{{- 
-          '<iframe src="https://cdn.rawgit.com/tsucres/GithubManyfacedCards/master/dist/themes/<theme_name>/embedded/embedded.gmc.min.html?un=<user_name>" frameborder="0"></iframe>' | preCode -}}{% endif %}</code></pre>
+          '<iframe src="https://cdn.rawgit.com/tsucres/GithubManyfacedCards/0.3.0/dist/themes/<theme_name>/embedded/embedded.gmc.min.html?rn=<full_repo_name>" frameborder="0"></iframe>' | preCode -}}{% elif qs_page == "user" %}{{- 
+          '<iframe src="https://cdn.rawgit.com/tsucres/GithubManyfacedCards/0.3.0/dist/themes/<theme_name>/embedded/embedded.gmc.min.html?un=<user_name>" frameborder="0"></iframe>' | preCode -}}{% endif %}</code></pre>
 
         <p>All you need to do is include this piece of markup in your webpage and replace<p>
         <ul>
@@ -62,15 +62,15 @@
         <p>This method must be preferred if you plan to have several cards on a single webpage, or if you need to load the cards programmatically, or even if you need a custom version of the gmc.js script.</p><br>
         <pre><code class="html">
           {{- '<!-- before the first card -->
-          <script src="https://cdn.rawgit.com/tsucres/GithubManyfacedCards/master/dist/gmc.min.js"></script>\\n
+          <script src="https://cdn.rawgit.com/tsucres/GithubManyfacedCards/0.3.0/dist/gmc.min.js"></script>\\n
 
           <!-- ... -->\\n
 
           <!-- where you want the card-->\\n' | preCode -}}
           {% if qs_page == "repo" %} 
-          {{- '<script async src="https://cdn.rawgit.com/tsucres/GithubManyfacedCards/master/dist/gmc-loader.min.js" data-gmc-repo="<full_repo_name>" data-gmc-theme="<theme_name>"></script>' | preCode -}}
+          {{- '<script async src="https://cdn.rawgit.com/tsucres/GithubManyfacedCards/0.3.0/dist/gmc-loader.min.js" data-gmc-repo="<full_repo_name>" data-gmc-theme="<theme_name>"></script>' | preCode -}}
           {% elif qs_page == "user" %} 
-          {{- '<script async src="https://cdn.rawgit.com/tsucres/GithubManyfacedCards/master/dist/gmc-loader.min.js" data-gmc-user="<user_name>" data-gmc-theme="<theme_name>"></script>' | preCode -}}
+          {{- '<script async src="https://cdn.rawgit.com/tsucres/GithubManyfacedCards/0.3.0/dist/gmc-loader.min.js" data-gmc-user="<user_name>" data-gmc-theme="<theme_name>"></script>' | preCode -}}
           {% endif %} 
         </code></pre>
         

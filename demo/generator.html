@@ -607,9 +607,10 @@ svg .polygon{
 <body>
     
 <div class="nav-bar"><h1>GMC<span class="subscript">.js</span></h1></div>
+
 <header>
   <div class="header-content d-inline-block">
-    <a href="/"><h1>GMC<span class="subscript">.js</span></h1>
+    <a href="../index.html"><h1>GMC<span class="subscript">.js</span></h1>
     <h3><strong>G</strong>ithub <strong>M</strong>any-faced <strong>C</strong>ards</h3></a>
   
     <div class="container-fluid">
@@ -734,7 +735,7 @@ svg .polygon{
             <div class="tab-pane mv2 b-light fade" id="efficient-gen" role="tabpanel">
               <p>Import <code>gmc.js</code> in your page (before the first card</p><br>
               <pre><code class="html" id="efficient-code-gmc-import">
-&lt;script src=&quot;https://cdn.rawgit.com/tsucres/GithubManyfacedCards/master/dist/gmc.min.js&quot;&gt;&lt;/script&gt;</code></pre>
+&lt;script src=&quot;https://cdn.rawgit.com/tsucres/GithubManyfacedCards/0.3.0/dist/gmc.min.js&quot;&gt;&lt;/script&gt;</code></pre>
               
               <p>Paste the following piece of markup where you want your card.</p>
               <pre><code class="html" id="efficient-code-html">
@@ -760,9 +761,9 @@ svg .polygon{
                 
               </code></pre>
               <h5>Import GMC.js</h5>
-              <p>Link <a href="https://cdn.rawgit.com/tsucres/GithubManyfacedCards/master/dist/gmc.min.js" target="_blank" download>gmc.min.js</a> to your document.</p>
+              <p>Link <a href="https://cdn.rawgit.com/tsucres/GithubManyfacedCards/0.3.0/dist/gmc.min.js" target="_blank" download>gmc.min.js</a> to your document.</p>
               <pre><code class="html" id="efficienter-code-gmc-import">
-&lt;script src=&quot;https://cdn.rawgit.com/tsucres/GithubManyfacedCards/master/dist/gmc.min.js&quot;&gt;&lt;/script&gt;</code></pre>
+&lt;script src=&quot;https://cdn.rawgit.com/tsucres/GithubManyfacedCards/0.3.0/dist/gmc.min.js&quot;&gt;&lt;/script&gt;</code></pre>
               <h5>Load the cards</h5>
               <p>After the DOM is loaded, call the following function: </p>
               <pre><code class="js" id="efficienter-code-gmc-load">GMC.loadAllCards()</code></pre>
@@ -1436,20 +1437,20 @@ svg .polygon{
     // Easy 
     var easy_code_html_element = document.getElementById("easy-code-html");
     var userOrRepo = currentJsonType == "Repo" ? "rn" : "un";
-    easy_code_html_element.innerText = '<iframe src="https://cdn.rawgit.com/tsucres/GithubManyfacedCards/master/dist/themes/' + selectedTheme + '/embedded/embedded.gmc.min.html?' + userOrRepo + '=' + gh_id_txt.value + '" frameborder="0"></iframe>';
+    easy_code_html_element.innerText = '<iframe src="https://cdn.rawgit.com/tsucres/GithubManyfacedCards/0.3.0/dist/themes/' + selectedTheme + '/embedded/embedded.gmc.min.html?' + userOrRepo + '=' + gh_id_txt.value + '" frameborder="0"></iframe>';
     hljs.highlightBlock(easy_code_html_element);
 
     // Efficient
     var efficient_code_html_element = document.getElementById("efficient-code-html");
     userOrRepo = currentJsonType == "Repo" ? "data-gmc-repo" : "data-gmc-user";
-    efficient_code_html_element.innerText = '<script async src="https://cdn.rawgit.com/tsucres/GithubManyfacedCards/master/dist/gmc-loader.min.js" ' + userOrRepo + '="' + gh_id_txt.value + '" data-gmc-theme="' + selectedTheme + '"><' + '/script>';
+    efficient_code_html_element.innerText = '<script async src="https://cdn.rawgit.com/tsucres/GithubManyfacedCards/0.3.0/dist/gmc-loader.min.js" ' + userOrRepo + '="' + gh_id_txt.value + '" data-gmc-theme="' + selectedTheme + '"><' + '/script>';
     hljs.highlightBlock(efficient_code_html_element);
     hljs.highlightBlock(document.getElementById("efficient-code-gmc-import"));
 
     // "Efficienter"
     var efficienter_code_html_element = document.getElementById("efficienter-code-html");
 
-    var cssURL = "https://cdn.rawgit.com/tsucres/GithubManyfacedCards/master/dist/themes/" + selectedTheme + "/" + selectedTheme+ ".css";
+    var cssURL = "https://cdn.rawgit.com/tsucres/GithubManyfacedCards/0.3.0/dist/themes/" + selectedTheme + "/" + selectedTheme+ ".css";
     var efficienter_link_css_element = document.getElementById("efficienter-link-css");
     efficienter_link_css_element.innerText = selectedTheme + ".min.css";
     efficienter_link_css_element.href = cssURL;
@@ -1457,7 +1458,7 @@ svg .polygon{
     efficienter_code_css_element.innerText = '<link href="' + cssURL + '" rel="stylesheet" type="text/css">';
     hljs.highlightBlock(efficienter_code_css_element);
 
-    var jsURL = "https://cdn.rawgit.com/tsucres/GithubManyfacedCards/master/dist/themes/" + selectedTheme + "/" + selectedTheme+ ".js";
+    var jsURL = "https://cdn.rawgit.com/tsucres/GithubManyfacedCards/0.3.0/dist/themes/" + selectedTheme + "/" + selectedTheme+ ".js";
     var efficienter_link_js_element = document.getElementById("efficienter-link-js");
     efficienter_link_js_element.innerText = selectedTheme + ".min.js";
     efficienter_link_js_element.href = jsURL;
@@ -1465,7 +1466,7 @@ svg .polygon{
     efficienter_code_js_element.innerText = '<script src="' + jsURL + '"><' + '/script>';
     hljs.highlightBlock(efficienter_code_js_element);
     hljs.highlightBlock(document.getElementById("efficienter-code-gmc-import"));
-    var htmlURL = "https://cdn.rawgit.com/tsucres/GithubManyfacedCards/master/dist/themes/" + selectedTheme + "/" + selectedTheme+ ".html";
+    var htmlURL = "https://cdn.rawgit.com/tsucres/GithubManyfacedCards/0.3.0/dist/themes/" + selectedTheme + "/" + selectedTheme+ ".html";
     var efficienter_code_html_element = document.getElementById("efficienter-code-html");
     var xhr = new XMLHttpRequest(); 
     xhr.open('GET', htmlURL, true); 
@@ -1536,7 +1537,7 @@ svg .polygon{
   }, false);
 
  
-  var CDN_DIST_URL = "https://cdn.rawgit.com/tsucres/GithubManyfacedCards/master/dist/";
+  var CDN_DIST_URL = "https://cdn.rawgit.com/tsucres/GithubManyfacedCards/0.3.0/dist/";
   var CDN_THEMES_URL = CDN_DIST_URL + "themes/";
 
 

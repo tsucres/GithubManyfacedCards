@@ -243,7 +243,3 @@ Real life examples:
 - [GithubCard](https://github.com/xuelangZF/GithubCard): other design for the same thing. This implementation is very simple.
 - [github-calendar](https://github.com/IonicaBizau/github-calendar): a widget displaying the yearly contribution calandar.
 
-
-# TODO
-
-- build the "non embedded" themes to make the integration in a webpage easier, i.e. build separate .css, .js and .html containing all the style, javascript and the template for a theme.

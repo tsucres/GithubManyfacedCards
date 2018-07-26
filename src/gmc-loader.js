@@ -5,7 +5,7 @@
     var themeName = target.getAttribute('data-gmc-theme') || "gh_pure";
     var themeUrl = target.getAttribute('data-gmc-theme-url');
 
-    var cdnBaseURL = "https://cdn.rawgit.com/tsucres/GithubManyfacedCards/master/dist/"
+    var cdnBaseURL = "https://cdn.rawgit.com/tsucres/GithubManyfacedCards/0.3.0/dist/"
     
     var root_el = null;
     var numberOfRessourceToWaitFor = 2;
