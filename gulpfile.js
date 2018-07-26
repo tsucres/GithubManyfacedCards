@@ -46,7 +46,7 @@ function buildThemesWithPreprocessingContext(context, namePrefix) {
 function buildEmbeddedTheme(themeName) {
     return gulp.src("src/themes/" + themeName + ".html")
         .pipe(preprocess({context: {EMBED_GMC: true}}))
-        .pipe(rename(function (path) { path.extname = ".gmc.html" }))
+        .pipe(rename(function (path) { path.basename="embedded"; path.extname = ".gmc.html" }))
         .pipe(gulp.dest("./dist/themes/" + themeName + "/embedded"))
         .pipe(rename(function (path) { path.extname = ".min.html" }))
         .pipe(minifyInline())
@@ -213,7 +213,7 @@ function buildEmbeddedThemeTestPage(method, theme_name, test_value) {
             .pipe(preprocess({context: {}}))
             .pipe(gulp.dest('./demo/tests/' + method));
 }
-function buildMethodTestPage(method, themes) {
+function buildMethodTestPage(method, text_method, themes) {
     return gulp.src(["src/demo/tests/test_page_template.html"])
             .pipe(rename(function(th_name) { return function(path) { 
                                 path.basename = method; }}(method)
@@ -223,12 +223,14 @@ function buildMethodTestPage(method, themes) {
                 data: {
                     theme_names: themes,
                     method: method,
+                    text_method:text_method,
                 }
             }))
             .pipe(gulp.dest('./demo/tests/' + method));
 }
 gulp.task('tests', ['themes', 'embed_themes'], function() {
     var methods = ["easy", "efficient", "more_efficient"];
+    var text_methods = ["easy", "efficient", "more_efficient"];
     var parameters = {"easy": {
         "repo_test": "rn=tensorflow/tensorflow",
         "user_test": "un=tensorflow",
@@ -245,12 +247,12 @@ gulp.task('tests', ['themes', 'embed_themes'], function() {
     var task = merge();
     for (var method_id in methods) {
         var method = methods[method_id];
+        var text_method = text_methods[method_id];
         // Build the test page for this method
-        var methodTestPageBuild = merge(buildMethodTestPage(method, Object.keys(theme_types)));
+        var methodTestPageBuild = merge(buildMethodTestPage(method, text_method, Object.keys(theme_types)));
 
         for (var theme_name in theme_types) {
             // Build the page that will be embeded in an iframe in the test page, for a specific theme.
-            //...
             methodTestPageBuild.add(buildEmbeddedThemeTestPage(method, theme_name, parameters[method][theme_types[theme_name]])); 
         }
         task.add(methodTestPageBuild);

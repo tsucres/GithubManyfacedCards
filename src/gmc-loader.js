@@ -1,6 +1,7 @@
 (function() {
     var target = document.currentScript;
-    var repoName = target.getAttribute("data-gmc-repo")
+    var repoName = target.getAttribute("data-gmc-repo");
+    var userName = target.getAttribute("data-gmc-user");
     var themeName = target.getAttribute('data-gmc-theme') || "gh_pure";
     var themeUrl = target.getAttribute('data-gmc-theme-url');
 
@@ -36,7 +37,11 @@
             if (request.readyState === 4) { 
                 if (request.status === 200) {
                     root_el = document.createElement('div');
-                    root_el.setAttribute("data-gmc-repo", repoName);
+                    if (repoName) {
+                        root_el.setAttribute("data-gmc-repo", repoName);
+                    } else {
+                        root_el.setAttribute("data-gmc-user", userName);
+                    }
                     root_el.innerHTML = request.responseText;
                     target.parentNode.insertBefore(root_el, target.nextSibling);
                     ressourceLoaded();

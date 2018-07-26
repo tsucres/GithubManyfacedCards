@@ -330,7 +330,14 @@
   </div>
 </div>
 <script type="text/javascript">
-  // @include snippets/mailTo.js
+  function mailTo(emailAddress, element) {
+  	if (emailAddress) {
+  		return "mailto:" + emailAddress;
+  	} else {
+  		element.style.visibility = "hidden";
+  		return "";
+  	}
+  }
 
   function _hasClass(el, className) {
     if (el.classList)
