@@ -1,8 +1,6 @@
-function mailTo(emailAddress, element) {
+function mailTo(emailAddress) {
 	if (emailAddress) {
 		return "mailto:" + emailAddress;
-	} else {
-		element.style.visibility = "hidden";
-		return "";
-	}
+	} 
+	return "";
 }

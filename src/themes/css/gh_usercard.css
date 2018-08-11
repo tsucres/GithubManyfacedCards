@@ -1,10 +1,6 @@
 /* @include snippets/basic_github.css */
 /* @include snippets/loading.css */
 
-.gh {
-	font-size: 13px;
-}
-
 .gh_usercard {
 	width: 100%;
 	padding: 10px;
@@ -62,6 +58,7 @@
 .bio {
 	font-size: 13px;
 	color: #6a737d;
+	white-space: initial;
 }
 .right-menu h3 {
 	font-size: 17px;
