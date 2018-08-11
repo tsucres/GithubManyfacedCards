@@ -136,657 +136,12 @@ overflow: hidden;}
 	height: 17px;
 }
 
-.gh {
-	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-	font-size: 14px;
-	line-height: 1.5;
-	color: #24292e;
-	background-color: #fff;
-	text-align: left;
-}
-
-
-
-.gh .rounded-1 { border-radius: 3px }
-.gh .border { border: 1px #e1e4e8 solid }
-
-.gh .lh-condensed { line-height: 1.25 }
-.gh .text-bold { font-weight: 600 }
-.gh .text-gray-dark { color: #24292e }
-.gh .text-gray { color: #586069 }
-.gh .link-gray-dark { color: #24292e }
-.gh .link-gray-dark:hover { color: #0366d6 }
-
-.gh .p-1 { padding: 4px }
-.gh .p-2 { padding: 8px }
-.gh .p-3 { padding: 16px }
-.gh .p-4 { padding: 32px }
-
-.gh .m-1 { margin: 4px }
-.gh .m-2 { margin: 8px }
-.gh .m-3 { margin: 16px }
-.gh .m-4 { margin: 32px }
-
-.gh .mb-0 {	margin-bottom: 0 }
-.gh .mb-1 {	margin-bottom: 4px }
-.gh .mb-2 {	margin-bottom: 8px }
-.gh .mb-3 {	margin-bottom: 16px }
-.gh .mb-4 {	margin-bottom: 32px }
-.gh .ml-0 { margin-left: 0 }
-.gh .ml-1 { margin-left: 4px }
-.gh .ml-2 { margin-left: 8px }
-.gh .ml-3 { margin-left: 16px }
-.gh .ml-4 { margin-left: 32px }
-.gh .mr-0 {	margin-right: 0 }
-.gh .mr-1 {	margin-right: 4px }
-.gh .mr-2 {	margin-right: 8px }
-.gh .mr-3 {	margin-right: 16px }
-.gh .mr-4 {	margin-right: 32px }
-.gh .mt-0 {	margin-top: 0 }
-.gh .mt-1 {	margin-top: 4px }
-.gh .mt-2 {	margin-top: 8px }
-.gh .mr-3 {	margin-right: 16px }
-.gh .mr-4 {	margin-right: 32px }
-
-.gh .my-0 { 
-	margin-top: 0;
-	margin-bottom: 0 }
-.gh .my-1 { 
-	margin-top: 4px;
-	margin-bottom: 4px }
-.gh .my-2 { 
-	margin-top: 8px;
-	margin-bottom: 8px }
-.gh .my-3 { 
-	margin-top: 16px;
-	margin-bottom: 16px }
-.gh .my-4 { 
-	margin-top: 32px;
-	margin-bottom: 32px }
-
-.gh .f4 { font-size: 16px }
-.gh .f6 { font-size: 12px }
-
-.gh .wb-break-all { word-break: break-all }
-
-
-.gh .d-inline-flex { 
-	display: -webkit-inline-box ;
-	display: inline-flex }
-.gh .d-inline-block { display: inline-block }
-.gh .d-inline { display: inline }
-.gh .d-block { display: block }
-
-.gh .muted-link {
-	color: #586069 
-}
-.gh .muted-link:hover {
-	color: #0366d6 ;
-	text-decoration: none
-}
-
-.gh .repo-language-color {
-	position: relative;
-	top: 1px;
-	display: inline-block;
-	width: 12px;
-	height: 12px;
-	border-radius: 50%
-}
-
-.gh .octicon {
-	vertical-align: text-bottom;
-	display: inline-block;
-	fill: currentColor
-}
-.gh a:active, a:hover {
-	outline-width: 0
-}
-.gh a:hover {
-	text-decoration: underline
-}
-.gh svg {
-overflow: hidden;}
-
-.gh p {
-	margin-top: 0;
- 	margin-bottom: 10px
-}
-
-.gh a {
-	color: #0366d6;
-	text-decoration: none
-}
-.gh h3 {
-	font-size: 20px;
-	font-weight: 600;
-	margin-top: 0;
-    margin-bottom: 0
-}
-
-/* Source : https://github.com/linways/simple-content-placeholder/blob/master/content-placeholder.css */
-@-webkit-keyframes placeHolderShimmer {
-  0% {
-    background-position: -468px 0;
-  }
-  100% {
-    background-position: 468px 0;
-  }
-}
-
-@keyframes placeHolderShimmer {
-  0% {
-    background-position: -468px 0;
-  }
-  100% {
-    background-position: 468px 0;
-  }
-}
-
-.content-placeholder {
-  display: block;
-  -webkit-animation-duration: 1s;
-  animation-duration: 1s;
-  -webkit-animation-fill-mode: forwards;
-  animation-fill-mode: forwards;
-  -webkit-animation-iteration-count: infinite;
-  animation-iteration-count: infinite;
-  -webkit-animation-name: placeHolderShimmer;
-  animation-name: placeHolderShimmer;
-  -webkit-animation-timing-function: linear;
-  animation-timing-function: linear;
-  background: #f6f7f8;
-  background: -webkit-gradient(linear, left top, right top, color-stop(8%, #eeeeee), color-stop(18%, #dddddd), color-stop(33%, #eeeeee));
-  background: -webkit-linear-gradient(left, #eeeeee 8%, #dddddd 18%, #eeeeee 33%);
-  background: linear-gradient(to right, #eeeeee 8%, #dddddd 18%, #eeeeee 33%);
-  -webkit-background-size: 800px 104px;
-  background-size: 800px 104px;
-  height: inherit;
-  position: relative;
-}
-
-.error-view {
-  padding: 10px 20px;
-  position: relative;
-  text-align: center;
-  background-color: #fafbfc;
-  border: 1px solid #e1e4e8;
-  border-radius: 3px;
-  box-shadow: inset 0 0 10px rgba(27, 31, 35, 0.05)
-}
-.error-view h3 {
-  margin: 0;
-  font-size: 20px
-}
-
-.error-view .octicon {
-  margin-right: 4px;
-  margin-bottom: 5px;
-  margin-left: 4px;
-  color: #a3aab1;
-}
-.p-rel {
-  position: relative;
-}
-.full-absolute {
-  position: absolute;
-  top: 0;
-  right: 0;
-  left: 0;
-  bottom: 0;
-}
-.gmc-loaded .only-if-loading {
-  display: none;
-}
-.gmc-error .only-if-loading {
-  display: none;
-}
-.only-if-error {
-  display: none;
-}
-.gmc-loaded .only-if-loaded {
-  visibility: visible;
-}
-.only-if-loaded {
-  visibility: hidden;
-}
-.gmc-error .only-if-error {
-  display: block;
-}
-.gh {
-	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-	font-size: 14px;
-	line-height: 1.5;
-	color: #24292e;
-	background-color: #fff;
-	text-align: left;
-}
-
-
-
-.gh .rounded-1 { border-radius: 3px }
-.gh .border { border: 1px #e1e4e8 solid }
-
-.gh .lh-condensed { line-height: 1.25 }
-.gh .text-bold { font-weight: 600 }
-.gh .text-gray-dark { color: #24292e }
-.gh .text-gray { color: #586069 }
-.gh .link-gray-dark { color: #24292e }
-.gh .link-gray-dark:hover { color: #0366d6 }
-
-.gh .p-1 { padding: 4px }
-.gh .p-2 { padding: 8px }
-.gh .p-3 { padding: 16px }
-.gh .p-4 { padding: 32px }
-
-.gh .m-1 { margin: 4px }
-.gh .m-2 { margin: 8px }
-.gh .m-3 { margin: 16px }
-.gh .m-4 { margin: 32px }
-
-.gh .mb-0 {	margin-bottom: 0 }
-.gh .mb-1 {	margin-bottom: 4px }
-.gh .mb-2 {	margin-bottom: 8px }
-.gh .mb-3 {	margin-bottom: 16px }
-.gh .mb-4 {	margin-bottom: 32px }
-.gh .ml-0 { margin-left: 0 }
-.gh .ml-1 { margin-left: 4px }
-.gh .ml-2 { margin-left: 8px }
-.gh .ml-3 { margin-left: 16px }
-.gh .ml-4 { margin-left: 32px }
-.gh .mr-0 {	margin-right: 0 }
-.gh .mr-1 {	margin-right: 4px }
-.gh .mr-2 {	margin-right: 8px }
-.gh .mr-3 {	margin-right: 16px }
-.gh .mr-4 {	margin-right: 32px }
-.gh .mt-0 {	margin-top: 0 }
-.gh .mt-1 {	margin-top: 4px }
-.gh .mt-2 {	margin-top: 8px }
-.gh .mr-3 {	margin-right: 16px }
-.gh .mr-4 {	margin-right: 32px }
-
-.gh .my-0 { 
-	margin-top: 0;
-	margin-bottom: 0 }
-.gh .my-1 { 
-	margin-top: 4px;
-	margin-bottom: 4px }
-.gh .my-2 { 
-	margin-top: 8px;
-	margin-bottom: 8px }
-.gh .my-3 { 
-	margin-top: 16px;
-	margin-bottom: 16px }
-.gh .my-4 { 
-	margin-top: 32px;
-	margin-bottom: 32px }
-
-.gh .f4 { font-size: 16px }
-.gh .f6 { font-size: 12px }
-
-.gh .wb-break-all { word-break: break-all }
-
-
-.gh .d-inline-flex { 
-	display: -webkit-inline-box ;
-	display: inline-flex }
-.gh .d-inline-block { display: inline-block }
-.gh .d-inline { display: inline }
-.gh .d-block { display: block }
-
-.gh .muted-link {
-	color: #586069 
-}
-.gh .muted-link:hover {
-	color: #0366d6 ;
-	text-decoration: none
-}
-
-.gh .repo-language-color {
-	position: relative;
-	top: 1px;
-	display: inline-block;
-	width: 12px;
-	height: 12px;
-	border-radius: 50%
-}
-
-.gh .octicon {
-	vertical-align: text-bottom;
-	display: inline-block;
-	fill: currentColor
-}
-.gh a:active, a:hover {
-	outline-width: 0
-}
-.gh a:hover {
-	text-decoration: underline
-}
-.gh svg {
-overflow: hidden;}
-
-.gh p {
-	margin-top: 0;
- 	margin-bottom: 10px
-}
-
-.gh a {
-	color: #0366d6;
-	text-decoration: none
-}
-.gh h3 {
-	font-size: 20px;
-	font-weight: 600;
-	margin-top: 0;
-    margin-bottom: 0
-}
-
-/* Source : https://github.com/linways/simple-content-placeholder/blob/master/content-placeholder.css */
-@-webkit-keyframes placeHolderShimmer {
-  0% {
-    background-position: -468px 0;
-  }
-  100% {
-    background-position: 468px 0;
-  }
-}
-
-@keyframes placeHolderShimmer {
-  0% {
-    background-position: -468px 0;
-  }
-  100% {
-    background-position: 468px 0;
-  }
-}
-
-.content-placeholder {
-  display: block;
-  -webkit-animation-duration: 1s;
-  animation-duration: 1s;
-  -webkit-animation-fill-mode: forwards;
-  animation-fill-mode: forwards;
-  -webkit-animation-iteration-count: infinite;
-  animation-iteration-count: infinite;
-  -webkit-animation-name: placeHolderShimmer;
-  animation-name: placeHolderShimmer;
-  -webkit-animation-timing-function: linear;
-  animation-timing-function: linear;
-  background: #f6f7f8;
-  background: -webkit-gradient(linear, left top, right top, color-stop(8%, #eeeeee), color-stop(18%, #dddddd), color-stop(33%, #eeeeee));
-  background: -webkit-linear-gradient(left, #eeeeee 8%, #dddddd 18%, #eeeeee 33%);
-  background: linear-gradient(to right, #eeeeee 8%, #dddddd 18%, #eeeeee 33%);
-  -webkit-background-size: 800px 104px;
-  background-size: 800px 104px;
-  height: inherit;
-  position: relative;
-}
-
-.error-view {
-  padding: 10px 20px;
-  position: relative;
-  text-align: center;
-  background-color: #fafbfc;
-  border: 1px solid #e1e4e8;
-  border-radius: 3px;
-  box-shadow: inset 0 0 10px rgba(27, 31, 35, 0.05)
-}
-.error-view h3 {
-  margin: 0;
-  font-size: 20px
-}
-
-.error-view .octicon {
-  margin-right: 4px;
-  margin-bottom: 5px;
-  margin-left: 4px;
-  color: #a3aab1;
-}
-.p-rel {
-  position: relative;
-}
-.full-absolute {
-  position: absolute;
-  top: 0;
-  right: 0;
-  left: 0;
-  bottom: 0;
-}
-.gmc-loaded .only-if-loading {
-  display: none;
-}
-.gmc-error .only-if-loading {
-  display: none;
-}
-.only-if-error {
-  display: none;
-}
-.gmc-loaded .only-if-loaded {
-  visibility: visible;
-}
-.only-if-loaded {
-  visibility: hidden;
-}
-.gmc-error .only-if-error {
-  display: block;
-}
-.gh {
-	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-	font-size: 14px;
-	line-height: 1.5;
-	color: #24292e;
-	background-color: #fff;
-	text-align: left;
-}
-
-
-
-.gh .rounded-1 { border-radius: 3px }
-.gh .border { border: 1px #e1e4e8 solid }
-
-.gh .lh-condensed { line-height: 1.25 }
-.gh .text-bold { font-weight: 600 }
-.gh .text-gray-dark { color: #24292e }
-.gh .text-gray { color: #586069 }
-.gh .link-gray-dark { color: #24292e }
-.gh .link-gray-dark:hover { color: #0366d6 }
-
-.gh .p-1 { padding: 4px }
-.gh .p-2 { padding: 8px }
-.gh .p-3 { padding: 16px }
-.gh .p-4 { padding: 32px }
-
-.gh .m-1 { margin: 4px }
-.gh .m-2 { margin: 8px }
-.gh .m-3 { margin: 16px }
-.gh .m-4 { margin: 32px }
-
-.gh .mb-0 {	margin-bottom: 0 }
-.gh .mb-1 {	margin-bottom: 4px }
-.gh .mb-2 {	margin-bottom: 8px }
-.gh .mb-3 {	margin-bottom: 16px }
-.gh .mb-4 {	margin-bottom: 32px }
-.gh .ml-0 { margin-left: 0 }
-.gh .ml-1 { margin-left: 4px }
-.gh .ml-2 { margin-left: 8px }
-.gh .ml-3 { margin-left: 16px }
-.gh .ml-4 { margin-left: 32px }
-.gh .mr-0 {	margin-right: 0 }
-.gh .mr-1 {	margin-right: 4px }
-.gh .mr-2 {	margin-right: 8px }
-.gh .mr-3 {	margin-right: 16px }
-.gh .mr-4 {	margin-right: 32px }
-.gh .mt-0 {	margin-top: 0 }
-.gh .mt-1 {	margin-top: 4px }
-.gh .mt-2 {	margin-top: 8px }
-.gh .mr-3 {	margin-right: 16px }
-.gh .mr-4 {	margin-right: 32px }
-
-.gh .my-0 { 
-	margin-top: 0;
-	margin-bottom: 0 }
-.gh .my-1 { 
-	margin-top: 4px;
-	margin-bottom: 4px }
-.gh .my-2 { 
-	margin-top: 8px;
-	margin-bottom: 8px }
-.gh .my-3 { 
-	margin-top: 16px;
-	margin-bottom: 16px }
-.gh .my-4 { 
-	margin-top: 32px;
-	margin-bottom: 32px }
-
-.gh .f4 { font-size: 16px }
-.gh .f6 { font-size: 12px }
-
-.gh .wb-break-all { word-break: break-all }
-
-
-.gh .d-inline-flex { 
-	display: -webkit-inline-box ;
-	display: inline-flex }
-.gh .d-inline-block { display: inline-block }
-.gh .d-inline { display: inline }
-.gh .d-block { display: block }
-
-.gh .muted-link {
-	color: #586069 
-}
-.gh .muted-link:hover {
-	color: #0366d6 ;
-	text-decoration: none
-}
-
-.gh .repo-language-color {
-	position: relative;
-	top: 1px;
-	display: inline-block;
-	width: 12px;
-	height: 12px;
-	border-radius: 50%
-}
-
-.gh .octicon {
-	vertical-align: text-bottom;
-	display: inline-block;
-	fill: currentColor
-}
-.gh a:active, a:hover {
-	outline-width: 0
-}
-.gh a:hover {
-	text-decoration: underline
-}
-.gh svg {
-overflow: hidden;}
-
-.gh p {
-	margin-top: 0;
- 	margin-bottom: 10px
-}
-
-.gh a {
-	color: #0366d6;
-	text-decoration: none
-}
-.gh h3 {
-	font-size: 20px;
-	font-weight: 600;
-	margin-top: 0;
-    margin-bottom: 0
-}
-
-/* Source : https://github.com/linways/simple-content-placeholder/blob/master/content-placeholder.css */
-@-webkit-keyframes placeHolderShimmer {
-  0% {
-    background-position: -468px 0;
-  }
-  100% {
-    background-position: 468px 0;
-  }
-}
-
-@keyframes placeHolderShimmer {
-  0% {
-    background-position: -468px 0;
-  }
-  100% {
-    background-position: 468px 0;
-  }
-}
-
-.content-placeholder {
-  display: block;
-  -webkit-animation-duration: 1s;
-  animation-duration: 1s;
-  -webkit-animation-fill-mode: forwards;
-  animation-fill-mode: forwards;
-  -webkit-animation-iteration-count: infinite;
-  animation-iteration-count: infinite;
-  -webkit-animation-name: placeHolderShimmer;
-  animation-name: placeHolderShimmer;
-  -webkit-animation-timing-function: linear;
-  animation-timing-function: linear;
-  background: #f6f7f8;
-  background: -webkit-gradient(linear, left top, right top, color-stop(8%, #eeeeee), color-stop(18%, #dddddd), color-stop(33%, #eeeeee));
-  background: -webkit-linear-gradient(left, #eeeeee 8%, #dddddd 18%, #eeeeee 33%);
-  background: linear-gradient(to right, #eeeeee 8%, #dddddd 18%, #eeeeee 33%);
-  -webkit-background-size: 800px 104px;
-  background-size: 800px 104px;
-  height: inherit;
-  position: relative;
-}
-
-.error-view {
-  padding: 10px 20px;
-  position: relative;
-  text-align: center;
-  background-color: #fafbfc;
-  border: 1px solid #e1e4e8;
-  border-radius: 3px;
-  box-shadow: inset 0 0 10px rgba(27, 31, 35, 0.05)
-}
-.error-view h3 {
-  margin: 0;
-  font-size: 20px
-}
-
-.error-view .octicon {
-  margin-right: 4px;
-  margin-bottom: 5px;
-  margin-left: 4px;
-  color: #a3aab1;
-}
-.p-rel {
-  position: relative;
-}
-.full-absolute {
-  position: absolute;
-  top: 0;
-  right: 0;
-  left: 0;
-  bottom: 0;
-}
-.gmc-loaded .only-if-loading {
-  display: none;
-}
-.gmc-error .only-if-loading {
-  display: none;
-}
-.only-if-error {
-  display: none;
-}
-.gmc-loaded .only-if-loaded {
-  visibility: visible;
-}
-.only-if-loaded {
-  visibility: hidden;
-}
-.gmc-error .only-if-error {
-  display: block;
-}
+/* @include snippets/basic_github.css */
+/* @include snippets/loading.css */
+/* @include snippets/basic_github.css */
+/* @include snippets/loading.css */
+/* @include snippets/basic_github.css */
+/* @include snippets/loading.css */
 
 .gh .d-flex {
 	display: -webkit-box !important;
@@ -985,8 +340,79 @@ overflow: hidden;}
   display: block;
 }
 
+/* cyrillic */
+@font-face {
+  font-family: 'Exo 2';
+  font-style: normal;
+  font-weight: 300;
+  src: local('Exo 2 Light'), local('Exo2-Light'), url(https://fonts.gstatic.com/s/exo2/v4/7cHrv4okm5zmbt6DCfs_wH8DnzcjTrA.woff2) format('woff2');
+  unicode-range: U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Exo 2';
+  font-style: normal;
+  font-weight: 300;
+  src: local('Exo 2 Light'), local('Exo2-Light'), url(https://fonts.gstatic.com/s/exo2/v4/7cHrv4okm5zmbt6DCfs1wH8DnzcjTrA.woff2) format('woff2');
+  unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Exo 2';
+  font-style: normal;
+  font-weight: 300;
+  src: local('Exo 2 Light'), local('Exo2-Light'), url(https://fonts.gstatic.com/s/exo2/v4/7cHrv4okm5zmbt6DCfs7wH8Dnzcj.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'Exo 2';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Exo 2'), local('Exo2-Regular'), url(https://fonts.gstatic.com/s/exo2/v4/7cHmv4okm5zmbtYsK-4W4nIppT4.woff2) format('woff2');
+  unicode-range: U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Exo 2';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Exo 2'), local('Exo2-Regular'), url(https://fonts.gstatic.com/s/exo2/v4/7cHmv4okm5zmbtYmK-4W4nIppT4.woff2) format('woff2');
+  unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Exo 2';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Exo 2'), local('Exo2-Regular'), url(https://fonts.gstatic.com/s/exo2/v4/7cHmv4okm5zmbtYoK-4W4nIp.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'Exo 2';
+  font-style: normal;
+  font-weight: 700;
+  src: local('Exo 2 Bold'), local('Exo2-Bold'), url(https://fonts.gstatic.com/s/exo2/v4/7cHrv4okm5zmbt6TDvs_wH8DnzcjTrA.woff2) format('woff2');
+  unicode-range: U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Exo 2';
+  font-style: normal;
+  font-weight: 700;
+  src: local('Exo 2 Bold'), local('Exo2-Bold'), url(https://fonts.gstatic.com/s/exo2/v4/7cHrv4okm5zmbt6TDvs1wH8DnzcjTrA.woff2) format('woff2');
+  unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Exo 2';
+  font-style: normal;
+  font-weight: 700;
+  src: local('Exo 2 Bold'), local('Exo2-Bold'), url(https://fonts.gstatic.com/s/exo2/v4/7cHrv4okm5zmbt6TDvs7wH8Dnzcj.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
 
-@import url(https://fonts.googleapis.com/css?family=Exo+2:300,400,700);
 .cs-card {
   font-size:14px;
   font-family: "Exo 2", sans-serif;
@@ -1163,223 +589,8 @@ svg .polygon{
   font-size:20px;
   margin-top: 5px;
 }
-.gh {
-	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-	font-size: 14px;
-	line-height: 1.5;
-	color: #24292e;
-	background-color: #fff;
-	text-align: left;
-}
-
-
-
-.gh .rounded-1 { border-radius: 3px }
-.gh .border { border: 1px #e1e4e8 solid }
-
-.gh .lh-condensed { line-height: 1.25 }
-.gh .text-bold { font-weight: 600 }
-.gh .text-gray-dark { color: #24292e }
-.gh .text-gray { color: #586069 }
-.gh .link-gray-dark { color: #24292e }
-.gh .link-gray-dark:hover { color: #0366d6 }
-
-.gh .p-1 { padding: 4px }
-.gh .p-2 { padding: 8px }
-.gh .p-3 { padding: 16px }
-.gh .p-4 { padding: 32px }
-
-.gh .m-1 { margin: 4px }
-.gh .m-2 { margin: 8px }
-.gh .m-3 { margin: 16px }
-.gh .m-4 { margin: 32px }
-
-.gh .mb-0 {	margin-bottom: 0 }
-.gh .mb-1 {	margin-bottom: 4px }
-.gh .mb-2 {	margin-bottom: 8px }
-.gh .mb-3 {	margin-bottom: 16px }
-.gh .mb-4 {	margin-bottom: 32px }
-.gh .ml-0 { margin-left: 0 }
-.gh .ml-1 { margin-left: 4px }
-.gh .ml-2 { margin-left: 8px }
-.gh .ml-3 { margin-left: 16px }
-.gh .ml-4 { margin-left: 32px }
-.gh .mr-0 {	margin-right: 0 }
-.gh .mr-1 {	margin-right: 4px }
-.gh .mr-2 {	margin-right: 8px }
-.gh .mr-3 {	margin-right: 16px }
-.gh .mr-4 {	margin-right: 32px }
-.gh .mt-0 {	margin-top: 0 }
-.gh .mt-1 {	margin-top: 4px }
-.gh .mt-2 {	margin-top: 8px }
-.gh .mr-3 {	margin-right: 16px }
-.gh .mr-4 {	margin-right: 32px }
-
-.gh .my-0 { 
-	margin-top: 0;
-	margin-bottom: 0 }
-.gh .my-1 { 
-	margin-top: 4px;
-	margin-bottom: 4px }
-.gh .my-2 { 
-	margin-top: 8px;
-	margin-bottom: 8px }
-.gh .my-3 { 
-	margin-top: 16px;
-	margin-bottom: 16px }
-.gh .my-4 { 
-	margin-top: 32px;
-	margin-bottom: 32px }
-
-.gh .f4 { font-size: 16px }
-.gh .f6 { font-size: 12px }
-
-.gh .wb-break-all { word-break: break-all }
-
-
-.gh .d-inline-flex { 
-	display: -webkit-inline-box ;
-	display: inline-flex }
-.gh .d-inline-block { display: inline-block }
-.gh .d-inline { display: inline }
-.gh .d-block { display: block }
-
-.gh .muted-link {
-	color: #586069 
-}
-.gh .muted-link:hover {
-	color: #0366d6 ;
-	text-decoration: none
-}
-
-.gh .repo-language-color {
-	position: relative;
-	top: 1px;
-	display: inline-block;
-	width: 12px;
-	height: 12px;
-	border-radius: 50%
-}
-
-.gh .octicon {
-	vertical-align: text-bottom;
-	display: inline-block;
-	fill: currentColor
-}
-.gh a:active, a:hover {
-	outline-width: 0
-}
-.gh a:hover {
-	text-decoration: underline
-}
-.gh svg {
-overflow: hidden;}
-
-.gh p {
-	margin-top: 0;
- 	margin-bottom: 10px
-}
-
-.gh a {
-	color: #0366d6;
-	text-decoration: none
-}
-.gh h3 {
-	font-size: 20px;
-	font-weight: 600;
-	margin-top: 0;
-    margin-bottom: 0
-}
-
-/* Source : https://github.com/linways/simple-content-placeholder/blob/master/content-placeholder.css */
-@-webkit-keyframes placeHolderShimmer {
-  0% {
-    background-position: -468px 0;
-  }
-  100% {
-    background-position: 468px 0;
-  }
-}
-
-@keyframes placeHolderShimmer {
-  0% {
-    background-position: -468px 0;
-  }
-  100% {
-    background-position: 468px 0;
-  }
-}
-
-.content-placeholder {
-  display: block;
-  -webkit-animation-duration: 1s;
-  animation-duration: 1s;
-  -webkit-animation-fill-mode: forwards;
-  animation-fill-mode: forwards;
-  -webkit-animation-iteration-count: infinite;
-  animation-iteration-count: infinite;
-  -webkit-animation-name: placeHolderShimmer;
-  animation-name: placeHolderShimmer;
-  -webkit-animation-timing-function: linear;
-  animation-timing-function: linear;
-  background: #f6f7f8;
-  background: -webkit-gradient(linear, left top, right top, color-stop(8%, #eeeeee), color-stop(18%, #dddddd), color-stop(33%, #eeeeee));
-  background: -webkit-linear-gradient(left, #eeeeee 8%, #dddddd 18%, #eeeeee 33%);
-  background: linear-gradient(to right, #eeeeee 8%, #dddddd 18%, #eeeeee 33%);
-  -webkit-background-size: 800px 104px;
-  background-size: 800px 104px;
-  height: inherit;
-  position: relative;
-}
-
-.error-view {
-  padding: 10px 20px;
-  position: relative;
-  text-align: center;
-  background-color: #fafbfc;
-  border: 1px solid #e1e4e8;
-  border-radius: 3px;
-  box-shadow: inset 0 0 10px rgba(27, 31, 35, 0.05)
-}
-.error-view h3 {
-  margin: 0;
-  font-size: 20px
-}
-
-.error-view .octicon {
-  margin-right: 4px;
-  margin-bottom: 5px;
-  margin-left: 4px;
-  color: #a3aab1;
-}
-.p-rel {
-  position: relative;
-}
-.full-absolute {
-  position: absolute;
-  top: 0;
-  right: 0;
-  left: 0;
-  bottom: 0;
-}
-.gmc-loaded .only-if-loading {
-  display: none;
-}
-.gmc-error .only-if-loading {
-  display: none;
-}
-.only-if-error {
-  display: none;
-}
-.gmc-loaded .only-if-loaded {
-  visibility: visible;
-}
-.only-if-loaded {
-  visibility: hidden;
-}
-.gmc-error .only-if-error {
-  display: block;
-}
+/* @include snippets/basic_github.css */
+/* @include snippets/loading.css */
 
 .gh_usercard {
 	width: 100%;
