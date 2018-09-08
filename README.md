@@ -16,20 +16,22 @@
 
 ## Usage
 
-There are several ways you can implement many-faced cards, according to the level of customization you need.
+There are several ways you can implement many-faced cards, according to the level of customization you need. Checkout out the [**Card Generator**](http://tsucres.me/GithubManyfacedCards/demo/genertor.html) for an easier integration.
 
 ### Easiest
 
 ```html
-<iframe src="https://cdn.rawgit.com/tsucres/GithubManyfacedCards/master/dist/themes/<theme_name>.gmc.min.html?rn=<full_repo_name>" frameborder="0"></iframe>
+<iframe src="https://cdn.rawgit.com/tsucres/GithubManyfacedCards/0.3.0/dist/themes/<theme_name>/embedded/embedded.gmc.min.html?<rn|un>=<<full_repo_name>|<username>>" frameborder="0"></iframe>
 ```
 
 
 Where 
-- `<theme_name>` must be the name of one of the supported themes: `gh_pure`, `gh_full`, `gh_recommendation`. You can host and use your own themes. Read further to learn how to build custom themes. The default theme, (if you omit this param) is `gh_pure`.
-- `<full_repo_name>` must have the following format: `userName/repoName`.
+- `<rn|un>` should be replaced by `rn` if you want a repo-card or by `un` if you want a user-card;
+- `<theme_name>` must be the name of one of the [supported themes](http://tsucres.me/GithubManyfacedCards). You can host and use your own themes. Read further to learn how to build custom themes. The default theme, (if you omit this param) is `gh_pure`;
+- `<full_repo_name>` must have the following format: `userName/repoName`;
+- `<username>` must be a valid GitHub username.
 
-<!-- jsFiddle -->
+
 [**jsFiddle** >> ](https://jsfiddle.net/tsucres/Ltbejcto/)
 
 
@@ -38,13 +40,16 @@ Where
 Choose an existing theme and paste the following markup in your webpage source: 
 
 ```html
-// in the head or in the beginning of the body
-<script src="https://cdn.rawgit.com/tsucres/GithubManyfacedCards/master/dist/gmc.min.js">
+<!-- in the head or in the beginning of the body -->
+<script src="https://cdn.rawgit.com/tsucres/GithubManyfacedCards/0.3.0/dist/gmc.min.js">
 
-// ...
+<!-- ... -->
 
-// where you want the card
-<script async src="https://cdn.rawgit.com/tsucres/GithubManyfacedCards/master/dist/gmc-loader.min.js" data-gmc-repo="<full_repo_name>" data-gmc-theme="<theme_name>"></script>
+<!-- where you want a repo-card -->
+<script async src="https://cdn.rawgit.com/tsucres/GithubManyfacedCards/0.3.0/dist/gmc-loader.min.js" data-gmc-repo="<full_repo_name>" data-gmc-theme="<theme_name>"></script
+
+<!-- where you want an user-card -->
+<script async src="https://cdn.rawgit.com/tsucres/GithubManyfacedCards/0.3.0/dist/gmc-loader.min.js" data-gmc-user="<username>" data-gmc-theme="<theme_name>"></script>
 
 ```
 
@@ -53,11 +58,11 @@ Again, the `<theme_name>` must be replaced with the name of one of the supported
 This way must be preferred if you plan to have several cards on a single webpage, or if you need to load the cards programmatically, or even if you need a custom version of the gmc.js script.
 
 The advantages of this method over the previous one are: 
-- The `gmc.js` script is loaded only once (in the first implementation method, it is embedded in every iframe)
-- If you use the same theme for several cards, the styles and the js code needed by the theme are loaded only once
 - No iframe: the markup is dynamically added as a sibling of the `<script>` tag
-- Since the card is directly inside the document, you can override the style of the theme.
 - You can easily add a responsive behavior to the card
+- Since the card is directly inside the document, you can override the style of the theme.
+- If you use the same theme for several cards, the styles and the js code needed by the theme are loaded only once
+- The `gmc.js` script is loaded only once (in the first implementation method, it is embedded in every iframe)
 - You can use a custom version of `gmc.js`
 
 
@@ -71,7 +76,7 @@ With this method, you should load `gmc.js` at the beginning of your html (to ens
 
 This method consists in doing manually what `gmc-loader.js` does: load and insert the template of the card in the document and add the style and the javascript it requires. 
 
-This method has all the advantages of the previous one and is slightly more efficient since It has less files to fetch.
+This method has all the advantages of the previous one and is slightly more efficient since it has less markup to generate dynamically and fewer files to fetch.
 
 ##### 1. Insert the markup of the theme
 
@@ -84,7 +89,11 @@ You can find the markup of the existing themes in the [`dist/themes/<theme_name>
 
 In the head of your document, add the style needed by your theme.
 
-For the existing themes, you will find all the styles in the [`src/themes/css`](src/themes/css) folder. 
+For the existing themes, you will find the required css file in the following folder: [`dist/themes/<theme_name>`](dist/themes). You can either serve it yourself or use a CDN:
+
+```html
+<link rel="stylesheet" href="https://cdn.rawgit.com/tsucres/GithubManyfacedCards/0.3.0/dist/themes/<theme_name>/<theme_name>.min.css" type="text/css">
+```
 
 
 ##### 3. Add the js
@@ -92,19 +101,23 @@ For the existing themes, you will find all the styles in the [`src/themes/css`](
 Add the js functions needed by the template to your document.
 
 
-For the existing themes, you will find all the functions in the [`src/themes/js`](src/themes/js) folder.
+For the existing themes, the js file is in the theme's folder [`dist/themes/<theme_name>`](dist/themes). As for the style, you can either serve it yourself or use rawgit:
+
+```html
+<script src="https://cdn.rawgit.com/tsucres/GithubManyfacedCards/0.3.0/dist/themes/<theme_name>/<theme_name>.min.js"></script>
+```
 
 
 ##### 4. GMC.js
 
-Add a link to `gmc.min.js` and call `GMC.loadAllCards()` when you want to load the cards (probably when the document is loaded): 
+Add a link to `gmc.min.js` and call `GMC.loadAllCards()` when you want to load the cards (after the document has loaded): 
 
 ```html
-<script src="https://cdn.rawgit.com/tsucres/GithubManyfacedCards/master/dist/gmc.min.js"></script>
+<script src="https://cdn.rawgit.com/tsucres/GithubManyfacedCards/0.3.0/dist/gmc.min.js"></script>
 
 <script>
 // Call GMC.loadAllCards() when the document has loaded 
-window.onload = GMC.loadAllCards
+window.onload = function() { GMC.loadAllCards(); };
 </script>
 
 ```
@@ -122,13 +135,13 @@ window.onload = GMC.loadAllCards
 2. Turn it into a Github template: add the adequate data attributes in the right spots.
 
 
-There are three kinds of data-* attributes you can use to indicate to gmc.js what tags to fill with what information: `data-gmc-id`, `data-gmc-js` and `data-gmc-ap`.
+There are three kinds of data-* attributes you can use to indicate to gmc.js which tags to fill with what information: `data-gmc-id`, `data-gmc-js` and `data-gmc-ap`.
 
-The most important one is `data-gmc-id`. It has the following syntax: `where__what__js` 
+The most important one is `data-gmc-id`. Its value should have the following syntax: `where__what__js` 
 
-1. `where` corresponds to the attribute to which to assign the `what` value. You can specify `in` to insert the value as a child  of the element (in its content).
-2. `what` must correspond to a key in the [json response from the Github API](https://developer.github.com/v3/repos/#get). The hierarchy is specified using a dash `-`. For example, to access `json["parent"]["child"]`, the `what` part of the class would be `parent-child`.
-3. `js`: this part is optional. If `__js` is appended at the end of the attribute and the `data-gmc-js` attribute of the element contains the name of a js function, the `what` will be first passed to that function (as a parameter) and its result be assigned to the `where`. The js function is called with 3 parameters: the `what`, the `HTMLElement` and the javascript GMC object handling the template.
+1. `where` corresponds to the attribute to which to assign the `what` value. (Note that `in` is an alias for `textContent`).
+2. `what` must correspond to a key in the json response from the Github API for a [repo](https://developer.github.com/v3/repos/#get) or a [user](https://developer.github.com/v3/users/#get-a-single-user). The hierarchy is specified using a dash `-`. For example, to access `json["parent"]["child"]`, the `what` part of `data-gmc-id` would be `parent-child`.
+3. `js`: this part is optional. If `__js` is appended at the end of the attribute and the `data-gmc-js` attribute of the element contains the name of a js function, the `what` will be first passed to that function (as a parameter) and its result will be assigned to the `where`. The js function is called with 3 parameters: the `what`, the `HTMLElement` and the javascript GMC object handling the template.
 
 
 Examples: 
@@ -145,17 +158,17 @@ Examples:
 
 #### 0) For each [data-gmc-repo] elements ...
 
-The two following steps are made for every elements selected with the attribute `data-gmc-repo`.
+The two following steps are executed for every element selected with the attribute `data-gmc-repo` (or `data-gmc-user` in case the case of a user-card).
 
 
 #### 1) Data fetching
 
-This part is pretty obvious: it uses the [official API](https://developer.github.com/v3/repos/) to retrieve the informations about the repo in Json format.
+This part is pretty obvious: it uses the [official API](https://developer.github.com/v3/repos/) to retrieve the informations about the repo (or a user) in Json format.
 
 
 #### 2) Parsing and rendering
 
-When the Json is made available, the js code will parse all the child elements of the `[data-gmc-repo]` element and look for those having a `data-gmc-id` attribute. For all of those, it will parse the id, and fill the template. For an id `where__what__js` it will basically do the following: `[data-gmc-repo].where (+)= js(json[what])`
+When the Json is made available, gmc.js will parse all the child elements of the `[data-gmc-repo]` element and look for those having a `data-gmc-id` attribute. For all of those, it will parse the id, and fill the template. For an id `where__what__js` it will basically do the following: `[data-gmc-repo].where (+)= js(json[what])`
 
 
 
@@ -166,6 +179,9 @@ When the Json is made available, the js code will parse all the child elements o
 #### On the root element
 
 **data-gmc-repo**: the full name (userName/repoName) of the repo you want to show the informations for. This attribute is always required, except when embedding the iframe with the `src=theme.gmc.min.html?rn=fullName`.
+
+**data-gmc-user**: same as the previous one but for user-cards.
+
 
 If the root element is an **iframe** with `data-gmc-repo` specified (without `src`): 
 
@@ -211,7 +227,7 @@ Calls `(new GMC(root_el))` on every elements selected by `[data-gmc-repo]`.
 ```sh
 npm install
 
-gulp all #[themes, embed_themes, demo, gmc]
+gulp all #[themes, embed_themes, gmc]
 
 ```
 
@@ -219,8 +235,6 @@ gulp all #[themes, embed_themes, demo, gmc]
 
 - the `embed_themes` task outputs the same files as the previous one, but in addition to the style and js functions, the content of gmc.js along with an automatic call to `GMC.loadAllCards()` is added to those files. Those themes are intended to be used in a standalone iframe (usage 1 in the first section). They are marked with the `.gmc` suffix in the [`dist`](dist) folder.
 
-
-- the `demo` task builds the index.html file used for the demo.
 - the `gmc` task minifies the gmc.js file.
 
 All the resulting files (except the demo file) are in the [`dist`](dist) directory.
@@ -234,7 +248,7 @@ See the [demo](http://tsucres.me/GithubManyfacedCards/) for several card designs
 Real life examples: 
 - [HNBuddy landing page](http://www.hnbuddy.io/contrib.html)
 
-**Make a PR** to add your designs in the demo or a link here in the [README](README.md)
+**Open an issue** to submit your designs in the demo or to add a link here in the [README](README.md)
 
 
 # Other similar repos: 
