@@ -799,8 +799,8 @@ svg .polygon{
         <li id="theme-progressbar-el">Theme</li>
         <li id="export-progressbar-el">Export</li>
       </ul>
-      <!-- fieldsets -->
-      <fieldset class="row" id="fs-gh-id">
+      <!-- form -->
+      <form class="row" id="fs-gh-id">
         <h2 class="fs-title col-lg-12">User/Repo name</h2>
         <h3 class="fs-subtitle col-lg-12">Step 1</h3>
         
@@ -809,9 +809,9 @@ svg .polygon{
         <div class="col-sm-8">
           <input type="text" class="form-control " id="gh-id-txt" placeholder="e.g. tsucres or tsucres/GithubManyfacedCards">
         </div>
-        <button name="next" class="next action-button btn btn-primary load-btn" id="gh-id-next-btn">Next</button>
-      </fieldset>
-      <fieldset class="row hidden" id="fs-theme">
+        <button type="button" name="next" class="next action-button btn btn-primary load-btn" id="gh-id-next-btn">Next</button>
+      </form>
+      <form class="row hidden" id="fs-theme">
         <h2 class="fs-title col-lg-12">Theme</h2>
         <h3 class="fs-subtitle col-lg-12">Step 2</h3>
         <label for="theme-opt" class="col-sm-4 offset-sm-2">Theme of the <span class="gmc-type">repo</span> card</label>
@@ -825,11 +825,11 @@ svg .polygon{
           
         </div>
         <div class="col-sm-5 offset-md-3">
-          <button name="previous" class="next action-button btn btn-primary load-btn" id="theme-previous-btn">Previous</button>
-          <button name="next" class="next action-button btn btn-primary load-btn" id="theme-next-btn">Next</button>
+          <button type="button" name="previous" class="next action-button btn btn-primary load-btn" id="theme-previous-btn">Previous</button>
+          <button type="button" name="next" class="next action-button btn btn-primary load-btn" id="theme-next-btn">Next</button>
         </div>
-      </fieldset>
-      <fieldset class="row hidden" id="fs-export">
+      </form>
+      <form class="row hidden" id="fs-export">
         <h2 class="fs-title col-lg-12">Export</h2>
         <h3 class="fs-subtitle col-lg-12">How do you want to integrate it?</h3>
         
@@ -889,8 +889,8 @@ svg .polygon{
             </div>
           </div>
         </div> 
-        <button name="previous" class="next action-button btn btn-primary load-btn" id="export-previous-btn">Previous</button>
-      </fieldset>
+        <button type="button" name="previous" class="next action-button btn btn-primary load-btn" id="export-previous-btn">Previous</button>
+      </form>
     </div>
 
 
@@ -1435,9 +1435,9 @@ svg .polygon{
      
 
     
-<script type="text/javascript" src="/dist/gmc.min.js"></script>
-<script type="text/javascript" src="/demo/js/highlight.pack.min.js"></script>
-<script type="text/javascript" src="/demo/js/demo_card_js.min.js"></script>
+<script type="text/javascript" src="dist/gmc.min.js"></script>
+<script type="text/javascript" src="demo/js/highlight.pack.min.js"></script>
+<script type="text/javascript" src="demo/js/demo_card_js.min.js"></script>
 <script type="text/javascript">
   var initialTitleHeight;
   var titleElement;

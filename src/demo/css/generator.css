@@ -148,7 +148,7 @@ button.load-btn.loading:before {
 	position: relative;
 	font-family: montserrat, arial, verdana;
 }
-#msform fieldset {
+#msform form {
 	background: white;
 	border: 0 none;
 	border-radius: 3px;
@@ -157,7 +157,7 @@ button.load-btn.loading:before {
 	width: 80%;
 	margin: 0 10%;
 	
-	/*stacking fieldsets above each other*/
+	/*stacking forms above each other*/
 	position: relative;
 }
 #msform .txt-error {
@@ -284,25 +284,25 @@ button.load-btn.loading:before {
     transform: translateX(0%)
   }
 }
-#msform fieldset.anim-disap {
+#msform form.anim-disap {
   animation: fs-disap .8s ease-in-out;
   /*display: block;*/
   
   position: absolute;
 }
 
-#msform fieldset.anim-appear {
+#msform form.anim-appear {
   /*display: block;*/
   animation: fs-appear .8s ease-in-out;
 }
-#msform fieldset.anim-reverse {
+#msform form.anim-reverse {
   animation-direction: reverse;
 }
 
-fieldset#fs-export .tab-content {
+form#fs-export .tab-content {
 	text-align: left;
 }
-fieldset#fs-export code {
+form#fs-export code {
 	max-height: 200px;
 }
 .hidden {
