@@ -152,6 +152,7 @@ button.load-btn.loading:before {
 	background: white;
 	border: 0 none;
 	border-radius: 3px;
+	-webkit-box-shadow: 0 0 15px 1px rgba(0, 0, 0, 0.4);
 	box-shadow: 0 0 15px 1px rgba(0, 0, 0, 0.4);
 	padding: 20px 30px;
 	width: 80%;
@@ -193,6 +194,7 @@ button.load-btn.loading:before {
 	padding-top: 13px;
 }
 #msform .action-button:hover, #msform .action-button:focus {
+	-webkit-box-shadow: none;
 	box-shadow: none;
 }
 /*headings*/
@@ -261,30 +263,63 @@ button.load-btn.loading:before {
 
 /* animations */
 
+@-webkit-keyframes fs-disap {
+  0% {
+  opacity: 1;
+  }
+  50%, 55% {
+  opacity: 1;
+  -webkit-transform: scale(1.05);
+  transform: scale(1.05);
+  }
+  100% {
+  opacity: 0;
+  -webkit-transform: scale(0.7);
+  transform: scale(0.7);
+  }
+}
+
 @keyframes fs-disap {
   0% {
   opacity: 1;
   }
   50%, 55% {
   opacity: 1;
+  -webkit-transform: scale(1.05);
   transform: scale(1.05);
   }
   100% {
   opacity: 0;
+  -webkit-transform: scale(0.7);
   transform: scale(0.7);
+  }
+}
+@-webkit-keyframes fs-appear {
+  0%, 50% {
+    opacity: 0;
+    -webkit-transform: translateX(50%);
+    transform: translateX(50%)
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateX(0%);
+    transform: translateX(0%)
   }
 }
 @keyframes fs-appear {
   0%, 50% {
     opacity: 0;
+    -webkit-transform: translateX(50%);
     transform: translateX(50%)
   }
   100% {
     opacity: 1;
+    -webkit-transform: translateX(0%);
     transform: translateX(0%)
   }
 }
 #msform fieldset.anim-disap {
+  -webkit-animation: fs-disap .8s ease-in-out;
   animation: fs-disap .8s ease-in-out;
   /*display: block;*/
   
@@ -293,6 +328,7 @@ button.load-btn.loading:before {
 
 #msform fieldset.anim-appear {
   /*display: block;*/
+  -webkit-animation: fs-appear .8s ease-in-out;
   animation: fs-appear .8s ease-in-out;
 }
 #msform fieldset.anim-reverse {

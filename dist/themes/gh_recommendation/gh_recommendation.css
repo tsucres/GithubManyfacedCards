@@ -74,6 +74,7 @@
 
 .gh .d-inline-flex { 
 	display: -webkit-inline-box ;
+	display: -ms-inline-flexbox;
 	display: inline-flex }
 .gh .d-inline-block { display: inline-block }
 .gh .d-inline { display: inline }
@@ -159,9 +160,7 @@ overflow: hidden;}
   animation-timing-function: linear;
   background: #f6f7f8;
   background: -webkit-gradient(linear, left top, right top, color-stop(8%, #eeeeee), color-stop(18%, #dddddd), color-stop(33%, #eeeeee));
-  background: -webkit-linear-gradient(left, #eeeeee 8%, #dddddd 18%, #eeeeee 33%);
   background: linear-gradient(to right, #eeeeee 8%, #dddddd 18%, #eeeeee 33%);
-  -webkit-background-size: 800px 104px;
   background-size: 800px 104px;
   height: inherit;
   position: relative;
@@ -174,6 +173,7 @@ overflow: hidden;}
   background-color: #fafbfc;
   border: 1px solid #e1e4e8;
   border-radius: 3px;
+  -webkit-box-shadow: inset 0 0 10px rgba(27, 31, 35, 0.05);
   box-shadow: inset 0 0 10px rgba(27, 31, 35, 0.05)
 }
 .error-view h3 {
@@ -218,6 +218,7 @@ overflow: hidden;}
 
 .gh .d-flex {
 	display: -webkit-box !important;
+	display: -ms-flexbox !important;
 	display: flex !important
 }
 
@@ -240,10 +241,12 @@ overflow: hidden;}
 
 .gh .flex-items-center {
 	-webkit-box-align: center !important;
+	-ms-flex-align: center !important;
 	align-items: center !important
 }
 
 .gh .flex-wrap {
+	-ms-flex-wrap: wrap !important;
 	flex-wrap: wrap !important
 }
 
@@ -264,6 +267,7 @@ overflow: hidden;}
 .gh .btn {
 	color: #24292e;
 	background-color: #eff3f6;
+	background-image: -webkit-gradient(linear, left top, left bottom, from(#fafbfc), color-stop(90%, #eff3f6));
 	background-image: linear-gradient(-180deg, #fafbfc 0%, #eff3f6 90%);
 
 	position: relative;
@@ -297,6 +301,7 @@ overflow: hidden;}
 
 .gh .btn:hover {
 	background-color: #e6ebf1;
+	background-image: -webkit-gradient(linear, left top, left bottom, from(#f0f3f6), color-stop(90%, #e6ebf1));
 	background-image: linear-gradient(-180deg, #f0f3f6 0%, #e6ebf1 90%);
 	background-position: -.5em;
 	border-color: rgba(27, 31, 35, 0.35);
@@ -308,6 +313,7 @@ overflow: hidden;}
 	background-color: #e9ecef;
 	background-image: none;
 	border-color: rgba(27, 31, 35, 0.35);
+	-webkit-box-shadow: inset 0 0.15em 0.3em rgba(27, 31, 35, 0.15);
 	box-shadow: inset 0 0.15em 0.3em rgba(27, 31, 35, 0.15)
 }
 

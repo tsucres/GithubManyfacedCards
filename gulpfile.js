@@ -69,6 +69,10 @@ function buildEmbeddedTheme(themeName) {
 function buildTheme(themeName) {
     var css = gulp.src(["src/themes/css/" + themeName + ".css"])
         .pipe(preprocess({}))
+        .pipe(autoprefixer({
+            browsers: ['last 2 versions'],
+            cascade: false
+        }))
         .pipe(gulp.dest("./dist/themes/" + themeName))
         .pipe(cssnano())
         .pipe(rename(function (path) { path.extname = ".min.css" }))
@@ -160,6 +164,10 @@ gulp.task('demo', ['gmc', 'themes', 'embed_themes'], function() {
     // Build and move css (from /src/demo to /demo)
     var demoCSS = gulp.src(["src/demo/css/*.css"])
         .pipe(preprocess({context: {}}))
+        .pipe(autoprefixer({
+            browsers: ['last 2 versions'],
+            cascade: false
+        }))
         .pipe(gulp.dest('./demo/css'));
 
     // Build and move js

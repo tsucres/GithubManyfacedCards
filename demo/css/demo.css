@@ -149,6 +149,7 @@ header .features .feature-text {
 
 
 #pres-repo-card {
+  -webkit-box-shadow: 0px 0px 10px #999;
   box-shadow: 0px 0px 10px #999;
 }
 
@@ -161,6 +162,7 @@ header .features .feature-text {
   font-size: 11pt;
 }
 .user-repo-switch .btn:focus {
+  -webkit-box-shadow: none;
   box-shadow: none;
 }
 .user-repo-switch .btn.active {
@@ -187,6 +189,7 @@ header .features .feature-text {
     background: transparent;
 }
 .nav.nav-tabs[role="tablist"] > li > a.active::after, .nav-tabs > li:hover > a::after {
+    -webkit-transform: scale(1);
     transform: scale(1);
 }
 
@@ -202,7 +205,9 @@ header .features .feature-text {
     width: 100%;
     left: 0px;
     bottom: -1px;
+    -webkit-transition: all 250ms ease 0s;
     transition: all 250ms ease 0s;
+    -webkit-transform: scale(0);
     transform: scale(0);
 }
 .tab-pane { 
@@ -299,6 +304,7 @@ pre code.hljs {
   padding: 20px 20px;
   border-radius: 3px;
   background: #fff;
+  -webkit-box-shadow: 0px 0px 10px #999;
   box-shadow: 0px 0px 10px #999;
 }
 /* Large devices (desktops, 992px and up) */
