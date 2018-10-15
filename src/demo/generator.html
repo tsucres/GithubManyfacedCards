@@ -9,13 +9,13 @@
 
 	<!-- Styles for the cards -->
 	<style type="text/css">
-      {{ includeFile('src/themes/css/snippets/basic_github.css') }}
-      {{ includeFile('src/themes/css/gh_pure.css') }}
-      {{ includeFile('src/themes/css/gh_full.css') }}
-      {{ includeFile('src/themes/css/gh_recommendation.css') }}
-      {{ includeFile('src/themes/css/snippets/loading.css') }}
-      {{ includeFile('src/themes/css/codeshape.css') }}
-      {{ includeFile('src/themes/css/gh_usercard.css') }}
+      {{ includeFile('src/themes/css/snippets/basic_github.css') | safe }}
+      {{ includeFile('src/themes/css/gh_pure.css') | safe }}
+      {{ includeFile('src/themes/css/gh_full.css') | safe }}
+      {{ includeFile('src/themes/css/gh_recommendation.css') | safe }}
+      {{ includeFile('src/themes/css/snippets/loading.css') | safe }}
+      {{ includeFile('src/themes/css/codeshape.css') | safe }}
+      {{ includeFile('src/themes/css/gh_usercard.css') | safe }}
     </style>
 
 {% endblock %}
@@ -140,14 +140,11 @@
             <div class="tab-pane mv2 b-light fade" id="efficient-gen" role="tabpanel">
               <p>Import <code>gmc.js</code> in your page (before the first card</p><br>
               <pre><code class="html" id="efficient-code-gmc-import">
-                {{- '
-                <script src="https://cdn.rawgit.com/tsucres/GithubManyfacedCards/0.3.0/dist/gmc.min.js"></script>' | preCode -}}
+                {{- '<script src="https://cdn.rawgit.com/tsucres/GithubManyfacedCards/0.3.0/dist/gmc.min.js"></script>' | preCode -}}
               </code></pre>
               
               <p>Paste the following piece of markup where you want your card.</p>
-              <pre><code class="html" id="efficient-code-html">
-                
-              </code></pre>
+              <pre><code class="html" id="efficient-code-html"></code></pre>
             </div>
             <div class="tab-pane mv2 b-light fade" id="efficienter-gen" role="tabpanel">
               <p>Copy the following code in your page</p>
@@ -170,8 +167,7 @@
               <h5>Import GMC.js</h5>
               <p>Link <a href="https://cdn.rawgit.com/tsucres/GithubManyfacedCards/0.3.0/dist/gmc.min.js" target="_blank" download>gmc.min.js</a> to your document.</p>
               <pre><code class="html" id="efficienter-code-gmc-import">
-                {{- '
-                    <script src="https://cdn.rawgit.com/tsucres/GithubManyfacedCards/0.3.0/dist/gmc.min.js"></script>' | preCode -}}
+                {{- '<script src="https://cdn.rawgit.com/tsucres/GithubManyfacedCards/0.3.0/dist/gmc.min.js"></script>' | preCode -}}
               </code></pre>
               <h5>Load the cards</h5>
               <p>After the DOM is loaded, call the following function: </p>
@@ -204,9 +200,8 @@
           {{theme_option("gh_recommendation")}}
         </section>
         <section class="user-themes-section">
-          <div class="theme-item">
-            {% include "src/themes/templates/gh_usercard.html" %}
-          </div>
+            {{theme_option("codeshape")}}
+            {{theme_option("gh_usercard")}}
         </section>
       </div>
     </div>
@@ -301,16 +296,18 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 <script type="text/javascript">
+  var CDN_DIST_URL = "https://cdn.rawgit.com/tsucres/GithubManyfacedCards/0.3.0/dist/";
+
   var gh_id_txt = null; // txt input handling the gh id (user/repo name)
   var gh_id_next_btn = null; // Next button in the first step
   var gh_id_progressbar_el = null; // Element for the first step in the progress bar
 
   var theme_opt = null; // theme option
   var theme_next_btn = null; // Next button in the first step
-  var theme_progressbar_el = null; // Element for the first step in the progress bar
+  var theme_progressbar_el = null; // Element for the second step in the progress bar
   var theme_previous_btn = null; // Next button in the first step
   var export_previous_btn = null;
-
+  var export_progressbar_el = null; // Element for the last step in the progress bar
   var step_loading = false; // Indicates if there is a transition currently happening
 
   var currentJson = null; // Downloaded json
@@ -421,7 +418,6 @@
       if (card) {
         (new GMC(card, json));
         items[i].addEventListener("click", function(evt) {
-          console.log(evt.target);
           updateThemePreview(evt.target);
           $(theme_lst_modal_container).modal('hide');
         }, false);
@@ -455,7 +451,11 @@
           gh_id_txt.classList.remove("error");
           document.querySelector("#fs-gh-id .txt-error").innerText = "";
           fillThemeSelectionList(json, isRepoOrUser(gh_id_txt.value));
-          updateThemePreview(document.querySelector("#" + theme_selection_modal_id + " .theme-item"));
+          var categoryElement = ".repo-themes-section";
+          if (isRepoOrUser(gh_id_txt.value) == "User") {
+            categoryElement = ".user-themes-section";
+          } 
+          updateThemePreview(document.querySelector("#" + theme_selection_modal_id + " " + categoryElement + " .theme-item"));
           transitionNextFieldset(document.getElementById("fs-gh-id"), document.getElementById("fs-theme"), function() {
             step_loading = false;
           });
@@ -492,20 +492,20 @@
     // Easy 
     var easy_code_html_element = document.getElementById("easy-code-html");
     var userOrRepo = currentJsonType == "Repo" ? "rn" : "un";
-    easy_code_html_element.innerText = '<iframe src="https://cdn.rawgit.com/tsucres/GithubManyfacedCards/0.3.0/dist/themes/' + selectedTheme + '/embedded/embedded.gmc.min.html?' + userOrRepo + '=' + gh_id_txt.value + '" frameborder="0"></iframe>';
+    easy_code_html_element.innerText = '<iframe src="' + CDN_DIST_URL + 'themes/' + selectedTheme + '/embedded/embedded.gmc.min.html?' + userOrRepo + '=' + gh_id_txt.value + '" frameborder="0"></iframe>';
     hljs.highlightBlock(easy_code_html_element);
 
     // Efficient
     var efficient_code_html_element = document.getElementById("efficient-code-html");
     userOrRepo = currentJsonType == "Repo" ? "data-gmc-repo" : "data-gmc-user";
-    efficient_code_html_element.innerText = '<script async src="https://cdn.rawgit.com/tsucres/GithubManyfacedCards/0.3.0/dist/gmc-loader.min.js" ' + userOrRepo + '="' + gh_id_txt.value + '" data-gmc-theme="' + selectedTheme + '"><' + '/script>';
+    efficient_code_html_element.innerText = '<script async src="' + CDN_DIST_URL + 'gmc-loader.min.js" ' + userOrRepo + '="' + gh_id_txt.value + '" data-gmc-theme="' + selectedTheme + '"><' + '/script>';
     hljs.highlightBlock(efficient_code_html_element);
     hljs.highlightBlock(document.getElementById("efficient-code-gmc-import"));
 
     // "Efficienter"
     var efficienter_code_html_element = document.getElementById("efficienter-code-html");
 
-    var cssURL = "https://cdn.rawgit.com/tsucres/GithubManyfacedCards/0.3.0/dist/themes/" + selectedTheme + "/" + selectedTheme+ ".css";
+    var cssURL = CDN_DIST_URL + "themes/" + selectedTheme + "/" + selectedTheme + ".css";
     var efficienter_link_css_element = document.getElementById("efficienter-link-css");
     efficienter_link_css_element.innerText = selectedTheme + ".min.css";
     efficienter_link_css_element.href = cssURL;
@@ -513,7 +513,7 @@
     efficienter_code_css_element.innerText = '<link href="' + cssURL + '" rel="stylesheet" type="text/css">';
     hljs.highlightBlock(efficienter_code_css_element);
 
-    var jsURL = "https://cdn.rawgit.com/tsucres/GithubManyfacedCards/0.3.0/dist/themes/" + selectedTheme + "/" + selectedTheme+ ".js";
+    var jsURL = CDN_DIST_URL + "themes/" + selectedTheme + "/" + selectedTheme + ".js";
     var efficienter_link_js_element = document.getElementById("efficienter-link-js");
     efficienter_link_js_element.innerText = selectedTheme + ".min.js";
     efficienter_link_js_element.href = jsURL;
@@ -521,7 +521,7 @@
     efficienter_code_js_element.innerText = '<script src="' + jsURL + '"><' + '/script>';
     hljs.highlightBlock(efficienter_code_js_element);
     hljs.highlightBlock(document.getElementById("efficienter-code-gmc-import"));
-    var htmlURL = "https://cdn.rawgit.com/tsucres/GithubManyfacedCards/0.3.0/dist/themes/" + selectedTheme + "/" + selectedTheme+ ".html";
+    var htmlURL = CDN_DIST_URL + "themes/" + selectedTheme + "/" + selectedTheme + ".html";
     var efficienter_code_html_element = document.getElementById("efficienter-code-html");
     var xhr = new XMLHttpRequest(); 
     xhr.open('GET', htmlURL, true); 
@@ -531,13 +531,14 @@
               efficienter_code_html_element.innerText = xhr.responseText;
               hljs.highlightBlock(efficienter_code_html_element);
             } else {
-              //fail("");
+              console.error("Failed to retrieve template for theme '" + selectedTheme + "'. Status = " + xhr.status);
             }
         }
     };
     xhr.send(null);
 
     hljs.highlightBlock(document.getElementById("efficienter-code-gmc-load"));
+    export_progressbar_el.classList.add("active");
     transitionNextFieldset(document.getElementById("fs-theme"), document.getElementById("fs-export"), function() {
         step_loading = false;
       }
@@ -546,6 +547,7 @@
 
   function theme_previous_btn_click(evt) {
     step_loading = true;
+    theme_progressbar_el.classList.remove("active");
     transitionPreviousFieldset(document.getElementById("fs-theme"), document.getElementById("fs-gh-id"), function() {
         step_loading = false;
       }
@@ -553,6 +555,7 @@
   }
   function export_previous_btn_click(evt) {
     step_loading = true;
+    export_progressbar_el.classList.remove("active");
     transitionPreviousFieldset(document.getElementById("fs-export"), document.getElementById("fs-theme"), function() {
         step_loading = false;
       });
@@ -571,7 +574,12 @@
   }
   window.addEventListener("load", function() {
     gh_id_txt = document.getElementById("gh-id-txt");
-    
+    gh_id_txt.addEventListener("keyup", function(event) {
+      event.preventDefault();
+      if (event.keyCode === 13) { // Enter
+        gh_id_next_btn_click();
+      }
+    });
     gh_id_progressbar_el = document.getElementById("gh-id-progressbar-el");
     gh_id_next_btn = document.getElementById("gh-id-next-btn");
     gh_id_next_btn.addEventListener("click", gh_id_next_btn_click, false);
@@ -589,122 +597,9 @@
 
     export_previous_btn = document.getElementById("export-previous-btn");
     export_previous_btn.addEventListener("click", export_previous_btn_click, false);
+    export_progressbar_el = document.getElementById("export-progressbar-el");
   }, false);
 
- 
-  var CDN_DIST_URL = "https://cdn.rawgit.com/tsucres/GithubManyfacedCards/0.3.0/dist/";
-  var CDN_THEMES_URL = CDN_DIST_URL + "themes/";
-
-
-
-
-
-
-    var userThemes = ["codeshape", "gh_usercard"];
-    var repoThemes = ["gh_basic", "gh_pure", "gh_full", "gh_recommendation"];
-
-    
-
-    
-    function setThemeOptForUsers() {
-      if (!gh_theme_opt) {return;}
-      var innerHTML = "";
-      for (var i = 0; i < userThemes.length; i++) {
-        innerHTML += "<option>" + userThemes[i] + "</option>";
-      }
-      gh_theme_opt.innerHTML = innerHTML;
-    }
-
-    function setThemeOptForRepos() {
-      if (!gh_theme_opt) {return;}
-      var innerHTML = "";
-      for (var i = 0; i < repoThemes.length; i++) {
-        innerHTML += "<option>" + repoThemes[i] + "</option>";
-      }
-      gh_theme_opt.innerHTML = innerHTML;
-    }
-
-    function getSelectedImplMethod() {
-      if (!impl_opt) {return;}
-      if (impl_opt.value == "") {
-        return 0;
-      } else if (impl_opt.value = "") {
-        return 1;
-      } else if (impl_opt.value == "") {
-        return 2;
-      } else {
-        return null;
-      }
-    }
-    function updatePreview(selectedTheme, gh_id, isRepo) {
-      if (!previewFrame) {return;}
-      var previewHTML = "";
-      var style = "<link rel='stylesheet' type='text/css' href='" + CDN_THEMES_URL + selectedTheme + "/" + selectedTheme + ".min.css'>";
-      var head = style;
-      var gmcScript = '<script type="text/javascript" src="' + CDN_DIST_URL + 'gmc.min.js">&lt;/script>';
-      var themeScript = '<script type="text/javascript" src="' + CDN_THEMES_URL + selectedTheme + '/' + selectedTheme + '.min.js">&lt;/script>';
-      var body = "";
-      previewHTML = "<html><head>" + head + "</head><body>" + body + gmcScript + themeScript + "</body></html>"
-      previewFrame.document.open();
-      previewFrame.document.write(previewHTML);
-      previewFrame.document.close();
-    }
-
-    
-    function generateCodeOutput(selectedTheme,  gh_id, isRepo) {
-      var htmlCode = "";
-      if (getSelectedImplMethod() == 0) {
-        var id_attr = "rn";
-        if (!isRepo) { id_attr = "un"; }
-        htmlCode = "<iframe src='" + CDN_THEMES_URL + selectedTheme + "/embedded/embedded.gmc.min.html?" + id_attr + "=" + gh_id + "' frameborder='0'></iframe>";
-        output_code_container.innerHTML = "<p>Copy/paste the following piece of code where you want your card.</p><pre><code class='html'>" + htmlCode + "</code></pre>";
-      } else if (getSelectedImplMethod() == 0) {
-        var htmlCode1 = "<script src='" + CDN_DIST_URL + "gmc.min.js'>&lt;/script>";
-        var attr = "data-gmc-repo";
-        if (!isRepo) {
-          attr = "data-gmc-user";
-        }
-        var htmlCode2 = "<script async src='" + CDN_DIST_URL + "gmc-loader.min.js' " + attr + "='" + gh_id + "' data-gmc-theme='" + selectedTheme + "'>&lt;/script>";
-
-        output_code_container.innerHTML = "<p>Copy/paste the following piece of code <strong>before the first card</strong></p><pre><code class='html'>" + htmlCode1 + "</code></pre><p>The next piece of code loads the cards. Paste it wherever you want to show the card.</p><pre><code class='html'>" + htmlCode2 + "</code></pre>";
-      }
-
-      var codes = output_code_container.querySelector("pre code");
-      for (var i = codes.length - 1; i >= 0; i--) {
-        hljs.highlightBlock(codes[i]);
-      }
-    }
-
-    /*
-    var previewFrame = null;
-    var impl_opt = null;
-    var output_code_container = null;
-    window.onload = function() {
-      gh_id_txt = document.getElementById("gh-id-txt");
-      gh_theme_opt = document.getElementById("theme-opt");
-      //previewFrame = document.getElementById("preview");
-      //previewFrame = previewFrame.contentWindow || ( previewFrame.contentDocument.document || previewFrame.contentDocument);
-      impl_opt = document.getElementById("impl-opt");
-      outputCodeContainer = document.getElementById("output-code-container");
-      gh_id_txt.addEventListener("input", function(evt) {
-        var new_id = evt.target.value
-        if (new_id == "") {
-          disableThemeOpt();
-        } else if (isRepoOrUser(new_id) == "Repo") {
-          setThemeOptForRepos();
-          enableThemeOpt();
-        } else if (isRepoOrUser(new_id) == "User") {
-          setThemeOptForUsers();
-          enableThemeOpt();
-        }
-        updatePreview(getSelectedTheme(), new_id, isRepoOrUser(new_id) == "Repo");
-      }, false);
-
-      gh_theme_opt.addEventListener("change", function() {
-        var new_id = evt.target.value
-        updatePreview(getSelectedTheme(), new_id, isRepoOrUser(new_id) == "Repo");
-      }, false);
-    }*/
 
   </script>
 

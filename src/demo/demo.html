@@ -4,7 +4,7 @@
 {% macro demoCard(id, name, type, value, description) %}
   <div class="skin-pres">
     <h5 class="code mt-3" id="{{id}}">{{name}}</h5>
-    <p><a href="https://github.com/tsucres/GithubManyfacedCards/tree/master/dist/themes/{{name}}/{{name}}.html" class="mini-link" target="_blank">Template source code</a> | <a href="https://github.com/tsucres/GithubManyfacedCards/tree/master/dist/themes/{{name}}/" class="mini-link" target="_blank">Skin files on github</a> | <a href="" class="mini-link" target="_blank">Download skin files</a></p>
+    <p><a href="https://github.com/tsucres/GithubManyfacedCards/tree/master/dist/themes/{{name}}/{{name}}.html" class="mini-link" target="_blank">Template source code</a> | <a href="https://github.com/tsucres/GithubManyfacedCards/tree/master/dist/themes/{{name}}/" class="mini-link" target="_blank">Skin files on github</a> | <a href="https://minhaskamal.github.io/DownGit/#/home?url=https://github.com/tsucres/GithubManyfacedCards/tree/master/dist/themes/{{name}}&fileName=GMC_theme_{{name}}&rootDirectory={{name}}" class="mini-link" target="_blank">Download skin files</a></p>
     {{ description | safe }}
     <div class="card-container">
       <div class="demo-card" data-gmc-{{type}}="{{value}}">
@@ -155,5 +155,17 @@
       $(menuForPage[currentSubPage] + '>ul').removeClass("fixed-menu");
     }
   });
+
+  $(function(){
+  var hash = window.location.hash;
+  hash && $('ul.nav a[href="' + hash + '"]').tab('show');
+
+  $('.nav-pills a').click(function (e) {
+    $(this).tab('show');
+    var scrollmem = $('body').scrollTop() || $('html').scrollTop();
+    window.location.hash = this.hash;
+    $('html,body').scrollTop(scrollmem);
+  });
+});
 </script>
 {% endblock %}

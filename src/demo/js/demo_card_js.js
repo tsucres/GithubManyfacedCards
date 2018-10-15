@@ -9,6 +9,7 @@
 // @include ../../themes/js/snippets/plural.js
 // @include ../../themes/js/snippets/getIssuesURL.js
 // @include ../../themes/js/snippets/humanReadable.js
+// @include ../../themes/js/snippets/githubUserURLs.js
 
 // @include ../../themes/js/snippets/mailTo.js
 // @include ../../themes/js/snippets/setBgImgUrl.js

@@ -141,7 +141,7 @@ button.load-btn.loading:before {
 	top: 20px;
 }
 /*form styles*/
-#msform {
+#msform:not(#theme-preview-container) {
 	width: 400px;
 	margin: 50px auto;
 	text-align: center;

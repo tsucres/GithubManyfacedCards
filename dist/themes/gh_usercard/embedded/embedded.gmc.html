@@ -390,9 +390,9 @@
     </div>
     <div class="footer">
       <nav>
-        <a class="text-gray" href="" data-gmc-id="href__repos_url">Repositories <span class="counter" data-gmc-id="in__public_repos"></span></a>
-        <a class="text-gray" href="" data-gmc-id="href__followers_url">Followers <span class="counter" data-gmc-id="in__followers"></span></a>
-        <a class="text-gray" href="" data-gmc-id="href__following_url">Following <span class="counter" data-gmc-id="in__following"></span></a>
+        <a target="_blank" class="text-gray" href="" data-gmc-id="href__login__js" data-gmc-js="getReposURL">Repositories <span class="counter" data-gmc-id="in__public_repos__js" data-gmc-js="humanReadable"></span></a>
+        <a target="_blank" class="text-gray" href="" data-gmc-id="href__login__js" data-gmc-js="getFollowersURL">Followers <span class="counter" data-gmc-id="in__followers__js" data-gmc-js="humanReadable"></span></a>
+        <a target="_blank" class="text-gray" href="" data-gmc-id="href__login__js" data-gmc-js="getFollowingURL">Following <span class="counter" data-gmc-id="in__following__js" data-gmc-js="humanReadable"></span></a>
       </nav>
     </div>
   </div>
@@ -404,6 +404,26 @@
   		return "mailto:" + emailAddress;
   	} 
   	return "";
+  }
+  function getReposURL(username) {
+  	return "https://github.com/" + username + "?tab=repositories";
+  }
+  function getFollowersURL(username) {
+  	return "https://github.com/" + username + "?tab=followers";
+  }
+  function getFollowingURL(username) {
+  	return "https://github.com/" + username + "?tab=following";
+  }
+  function getUserPageURL(username) {
+  	return "https://github.com/" + username;
+  }
+  function humanReadable(num) {
+     if(num == 0) return "0";
+     var k = 1000,
+         dm = 1,
+         sizes = ["", " k", " M", " B", " T"],
+         i = Math.floor(Math.log(num) / Math.log(k));
+     return parseFloat((num / Math.pow(k, i)).toFixed(dm)) + sizes[i];
   }
 
   function _hasClass(el, className) {
