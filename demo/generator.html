@@ -1435,9 +1435,9 @@ svg .polygon{
      
 
     
-<script type="text/javascript" src="dist/gmc.min.js"></script>
-<script type="text/javascript" src="demo/js/highlight.pack.min.js"></script>
-<script type="text/javascript" src="demo/js/demo_card_js.min.js"></script>
+<script type="text/javascript" src="../dist/gmc.min.js"></script>
+<script type="text/javascript" src="js/highlight.pack.min.js"></script>
+<script type="text/javascript" src="js/demo_card_js.min.js"></script>
 <script type="text/javascript">
   var initialTitleHeight;
   var titleElement;
@@ -1798,11 +1798,11 @@ svg .polygon{
   }
   window.addEventListener("load", function() {
     gh_id_txt = document.getElementById("gh-id-txt");
-    gh_id_txt.addEventListener("keyup", function(event) {
+    document.getElementById("fs-gh-id").addEventListener("submit", function(event) {
+      
+      gh_id_next_btn_click();
       event.preventDefault();
-      if (event.keyCode === 13) { // Enter
-        gh_id_next_btn_click();
-      }
+      return false;
     });
     gh_id_progressbar_el = document.getElementById("gh-id-progressbar-el");
     gh_id_next_btn = document.getElementById("gh-id-next-btn");
