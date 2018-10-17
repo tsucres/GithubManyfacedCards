@@ -240,7 +240,7 @@ overflow: hidden;}
 	list-style: none;
 }
 
-.gh_usercard ul li:not([data-gmc-visible]) {
+.gh_usercard ul li:not([data-gmc-visible]), .gh_usercard ul li[data-gmc-visible=''] {
 	display: none;
 }
 .gh_usercard ul li span {

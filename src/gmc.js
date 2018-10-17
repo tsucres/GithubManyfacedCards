@@ -211,7 +211,7 @@ function GMC(root_el, json) { 'use strict';
         jsonValue = window[jsFunction].call(null, jsonValue, element, self);
     }
     if (jsonValue === null) {
-      return
+      jsonValue = "";
     }
     var ap = typeof self.root_el.getAttribute("data-gmc-ap") === "string";
     if (where == "in") {
