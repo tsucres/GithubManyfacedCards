@@ -21,7 +21,7 @@ There are several ways you can implement many-faced cards, according to the leve
 ### Easiest
 
 ```html
-<iframe src="https://cdn.rawgit.com/tsucres/GithubManyfacedCards/0.3.0/dist/themes/<theme_name>/embedded/embedded.gmc.min.html?<rn|un>=<<full_repo_name>|<username>>" frameborder="0"></iframe>
+<iframe src="https://cdn.jsdelivr.net/gh/tsucres/GithubManyfacedCards@0.3.0/dist/themes/<theme_name>/embedded/embedded.gmc.min.html?<rn|un>=<<full_repo_name>|<username>>" frameborder="0"></iframe>
 ```
 
 
@@ -41,15 +41,15 @@ Choose an existing theme and paste the following markup in your webpage source:
 
 ```html
 <!-- in the head or in the beginning of the body -->
-<script src="https://cdn.rawgit.com/tsucres/GithubManyfacedCards/0.3.0/dist/gmc.min.js">
+<script src="https://cdn.jsdelivr.net/gh/tsucres/GithubManyfacedCards@0.3.0/dist/gmc.min.js">
 
 <!-- ... -->
 
 <!-- where you want a repo-card -->
-<script async src="https://cdn.rawgit.com/tsucres/GithubManyfacedCards/0.3.0/dist/gmc-loader.min.js" data-gmc-repo="<full_repo_name>" data-gmc-theme="<theme_name>"></script
+<script async src="https://cdn.jsdelivr.net/gh/tsucres/GithubManyfacedCards@0.3.0/dist/gmc-loader.min.js" data-gmc-repo="<full_repo_name>" data-gmc-theme="<theme_name>"></script
 
 <!-- where you want an user-card -->
-<script async src="https://cdn.rawgit.com/tsucres/GithubManyfacedCards/0.3.0/dist/gmc-loader.min.js" data-gmc-user="<username>" data-gmc-theme="<theme_name>"></script>
+<script async src="https://cdn.jsdelivr.net/gh/tsucres/GithubManyfacedCards@0.3.0/dist/gmc-loader.min.js" data-gmc-user="<username>" data-gmc-theme="<theme_name>"></script>
 
 ```
 
@@ -92,7 +92,7 @@ In the head of your document, add the style needed by your theme.
 For the existing themes, you will find the required css file in the following folder: [`dist/themes/<theme_name>`](dist/themes). You can either serve it yourself or use a CDN:
 
 ```html
-<link rel="stylesheet" href="https://cdn.rawgit.com/tsucres/GithubManyfacedCards/0.3.0/dist/themes/<theme_name>/<theme_name>.min.css" type="text/css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/tsucres/GithubManyfacedCards@0.3.0/dist/themes/<theme_name>/<theme_name>.min.css" type="text/css">
 ```
 
 
@@ -104,7 +104,7 @@ Add the js functions needed by the template to your document.
 For the existing themes, the js file is in the theme's folder [`dist/themes/<theme_name>`](dist/themes). As for the style, you can either serve it yourself or use rawgit:
 
 ```html
-<script src="https://cdn.rawgit.com/tsucres/GithubManyfacedCards/0.3.0/dist/themes/<theme_name>/<theme_name>.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/tsucres/GithubManyfacedCards@0.3.0/dist/themes/<theme_name>/<theme_name>.min.js"></script>
 ```
 
 
@@ -113,7 +113,7 @@ For the existing themes, the js file is in the theme's folder [`dist/themes/<the
 Add a link to `gmc.min.js` and call `GMC.loadAllCards()` when you want to load the cards (after the document has loaded): 
 
 ```html
-<script src="https://cdn.rawgit.com/tsucres/GithubManyfacedCards/0.3.0/dist/gmc.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/tsucres/GithubManyfacedCards@0.3.0/dist/gmc.min.js"></script>
 
 <script>
 // Call GMC.loadAllCards() when the document has loaded 
