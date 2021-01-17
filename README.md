@@ -16,7 +16,7 @@
 
 ## Usage
 
-There are several ways you can implement many-faced cards, according to the level of customization you need. Checkout out the [**Card Generator**](http://tsucres.me/GithubManyfacedCards/demo/genertor.html) for an easier integration.
+There are several ways you can implement many-faced cards, according to the level of customization you need. Checkout out the [**Card Generator**](http://tsucres.me/GithubManyfacedCards/demo/generator.html) for an easier integration.
 
 ### Easiest
 
